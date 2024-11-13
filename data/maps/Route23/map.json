@@ -20,7 +20,7 @@
       "direction": "up"
     },
     {
-      "map": "MAP_ROUTE22",
+      "map": "MAP_ROUTE26",
       "offset": 0,
       "direction": "down"
     }
@@ -141,14 +141,14 @@
       "dest_warp_id": "6"
     },
     {
-      "x": 8,
+      "x": 11,
       "y": 153,
       "elevation": 3,
       "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
       "dest_warp_id": "0"
     },
     {
-      "x": 9,
+      "x": 12,
       "y": 154,
       "elevation": 0,
       "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
