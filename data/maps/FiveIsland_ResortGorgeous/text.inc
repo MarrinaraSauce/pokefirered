@@ -19,8 +19,8 @@ FiveIsland_ResortGorgeous_Text_CelinaDefeat::
     .string "This loss…\n"
     .string "I feel like I'm whiting out…$"
 
-FiveIsland_ResortGorgeous_Text_CelinaPostBattle::
-    .string "GILLIAN?\n"
+FiveIsland_ResortGorgeous_Text_CelinaPostBattle:: @ 818A4C6
+    .string "Gillian?\n"
     .string "Please tilt your head slightly…\l"
     .string "There! That's the look I want!$"
 
@@ -51,7 +51,7 @@ FiveIsland_ResortGorgeous_Text_JackiPostBattle::
 
 FiveIsland_ResortGorgeous_Text_GillianIntro::
     .string "I'm thinking of having a pool\n"
-    .string "made specially for POKéMON.$"
+    .string "made specially for Pokémon.$"
 
 FiveIsland_ResortGorgeous_Text_GillianDefeat::
     .string "Oh, my goodness gracious!$"
@@ -84,10 +84,10 @@ FiveIsland_ResortGorgeous_Text_TobyPostBattle::
     .string "Getting so serious over this…\n"
     .string "How nonsensical.$"
 
-FiveIsland_ResortGorgeous_Text_SelphyThanksYouMayGoNow::
-    .string "SELPHY: Thank you.\p"
+FiveIsland_ResortGorgeous_Text_SelphyThanksYouMayGoNow:: @ 818A7DB
+    .string "Selphy: Thank you.\p"
     .string "You may go now.$"
 
-FiveIsland_ResortGorgeous_Text_SelphysHouse::
-    .string "SELPHY'S HOUSE$"
+FiveIsland_ResortGorgeous_Text_SelphysHouse:: @ 818A7FE
+    .string "Selphy's House$"
 

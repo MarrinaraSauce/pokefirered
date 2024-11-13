@@ -1,19 +1,19 @@
 @ Flavor text for interacting with various background objects
 
-Text_Bookshelf::
-	.string "It's crammed full of POKéMON\n"
+Text_Bookshelf:: @ 81C0DB0
+	.string "It's crammed full of Pokémon\n"
 	.string "books.$"
 
 Text_NothingButPokemonBooks::
 	.string "ほんだなに　ならんでいるのは\n"
 	.string "ポケモンの　ほん　ばかりだ$"
 
-Text_ATownMap::
-	.string "A TOWN MAP.$"
+Text_ATownMap:: @ 81C0DF1
+	.string "A Town Map.$"
 
 Text_PokeMartShelf::
 	.string "Wow!\n"
-	.string "Tons of POKéMON stuff!$"
+	.string "Tons of Pokémon stuff!$"
 
 Text_DishesPlatesNeatlyLinedUp::
 	.string "Dishes and plates are neatly\n"
@@ -32,21 +32,21 @@ Text_Snacks::
 
 Text_PokemartSign::
 	.string "All your item needs fulfilled!\n"
-	.string "POKéMON MART$"
+	.string "Pokémon Mart$"
 
-Text_PokecenterSign::
-	.string "Heal Your POKéMON!\n"
-	.string "POKéMON CENTER$"
+Text_PokecenterSign:: @ 81C0EF7
+	.string "Heal Your Pokémon!\n"
+	.string "Pokémon Center$"
 
-Text_Indigo_UltimateGoal::
-	.string "INDIGO PLATEAU\p"
-	.string "The ultimate goal of TRAINERS!\n"
-	.string "POKéMON LEAGUE HQ$"
+Text_Indigo_UltimateGoal:: @ 81C0F19
+	.string "Indigo Plateau\p"
+	.string "The ultimate goal of Trainers!\n"
+	.string "Pokémon League HQ$"
 
-Text_Indigo_HighestAuthority::
-	.string "INDIGO PLATEAU\p"
-	.string "The highest POKéMON authority!\n"
-	.string "POKéMON LEAGUE HQ$"
+Text_Indigo_HighestAuthority:: @ 81C0F59
+	.string "Indigo Plateau\p"
+	.string "The highest Pokémon authority!\n"
+	.string "Pokémon League HQ$"
 
 Text_Food::
 	.string "It should be packed with all kinds\n"
@@ -56,8 +56,8 @@ Text_Blueprints::
 	.string "It's a blueprint of some sort.\n"
 	.string "It's filled with diagrams and text.$"
 
-Text_Painting::
-	.string "It's a pretty picture of a POKéMON.\n"
+Text_Painting:: @ 81C101B
+	.string "It's a pretty picture of a Pokémon.\n"
 	.string "It looks like it's feeling good.$"
 
 Text_PowerPlantMachine::
@@ -85,8 +85,8 @@ Text_TrashBin::
 	.string "……\p"
 	.string "There's nothing here!$"
 
-Text_Cup::
-	.string "It's a cup with a POKéMON mark\n"
+Text_Cup:: @ 81C1194
+	.string "It's a cup with a Pokémon mark\n"
 	.string "on it.$"
 
 Text_PolishedWindow::
@@ -117,6 +117,6 @@ Text_Burglary::
 	.string "There are obvious signs of burglary\n"
 	.string "here…$"
 
-Text_PlayerFacingTVScreen::
-	.string "There's a POKéMON on TV!\n"
+Text_PlayerFacingTVScreen:: @ 81C1300
+	.string "There's a Pokémon on TV!\n"
 	.string "It looks like it's having fun.$"

@@ -1,12 +1,12 @@
 Route18_Text_WiltonIntro::
     .string "I always check every grassy area\n"
-    .string "for new POKéMON.$"
+    .string "for new Pokémon.$"
 
 Route18_Text_WiltonDefeat::
     .string "Tch!$"
 
-Route18_Text_WiltonPostBattle::
-    .string "I wish I had a BIKE!$"
+Route18_Text_WiltonPostBattle:: @ 8187677
+    .string "I wish I had a Bike!$"
 
 Route18_Text_RamiroIntro::
     .string "Kurukkoo!\n"
@@ -15,8 +15,8 @@ Route18_Text_RamiroIntro::
 Route18_Text_RamiroDefeat::
     .string "I had to bug you!$"
 
-Route18_Text_RamiroPostBattle::
-    .string "I collect sea POKéMON on weekends\n"
+Route18_Text_RamiroPostBattle:: @ 81876C5
+    .string "I collect sea Pokémon on weekends\n"
     .string "because the sea is so close.$"
 
 Route18_Text_JacobIntro::
@@ -28,13 +28,13 @@ Route18_Text_JacobDefeat::
 
 Route18_Text_JacobPostBattle::
     .string "This is my fave area for catching\n"
-    .string "POKéMON.$"
+    .string "Pokémon.$"
 
-Route18_Text_RouteSign::
-    .string "ROUTE 18\n"
-    .string "CELADON CITY - FUCHSIA CITY$"
+Route18_Text_RouteSign:: @ 8187757
+    .string "Route 18\n"
+    .string "Celadon City - Fuchsia City$"
 
-Route18_Text_CyclingRoadSign::
-    .string "CYCLING ROAD\n"
+Route18_Text_CyclingRoadSign:: @ 818777C
+    .string "Cycling Road\n"
     .string "No pedestrians permitted!$"
 

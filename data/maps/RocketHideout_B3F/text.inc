@@ -1,14 +1,14 @@
-RocketHideout_B3F_Text_Grunt1Intro::
-    .string "Stop meddling in TEAM ROCKET's\n"
+RocketHideout_B3F_Text_Grunt1Intro:: @ 817511A
+    .string "Stop meddling in Team Rocket's\n"
     .string "affairs or else!$"
 
 RocketHideout_B3F_Text_Grunt1Defeat::
     .string "Oof!\n"
     .string "Taken down!$"
 
-RocketHideout_B3F_Text_Grunt1PostBattle::
-    .string "SILPH SCOPE?\n"
-    .string "Oh, that machine the BOSS stole.\p"
+RocketHideout_B3F_Text_Grunt1PostBattle:: @ 817515B
+    .string "Silph Scope?\n"
+    .string "Oh, that machine the Boss stole.\p"
     .string "It's here somewhere.$"
 
 RocketHideout_B3F_Text_Grunt2Intro::
@@ -22,5 +22,5 @@ RocketHideout_B3F_Text_Grunt2Defeat::
 RocketHideout_B3F_Text_Grunt2PostBattle::
     .string "Go ahead and go!\p"
     .string "But you can't run the elevator\n"
-    .string "without the LIFT KEY.$"
+    .string "without the Lift Key.$"
 

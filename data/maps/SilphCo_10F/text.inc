@@ -27,7 +27,7 @@ SilphCo_10F_Text_KeepMeCryingASecret::
     .string "About me crying…\n"
     .string "Please keep it a secret.$"
 
-SilphCo_10F_Text_FloorSign::
-    .string "SILPH CO. HEAD OFFICE\n"
+SilphCo_10F_Text_FloorSign:: @ 8176DF8
+    .string "Silph Co. Head Office\n"
     .string "10F$"
 

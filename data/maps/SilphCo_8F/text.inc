@@ -1,5 +1,5 @@
-SilphCo_8F_Text_WonderIfSilphIsFinished::
-    .string "I wonder if SILPH is finished…$"
+SilphCo_8F_Text_WonderIfSilphIsFinished:: @ 817696D
+    .string "I wonder if Silph is finished…$"
 
 SilphCo_8F_Text_ThanksForSavingUs::
     .string "Thanks for saving us!$"
@@ -21,13 +21,13 @@ SilphCo_8F_Text_ParkerDefeat::
     .string "Huh?\n"
     .string "I lost?$"
 
-SilphCo_8F_Text_ParkerPostBattle::
-    .string "So, what do you think of SILPH\n"
-    .string "BUILDING's maze?$"
+SilphCo_8F_Text_ParkerPostBattle:: @ 8176A26
+    .string "So, what do you think of Silph\n"
+    .string "Building's maze?$"
 
-SilphCo_8F_Text_Grunt2Intro::
-    .string "I am one of the four ROCKET\n"
-    .string "BROTHERS!$"
+SilphCo_8F_Text_Grunt2Intro:: @ 8176A56
+    .string "I am one of the four Rocket\n"
+    .string "Brothers!$"
 
 SilphCo_8F_Text_Grunt2Defeat::
     .string "Whoo!\n"
@@ -36,14 +36,14 @@ SilphCo_8F_Text_Grunt2Defeat::
 SilphCo_8F_Text_Grunt2PostBattle::
     .string "I'll leave you up to my brothers.$"
 
-SilphCo_8F_Text_FloorSign::
-    .string "SILPH CO. HEAD OFFICE\n"
+SilphCo_8F_Text_FloorSign:: @ 8176AB2
+    .string "Silph Co. Head Office\n"
     .string "8F$"
 
-SilphCo_8F_Text_ToRocketBossMonsAreTools::
-    .string "TEAM ROCKET's BOSS is terribly\n"
+SilphCo_8F_Text_ToRocketBossMonsAreTools:: @ 8176ACB
+    .string "Team Rocket's Boss is terribly\n"
     .string "cruel!\p"
-    .string "To him, POKéMON are just tools to\n"
+    .string "To him, Pokémon are just tools to\n"
     .string "be used.\p"
     .string "What will happen if that tyrant\n"
     .string "takes over our company…$"

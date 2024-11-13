@@ -23,32 +23,32 @@ RockTunnel_B1F_Text_DudleyPostBattle::
     .string "I go for power because I hate\n"
     .string "thinking.$"
 
-RockTunnel_B1F_Text_CooperIntro::
-    .string "You have a POKéDEX?\n"
+RockTunnel_B1F_Text_CooperIntro:: @ 817973A
+    .string "You have a Pokédex?\n"
     .string "I want one, too.$"
 
 RockTunnel_B1F_Text_CooperDefeat::
     .string "Shoot!\n"
     .string "I am so jealous!$"
 
-RockTunnel_B1F_Text_CooperPostBattle::
-    .string "When you finish your POKéDEX,\n"
+RockTunnel_B1F_Text_CooperPostBattle:: @ 8179777
+    .string "When you finish your Pokédex,\n"
     .string "can I have it?$"
 
-RockTunnel_B1F_Text_SteveIntro::
-    .string "Um… Do you know about POKéMON\n"
+RockTunnel_B1F_Text_SteveIntro:: @ 81797A4
+    .string "Um… Do you know about Pokémon\n"
     .string "cosplay?$"
 
 RockTunnel_B1F_Text_SteveDefeat::
     .string "Well, that's that.$"
 
-RockTunnel_B1F_Text_StevePostBattle::
-    .string "POKéMON cosplay is dressing up as\n"
-    .string "POKéMON for fun.\p"
-    .string "CLEFAIRY is a favorite.$"
+RockTunnel_B1F_Text_StevePostBattle:: @ 81797DE
+    .string "Pokémon cosplay is dressing up as\n"
+    .string "Pokémon for fun.\p"
+    .string "Clefairy is a favorite.$"
 
-RockTunnel_B1F_Text_AllenIntro::
-    .string "My POKéMON techniques will leave\n"
+RockTunnel_B1F_Text_AllenIntro:: @ 8179829
+    .string "My Pokémon techniques will leave\n"
     .string "you crying!$"
 
 RockTunnel_B1F_Text_AllenDefeat::
@@ -57,7 +57,7 @@ RockTunnel_B1F_Text_AllenDefeat::
 
 RockTunnel_B1F_Text_AllenPostBattle::
     .string "In mountains, you'll often find\n"
-    .string "ROCK-type POKéMON.$"
+    .string "Rock-type Pokémon.$"
 
 RockTunnel_B1F_Text_MarthaIntro::
     .string "I don't often come here, but I will\n"
@@ -67,8 +67,8 @@ RockTunnel_B1F_Text_MarthaDefeat::
     .string "Oh!\n"
     .string "I lost!$"
 
-RockTunnel_B1F_Text_MarthaPostBattle::
-    .string "I like tiny POKéMON.\n"
+RockTunnel_B1F_Text_MarthaPostBattle:: @ 81798E9
+    .string "I like tiny Pokémon.\n"
     .string "Big ones are too scary!$"
 
 RockTunnel_B1F_Text_EricIntro::
@@ -77,12 +77,12 @@ RockTunnel_B1F_Text_EricIntro::
 RockTunnel_B1F_Text_EricDefeat::
     .string "Fired away!$"
 
-RockTunnel_B1F_Text_EricPostBattle::
-    .string "I'll raise my POKéMON to beat\n"
+RockTunnel_B1F_Text_EricPostBattle:: @ 817993E
+    .string "I'll raise my Pokémon to beat\n"
     .string "yours, kid.$"
 
-RockTunnel_B1F_Text_WinstonIntro::
-    .string "I draw illustrations of POKéMON\n"
+RockTunnel_B1F_Text_WinstonIntro:: @ 8179968
+    .string "I draw illustrations of Pokémon\n"
     .string "when I'm home.$"
 
 RockTunnel_B1F_Text_WinstonDefeat::

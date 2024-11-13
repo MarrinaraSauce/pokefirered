@@ -1,128 +1,128 @@
-gOtherText_NewName::
-    .string "NEW NAME$"
+gOtherText_NewName:: @ 81C574F
+    .string "New Name$"
 
-gNameChoice_Green::
-    .string "GREEN$"
+gNameChoice_Green:: @ 81C5758
+    .string "Green$"
 
-gNameChoice_Red::
-    .string "RED$"
+gNameChoice_Red:: @ 81C575E
+    .string "Red$"
 
-gNameChoice_Leaf::
-    .string "LEAF$"
+gNameChoice_Leaf:: @ 81C5762
+    .string "Leaf$"
 
-gNameChoice_Fire::
-    .string "FIRE$"
+gNameChoice_Fire:: @ 81C5767
+    .string "Fire$"
 
-gNameChoice_Gary::
-    .string "GARY$"
+gNameChoice_Gary:: @ 81C576C
+    .string "Gary$"
 
-gNameChoice_Kaz::
-    .string "KAZ$"
+gNameChoice_Kaz:: @ 81C5771
+    .string "Kaz$"
 
-gNameChoice_Toru::
-    .string "TORU$"
+gNameChoice_Toru:: @ 81C5775
+    .string "Toru$"
 
-gNameChoice_Ash::
-    .string "ASH$"
+gNameChoice_Ash:: @ 81C577A
+    .string "Ash$"
 
-gNameChoice_Kene::
-    .string "KENE$"
+gNameChoice_Kene:: @ 81C577E
+    .string "Kene$"
 
-gNameChoice_Geki::
-    .string "GEKI$"
+gNameChoice_Geki:: @ 81C5783
+    .string "Geki$"
 
-gNameChoice_Jak::
-    .string "JAK$"
+gNameChoice_Jak:: @ 81C5788
+    .string "Jak$"
 
-gNameChoice_Janne::
-    .string "JANNE$"
+gNameChoice_Janne:: @ 81C578C
+    .string "Janne$"
 
-gNameChoice_Jonn::
-    .string "JONN$"
+gNameChoice_Jonn:: @ 81C5792
+    .string "Jonn$"
 
-gNameChoice_Kamon::
-    .string "KAMON$"
+gNameChoice_Kamon:: @ 81C5797
+    .string "Kamon$"
 
-gNameChoice_Karl::
-    .string "KARL$"
+gNameChoice_Karl:: @ 81C579D
+    .string "Karl$"
 
-gNameChoice_Taylor::
-    .string "TAYLOR$"
+gNameChoice_Taylor:: @ 81C57A2
+    .string "Taylor$"
 
-gNameChoice_Oscar::
-    .string "OSCAR$"
+gNameChoice_Oscar:: @ 81C57A9
+    .string "Oscar$"
 
-gNameChoice_Hiro::
-    .string "HIRO$"
+gNameChoice_Hiro:: @ 81C57AF
+    .string "Hiro$"
 
-gNameChoice_Max::
-    .string "MAX$"
+gNameChoice_Max:: @ 81C57B4
+    .string "Max$"
 
-gNameChoice_Jon::
-    .string "JON$"
+gNameChoice_Jon:: @ 81C57B8
+    .string "Jon$"
 
-gNameChoice_Ralph::
-    .string "RALPH$"
+gNameChoice_Ralph:: @ 81C57BC
+    .string "Ralph$"
 
-gNameChoice_Kay::
-    .string "KAY$"
+gNameChoice_Kay:: @ 81C57C2
+    .string "Kay$"
 
-gNameChoice_Tosh::
-    .string "TOSH$"
+gNameChoice_Tosh:: @ 81C57C6
+    .string "Tosh$"
 
-gNameChoice_Roak::
-    .string "ROAK$"
+gNameChoice_Roak:: @ 81C57CB
+    .string "Roak$"
 
-gNameChoice_Omi::
-    .string "OMI$"
+gNameChoice_Omi:: @ 81C57D0
+    .string "Omi$"
 
-gNameChoice_Jodi::
-    .string "JODI$"
+gNameChoice_Jodi:: @ 81C57D4
+    .string "Jodi$"
 
-gNameChoice_Amanda::
-    .string "AMANDA$"
+gNameChoice_Amanda:: @ 81C57D9
+    .string "Amanda$"
 
-gNameChoice_Hillary::
-    .string "HILLARY$"
+gNameChoice_Hillary:: @ 81C57E0
+    .string "Hillary$"
 
-gNameChoice_Makey::
-    .string "MAKEY$"
+gNameChoice_Makey:: @ 81C57E8
+    .string "Makey$"
 
-gNameChoice_Michi::
-    .string "MICHI$"
+gNameChoice_Michi:: @ 81C57EE
+    .string "Michi$"
 
-gNameChoice_Paula::
-    .string "PAULA$"
+gNameChoice_Paula:: @ 81C57F4
+    .string "Paula$"
 
-gNameChoice_June::
-    .string "JUNE$"
+gNameChoice_June:: @ 81C57FA
+    .string "June$"
 
-gNameChoice_Cassie::
-    .string "CASSIE$"
+gNameChoice_Cassie:: @ 81C57FF
+    .string "Cassie$"
 
-gNameChoice_Rey::
-    .string "REY$"
+gNameChoice_Rey:: @ 81C5806
+    .string "Rey$"
 
-gNameChoice_Seda::
-    .string "SEDA$"
+gNameChoice_Seda:: @ 81C580A
+    .string "Seda$"
 
-gNameChoice_Kiko::
-    .string "KIKO$"
+gNameChoice_Kiko:: @ 81C580F
+    .string "Kiko$"
 
-gNameChoice_Mina::
-    .string "MINA$"
+gNameChoice_Mina:: @ 81C5814
+    .string "Mina$"
 
-gNameChoice_Norie::
-    .string "NORIE$"
+gNameChoice_Norie:: @ 81C5819
+    .string "Norie$"
 
-gNameChoice_Sai::
-    .string "SAI$"
+gNameChoice_Sai:: @ 81C581F
+    .string "Sai$"
 
-gNameChoice_Momo::
-    .string "MOMO$"
+gNameChoice_Momo:: @ 81C5823
+    .string "Momo$"
 
-gNameChoice_Suzi::
-    .string "SUZI$"
+gNameChoice_Suzi:: @ 81C5828
+    .string "Suzi$"
 
 gControlsGuide_Text_Intro::
     .string "The various buttons will be explained in\n"
@@ -143,7 +143,7 @@ gControlsGuide_Text_BButton::
 
 gControlsGuide_Text_StartButton::
     .string "Press this button to open the\n"
-    .string "MENU.$"
+    .string "Menu.$"
 
 gControlsGuide_Text_SelectButton::
     .string "Used to shift items and to use\n"
@@ -188,24 +188,19 @@ gPikachuIntro_Text_Page3::
 
 gOakSpeech_Text_WelcomeToTheWorld::
     .string "Hello, there!\n"
-    .string "Glad to meet you!\p"
-    .string "Welcome to the world of POKéMON!\p"
-    .string "My name is OAK.\p"
-    .string "People affectionately refer to me\n"
-    .string "as the POKéMON PROFESSOR.\p$"
+    .string "Glad to meet you!\pWelcome to the world of Pokémon!\pMy name is Oak.\pPeople affectionately refer to me\n"
+    .string "as the Pokémon Professor.\p$"
 
 gOakSpeech_Text_ThisWorld::
     .string "This world…$"
 
 gOakSpeech_Text_IsInhabitedFarAndWide::
     .string "…is inhabited far and wide by\n"
-    .string "creatures called POKéMON.\p$"
+    .string "creatures called Pokémon.\p$"
 
-gOakSpeech_Text_IStudyPokemon::
-    .string "For some people, POKéMON are pets.\n"
-    .string "Others use them for battling.\p"
-    .string "As for myself…\p"
-    .string "I study POKéMON as a profession.\p$"
+gOakText_PetsBattlingStudy:: @ 81C5D4B
+    .string "For some people, Pokémon are pets.\n"
+    .string "Others use them for battling.\pAs for myself…\pI study Pokémon as a profession.\p$"
 
 gOakSpeech_Text_TellMeALittleAboutYourself::
     .string "But first, tell me a little about\n"
@@ -235,9 +230,7 @@ gOakSpeech_Text_RememberRivalsName::
     .string "That's right! I remember now!\n"
     .string "His name is {RIVAL}!\p$"
 
-gOakSpeech_Text_LetsGo::
-    .string "{PLAYER}!\p"
-    .string "Your very own POKéMON legend is\n"
-    .string "about to unfold!\p"
-    .string "A world of dreams and adventures\n"
-    .string "with POKéMON awaits! Let's go!$"
+gOakText_LegendAboutToUnfold:: @ 81C5EF4
+    .string "{PLAYER}!\pYour very own Pokémon legend is\n"
+    .string "about to unfold!\pA world of dreams and adventures\n"
+    .string "with Pokémon awaits! Let's go!$"

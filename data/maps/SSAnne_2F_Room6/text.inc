@@ -1,5 +1,5 @@
-SSAnne_2F_Room6_Text_CaptainIsAwfullySick::
-    .string "The CAPTAIN said he's awfully sick.\n"
+SSAnne_2F_Room6_Text_CaptainIsAwfullySick:: @ 81740A1
+    .string "The Captain said he's awfully sick.\n"
     .string "He was all pale.$"
 
 SSAnne_2F_Room6_Text_ManyPeopleGetSeasick::

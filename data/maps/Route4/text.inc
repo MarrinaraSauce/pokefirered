@@ -1,10 +1,10 @@
 Route4_Text_TrippedOverGeodude::
     .string "Ouch! I tripped over a rocky\n"
-    .string "POKéMON, GEODUDE!$"
+    .string "Pokémon, Geodude!$"
 
-Route4_Text_CrissyIntro::
-    .string "I came to MT. MOON in search of\n"
-    .string "mushroom POKéMON.$"
+Route4_Text_CrissyIntro:: @ 8183906
+    .string "I came to Mt. Moon in search of\n"
+    .string "mushroom Pokémon.$"
 
 Route4_Text_CrissyDefeat::
     .string "After all I did to catch them!$"
@@ -14,30 +14,30 @@ Route4_Text_CrissyPostBattle::
     .string "mushrooms here.\p"
     .string "I think I got them all.$"
 
-Route4_Text_MtMoonEntrance::
-    .string "MT. MOON\n"
+Route4_Text_MtMoonEntrance:: @ 818399B
+    .string "Mt. Moon\n"
     .string "Tunnel Entrance$"
 
-Route4_Text_RouteSign::
-    .string "ROUTE 4\n"
-    .string "MT. MOON - CERULEAN CITY$"
+Route4_Text_RouteSign:: @ 81839B4
+    .string "Route 4\n"
+    .string "Mt. Moon - Cerulean City$"
 
 Text_MegaPunchTeach::
     .string "A punch of roaring ferocity!\p"
     .string "Packed with destructive power!\p"
     .string "When the chips are down,\n"
-    .string "MEGA PUNCH is the ultimate attack!\l"
+    .string "Mega Punch is the ultimate attack!\l"
     .string "You agree, yes?\p"
     .string "Now!\n"
-    .string "Let me teach it to your POKéMON!$"
+    .string "Let me teach it to your Pokémon!$"
 
 Text_MegaPunchDeclined::
     .string "You'll be back when you understand\n"
-    .string "the worth of MEGA PUNCH.$"
+    .string "the worth of Mega Punch.$"
 
 Text_MegaPunchWhichMon::
     .string "Fine!\n"
-    .string "Which POKéMON will learn it?$"
+    .string "Which Pokémon will learn it?$"
 
 Text_MegaPunchTaught::
     .string "Now, we are comrades in the way of\n"
@@ -50,18 +50,18 @@ Text_MegaKickTeach::
     .string "A kick of brutal ferocity!\p"
     .string "Packed with destructive power!\p"
     .string "When you get right down to it,\n"
-    .string "MEGA KICK is the ultimate attack!\l"
+    .string "Mega Kick is the ultimate attack!\l"
     .string "Don't you agree?\p"
     .string "Okay!\n"
-    .string "I'll teach it to your POKéMON!$"
+    .string "I'll teach it to your Pokémon!$"
 
 Text_MegaKickDeclined::
     .string "You'll come crawling back when you\n"
-    .string "realize the value of MEGA KICK.$"
+    .string "realize the value of Mega Kick.$"
 
 Text_MegaKickWhichMon::
     .string "All right!\n"
-    .string "Which POKéMON wants to learn it?$"
+    .string "Which Pokémon wants to learn it?$"
 
 Text_MegaKickTaught::
     .string "Now, we are soul mates in the way\n"
@@ -70,10 +70,10 @@ Text_MegaKickTaught::
     .string "by the deluded nitwit who trains\l"
     .string "only simple punching over there.$"
 
-Route4_Text_PeopleLikeAndRespectBrock::
-    .string "Oh, wow, that's the BOULDERBADGE!\n"
-    .string "You got it from BROCK, didn't you?\p"
-    .string "BROCK is cool. He's not just tough.\n"
+Route4_Text_PeopleLikeAndRespectBrock:: @ 8183D26
+    .string "Oh, wow, that's the BoulderBadge!\n"
+    .string "You got it from Brock, didn't you?\p"
+    .string "Brock is cool. He's not just tough.\n"
     .string "People like and respect him.\p"
-    .string "I want to become a GYM LEADER\n"
+    .string "I want to become a Gym Leader\n"
     .string "like him.$"

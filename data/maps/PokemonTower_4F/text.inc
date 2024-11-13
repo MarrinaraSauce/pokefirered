@@ -27,7 +27,7 @@ PokemonTower_4F_Text_JodyDefeat::
     .string "Huh?\n"
     .string "Who? What?$"
 
-PokemonTower_4F_Text_JodyPostBattle::
-    .string "May the departed POKéMON rest in\n"
+PokemonTower_4F_Text_JodyPostBattle:: @ 817A0BB
+    .string "May the departed Pokémon rest in\n"
     .string "peace…$"
 

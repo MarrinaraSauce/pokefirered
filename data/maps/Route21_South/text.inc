@@ -1,12 +1,12 @@
-Route21_South_Text_JackIntro::
-	.string "I caught my POKéMON at sea.$"
+Route21_South_Text_JackIntro:: @ 81884D4
+	.string "I caught my Pokémon at sea.$"
 
 Route21_South_Text_JackDefeat::
 	.string "Diver!!\n"
 	.string "Down!!$"
 
-Route21_South_Text_JackPostBattle::
-	.string "Where'd you catch your POKéMON?$"
+Route21_South_Text_JackPostBattle:: @ 81884FF
+	.string "Where'd you catch your Pokémon?$"
 
 Route21_South_Text_JeromeIntro::
 	.string "Right now, I'm in a triathlon meet.$"
@@ -52,36 +52,36 @@ Route21_South_Text_NolanPostBattle::
 	.string "Oh wait!\n"
 	.string "I got a bite! Yeah!$"
 
-Route21_North_Text_LilIntro::
-	.string "LIL: Huh? A battle?\n"
-	.string "IAN, can't you do it alone?$"
+Route21_North_Text_LilIntro:: @ 81886E2
+	.string "Lil: Huh? A battle?\n"
+	.string "Ian, can't you do it alone?$"
 
-Route21_North_Text_LilDefeat::
-	.string "LIL: Oh, see?\n"
+Route21_North_Text_LilDefeat:: @ 8188712
+	.string "Lil: Oh, see?\n"
 	.string "We lost. Happy now?$"
 
-Route21_North_Text_LilPostBattle::
-	.string "LIL: I'm tired.\n"
+Route21_North_Text_LilPostBattle:: @ 8188734
+	.string "Lil: I'm tired.\n"
 	.string "Can't we go home already?$"
 
-Route21_North_Text_LilNotEnoughMons::
-	.string "LIL: Huh? A battle?\n"
+Route21_North_Text_LilNotEnoughMons:: @ 818875E
+	.string "Lil: Huh? A battle?\n"
 	.string "I can't be bothered to do it alone.\l"
-	.string "Bring two POKéMON, won't you?$"
+	.string "Bring two Pokémon, won't you?$"
 
-Route21_North_Text_IanIntro::
-	.string "IAN: My sis doesn't get enough\n"
+Route21_North_Text_IanIntro:: @ 81887B4
+	.string "Ian: My sis doesn't get enough\n"
 	.string "exercise, so I made her come.$"
 
-Route21_North_Text_IanDefeat::
-	.string "IAN: Awww, Sis!\n"
+Route21_North_Text_IanDefeat:: @ 81887F1
+	.string "Ian: Awww, Sis!\n"
 	.string "Get it together!$"
 
-Route21_North_Text_IanPostBattle::
-	.string "IAN: Come on, Sis!\p"
+Route21_North_Text_IanPostBattle:: @ 8188812
+	.string "Ian: Come on, Sis!\p"
 	.string "You're not going to lose weight\n"
 	.string "like this!$"
 
-Route21_North_Text_IanNotEnoughMons::
-	.string "IAN: We want a two-on-two battle.\n"
-	.string "So can you bring two POKéMON?$"
+Route21_North_Text_IanNotEnoughMons:: @ 8188850
+	.string "Ian: We want a two-on-two battle.\n"
+	.string "So can you bring two Pokémon?$"

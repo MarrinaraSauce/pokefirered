@@ -1,25 +1,25 @@
-Route25_Text_JoeyIntro::
-    .string "Local TRAINERS come here to\n"
+Route25_Text_JoeyIntro:: @ 81890C0
+    .string "Local Trainers come here to\n"
     .string "practice.$"
 
 Route25_Text_JoeyDefeat::
     .string "You're decent.$"
 
-Route25_Text_JoeyPostBattle::
-    .string "All POKéMON have weaknesses.\n"
+Route25_Text_JoeyPostBattle:: @ 81890F5
+    .string "All Pokémon have weaknesses.\n"
     .string "Even the strongest ones.\p"
     .string "That's why it's best to raise\n"
-    .string "POKéMON of different types.$"
+    .string "Pokémon of different types.$"
 
 Route25_Text_DanIntro::
     .string "Dad took me to a great party on\n"
-    .string "the S.S. ANNE at VERMILION CITY.$"
+    .string "the S.S. Anne at Vermilion City.$"
 
 Route25_Text_DanDefeat::
     .string "I'm not mad!$"
 
-Route25_Text_DanPostBattle::
-    .string "On the S.S. ANNE, I saw TRAINERS\n"
+Route25_Text_DanPostBattle:: @ 81891B3
+    .string "On the S.S. Anne, I saw Trainers\n"
     .string "from around the world.$"
 
 Route25_Text_FlintIntro::
@@ -51,24 +51,24 @@ Route25_Text_ChadIntro::
 Route25_Text_ChadDefeat::
     .string "I knew I'd lose, too!$"
 
-Route25_Text_ChadPostBattle::
-    .string "If your POKéMON gets confused,\n"
+Route25_Text_ChadPostBattle:: @ 81892EF
+    .string "If your Pokémon gets confused,\n"
     .string "switch it out.\p"
     .string "That's a good tactic.$"
 
-Route25_Text_HaleyIntro::
-    .string "My friend has many cute POKéMON.\n"
+Route25_Text_HaleyIntro:: @ 8189333
+    .string "My friend has many cute Pokémon.\n"
     .string "I'm so jealous!$"
 
 Route25_Text_HaleyDefeat::
     .string "I'm not so jealous!$"
 
-Route25_Text_HaleyPostBattle::
-    .string "You came from MT. MOON?\n"
-    .string "May I have a CLEFAIRY?$"
+Route25_Text_HaleyPostBattle:: @ 8189378
+    .string "You came from Mt. Moon?\n"
+    .string "May I have a Clefairy?$"
 
-Route25_Text_FranklinIntro::
-    .string "I just got down from MT. MOON,\n"
+Route25_Text_FranklinIntro:: @ 81893A7
+    .string "I just got down from Mt. Moon,\n"
     .string "but I've still got gas in the tank!$"
 
 Route25_Text_FranklinDefeat::
@@ -76,24 +76,24 @@ Route25_Text_FranklinDefeat::
 
 Route25_Text_FranklinPostBattle::
     .string "Drat!\n"
-    .string "A ZUBAT bit me back in that cave.$"
+    .string "A Zubat bit me back in that cave.$"
 
-Route25_Text_NobIntro::
-    .string "I'm off to see a POKéMANIAC's\n"
+Route25_Text_NobIntro:: @ 8189423
+    .string "I'm off to see a Pokémaniac's\n"
     .string "collection at the cape.$"
 
 Route25_Text_NobDefeat::
     .string "You done got me, and real good,\n"
     .string "too!$"
 
-Route25_Text_NobPostBattle::
-    .string "The POKéMANIAC sure lives up to\n"
+Route25_Text_NobPostBattle:: @ 818947E
+    .string "The Pokémaniac sure lives up to\n"
     .string "his name.\p"
     .string "His collection includes many rare\n"
-    .string "species of POKéMON.$"
+    .string "species of Pokémon.$"
 
-Route25_Text_WayneIntro::
-    .string "You're going to see BILL?\n"
+Route25_Text_WayneIntro:: @ 81894DE
+    .string "You're going to see Bill?\n"
     .string "First, we battle!$"
 
 Route25_Text_WayneDefeat::
@@ -101,19 +101,19 @@ Route25_Text_WayneDefeat::
 
 Route25_Text_WaynePostBattle::
     .string "The trail below is a shortcut to\n"
-    .string "CERULEAN CITY.$"
+    .string "Cerulean City.$"
 
-Route25_Text_SeaCottageSign::
-    .string "SEA COTTAGE\n"
-    .string "BILL lives here!$"
+Route25_Text_SeaCottageSign:: @ 818954C
+    .string "Sea Cottage\n"
+    .string "Bill lives here!$"
 
 Route25_Text_MistyHighHopesAboutThisPlace::
     .string "This cape is a famous date spot.\p"
-    .string "MISTY, the GYM LEADER, has high\n"
+    .string "Misty, the Gym Leader, has high\n"
     .string "hopes about this place.$"
 
 Route25_Text_AreYouHereAlone::
     .string "Hello, are you here alone?\p"
-    .string "If you're out at CERULEAN's cape…\n"
+    .string "If you're out at Cerulean's cape…\n"
     .string "Well, it should be as a couple.$"
 
