@@ -588,6 +588,7 @@ static const u8 sSeviiMapsecs[3][30] = {
         MAPSEC_SCUFIB_CHAMBER,
         MAPSEC_RIXY_CHAMBER,
         MAPSEC_VIAPOIS_CHAMBER,
+		MAPSEC_NEW_BARK_TOWN,
         MAPSEC_NONE
     }
 };
@@ -640,79 +641,79 @@ static const union AnimCmd *const sAnims_SwitchMapCursor[] = {
 static const struct DungeonMapInfo sDungeonInfo[] = {
     {
         .id = MAPSEC_VIRIDIAN_FOREST,
-        .name = sMapsecName_VIRIDIAN_FOREST,
+        .name = sMapsecName_Viridian_Forest,
         .desc = gText_RegionMap_AreaDesc_ViridianForest
     }, {
         .id = MAPSEC_MT_MOON,
-        .name = sMapsecName_MT__MOON,
+        .name = sMapsecName_Mt__Moon,
         .desc = gText_RegionMap_AreaDesc_MtMoon
     }, {
         .id = MAPSEC_DIGLETTS_CAVE,
-        .name = sMapsecName_DIGLETT_S_CAVE,
+        .name = sMapsecName_Diglett_s_Cave,
         .desc = gText_RegionMap_AreaDesc_DiglettsCave
     }, {
         .id = MAPSEC_KANTO_VICTORY_ROAD,
-        .name = sMapsecName_VICTORY_ROAD,
+        .name = sMapsecName_Victory_Road,
         .desc = gText_RegionMap_AreaDesc_VictoryRoad
     }, {
         .id = MAPSEC_POKEMON_MANSION,
-        .name = sMapsecName_POK__MON_MANSION,
+        .name = sMapsecName_Pok__mon_Mansion,
         .desc = gText_RegionMap_AreaDesc_PokemonMansion
     }, {
         .id = MAPSEC_KANTO_SAFARI_ZONE,
-        .name = sMapsecName_SAFARI_ZONE,
+        .name = sMapsecName_Safari_Zone,
         .desc = gText_RegionMap_AreaDesc_SafariZone
     }, {
         .id = MAPSEC_ROCK_TUNNEL,
-        .name = sMapsecName_ROCK_TUNNEL,
+        .name = sMapsecName_Rock_Tunnel,
         .desc = gText_RegionMap_AreaDesc_RockTunnel
     }, {
         .id = MAPSEC_SEAFOAM_ISLANDS,
-        .name = sMapsecName_SEAFOAM_ISLANDS,
+        .name = sMapsecName_Seafoam_Islands,
         .desc = gText_RegionMap_AreaDesc_SeafoamIslands
     }, {
         .id = MAPSEC_POKEMON_TOWER,
-        .name = sMapsecName_POK__MON_TOWER,
+        .name = sMapsecName_Pok__mon_Tower,
         .desc = gText_RegionMap_AreaDesc_PokemonTower
     }, {
         .id = MAPSEC_CERULEAN_CAVE,
-        .name = sMapsecName_CERULEAN_CAVE,
+        .name = sMapsecName_Cerulean_Cave,
         .desc = gText_RegionMap_AreaDesc_CeruleanCave
     }, {
         .id = MAPSEC_POWER_PLANT,
-        .name = sMapsecName_POWER_PLANT,
+        .name = sMapsecName_Power_Plant,
         .desc = gText_RegionMap_AreaDesc_PowerPlant
     }, {
         .id = MAPSEC_MT_EMBER,
-        .name = sMapsecName_MT__EMBER,
+        .name = sMapsecName_Mt__Ember,
         .desc = gText_RegionMap_AreaDesc_MtEmber
     }, {
         .id = MAPSEC_BERRY_FOREST,
-        .name = sMapsecName_BERRY_FOREST,
+        .name = sMapsecName_Berry_Forest,
         .desc = gText_RegionMap_AreaDesc_BerryForest
     }, {
         .id = MAPSEC_ICEFALL_CAVE,
-        .name = sMapsecName_ICEFALL_CAVE,
+        .name = sMapsecName_Icefall_Cave,
         .desc = gText_RegionMap_AreaDesc_IcefallCave
     }, {
         .id = MAPSEC_LOST_CAVE,
-        .name = sMapsecName_LOST_CAVE,
+        .name = sMapsecName_Lost_Cave,
         .desc = gText_RegionMap_AreaDesc_LostCave
     }, {
         .id = MAPSEC_TANOBY_CHAMBERS,
-        .name = sMapsecName_TANOBY_CHAMBERS,
+        .name = sMapsecName_Tanoby_Chambers,
         .desc = gText_RegionMap_AreaDesc_TanobyRuins
     }, {
         .id = MAPSEC_ALTERING_CAVE,
-        .name = sMapsecName_ALTERING_CAVE,
+        .name = sMapsecName_Altering_Cave,
         .desc = gText_RegionMap_AreaDesc_AlteringCave
     }, {
         .id = MAPSEC_PATTERN_BUSH,
-        .name = sMapsecName_PATTERN_BUSH,
+        .name = sMapsecName_Pattern_Bush,
         .desc = gText_RegionMap_AreaDesc_PatternBush
     }, {
         .id = MAPSEC_DOTTED_HOLE,
-        .name = sMapsecName_DOTTED_HOLE,
+        .name = sMapsecName_Dotted_Hole,
         .desc = gText_RegionMap_AreaDesc_DottedHole
     }
 };
@@ -934,6 +935,24 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
+	[MAPSEC_NEW_BARK_TOWN		- MAPSECS_KANTO] = {MAP(NEW_BARK_TOWN),                         SPAWN_NEW_BARK_TOWN},
+	[MAPSEC_CHERRYGROVE_CITY	- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_VIOLET_CITY			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_AZALEA_TOWN			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_GOLDENROD_CITY		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_ECRUTEAK_CITY		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_OLIVINE_CITY		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_CIANWOOD_CITY		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_MAHOGANY_TOWN		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_BLACKTHORN_CITY		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_RUINS_OF_ALPH		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_LAKE_OF_RAGE		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_MT_SILVER			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_ROUTE_26			- MAPSECS_KANTO] = {MAP(ROUTE26),								0},
+	[MAPSEC_ROUTE_27			- MAPSECS_KANTO] = {MAP(ROUTE27),								0},
+	[MAPSEC_ROUTE_28			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_ROUTE_29			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+	[MAPSEC_ROUTE_30			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1025,8 +1044,7 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
-    if (!FlagGet(FLAG_SYS_SEVII_MAP_123))
-        sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = FALSE;
+    sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = TRUE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
     if (gMapHeader.regionMapSectionId >= MAPSECS_SEVII_123)
@@ -3806,7 +3824,7 @@ u8 *GetMapName(u8 *dst0, u16 mapsec, u16 fill)
     if ((idx = mapsec - MAPSECS_KANTO) <= MAPSEC_SPECIAL_AREA - MAPSECS_KANTO)
     {
         if (IsCeladonDeptStoreMapsec(mapsec) == TRUE)
-            dst = StringCopy(dst0, sMapsecName_CELADON_DEPT_);
+            dst = StringCopy(dst0, sMapsecName_Special);
         else
             dst = StringCopy(dst0, sMapNames[idx]);
     }

@@ -513,6 +513,11 @@ gStdScriptsEnd::
 	.include "data/maps/SixIsland_WaterPath_House2/scripts.inc"
 	.include "data/maps/SevenIsland_SevaultCanyon_House/scripts.inc"
 
+	.include "data/maps/NewBarkTown/scripts.inc"
+	.include "data/maps/Route26/scripts.inc"
+	.include "data/maps/Route27/scripts.inc"
+	.include "data/maps/Route28/scripts.inc"
+
 	.include "data/maps/ViridianForest/text.inc"
 	.include "data/maps/MtMoon_1F/text.inc"
 	.include "data/maps/MtMoon_B2F/text.inc"
@@ -804,6 +809,11 @@ gStdScriptsEnd::
 	.include "data/maps/SixIsland_WaterPath_House2/text.inc"
 	.include "data/maps/SevenIsland_SevaultCanyon_House/text.inc"
 
+	.include "data/maps/NewBarkTown/text.inc"
+	.include "data/maps/Route26/text.inc"
+	.include "data/maps/Route27/text.inc"
+	.include "data/maps/Route28/text.inc"
+
 	.include "data/scripts/std_msgbox.inc"
 	.include "data/scripts/trainer_battle.inc"
 
@@ -819,17 +829,17 @@ Text_WeHopeToSeeYouAgain2::
 	.include "data/text/pc.inc"
 
 @ Unused
-Text_WelcomeTradeCenter:: @ 81A5103
+Text_WelcomeTradeCenter::
 	.string "Welcome to the Pokémon Cable Club\n"
 	.string "Trade Center.$"
 
 @ Unused
-Text_WelcomeColosseum:: @ 81A5133
+Text_WelcomeColosseum::
 	.string "Welcome to the Pokémon Cable Club\n"
 	.string "Colosseum.$"
 
 @ Unused
-Text_WelcomeTimeCapsule:: @ 81A5160
+Text_WelcomeTimeCapsule::
 	.string "Welcome to the Pokémon Cable Club\n"
 	.string "Time Capsule.$"
 
@@ -854,7 +864,7 @@ Text_MakingPreparations::
 Text_WantWhichFloor::
 	.string "Which floor do you want?$"
 
-Text_BagItemCanBeRegistered:: @ 81A5375
+Text_BagItemCanBeRegistered::
 	.string "An item in the Bag can be\n"
 	.string "registered to Select for easy use.$"
 
@@ -885,12 +895,12 @@ gText_PkmnFainted3::
 	.string "{STR_VAR_1} fainted…\p"
 	.string "$"
 
-Text_WelcomeWantToHealPkmn:: @ 81A5483
+Text_WelcomeWantToHealPkmn::
 	.string "Welcome to our Pokémon Center!\p"
 	.string "Would you like me to heal your\n"
 	.string "Pokémon back to perfect health?$"
 
-Text_TakeYourPkmnForFewSeconds:: @ 81A54E1
+Text_TakeYourPkmnForFewSeconds::
 	.string "Okay, I'll take your Pokémon for a\n"
 	.string "few seconds.$"
 
@@ -944,7 +954,7 @@ Text_ItNeedsCardKey::
 	.string "No!\n"
 	.string "It needs a Card Key!$"
 
-Text_AccessedProfOaksPC:: @ 81A5BC6
+Text_AccessedProfOaksPC::
 	.string "Accessed Prof. Oak's PC…\p"
 	.string "Accessed the Pokédex Rating\n"
 	.string "System…$"
@@ -953,7 +963,7 @@ Text_HavePokedexRated::
 	.string "Would you like to have your\n"
 	.string "Pokédex rated?$"
 
-Text_ClosedLinkToProfOaksPC:: @ 81A5C2E
+Text_ClosedLinkToProfOaksPC::
 	.string "Closed link to Prof. Oak's PC.$"
 
 Text_VoiceRangOutDontRunAway::
@@ -1360,15 +1370,3 @@ Text_TestMsg::
 	.include "data/text/save.inc"
 	.include "data/text/new_game_intro.inc"
 	.include "data/text/pokedude.inc"
-
-	.include "data/maps/Route26/scripts.inc"
-	.include "data/maps/Route26/text.inc"
-
-	.include "data/maps/Route27/scripts.inc"
-	.include "data/maps/Route27/text.inc"
-
-	.include "data/maps/Route28/scripts.inc"
-	.include "data/maps/Route28/text.inc"
-
-	.include "data/maps/NewBarkTown/scripts.inc"
-	.include "data/maps/NewBarkTown/text.inc"

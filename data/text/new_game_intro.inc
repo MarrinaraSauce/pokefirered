@@ -1,127 +1,127 @@
-gOtherText_NewName:: @ 81C574F
+gOtherText_NewName::
     .string "New Name$"
 
-gNameChoice_Green:: @ 81C5758
+gNameChoice_Green::
     .string "Green$"
 
-gNameChoice_Red:: @ 81C575E
+gNameChoice_Red::
     .string "Red$"
 
-gNameChoice_Leaf:: @ 81C5762
+gNameChoice_Leaf::
     .string "Leaf$"
 
-gNameChoice_Fire:: @ 81C5767
+gNameChoice_Fire::
     .string "Fire$"
 
-gNameChoice_Gary:: @ 81C576C
+gNameChoice_Gary::
     .string "Gary$"
 
-gNameChoice_Kaz:: @ 81C5771
+gNameChoice_Kaz::
     .string "Kaz$"
 
-gNameChoice_Toru:: @ 81C5775
+gNameChoice_Toru::
     .string "Toru$"
 
-gNameChoice_Ash:: @ 81C577A
+gNameChoice_Ash::
     .string "Ash$"
 
-gNameChoice_Kene:: @ 81C577E
+gNameChoice_Kene::
     .string "Kene$"
 
-gNameChoice_Geki:: @ 81C5783
+gNameChoice_Geki::
     .string "Geki$"
 
-gNameChoice_Jak:: @ 81C5788
+gNameChoice_Jak::
     .string "Jak$"
 
-gNameChoice_Janne:: @ 81C578C
+gNameChoice_Janne::
     .string "Janne$"
 
-gNameChoice_Jonn:: @ 81C5792
+gNameChoice_Jonn::
     .string "Jonn$"
 
-gNameChoice_Kamon:: @ 81C5797
+gNameChoice_Kamon::
     .string "Kamon$"
 
-gNameChoice_Karl:: @ 81C579D
+gNameChoice_Karl::
     .string "Karl$"
 
-gNameChoice_Taylor:: @ 81C57A2
+gNameChoice_Taylor::
     .string "Taylor$"
 
-gNameChoice_Oscar:: @ 81C57A9
+gNameChoice_Oscar::
     .string "Oscar$"
 
-gNameChoice_Hiro:: @ 81C57AF
+gNameChoice_Hiro::
     .string "Hiro$"
 
-gNameChoice_Max:: @ 81C57B4
+gNameChoice_Max::
     .string "Max$"
 
-gNameChoice_Jon:: @ 81C57B8
+gNameChoice_Jon::
     .string "Jon$"
 
-gNameChoice_Ralph:: @ 81C57BC
+gNameChoice_Ralph::
     .string "Ralph$"
 
-gNameChoice_Kay:: @ 81C57C2
+gNameChoice_Kay::
     .string "Kay$"
 
-gNameChoice_Tosh:: @ 81C57C6
+gNameChoice_Tosh::
     .string "Tosh$"
 
-gNameChoice_Roak:: @ 81C57CB
+gNameChoice_Roak::
     .string "Roak$"
 
-gNameChoice_Omi:: @ 81C57D0
+gNameChoice_Omi::
     .string "Omi$"
 
-gNameChoice_Jodi:: @ 81C57D4
+gNameChoice_Jodi::
     .string "Jodi$"
 
-gNameChoice_Amanda:: @ 81C57D9
+gNameChoice_Amanda::
     .string "Amanda$"
 
-gNameChoice_Hillary:: @ 81C57E0
+gNameChoice_Hillary::
     .string "Hillary$"
 
-gNameChoice_Makey:: @ 81C57E8
+gNameChoice_Makey::
     .string "Makey$"
 
-gNameChoice_Michi:: @ 81C57EE
+gNameChoice_Michi::
     .string "Michi$"
 
-gNameChoice_Paula:: @ 81C57F4
+gNameChoice_Paula::
     .string "Paula$"
 
-gNameChoice_June:: @ 81C57FA
+gNameChoice_June::
     .string "June$"
 
-gNameChoice_Cassie:: @ 81C57FF
+gNameChoice_Cassie::
     .string "Cassie$"
 
-gNameChoice_Rey:: @ 81C5806
+gNameChoice_Rey::
     .string "Rey$"
 
-gNameChoice_Seda:: @ 81C580A
+gNameChoice_Seda::
     .string "Seda$"
 
-gNameChoice_Kiko:: @ 81C580F
+gNameChoice_Kiko::
     .string "Kiko$"
 
-gNameChoice_Mina:: @ 81C5814
+gNameChoice_Mina::
     .string "Mina$"
 
-gNameChoice_Norie:: @ 81C5819
+gNameChoice_Norie::
     .string "Norie$"
 
-gNameChoice_Sai:: @ 81C581F
+gNameChoice_Sai::
     .string "Sai$"
 
-gNameChoice_Momo:: @ 81C5823
+gNameChoice_Momo::
     .string "Momo$"
 
-gNameChoice_Suzi:: @ 81C5828
+gNameChoice_Suzi::
     .string "Suzi$"
 
 gControlsGuide_Text_Intro::
@@ -188,7 +188,10 @@ gPikachuIntro_Text_Page3::
 
 gOakSpeech_Text_WelcomeToTheWorld::
     .string "Hello, there!\n"
-    .string "Glad to meet you!\pWelcome to the world of Pokémon!\pMy name is Oak.\pPeople affectionately refer to me\n"
+    .string "Glad to meet you!\p"
+    .string "Welcome to the world of Pokémon!\p"
+    .string "My name is Oak.\p"
+    .string "People affectionately refer to me\n"
     .string "as the Pokémon Professor.\p$"
 
 gOakSpeech_Text_ThisWorld::
@@ -198,9 +201,11 @@ gOakSpeech_Text_IsInhabitedFarAndWide::
     .string "…is inhabited far and wide by\n"
     .string "creatures called Pokémon.\p$"
 
-gOakText_PetsBattlingStudy:: @ 81C5D4B
+gOakSpeech_Text_IStudyPokemon::
     .string "For some people, Pokémon are pets.\n"
-    .string "Others use them for battling.\pAs for myself…\pI study Pokémon as a profession.\p$"
+    .string "Others use them for battling.\p"
+    .string "As for myself…\p"
+    .string "I study Pokémon as a profession.\p$"
 
 gOakSpeech_Text_TellMeALittleAboutYourself::
     .string "But first, tell me a little about\n"
@@ -230,7 +235,9 @@ gOakSpeech_Text_RememberRivalsName::
     .string "That's right! I remember now!\n"
     .string "His name is {RIVAL}!\p$"
 
-gOakText_LegendAboutToUnfold:: @ 81C5EF4
-    .string "{PLAYER}!\pYour very own Pokémon legend is\n"
-    .string "about to unfold!\pA world of dreams and adventures\n"
+gOakSpeech_Text_LetsGo::
+    .string "{PLAYER}!\p"
+    .string "Your very own Pokémon legend is\n"
+    .string "about to unfold!\p"
+    .string "A world of dreams and adventures\n"
     .string "with Pokémon awaits! Let's go!$"

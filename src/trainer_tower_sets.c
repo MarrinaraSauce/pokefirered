@@ -19,8 +19,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_4 = {
 	.prize = TTPRIZE_WHITE_HERB,
 	.trainers = {
 	    {
-			.name = _("Cole"),
-			.facilityClass = FACILITY_CLASS_YOUNGSTER_2,
+			.name = _("COLE"),
+			.facilityClass = FACILITY_CLASS_YOUNGSTER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_AHAHA, EC_WORD_YOU_RE, EC_WORD_NOT, EC_WORD_GOING, EC_WORD_ANYWHERE, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_ALL_RIGHT, EC_WORD_EXCL, EC_WORD_BYE_BYE, EC_WORD_EXCL, 0xFFFF, 0xFFFF},
@@ -46,7 +46,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Raticate"),
+					.nickname = _("RATICATE"),
 					.friendship = 255
 				},
 				{
@@ -68,7 +68,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x56, // MALE HASTY
-					.nickname = _("Magmar"),
+					.nickname = _("MAGMAR"),
 					.friendship = 255
 				},
 				{
@@ -90,7 +90,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Magcargo"),
+					.nickname = _("MAGCARGO"),
 					.friendship = 255
 				},
 				{
@@ -112,7 +112,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x87, // MALE TIMID
-					.nickname = _("Primeape"),
+					.nickname = _("PRIMEAPE"),
 					.friendship = 255
 				},
 				{
@@ -134,7 +134,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x81, // MALE NAUGHTY
-					.nickname = _("Golbat"),
+					.nickname = _("GOLBAT"),
 					.friendship = 255
 				},
 				{
@@ -156,7 +156,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Slowbro"),
+					.nickname = _("SLOWBRO"),
 					.friendship = 255
 				},
 			}
@@ -174,7 +174,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_7 = {
 	.prize = TTPRIZE_DRAGON_SCALE,
 	.trainers = {
 	    {
-			.name = _("Jac"),
+			.name = _("JAC"),
 			.facilityClass = FACILITY_CLASS_BURGLAR,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_A, EC_MOVE2(THIEF), EC_WORD_EXCL, EC_WORD_GIVE_ME, EC_WORD_SOMETHING},
@@ -201,7 +201,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Meowth"),
+					.nickname = _("MEOWTH"),
 					.friendship = 255
 				},
 				{
@@ -223,7 +223,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Flareon"),
+					.nickname = _("FLAREON"),
 					.friendship = 255
 				},
 				{
@@ -245,7 +245,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x07, // GENDERLESS RELAXED
-					.nickname = _("Porygon"),
+					.nickname = _("PORYGON"),
 					.friendship = 255
 				},
 				{
@@ -267,7 +267,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x10, // FEMALE MILD
-					.nickname = _("Chansey"),
+					.nickname = _("CHANSEY"),
 					.friendship = 255
 				},
 				{
@@ -289,7 +289,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x85, // MALE IMPISH
-					.nickname = _("Farfetch'd"),
+					.nickname = _("FARFETCH'D"),
 					.friendship = 255
 				},
 				{
@@ -311,7 +311,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x82, // MALE BOLD
-					.nickname = _("Mr. Mime"),
+					.nickname = _("MR. MIME"),
 					.friendship = 255
 				},
 			}
@@ -329,8 +329,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_Unused = {
 	.prize = TTPRIZE_IRON,
 	.trainers = {
 	    {
-			.name = _("Mily"),
-			.facilityClass = FACILITY_CLASS_PSYCHIC_4,
+			.name = _("MILY"),
+			.facilityClass = FACILITY_CLASS_PSYCHIC_F,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_LOOK, EC_WORD_AT, EC_WORD_MY, EC_WORD_POKEMON, EC_MOVE2(SUPERPOWER), EC_WORD_EXCL},
 			.speechWin = {EC_WORD_ISN_T, EC_WORD_IT, EC_WORD_INCREDIBLE, EC_WORD_QUES, EC_WORD_POKEMON, EC_WORD_POWER},
@@ -356,7 +356,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_Unused = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x08, // FEMALE IMPISH
-					.nickname = _("Chansey"),
+					.nickname = _("CHANSEY"),
 					.friendship = 255
 				},
 				{
@@ -378,7 +378,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_Unused = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Clefable"),
+					.nickname = _("CLEFABLE"),
 					.friendship = 255
 				},
 				{
@@ -400,7 +400,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_Unused = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Togetic"),
+					.nickname = _("TOGETIC"),
 					.friendship = 255
 				},
 				{
@@ -422,7 +422,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_Unused = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x20, // MALE RELAXED
-					.nickname = _("Togetic"),
+					.nickname = _("TOGETIC"),
 					.friendship = 255
 				},
 				{
@@ -444,7 +444,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_Unused = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Chansey"),
+					.nickname = _("CHANSEY"),
 					.friendship = 255
 				},
 				{
@@ -466,7 +466,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_Unused = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0xC0, // MALE QUIET
-					.nickname = _("Clefable"),
+					.nickname = _("CLEFABLE"),
 					.friendship = 255
 				},
 			}
@@ -484,7 +484,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 	.prize = TTPRIZE_CHOICE_BAND,
 	.trainers = {
 	    {
-			.name = _("Jos & Anne"),
+			.name = _("JOS & ANNE"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_I, EC_WORD_CAN_T, EC_WORD_LOSE, EC_WORD_TO, EC_WORD_YOU, EC_WORD_HERE},
@@ -511,7 +511,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x10, // FEMALE MILD
-					.nickname = _("Rapidash"),
+					.nickname = _("RAPIDASH"),
 					.friendship = 255
 				},
 				{
@@ -533,7 +533,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x15, // FEMALE GENTLE
-					.nickname = _("Ninetales"),
+					.nickname = _("NINETALES"),
 					.friendship = 255
 				},
 				{
@@ -555,7 +555,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Misdreavus"),
+					.nickname = _("MISDREAVUS"),
 					.friendship = 255
 				},
 				{
@@ -577,7 +577,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Alakazam"),
+					.nickname = _("ALAKAZAM"),
 					.friendship = 255
 				},
 				{
@@ -599,7 +599,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Blissey"),
+					.nickname = _("BLISSEY"),
 					.friendship = 255
 				},
 				{
@@ -621,13 +621,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x17, // FEMALE CAREFUL
-					.nickname = _("Crobat"),
+					.nickname = _("CROBAT"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Jos & Anne"),
+			.name = _("JOS & ANNE"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_HERE_GOES, EC_WORD_EXCL_EXCL, EC_WORD_GET, EC_WORD_READY, EC_WORD_TO, EC_WORD_LOSE},
@@ -654,7 +654,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x82, // MALE BOLD
-					.nickname = _("Houndoom"),
+					.nickname = _("HOUNDOOM"),
 					.friendship = 255
 				},
 				{
@@ -676,7 +676,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x33, // MALE LONELY
-					.nickname = _("Aerodactyl"),
+					.nickname = _("AERODACTYL"),
 					.friendship = 255
 				},
 				{
@@ -698,7 +698,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x56, // MALE HASTY
-					.nickname = _("Arcanine"),
+					.nickname = _("ARCANINE"),
 					.friendship = 255
 				},
 				{
@@ -720,7 +720,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x8E, // MALE QUIET
-					.nickname = _("Weezing"),
+					.nickname = _("WEEZING"),
 					.friendship = 255
 				},
 				{
@@ -742,7 +742,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x33, // MALE LONELY
-					.nickname = _("Charizard"),
+					.nickname = _("CHARIZARD"),
 					.friendship = 255
 				},
 				{
@@ -764,7 +764,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_5 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x87, // MALE TIMID
-					.nickname = _("Gengar"),
+					.nickname = _("GENGAR"),
 					.friendship = 255
 				},
 			}
@@ -781,8 +781,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 	.prize = TTPRIZE_CALCIUM,
 	.trainers = {
 	    {
-			.name = _("Emy & Alek"),
-			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE_2,
+			.name = _("EMY & ALEK"),
+			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_SO, EC_WORD_LOST, EC_WORD_IN, EC_WORD_LOVEY_DOVEY, EC_WORD_HAPPINESS},
 			.speechWin = {EC_WORD_OH, EC_WORD_OH, EC_WORD_HE, EC_WORD_IS, EC_WORD_REALLY, EC_WORD_AWESOME},
@@ -808,7 +808,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0A, // MALE TIMID
-					.nickname = _("Tauros"),
+					.nickname = _("TAUROS"),
 					.friendship = 255
 				},
 				{
@@ -830,7 +830,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Kangaskhan"),
+					.nickname = _("KANGASKHAN"),
 					.friendship = 255
 				},
 				{
@@ -852,7 +852,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x94, // MALE CAREFUL
-					.nickname = _("Fearow"),
+					.nickname = _("FEAROW"),
 					.friendship = 255
 				},
 				{
@@ -874,7 +874,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x24, // MALE HASTY
-					.nickname = _("Togetic"),
+					.nickname = _("TOGETIC"),
 					.friendship = 255
 				},
 				{
@@ -896,7 +896,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Pidgeot"),
+					.nickname = _("PIDGEOT"),
 					.friendship = 255
 				},
 				{
@@ -918,14 +918,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Ursaring"),
+					.nickname = _("URSARING"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Emy & Alek"),
-			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE_2,
+			.name = _("EMY & ALEK"),
+			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_GIDDY, EC_WORD_WITH, EC_WORD_LOVEY_DOVEY, EC_WORD_JOY, EC_WORD_EXCL_EXCL},
 			.speechWin = {EC_WORD_SIGH, EC_WORD_ELLIPSIS, EC_WORD_MY, EC_WORD_GIRL, EC_WORD_IS, EC_WORD_CUTE},
@@ -951,7 +951,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Lickitung"),
+					.nickname = _("LICKITUNG"),
 					.friendship = 255
 				},
 				{
@@ -973,7 +973,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Noctowl"),
+					.nickname = _("NOCTOWL"),
 					.friendship = 255
 				},
 				{
@@ -995,7 +995,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0E, // FEMALE NAIVE
-					.nickname = _("Furret"),
+					.nickname = _("FURRET"),
 					.friendship = 255
 				},
 				{
@@ -1017,7 +1017,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Raticate"),
+					.nickname = _("RATICATE"),
 					.friendship = 255
 				},
 				{
@@ -1039,7 +1039,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Wigglytuff"),
+					.nickname = _("WIGGLYTUFF"),
 					.friendship = 255
 				},
 				{
@@ -1061,7 +1061,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0A, // GENDERLESS TIMID
-					.nickname = _("Porygon2"),
+					.nickname = _("PORYGON2"),
 					.friendship = 255
 				},
 			}
@@ -1078,7 +1078,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 	.prize = TTPRIZE_HP_UP,
 	.trainers = {
 	    {
-			.name = _("Jo & Haley"),
+			.name = _("JO & HALEY"),
 			.facilityClass = FACILITY_CLASS_CRUSH_KIN,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_WE_RE, EC_WORD_USING, EC_WORD_THAT, EC_WORD_STRATEGY, EC_WORD_OKAY, EC_WORD_QUES},
@@ -1105,7 +1105,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Sneasel"),
+					.nickname = _("SNEASEL"),
 					.friendship = 255
 				},
 				{
@@ -1127,7 +1127,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Alakazam"),
+					.nickname = _("ALAKAZAM"),
 					.friendship = 255
 				},
 				{
@@ -1149,7 +1149,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x08, // MALE IMPISH
-					.nickname = _("Hitmontop"),
+					.nickname = _("HITMONTOP"),
 					.friendship = 255
 				},
 				{
@@ -1171,7 +1171,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Girafarig"),
+					.nickname = _("GIRAFARIG"),
 					.friendship = 255
 				},
 				{
@@ -1193,7 +1193,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x14, // FEMALE CALM
-					.nickname = _("Xatu"),
+					.nickname = _("XATU"),
 					.friendship = 255
 				},
 				{
@@ -1215,13 +1215,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Mr. Mime"),
+					.nickname = _("MR. MIME"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Jo & Haley"),
+			.name = _("JO & HALEY"),
 			.facilityClass = FACILITY_CLASS_CRUSH_KIN,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_YOU, EC_WORD_YOU, EC_WORD_YOU, EC_WORD_BETTER, EC_WORD_NOT, EC_WORD_WIN},
@@ -1248,7 +1248,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x87, // MALE TIMID
-					.nickname = _("Hypno"),
+					.nickname = _("HYPNO"),
 					.friendship = 255
 				},
 				{
@@ -1270,7 +1270,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0F, // MALE MODEST
-					.nickname = _("Hitmonchan"),
+					.nickname = _("HITMONCHAN"),
 					.friendship = 255
 				},
 				{
@@ -1292,7 +1292,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x43, // MALE QUIET
-					.nickname = _("Machamp"),
+					.nickname = _("MACHAMP"),
 					.friendship = 255
 				},
 				{
@@ -1314,7 +1314,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x87, // MALE TIMID
-					.nickname = _("Houndoom"),
+					.nickname = _("HOUNDOOM"),
 					.friendship = 255
 				},
 				{
@@ -1336,7 +1336,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x8C, // MALE MODEST
-					.nickname = _("Primeape"),
+					.nickname = _("PRIMEAPE"),
 					.friendship = 255
 				},
 				{
@@ -1358,7 +1358,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_2 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x85, // MALE IMPISH
-					.nickname = _("Heracross"),
+					.nickname = _("HERACROSS"),
 					.friendship = 255
 				},
 			}
@@ -1375,7 +1375,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 	.prize = TTPRIZE_METAL_COAT,
 	.trainers = {
 	    {
-			.name = _("Jordy"),
+			.name = _("JORDY"),
 			.facilityClass = FACILITY_CLASS_BIKER,
 			.textColor = 3,
 			.speechBefore = {EC_WORD_DON_T, EC_WORD_MAKE, EC_WORD_ME, EC_WORD_GIGGLE, EC_WORD_YOU, EC_WORD_PUSHOVER},
@@ -1402,7 +1402,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x43, // MALE QUIET
-					.nickname = _("Magby"),
+					.nickname = _("MAGBY"),
 					.friendship = 0
 				},
 				{
@@ -1424,7 +1424,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0xCA, // MALE BRAVE
-					.nickname = _("Cleffa"),
+					.nickname = _("CLEFFA"),
 					.friendship = 255
 				},
 				{
@@ -1446,7 +1446,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0xD2, // MALE TIMID
-					.nickname = _("Igglybuff"),
+					.nickname = _("IGGLYBUFF"),
 					.friendship = 255
 				},
 				{
@@ -1468,7 +1468,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Smoochum"),
+					.nickname = _("SMOOCHUM"),
 					.friendship = 255
 				},
 				{
@@ -1490,7 +1490,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x34, // MALE BRAVE
-					.nickname = _("Togepi"),
+					.nickname = _("TOGEPI"),
 					.friendship = 0
 				},
 				{
@@ -1512,13 +1512,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x8E, // MALE QUIET
-					.nickname = _("Pichu"),
+					.nickname = _("PICHU"),
 					.friendship = 0
 				},
 			}
 		},
 		{
-			.name = _("Ernest"),
+			.name = _("ERNEST"),
 			.facilityClass = FACILITY_CLASS_BIKER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_IT_S, EC_WORD_SLEEP, EC_WORD_TIME, EC_WORD_FOR, EC_WORD_CHILDREN, EC_WORD_EXCL},
@@ -1545,7 +1545,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0xCA, // MALE BRAVE
-					.nickname = _("Cleffa"),
+					.nickname = _("CLEFFA"),
 					.friendship = 0
 				},
 				{
@@ -1567,7 +1567,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x4D, // MALE BRAVE
-					.nickname = _("Magby"),
+					.nickname = _("MAGBY"),
 					.friendship = 0
 				},
 				{
@@ -1589,7 +1589,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x34, // MALE BRAVE
-					.nickname = _("Togepi"),
+					.nickname = _("TOGEPI"),
 					.friendship = 0
 				},
 				{
@@ -1611,7 +1611,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Smoochum"),
+					.nickname = _("SMOOCHUM"),
 					.friendship = 0
 				},
 				{
@@ -1633,7 +1633,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Igglybuff"),
+					.nickname = _("IGGLYBUFF"),
 					.friendship = 0
 				},
 				{
@@ -1655,13 +1655,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Pichu"),
+					.nickname = _("PICHU"),
 					.friendship = 0
 				},
 			}
 		},
 		{
-			.name = _("Gabriel"),
+			.name = _("GABRIEL"),
 			.facilityClass = FACILITY_CLASS_CUE_BALL,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_YAHOO, EC_WORD_EXCL, EC_WORD_HERE_I_COME, EC_WORD_TO, EC_WORD_SWARM, EC_WORD_YOU},
@@ -1688,7 +1688,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x81, // MALE NAUGHTY
-					.nickname = _("Pichu"),
+					.nickname = _("PICHU"),
 					.friendship = 0
 				},
 				{
@@ -1710,7 +1710,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x33, // MALE LONELY
-					.nickname = _("Togepi"),
+					.nickname = _("TOGEPI"),
 					.friendship = 0
 				},
 				{
@@ -1732,7 +1732,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0xCF, // MALE RELAXED
-					.nickname = _("Cleffa"),
+					.nickname = _("CLEFFA"),
 					.friendship = 0
 				},
 				{
@@ -1754,7 +1754,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0xCF, // MALE RELAXED
-					.nickname = _("Igglybuff"),
+					.nickname = _("IGGLYBUFF"),
 					.friendship = 0
 				},
 				{
@@ -1776,7 +1776,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Smoochum"),
+					.nickname = _("SMOOCHUM"),
 					.friendship = 0
 				},
 				{
@@ -1798,7 +1798,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x4D, // MALE BRAVE
-					.nickname = _("Magby"),
+					.nickname = _("MAGBY"),
 					.friendship = 0
 				},
 			}
@@ -1814,8 +1814,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 	.prize = TTPRIZE_UP_GRADE,
 	.trainers = {
 	    {
-			.name = _("Mike"),
-			.facilityClass = FACILITY_CLASS_HIKER_2,
+			.name = _("MIKE"),
+			.facilityClass = FACILITY_CLASS_HIKER,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_ARE, EC_WORD_FULL, EC_WORD_OF, EC_WORD_POWER},
 			.speechWin = {EC_WORD_WHAT_S_UP_QUES, EC_WORD_WHERE, EC_WORD_IS, EC_WORD_YOUR, EC_WORD_POWER, EC_WORD_QUES},
@@ -1841,7 +1841,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Pinsir"),
+					.nickname = _("PINSIR"),
 					.friendship = 255
 				},
 				{
@@ -1863,7 +1863,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x35, // MALE ADAMANT
-					.nickname = _("Charizard"),
+					.nickname = _("CHARIZARD"),
 					.friendship = 255
 				},
 				{
@@ -1885,7 +1885,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x09, // FEMALE LAX
-					.nickname = _("Rhydon"),
+					.nickname = _("RHYDON"),
 					.friendship = 255
 				},
 				{
@@ -1907,7 +1907,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x3F, // MALE JOLLY
-					.nickname = _("Arcanine"),
+					.nickname = _("ARCANINE"),
 					.friendship = 255
 				},
 				{
@@ -1929,7 +1929,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Golem"),
+					.nickname = _("GOLEM"),
 					.friendship = 255
 				},
 				{
@@ -1951,13 +1951,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 1,
 					.personality = 0x08, // FEMALE IMPISH
-					.nickname = _("Houndoom"),
+					.nickname = _("HOUNDOOM"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Rebecca"),
+			.name = _("REBECCA"),
 			.facilityClass = FACILITY_CLASS_CRUSH_GIRL,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_I, EC_WORD_WILL, EC_WORD_WIN, EC_WORD_EXCL_EXCL, 0xFFFF, 0xFFFF},
@@ -1984,7 +1984,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Sandslash"),
+					.nickname = _("SANDSLASH"),
 					.friendship = 255
 				},
 				{
@@ -2006,7 +2006,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Dragonair"),
+					.nickname = _("DRAGONAIR"),
 					.friendship = 255
 				},
 				{
@@ -2028,7 +2028,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 1,
 					.personality = 0x94, // MALE CAREFUL
-					.nickname = _("Rapidash"),
+					.nickname = _("RAPIDASH"),
 					.friendship = 255
 				},
 				{
@@ -2050,7 +2050,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x21, // MALE IMPISH
-					.nickname = _("Flareon"),
+					.nickname = _("FLAREON"),
 					.friendship = 255
 				},
 				{
@@ -2072,7 +2072,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x17, // FEMALE CAREFUL
-					.nickname = _("Nidoqueen"),
+					.nickname = _("NIDOQUEEN"),
 					.friendship = 255
 				},
 				{
@@ -2094,14 +2094,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Persian"),
+					.nickname = _("PERSIAN"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Nicolas"),
-			.facilityClass = FACILITY_CLASS_BLACK_BELT_2,
+			.name = _("NICOLAS"),
+			.facilityClass = FACILITY_CLASS_BLACK_BELT,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_THIS, EC_WORD_IS, EC_WORD_WHERE, EC_WORD_YOU, EC_WORD_STOP, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_YOU_RE, EC_WORD_TOO_WEAK, EC_WORD_TO, EC_WORD_EVER, EC_WORD_BEAT, EC_WORD_ME},
@@ -2127,7 +2127,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x08, // MALE IMPISH
-					.nickname = _("Hitmonlee"),
+					.nickname = _("HITMONLEE"),
 					.friendship = 255
 				},
 				{
@@ -2149,7 +2149,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x17, // FEMALE CAREFUL
-					.nickname = _("Scyther"),
+					.nickname = _("SCYTHER"),
 					.friendship = 255
 				},
 				{
@@ -2171,7 +2171,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x53, // MALE IMPISH
-					.nickname = _("Magmar"),
+					.nickname = _("MAGMAR"),
 					.friendship = 255
 				},
 				{
@@ -2193,7 +2193,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x3F, // MALE JOLLY
-					.nickname = _("Machamp"),
+					.nickname = _("MACHAMP"),
 					.friendship = 255
 				},
 				{
@@ -2215,7 +2215,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x08, // FEMALE IMPISH
-					.nickname = _("Primeape"),
+					.nickname = _("PRIMEAPE"),
 					.friendship = 255
 				},
 				{
@@ -2237,7 +2237,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Poliwrath"),
+					.nickname = _("POLIWRATH"),
 					.friendship = 255
 				},
 			}
@@ -2253,8 +2253,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_5 = {
 	.prize = TTPRIZE_HP_UP,
 	.trainers = {
 	    {
-			.name = _("Joey"),
-			.facilityClass = FACILITY_CLASS_CAMPER_2,
+			.name = _("JOEY"),
+			.facilityClass = FACILITY_CLASS_CAMPER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_ARE, EC_WORD_SCARY, EC_WORD_STRONG, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_WERE, EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_TOO, EC_WORD_MUCH, EC_WORD_QUES},
@@ -2280,7 +2280,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_5 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Murkrow"),
+					.nickname = _("MURKROW"),
 					.friendship = 255
 				},
 				{
@@ -2302,7 +2302,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_5 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0C, // MALE SERIOUS
-					.nickname = _("Tauros"),
+					.nickname = _("TAUROS"),
 					.friendship = 255
 				},
 				{
@@ -2324,7 +2324,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_5 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Slowbro"),
+					.nickname = _("SLOWBRO"),
 					.friendship = 255
 				},
 				{
@@ -2346,7 +2346,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_5 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Arbok"),
+					.nickname = _("ARBOK"),
 					.friendship = 255
 				},
 				{
@@ -2368,7 +2368,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_5 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0C, // MALE SERIOUS
-					.nickname = _("Nidoking"),
+					.nickname = _("NIDOKING"),
 					.friendship = 255
 				},
 				{
@@ -2390,7 +2390,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_5 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Rapidash"),
+					.nickname = _("RAPIDASH"),
 					.friendship = 255
 				},
 			}
@@ -2408,8 +2408,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_8 = {
 	.prize = TTPRIZE_METAL_COAT,
 	.trainers = {
 	    {
-			.name = _("Lily"),
-			.facilityClass = FACILITY_CLASS_PKMN_BREEDER_3,
+			.name = _("LILY"),
+			.facilityClass = FACILITY_CLASS_PKMN_BREEDER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_I, EC_WORD_WANT, EC_WORD_SOMETHING, EC_WORD_IN, EC_MOVE(RETURN), EC_WORD_EXCL},
 			.speechWin = {EC_WORD_I, EC_WORD_BELIEVE, EC_WORD_IN, EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_EXCL},
@@ -2435,7 +2435,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_8 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Clefairy"),
+					.nickname = _("CLEFAIRY"),
 					.friendship = 255
 				},
 				{
@@ -2457,7 +2457,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_8 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Togepi"),
+					.nickname = _("TOGEPI"),
 					.friendship = 255
 				},
 				{
@@ -2479,7 +2479,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_8 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Meowth"),
+					.nickname = _("MEOWTH"),
 					.friendship = 255
 				},
 				{
@@ -2501,7 +2501,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_8 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Jigglypuff"),
+					.nickname = _("JIGGLYPUFF"),
 					.friendship = 255
 				},
 				{
@@ -2523,7 +2523,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_8 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x25, // MALE SERIOUS
-					.nickname = _("Snorlax"),
+					.nickname = _("SNORLAX"),
 					.friendship = 255
 				},
 				{
@@ -2545,7 +2545,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_8 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Snubbull"),
+					.nickname = _("SNUBBULL"),
 					.friendship = 255
 				},
 			}
@@ -2563,8 +2563,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_2 = {
 	.prize = TTPRIZE_UP_GRADE,
 	.trainers = {
 	    {
-			.name = _("Brandon"),
-			.facilityClass = FACILITY_CLASS_BUG_CATCHER_2,
+			.name = _("BRANDON"),
+			.facilityClass = FACILITY_CLASS_BUG_CATCHER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_POISON, EC_WORD_IS, EC_WORD_JUST, EC_WORD_SO, EC_WORD_AWFUL, EC_WORD_ISN_T_IT_QUES},
 			.speechWin = {EC_WORD_SEE, EC_WORD_QUES, EC_WORD_ISN_T, EC_WORD_POISON, EC_WORD_TERRIBLE, EC_WORD_QUES},
@@ -2590,7 +2590,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Butterfree"),
+					.nickname = _("BUTTERFREE"),
 					.friendship = 255
 				},
 				{
@@ -2612,7 +2612,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Beedrill"),
+					.nickname = _("BEEDRILL"),
 					.friendship = 255
 				},
 				{
@@ -2634,7 +2634,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Parasect"),
+					.nickname = _("PARASECT"),
 					.friendship = 255
 				},
 				{
@@ -2656,7 +2656,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 1,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Yanma"),
+					.nickname = _("YANMA"),
 					.friendship = 255
 				},
 				{
@@ -2678,7 +2678,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Shuckle"),
+					.nickname = _("SHUCKLE"),
 					.friendship = 255
 				},
 				{
@@ -2700,7 +2700,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Forretress"),
+					.nickname = _("FORRETRESS"),
 					.friendship = 255
 				},
 			}
@@ -2718,7 +2718,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 	.prize = TTPRIZE_IRON,
 	.trainers = {
 	    {
-			.name = _("Ric & Rene"),
+			.name = _("RIC & RENE"),
 			.facilityClass = FACILITY_CLASS_CRUSH_KIN,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_MY, EC_WORD_BIG, EC_WORD_BROTHER, EC_WORD_IS, EC_WORD_REALLY, EC_WORD_AWESOME},
@@ -2745,7 +2745,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x02, // MALE BRAVE
-					.nickname = _("Hitmonlee"),
+					.nickname = _("HITMONLEE"),
 					.friendship = 255
 				},
 				{
@@ -2767,7 +2767,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x7F, // MALE BRAVE
-					.nickname = _("Rhydon"),
+					.nickname = _("RHYDON"),
 					.friendship = 255
 				},
 				{
@@ -2789,7 +2789,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Golem"),
+					.nickname = _("GOLEM"),
 					.friendship = 255
 				},
 				{
@@ -2811,7 +2811,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x4F, // MALE NAUGHTY
-					.nickname = _("Magmar"),
+					.nickname = _("MAGMAR"),
 					.friendship = 255
 				},
 				{
@@ -2833,7 +2833,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x7F, // MALE BRAVE
-					.nickname = _("Heracross"),
+					.nickname = _("HERACROSS"),
 					.friendship = 255
 				},
 				{
@@ -2855,13 +2855,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x97, // MALE LONELY
-					.nickname = _("Poliwrath"),
+					.nickname = _("POLIWRATH"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Ric & Rene"),
+			.name = _("RIC & RENE"),
 			.facilityClass = FACILITY_CLASS_CRUSH_KIN,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_REALLY, EC_WORD_AWESOME, EC_WORD_EXCL, 0xFFFF, 0xFFFF},
@@ -2888,7 +2888,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x4E, // MALE ADAMANT
-					.nickname = _("Machamp"),
+					.nickname = _("MACHAMP"),
 					.friendship = 255
 				},
 				{
@@ -2910,7 +2910,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Pinsir"),
+					.nickname = _("PINSIR"),
 					.friendship = 255
 				},
 				{
@@ -2932,7 +2932,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Marowak"),
+					.nickname = _("MAROWAK"),
 					.friendship = 255
 				},
 				{
@@ -2954,7 +2954,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x03, // MALE ADAMANT
-					.nickname = _("Hitmonchan"),
+					.nickname = _("HITMONCHAN"),
 					.friendship = 255
 				},
 				{
@@ -2976,7 +2976,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x4F, // MALE NAUGHTY
-					.nickname = _("Electabuzz"),
+					.nickname = _("ELECTABUZZ"),
 					.friendship = 255
 				},
 				{
@@ -2998,7 +2998,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x97, // MALE LONELY
-					.nickname = _("Poliwrath"),
+					.nickname = _("POLIWRATH"),
 					.friendship = 255
 				},
 			}
@@ -3015,8 +3015,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 	.prize = TTPRIZE_DRAGON_SCALE,
 	.trainers = {
 	    {
-			.name = _("Jen & Kira"),
-			.facilityClass = FACILITY_CLASS_TWINS_2,
+			.name = _("JEN & KIRA"),
+			.facilityClass = FACILITY_CLASS_TWINS,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_TRY, EC_WORD_HARD, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_EHEHE, EC_WORD_YAY, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF},
@@ -3042,7 +3042,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x29, // MALE MILD
-					.nickname = _("Jolteon"),
+					.nickname = _("JOLTEON"),
 					.friendship = 255
 				},
 				{
@@ -3064,7 +3064,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x29, // MALE MILD
-					.nickname = _("Espeon"),
+					.nickname = _("ESPEON"),
 					.friendship = 255
 				},
 				{
@@ -3086,7 +3086,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x33, // MALE LONELY
-					.nickname = _("Flareon"),
+					.nickname = _("FLAREON"),
 					.friendship = 255
 				},
 				{
@@ -3108,7 +3108,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x10, // FEMALE MILD
-					.nickname = _("Vaporeon"),
+					.nickname = _("VAPOREON"),
 					.friendship = 255
 				},
 				{
@@ -3130,7 +3130,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x10, // FEMALE MILD
-					.nickname = _("Eevee"),
+					.nickname = _("EEVEE"),
 					.friendship = 255
 				},
 				{
@@ -3152,14 +3152,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x10, // FEMALE MILD
-					.nickname = _("Umbreon"),
+					.nickname = _("UMBREON"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Jen & Kira"),
-			.facilityClass = FACILITY_CLASS_TWINS_2,
+			.name = _("JEN & KIRA"),
+			.facilityClass = FACILITY_CLASS_TWINS,
 			.textColor = 3,
 			.speechBefore = {EC_WORD_LET_S, EC_WORD_TRY, EC_WORD_HARD, EC_WORD_EXCL, 0xFFFF, 0xFFFF},
 			.speechWin = {EC_WORD_GIGGLE, EC_WORD_ELLIPSIS, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF},
@@ -3185,7 +3185,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Jolteon"),
+					.nickname = _("JOLTEON"),
 					.friendship = 255
 				},
 				{
@@ -3207,7 +3207,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Espeon"),
+					.nickname = _("ESPEON"),
 					.friendship = 255
 				},
 				{
@@ -3229,7 +3229,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Flareon"),
+					.nickname = _("FLAREON"),
 					.friendship = 255
 				},
 				{
@@ -3251,7 +3251,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x23, // MALE TIMID
-					.nickname = _("Vaporeon"),
+					.nickname = _("VAPOREON"),
 					.friendship = 255
 				},
 				{
@@ -3273,7 +3273,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x23, // MALE TIMID
-					.nickname = _("Eevee"),
+					.nickname = _("EEVEE"),
 					.friendship = 255
 				},
 				{
@@ -3295,7 +3295,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_1 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x23, // MALE TIMID
-					.nickname = _("Umbreon"),
+					.nickname = _("UMBREON"),
 					.friendship = 255
 				},
 			}
@@ -3312,7 +3312,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 	.prize = TTPRIZE_MENTAL_HERB,
 	.trainers = {
 	    {
-			.name = _("Isac & Mag"),
+			.name = _("ISAC & MAG"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_OUR, EC_MOVE(EARTHQUAKE), EC_WORD_WILL, EC_WORD_MAKE, EC_WORD_YOU, EC_WORD_SHAKY},
@@ -3339,7 +3339,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x03, // MALE ADAMANT
-					.nickname = _("Nidoking"),
+					.nickname = _("NIDOKING"),
 					.friendship = 255
 				},
 				{
@@ -3361,7 +3361,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Gligar"),
+					.nickname = _("GLIGAR"),
 					.friendship = 255
 				},
 				{
@@ -3383,7 +3383,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Quagsire"),
+					.nickname = _("QUAGSIRE"),
 					.friendship = 0
 				},
 				{
@@ -3405,7 +3405,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Piloswine"),
+					.nickname = _("PILOSWINE"),
 					.friendship = 255
 				},
 				{
@@ -3427,7 +3427,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Golem"),
+					.nickname = _("GOLEM"),
 					.friendship = 255
 				},
 				{
@@ -3449,13 +3449,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Steelix"),
+					.nickname = _("STEELIX"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Isac & Mag"),
+			.name = _("ISAC & MAG"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_MY, EC_WORD_POKEMON, EC_WORD_DOESN_T, EC_WORD_GET, EC_WORD_ALL, EC_WORD_SHAKY},
@@ -3482,7 +3482,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Skarmory"),
+					.nickname = _("SKARMORY"),
 					.friendship = 255
 				},
 				{
@@ -3504,7 +3504,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Mantine"),
+					.nickname = _("MANTINE"),
 					.friendship = 255
 				},
 				{
@@ -3526,7 +3526,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Jumpluff"),
+					.nickname = _("JUMPLUFF"),
 					.friendship = 255
 				},
 				{
@@ -3548,7 +3548,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Gengar"),
+					.nickname = _("GENGAR"),
 					.friendship = 255
 				},
 				{
@@ -3570,7 +3570,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Crobat"),
+					.nickname = _("CROBAT"),
 					.friendship = 255
 				},
 				{
@@ -3592,7 +3592,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_4 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Xatu"),
+					.nickname = _("XATU"),
 					.friendship = 255
 				},
 			}
@@ -3609,8 +3609,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 	.prize = TTPRIZE_BRIGHT_POWDER,
 	.trainers = {
 	    {
-			.name = _("Chelsea"),
-			.facilityClass = FACILITY_CLASS_PKMN_RANGER_4,
+			.name = _("CHELSEA"),
+			.facilityClass = FACILITY_CLASS_PKMN_RANGER_F,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_THE, EC_WORD_GREEN, EC_WORD_WORLD, EC_WORD_IS, EC_WORD_IMPORTANT, EC_WORD_ISN_T_IT_QUES},
 			.speechWin = {EC_WORD_YOU, EC_WORD_TAKE, EC_WORD_THE, EC_WORD_LOSS, 0xFFFF, 0xFFFF},
@@ -3636,7 +3636,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Vileplume"),
+					.nickname = _("VILEPLUME"),
 					.friendship = 255
 				},
 				{
@@ -3658,7 +3658,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x10, // GENDERLESS MILD
-					.nickname = _("Starmie"),
+					.nickname = _("STARMIE"),
 					.friendship = 255
 				},
 				{
@@ -3680,7 +3680,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x01, // FEMALE LONELY
-					.nickname = _("Ursaring"),
+					.nickname = _("URSARING"),
 					.friendship = 255
 				},
 				{
@@ -3702,7 +3702,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x01, // FEMALE LONELY
-					.nickname = _("Noctowl"),
+					.nickname = _("NOCTOWL"),
 					.friendship = 255
 				},
 				{
@@ -3724,7 +3724,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x10, // FEMALE MILD
-					.nickname = _("Ninetales"),
+					.nickname = _("NINETALES"),
 					.friendship = 255
 				},
 				{
@@ -3746,14 +3746,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x01, // FEMALE LONELY
-					.nickname = _("Ledian"),
+					.nickname = _("LEDIAN"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Trenton"),
-			.facilityClass = FACILITY_CLASS_PKMN_RANGER_3,
+			.name = _("TRENTON"),
+			.facilityClass = FACILITY_CLASS_PKMN_RANGER_M,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_I, EC_MOVE2(PROTECT), EC_WORD_THE, EC_WORD_GREAT, EC_WORD_GREEN, EC_WORD_WORLD},
 			.speechWin = {EC_WORD_TAKE_THAT, EC_WORD_EXCL, EC_WORD_THE, EC_WORD_LOSS, EC_WORD_IS, EC_WORD_YOURS},
@@ -3779,7 +3779,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x88, // MALE HASTY
-					.nickname = _("Gyarados"),
+					.nickname = _("GYARADOS"),
 					.friendship = 255
 				},
 				{
@@ -3801,7 +3801,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x8E, // MALE QUIET
-					.nickname = _("Victreebel"),
+					.nickname = _("VICTREEBEL"),
 					.friendship = 255
 				},
 				{
@@ -3823,7 +3823,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x97, // MALE LONELY
-					.nickname = _("Donphan"),
+					.nickname = _("DONPHAN"),
 					.friendship = 255
 				},
 				{
@@ -3845,7 +3845,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x97, // MALE LONELY
-					.nickname = _("Fearow"),
+					.nickname = _("FEAROW"),
 					.friendship = 255
 				},
 				{
@@ -3867,7 +3867,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x4F, // MALE NAUGHTY
-					.nickname = _("Arcanine"),
+					.nickname = _("ARCANINE"),
 					.friendship = 255
 				},
 				{
@@ -3889,14 +3889,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x97, // MALE LONELY
-					.nickname = _("Ariados"),
+					.nickname = _("ARIADOS"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Albert"),
-			.facilityClass = FACILITY_CLASS_COOLTRAINER_3,
+			.name = _("ALBERT"),
+			.facilityClass = FACILITY_CLASS_COOLTRAINER_M,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_LET_S, EC_WORD_HAVE, EC_WORD_AN, EC_WORD_EXCITING, EC_WORD_TIME, EC_WORD_HERE},
 			.speechWin = {EC_WORD_YOU_RE, EC_WORD_TOO_WEAK, EC_WORD_TO, EC_WORD_MAKE, EC_WORD_THINGS, EC_WORD_EXCITING},
@@ -3922,7 +3922,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x15, // FEMALE GENTLE
-					.nickname = _("Kingdra"),
+					.nickname = _("KINGDRA"),
 					.friendship = 255
 				},
 				{
@@ -3944,7 +3944,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x7F, // MALE BRAVE
-					.nickname = _("Golem"),
+					.nickname = _("GOLEM"),
 					.friendship = 255
 				},
 				{
@@ -3966,7 +3966,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x01, // FEMALE LONELY
-					.nickname = _("Dragonite"),
+					.nickname = _("DRAGONITE"),
 					.friendship = 255
 				},
 				{
@@ -3988,7 +3988,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x97, // MALE LONELY
-					.nickname = _("Tyranitar"),
+					.nickname = _("TYRANITAR"),
 					.friendship = 255
 				},
 				{
@@ -4010,7 +4010,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x13, // FEMALE RASH
-					.nickname = _("Ampharos"),
+					.nickname = _("AMPHAROS"),
 					.friendship = 255
 				},
 				{
@@ -4032,7 +4032,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_8 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x2A, // MALE QUIET
-					.nickname = _("Venusaur"),
+					.nickname = _("VENUSAUR"),
 					.friendship = 255
 				},
 			}
@@ -4048,8 +4048,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 	.prize = TTPRIZE_CALCIUM,
 	.trainers = {
 	    {
-			.name = _("Camryn"),
-			.facilityClass = FACILITY_CLASS_PICNICKER_2,
+			.name = _("CAMRYN"),
+			.facilityClass = FACILITY_CLASS_PICNICKER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_LET_S, EC_WORD_BATTLE, EC_WORD_I, EC_WORD_WON_T, EC_WORD_LOSE, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_I, EC_WORD_SAID, EC_WORD_THAT, EC_WORD_I, EC_WORD_WOULD, EC_WORD_WIN},
@@ -4075,7 +4075,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Murkrow"),
+					.nickname = _("MURKROW"),
 					.friendship = 255
 				},
 				{
@@ -4097,7 +4097,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Rapidash"),
+					.nickname = _("RAPIDASH"),
 					.friendship = 255
 				},
 				{
@@ -4119,7 +4119,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Miltank"),
+					.nickname = _("MILTANK"),
 					.friendship = 255
 				},
 				{
@@ -4141,7 +4141,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Golduck"),
+					.nickname = _("GOLDUCK"),
 					.friendship = 255
 				},
 				{
@@ -4163,7 +4163,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Sandslash"),
+					.nickname = _("SANDSLASH"),
 					.friendship = 255
 				},
 				{
@@ -4185,14 +4185,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Nidoqueen"),
+					.nickname = _("NIDOQUEEN"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Natalia"),
-			.facilityClass = FACILITY_CLASS_AROMA_LADY_2,
+			.name = _("NATALIA"),
+			.facilityClass = FACILITY_CLASS_AROMA_LADY,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_THIS, EC_MOVE(SWEET_SCENT), EC_WORD_YOU, EC_WORD_LIKE, EC_WORD_IT, EC_WORD_QUES},
 			.speechWin = {EC_WORD_WASN_T, EC_WORD_THAT, EC_WORD_NICE, EC_WORD_QUES, 0xFFFF, 0xFFFF},
@@ -4218,7 +4218,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Bellossom"),
+					.nickname = _("BELLOSSOM"),
 					.friendship = 255
 				},
 				{
@@ -4240,7 +4240,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Victreebel"),
+					.nickname = _("VICTREEBEL"),
 					.friendship = 255
 				},
 				{
@@ -4262,7 +4262,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Parasect"),
+					.nickname = _("PARASECT"),
 					.friendship = 255
 				},
 				{
@@ -4284,7 +4284,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Vileplume"),
+					.nickname = _("VILEPLUME"),
 					.friendship = 255
 				},
 				{
@@ -4306,7 +4306,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Venusaur"),
+					.nickname = _("VENUSAUR"),
 					.friendship = 255
 				},
 				{
@@ -4328,14 +4328,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x25, // MALE SERIOUS
-					.nickname = _("Meganium"),
+					.nickname = _("MEGANIUM"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Kathleen"),
-			.facilityClass = FACILITY_CLASS_COOLTRAINER_4,
+			.name = _("KATHLEEN"),
+			.facilityClass = FACILITY_CLASS_COOLTRAINER_F,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_TOO, EC_WORD_BAD, EC_WORD_IT_S, EC_WORD_OVER, EC_WORD_FOR, EC_WORD_YOU},
 			.speechWin = {EC_WORD_SORRY, EC_WORD_ELLIPSIS, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF},
@@ -4361,7 +4361,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Marowak"),
+					.nickname = _("MAROWAK"),
 					.friendship = 255
 				},
 				{
@@ -4383,7 +4383,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Lapras"),
+					.nickname = _("LAPRAS"),
 					.friendship = 255
 				},
 				{
@@ -4405,7 +4405,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x57, // MALE SERIOUS
-					.nickname = _("Arcanine"),
+					.nickname = _("ARCANINE"),
 					.friendship = 255
 				},
 				{
@@ -4427,7 +4427,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x89, // MALE SERIOUS
-					.nickname = _("Raichu"),
+					.nickname = _("RAICHU"),
 					.friendship = 255
 				},
 				{
@@ -4449,7 +4449,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Togetic"),
+					.nickname = _("TOGETIC"),
 					.friendship = 255
 				},
 				{
@@ -4471,7 +4471,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_3 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0C, // FEMALE SERIOUS
-					.nickname = _("Snorlax"),
+					.nickname = _("SNORLAX"),
 					.friendship = 255
 				},
 			}
@@ -4487,8 +4487,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_6 = {
 	.prize = TTPRIZE_CARBOS,
 	.trainers = {
 	    {
-			.name = _("Braden"),
-			.facilityClass = FACILITY_CLASS_SWIMMER_MALE_2,
+			.name = _("BRADEN"),
+			.facilityClass = FACILITY_CLASS_SWIMMER_M,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_PRETTY, EC_WORD_HAPPY, EC_WORD_WITH, EC_WORD_MY, EC_WORD_TOUGHNESS},
 			.speechWin = {EC_WORD_WROOOAAR_EXCL, 0xFFFF, EC_WORD_SERIOUSLY, EC_WORD_I, EC_WORD_WON, EC_WORD_QUES},
@@ -4514,7 +4514,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Vaporeon"),
+					.nickname = _("VAPOREON"),
 					.friendship = 255
 				},
 				{
@@ -4536,7 +4536,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x91, // MALE CALM
-					.nickname = _("Slowbro"),
+					.nickname = _("SLOWBRO"),
 					.friendship = 255
 				},
 				{
@@ -4558,7 +4558,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Politoed"),
+					.nickname = _("POLITOED"),
 					.friendship = 255
 				},
 				{
@@ -4580,7 +4580,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Tentacruel"),
+					.nickname = _("TENTACRUEL"),
 					.friendship = 255
 				},
 				{
@@ -4602,7 +4602,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Raticate"),
+					.nickname = _("RATICATE"),
 					.friendship = 255
 				},
 				{
@@ -4624,7 +4624,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x7F, // MALE BRAVE
-					.nickname = _("Dunsparce"),
+					.nickname = _("DUNSPARCE"),
 					.friendship = 255
 				},
 			}
@@ -4642,8 +4642,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_1 = {
 	.prize = TTPRIZE_KINGS_ROCK,
 	.trainers = {
 	    {
-			.name = _("Allyson"),
-			.facilityClass = FACILITY_CLASS_COOLTRAINER_4,
+			.name = _("ALLYSON"),
+			.facilityClass = FACILITY_CLASS_COOLTRAINER_F,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_NOT, EC_WORD_ABOUT, EC_WORD_TO, EC_WORD_LOSE, EC_WORD_TODAY},
 			.speechWin = {EC_WORD_YES, EC_WORD_EXCL_EXCL, EC_WORD_I, EC_WORD_ADORE, EC_WORD_MYSELF, EC_WORD_TODAY},
@@ -4669,7 +4669,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_1 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x0F, // GENDERLESS MODEST
-					.nickname = _("Starmie"),
+					.nickname = _("STARMIE"),
 					.friendship = 255
 				},
 				{
@@ -4691,7 +4691,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_1 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x32, // MALE HARDY
-					.nickname = _("Blastoise"),
+					.nickname = _("BLASTOISE"),
 					.friendship = 255
 				},
 				{
@@ -4713,7 +4713,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_1 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x8C, // MALE MODEST
-					.nickname = _("Kingdra"),
+					.nickname = _("KINGDRA"),
 					.friendship = 255
 				},
 				{
@@ -4735,7 +4735,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_1 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Quagsire"),
+					.nickname = _("QUAGSIRE"),
 					.friendship = 255
 				},
 				{
@@ -4757,7 +4757,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_1 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Lapras"),
+					.nickname = _("LAPRAS"),
 					.friendship = 255
 				},
 				{
@@ -4779,7 +4779,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_1 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Dragonite"),
+					.nickname = _("DRAGONITE"),
 					.friendship = 255
 				},
 			}
@@ -4797,8 +4797,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_1 = {
 	.prize = TTPRIZE_UP_GRADE,
 	.trainers = {
 	    {
-			.name = _("Alberto"),
-			.facilityClass = FACILITY_CLASS_SAILOR_2,
+			.name = _("ALBERTO"),
+			.facilityClass = FACILITY_CLASS_SAILOR,
 			.textColor = 5,
 			.speechBefore = {EC_WORD_LET_S, EC_WORD_GET, EC_WORD_WITH, EC_WORD_IT, EC_WORD_RIGHT, EC_WORD_AWAY},
 			.speechWin = {EC_WORD_YO, EC_WORD_EXCL_EXCL, EC_WORD_YOU, EC_WORD_GIVE_UP, EC_WORD_NOW, EC_WORD_EH_QUES},
@@ -4824,7 +4824,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x32, // MALE HARDY
-					.nickname = _("Feraligatr"),
+					.nickname = _("FERALIGATR"),
 					.friendship = 255
 				},
 				{
@@ -4846,7 +4846,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 1,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Poliwrath"),
+					.nickname = _("POLIWRATH"),
 					.friendship = 255
 				},
 				{
@@ -4868,7 +4868,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Kangaskhan"),
+					.nickname = _("KANGASKHAN"),
 					.friendship = 255
 				},
 				{
@@ -4890,7 +4890,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Miltank"),
+					.nickname = _("MILTANK"),
 					.friendship = 255
 				},
 				{
@@ -4912,7 +4912,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 1,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Golduck"),
+					.nickname = _("GOLDUCK"),
 					.friendship = 255
 				},
 				{
@@ -4934,7 +4934,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0xCA, // MALE BRAVE
-					.nickname = _("Granbull"),
+					.nickname = _("GRANBULL"),
 					.friendship = 255
 				},
 			}
@@ -4952,8 +4952,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 	.prize = TTPRIZE_METAL_COAT,
 	.trainers = {
 	    {
-			.name = _("Kat & Kipp"),
-			.facilityClass = FACILITY_CLASS_SIS_AND_BRO_2,
+			.name = _("KAT & KIPP"),
+			.facilityClass = FACILITY_CLASS_SIS_AND_BRO,
 			.textColor = 4,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_GOING, EC_WORD_TO, EC_WORD_TRY, EC_WORD_MY, EC_WORD_BEST},
 			.speechWin = {EC_WORD_WAY, EC_WORD_TO, EC_WORD_GO, EC_WORD_MY, EC_WORD_AWESOME, EC_WORD_BROTHER},
@@ -4979,7 +4979,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Sneasel"),
+					.nickname = _("SNEASEL"),
 					.friendship = 255
 				},
 				{
@@ -5001,7 +5001,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x2D, // MALE CALM
-					.nickname = _("Omastar"),
+					.nickname = _("OMASTAR"),
 					.friendship = 255
 				},
 				{
@@ -5023,7 +5023,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x14, // FEMALE CALM
-					.nickname = _("Dewgong"),
+					.nickname = _("DEWGONG"),
 					.friendship = 255
 				},
 				{
@@ -5045,7 +5045,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x91, // MALE CALM
-					.nickname = _("Quagsire"),
+					.nickname = _("QUAGSIRE"),
 					.friendship = 255
 				},
 				{
@@ -5067,7 +5067,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x17, // FEMALE CAREFUL
-					.nickname = _("Corsola"),
+					.nickname = _("CORSOLA"),
 					.friendship = 255
 				},
 				{
@@ -5089,14 +5089,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x94, // MALE CAREFUL
-					.nickname = _("Sandslash"),
+					.nickname = _("SANDSLASH"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Kat & Kipp"),
-			.facilityClass = FACILITY_CLASS_SIS_AND_BRO_2,
+			.name = _("KAT & KIPP"),
+			.facilityClass = FACILITY_CLASS_SIS_AND_BRO,
 			.textColor = 4,
 			.speechBefore = {EC_WORD_FUFUFU, EC_WORD_ELLIPSIS, EC_WORD_WE, EC_WORD_NEVER, EC_WORD_LOSE, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_FUFUFU, EC_WORD_ELLIPSIS, EC_WORD_WE_RE, EC_WORD_TOO_STRONG, EC_WORD_TO, EC_WORD_LOSE},
@@ -5122,7 +5122,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Furret"),
+					.nickname = _("FURRET"),
 					.friendship = 255
 				},
 				{
@@ -5144,7 +5144,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x14, // FEMALE CALM
-					.nickname = _("Azumarill"),
+					.nickname = _("AZUMARILL"),
 					.friendship = 255
 				},
 				{
@@ -5166,7 +5166,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x91, // MALE CALM
-					.nickname = _("Kingler"),
+					.nickname = _("KINGLER"),
 					.friendship = 255
 				},
 				{
@@ -5188,7 +5188,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x14, // FEMALE CALM
-					.nickname = _("Cloyster"),
+					.nickname = _("CLOYSTER"),
 					.friendship = 255
 				},
 				{
@@ -5210,7 +5210,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x94, // MALE CAREFUL
-					.nickname = _("Quagsire"),
+					.nickname = _("QUAGSIRE"),
 					.friendship = 255
 				},
 				{
@@ -5232,7 +5232,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_5 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x30, // MALE CAREFUL
-					.nickname = _("Kabutops"),
+					.nickname = _("KABUTOPS"),
 					.friendship = 255
 				},
 			}
@@ -5249,7 +5249,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 	.prize = TTPRIZE_MENTAL_HERB,
 	.trainers = {
 	    {
-			.name = _("Geb&Megan"),
+			.name = _("GEB&MEGAN"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_YOU_RE, EC_WORD_OUR, EC_WORD_OPPONENT, EC_WORD_QUES, EC_WORD_PUSHOVER, EC_WORD_HAHAHA},
@@ -5276,7 +5276,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x8C, // MALE MODEST
-					.nickname = _("Politoed"),
+					.nickname = _("POLITOED"),
 					.friendship = 255
 				},
 				{
@@ -5298,7 +5298,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Gyarados"),
+					.nickname = _("GYARADOS"),
 					.friendship = 255
 				},
 				{
@@ -5320,7 +5320,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Lapras"),
+					.nickname = _("LAPRAS"),
 					.friendship = 255
 				},
 				{
@@ -5342,7 +5342,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Nidoqueen"),
+					.nickname = _("NIDOQUEEN"),
 					.friendship = 255
 				},
 				{
@@ -5364,7 +5364,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Jynx"),
+					.nickname = _("JYNX"),
 					.friendship = 255
 				},
 				{
@@ -5386,13 +5386,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x8C, // MALE MODEST
-					.nickname = _("Girafarig"),
+					.nickname = _("GIRAFARIG"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Geb&Megan"),
+			.name = _("GEB&MEGAN"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 7,
 			.speechBefore = {EC_WORD_YOU_RE, EC_WORD_OUR, EC_WORD_FOE, EC_WORD_QUES, EC_WORD_GIGGLE, EC_WORD_ELLIPSIS},
@@ -5419,7 +5419,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x94, // MALE CAREFUL
-					.nickname = _("Marowak"),
+					.nickname = _("MAROWAK"),
 					.friendship = 255
 				},
 				{
@@ -5441,7 +5441,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Ursaring"),
+					.nickname = _("URSARING"),
 					.friendship = 255
 				},
 				{
@@ -5463,7 +5463,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Slowking"),
+					.nickname = _("SLOWKING"),
 					.friendship = 255
 				},
 				{
@@ -5485,7 +5485,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x41, // MALE MODEST
-					.nickname = _("Alakazam"),
+					.nickname = _("ALAKAZAM"),
 					.friendship = 255
 				},
 				{
@@ -5507,7 +5507,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x00, // MALE HARDY
-					.nickname = _("Nidoking"),
+					.nickname = _("NIDOKING"),
 					.friendship = 255
 				},
 				{
@@ -5529,7 +5529,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_8 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x93, // MALE SASSY
-					.nickname = _("Rhydon"),
+					.nickname = _("RHYDON"),
 					.friendship = 255
 				},
 			}
@@ -5546,8 +5546,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 	.prize = TTPRIZE_ZINC,
 	.trainers = {
 	    {
-			.name = _("Lisa&Leah"),
-			.facilityClass = FACILITY_CLASS_TWINS_2,
+			.name = _("LISA&LEAH"),
+			.facilityClass = FACILITY_CLASS_TWINS,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_ABSOLUTELY, EC_WORD_WE_RE, EC_WORD_GOING, EC_WORD_TO, EC_WORD_WIN, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_YEAH_YEAH, EC_WORD_EXCL_EXCL, 0xFFFF, 0xFFFF, 0xFFFF, 0xFFFF},
@@ -5573,7 +5573,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x87, // MALE TIMID
-					.nickname = _("Poliwag"),
+					.nickname = _("POLIWAG"),
 					.friendship = 255
 				},
 				{
@@ -5595,7 +5595,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x2D, // MALE CALM
-					.nickname = _("Squirtle"),
+					.nickname = _("SQUIRTLE"),
 					.friendship = 255
 				},
 				{
@@ -5617,7 +5617,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Chinchou"),
+					.nickname = _("CHINCHOU"),
 					.friendship = 255
 				},
 				{
@@ -5639,7 +5639,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Nidoran♀"),
+					.nickname = _("NIDORAN♀"),
 					.friendship = 255
 				},
 				{
@@ -5661,7 +5661,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Clefairy"),
+					.nickname = _("CLEFAIRY"),
 					.friendship = 255
 				},
 				{
@@ -5683,14 +5683,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x2D, // MALE CALM
-					.nickname = _("Horsea"),
+					.nickname = _("HORSEA"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Lisa&Leah"),
-			.facilityClass = FACILITY_CLASS_TWINS_2,
+			.name = _("LISA&LEAH"),
+			.facilityClass = FACILITY_CLASS_TWINS,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_CAN, EC_WORD_WE, EC_WORD_WIN, EC_WORD_QUES, EC_WORD_IT_S, EC_WORD_EXCITING},
 			.speechWin = {EC_WORD_YEAH_YEAH, EC_WORD_EXCL_EXCL, EC_WORD_YOU, EC_WORD_MAKE, EC_WORD_ME, EC_WORD_HAPPY},
@@ -5716,7 +5716,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x93, // MALE SASSY
-					.nickname = _("Wooper"),
+					.nickname = _("WOOPER"),
 					.friendship = 255
 				},
 				{
@@ -5738,7 +5738,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 1,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Psyduck"),
+					.nickname = _("PSYDUCK"),
 					.friendship = 255
 				},
 				{
@@ -5760,7 +5760,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Snubbull"),
+					.nickname = _("SNUBBULL"),
 					.friendship = 255
 				},
 				{
@@ -5782,7 +5782,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Jigglypuff"),
+					.nickname = _("JIGGLYPUFF"),
 					.friendship = 255
 				},
 				{
@@ -5804,7 +5804,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x00, // MALE HARDY
-					.nickname = _("Nidoran♂"),
+					.nickname = _("NIDORAN♂"),
 					.friendship = 255
 				},
 				{
@@ -5826,7 +5826,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused1 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x2D, // MALE CALM
-					.nickname = _("Totodile"),
+					.nickname = _("TOTODILE"),
 					.friendship = 255
 				},
 			}
@@ -5843,8 +5843,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 	.prize = TTPRIZE_PROTEIN,
 	.trainers = {
 	    {
-			.name = _("Priscilla"),
-			.facilityClass = FACILITY_CLASS_TUBER_3,
+			.name = _("PRISCILLA"),
+			.facilityClass = FACILITY_CLASS_TUBER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_A_LITTLE, EC_WORD_POKEMON, EC_WORD_GIRL, EC_WORD_HERE_I_COME, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_WAAAH, EC_WORD_EXCL, EC_WORD_DID, EC_WORD_I, EC_WORD_WIN, EC_WORD_QUES},
@@ -5870,7 +5870,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Goldeen"),
+					.nickname = _("GOLDEEN"),
 					.friendship = 0
 				},
 				{
@@ -5892,7 +5892,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Seaking"),
+					.nickname = _("SEAKING"),
 					.friendship = 0
 				},
 				{
@@ -5914,7 +5914,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x8C, // MALE MODEST
-					.nickname = _("Lanturn"),
+					.nickname = _("LANTURN"),
 					.friendship = 0
 				},
 				{
@@ -5936,7 +5936,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Lanturn"),
+					.nickname = _("LANTURN"),
 					.friendship = 0
 				},
 				{
@@ -5958,7 +5958,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Goldeen"),
+					.nickname = _("GOLDEEN"),
 					.friendship = 0
 				},
 				{
@@ -5980,14 +5980,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Seaking"),
+					.nickname = _("SEAKING"),
 					.friendship = 0
 				},
 			}
 		},
 		{
-			.name = _("Charlotte"),
-			.facilityClass = FACILITY_CLASS_LADY_2,
+			.name = _("CHARLOTTE"),
+			.facilityClass = FACILITY_CLASS_LADY,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_HELLO, EC_WORD_THERE, EC_WORD_I_AM, EC_WORD_A, EC_WORD_POKEMON, EC_WORD_LADY},
 			.speechWin = {EC_WORD_OH, EC_WORD_MY, EC_WORD_MY, EC_WORD_ELLIPSIS, EC_WORD_I_AM, EC_WORD_SORRY},
@@ -6013,7 +6013,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Octillery"),
+					.nickname = _("OCTILLERY"),
 					.friendship = 255
 				},
 				{
@@ -6035,7 +6035,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x14, // FEMALE CALM
-					.nickname = _("Qwilfish"),
+					.nickname = _("QWILFISH"),
 					.friendship = 255
 				},
 				{
@@ -6057,7 +6057,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Remoraid"),
+					.nickname = _("REMORAID"),
 					.friendship = 255
 				},
 				{
@@ -6079,7 +6079,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Remoraid"),
+					.nickname = _("REMORAID"),
 					.friendship = 255
 				},
 				{
@@ -6101,7 +6101,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x93, // MALE SASSY
-					.nickname = _("Octillery"),
+					.nickname = _("OCTILLERY"),
 					.friendship = 255
 				},
 				{
@@ -6123,14 +6123,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Qwilfish"),
+					.nickname = _("QWILFISH"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Shania"),
-			.facilityClass = FACILITY_CLASS_SWIMMER_FEMALE_2,
+			.name = _("SHANIA"),
+			.facilityClass = FACILITY_CLASS_SWIMMER_F,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_A, EC_WORD_POKEMON, EC_WORD_HEROINE, EC_WORD_THAT_S, EC_WORD_WHAT, EC_WORD_I_AM},
 			.speechWin = {EC_WORD_AHAHA, EC_WORD_NO, EC_WORD_WAY, EC_WORD_YOU_RE, EC_WORD_TOO_WEAK, EC_WORD_SERIOUSLY},
@@ -6156,7 +6156,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Mantine"),
+					.nickname = _("MANTINE"),
 					.friendship = 255
 				},
 				{
@@ -6178,7 +6178,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Magikarp"),
+					.nickname = _("MAGIKARP"),
 					.friendship = 255
 				},
 				{
@@ -6200,7 +6200,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Mantine"),
+					.nickname = _("MANTINE"),
 					.friendship = 255
 				},
 				{
@@ -6222,7 +6222,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Gyarados"),
+					.nickname = _("GYARADOS"),
 					.friendship = 255
 				},
 				{
@@ -6244,7 +6244,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x94, // MALE CAREFUL
-					.nickname = _("Magikarp"),
+					.nickname = _("MAGIKARP"),
 					.friendship = 255
 				},
 				{
@@ -6266,7 +6266,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_7 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Gyarados"),
+					.nickname = _("GYARADOS"),
 					.friendship = 255
 				},
 			}
@@ -6282,8 +6282,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 	.prize = TTPRIZE_DRAGON_SCALE,
 	.trainers = {
 	    {
-			.name = _("Brennan"),
-			.facilityClass = FACILITY_CLASS_SAILOR_2,
+			.name = _("BRENNAN"),
+			.facilityClass = FACILITY_CLASS_SAILOR,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_TAKE, EC_WORD_THINGS, EC_WORD_EASY, EC_WORD_ELLIPSIS, EC_WORD_THAT_S, EC_WORD_IMPORTANT},
 			.speechWin = {EC_WORD_YOU, EC_WORD_LOSE, EC_WORD_IF, EC_WORD_YOU, EC_WORD_GIVE_UP, EC_WORD_EXCL},
@@ -6309,7 +6309,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Lapras"),
+					.nickname = _("LAPRAS"),
 					.friendship = 255
 				},
 				{
@@ -6331,7 +6331,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x8C, // MALE MODEST
-					.nickname = _("Kingdra"),
+					.nickname = _("KINGDRA"),
 					.friendship = 255
 				},
 				{
@@ -6353,7 +6353,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x4E, // MALE ADAMANT
-					.nickname = _("Machamp"),
+					.nickname = _("MACHAMP"),
 					.friendship = 255
 				},
 				{
@@ -6375,7 +6375,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Chansey"),
+					.nickname = _("CHANSEY"),
 					.friendship = 255
 				},
 				{
@@ -6397,7 +6397,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x03, // MALE ADAMANT
-					.nickname = _("Tauros"),
+					.nickname = _("TAUROS"),
 					.friendship = 255
 				},
 				{
@@ -6419,14 +6419,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x21, // MALE IMPISH
-					.nickname = _("Snorlax"),
+					.nickname = _("SNORLAX"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Kaden"),
-			.facilityClass = FACILITY_CLASS_FISHERMAN_2,
+			.name = _("KADEN"),
+			.facilityClass = FACILITY_CLASS_FISHERMAN,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_MY, EC_WORD_FISHING, EC_WORD_FASHION, EC_WORD_APPEAL, EC_WORD_IS, EC_WORD_FANTASTIC},
 			.speechWin = {EC_WORD_MY, EC_WORD_FANTASTIC, EC_WORD_FASHION, EC_WORD_APPEAL, EC_WORD_WINS, EC_WORD_OUT},
@@ -6452,7 +6452,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Chinchou"),
+					.nickname = _("CHINCHOU"),
 					.friendship = 255
 				},
 				{
@@ -6474,7 +6474,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Dratini"),
+					.nickname = _("DRATINI"),
 					.friendship = 255
 				},
 				{
@@ -6496,7 +6496,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Slowpoke"),
+					.nickname = _("SLOWPOKE"),
 					.friendship = 255
 				},
 				{
@@ -6518,7 +6518,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x17, // FEMALE CAREFUL
-					.nickname = _("Magikarp"),
+					.nickname = _("MAGIKARP"),
 					.friendship = 255
 				},
 				{
@@ -6540,7 +6540,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x17, // FEMALE CAREFUL
-					.nickname = _("Seaking"),
+					.nickname = _("SEAKING"),
 					.friendship = 255
 				},
 				{
@@ -6562,14 +6562,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x96, // MALE HARDY
-					.nickname = _("Tentacruel"),
+					.nickname = _("TENTACRUEL"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Emanuel"),
-			.facilityClass = FACILITY_CLASS_GENTLEMAN_2,
+			.name = _("EMANUEL"),
+			.facilityClass = FACILITY_CLASS_GENTLEMAN,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_HMM, EC_WORD_QUES, EC_WORD_ARE, EC_WORD_YOU, EC_WORD_SKILLED, EC_WORD_QUES},
 			.speechWin = {EC_WORD_I, EC_WORD_SEE, EC_WORD_I, EC_WORD_WASN_T, EC_WORD_RIGHT, EC_WORD_ELLIPSIS},
@@ -6595,7 +6595,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x14, // FEMALE CALM
-					.nickname = _("Vaporeon"),
+					.nickname = _("VAPOREON"),
 					.friendship = 255
 				},
 				{
@@ -6617,7 +6617,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Espeon"),
+					.nickname = _("ESPEON"),
 					.friendship = 255
 				},
 				{
@@ -6639,7 +6639,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Blissey"),
+					.nickname = _("BLISSEY"),
 					.friendship = 255
 				},
 				{
@@ -6661,7 +6661,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x14, // GENDERLESS CALM
-					.nickname = _("Starmie"),
+					.nickname = _("STARMIE"),
 					.friendship = 255
 				},
 				{
@@ -6683,7 +6683,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0D, // FEMALE JOLLY
-					.nickname = _("Persian"),
+					.nickname = _("PERSIAN"),
 					.friendship = 255
 				},
 				{
@@ -6705,7 +6705,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_4 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x00, // FEMALE HARDY
-					.nickname = _("Azumarill"),
+					.nickname = _("AZUMARILL"),
 					.friendship = 255
 				},
 			}
@@ -6721,7 +6721,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_3 = {
 	.prize = TTPRIZE_METAL_COAT,
 	.trainers = {
 	    {
-			.name = _("Jarrett"),
+			.name = _("JARRETT"),
 			.facilityClass = FACILITY_CLASS_JUGGLER,
 			.textColor = 2,
 			.speechBefore = {EC_WORD_LET_S, EC_WORD_HAVE, EC_WORD_AN, EC_MOVE2(EXPLOSION), EC_WORD_PARTY, EC_WORD_EXCL},
@@ -6748,7 +6748,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x0D, // GENDERLESS JOLLY
-					.nickname = _("Electrode"),
+					.nickname = _("ELECTRODE"),
 					.friendship = 255
 				},
 				{
@@ -6770,7 +6770,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x0D, // GENDERLESS JOLLY
-					.nickname = _("Voltorb"),
+					.nickname = _("VOLTORB"),
 					.friendship = 255
 				},
 				{
@@ -6792,7 +6792,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Weezing"),
+					.nickname = _("WEEZING"),
 					.friendship = 255
 				},
 				{
@@ -6814,7 +6814,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x7F, // MALE BRAVE
-					.nickname = _("Golem"),
+					.nickname = _("GOLEM"),
 					.friendship = 255
 				},
 				{
@@ -6836,7 +6836,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Exeggcute"),
+					.nickname = _("EXEGGCUTE"),
 					.friendship = 255
 				},
 				{
@@ -6858,7 +6858,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Single_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x84, // MALE RELAXED
-					.nickname = _("Forretress"),
+					.nickname = _("FORRETRESS"),
 					.friendship = 255
 				},
 			}
@@ -6876,7 +6876,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_3 = {
 	.prize = TTPRIZE_DRAGON_SCALE,
 	.trainers = {
 	    {
-			.name = _("Owen"),
+			.name = _("OWEN"),
 			.facilityClass = FACILITY_CLASS_SUPER_NERD,
 			.textColor = 2,
 			.speechBefore = {EC_WORD_HERE_IT_IS, EC_MOVE2(THUNDER_WAVE), EC_WORD_DON_T, EC_MOVE2(WRAP), EC_WORD_ME, EC_WORD_EXCL},
@@ -6903,7 +6903,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x0A, // GENDERLESS TIMID
-					.nickname = _("Magneton"),
+					.nickname = _("MAGNETON"),
 					.friendship = 255
 				},
 				{
@@ -6925,7 +6925,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Pikachu"),
+					.nickname = _("PIKACHU"),
 					.friendship = 255
 				},
 				{
@@ -6947,7 +6947,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x37, // MALE BOLD
-					.nickname = _("Jolteon"),
+					.nickname = _("JOLTEON"),
 					.friendship = 255
 				},
 				{
@@ -6969,7 +6969,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Blissey"),
+					.nickname = _("BLISSEY"),
 					.friendship = 255
 				},
 				{
@@ -6991,7 +6991,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x05, // GENDERLESS BOLD
-					.nickname = _("Porygon2"),
+					.nickname = _("PORYGON2"),
 					.friendship = 255
 				},
 				{
@@ -7013,7 +7013,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x05, // GENDERLESS BOLD
-					.nickname = _("Porygon"),
+					.nickname = _("PORYGON"),
 					.friendship = 255
 				},
 			}
@@ -7031,8 +7031,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_2 = {
 	.prize = TTPRIZE_PROTEIN,
 	.trainers = {
 	    {
-			.name = _("Lorenzo"),
-			.facilityClass = FACILITY_CLASS_PSYCHIC_3,
+			.name = _("LORENZO"),
+			.facilityClass = FACILITY_CLASS_PSYCHIC_M,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_THIS, EC_WORD_POWER, EC_WORD_IS, EC_WORD_NOW, EC_WORD_COMPLETE, EC_WORD_EXCL},
 			.speechWin = {EC_WORD_NO, EC_WORD_KEEN_EYE, EC_WORD_CAN, EC_WORD_STOP, EC_WORD_MY, EC_WORD_POWER},
@@ -7058,7 +7058,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Mr. Mime"),
+					.nickname = _("MR. MIME"),
 					.friendship = 255
 				},
 				{
@@ -7080,7 +7080,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x8C, // MALE MODEST
-					.nickname = _("Hypno"),
+					.nickname = _("HYPNO"),
 					.friendship = 255
 				},
 				{
@@ -7102,7 +7102,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Alakazam"),
+					.nickname = _("ALAKAZAM"),
 					.friendship = 255
 				},
 				{
@@ -7124,7 +7124,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x88, // MALE HASTY
-					.nickname = _("Gengar"),
+					.nickname = _("GENGAR"),
 					.friendship = 255
 				},
 				{
@@ -7146,7 +7146,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 1,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Girafarig"),
+					.nickname = _("GIRAFARIG"),
 					.friendship = 255
 				},
 				{
@@ -7168,7 +7168,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Mixed_2 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x0A, // GENDERLESS TIMID
-					.nickname = _("Starmie"),
+					.nickname = _("STARMIE"),
 					.friendship = 255
 				},
 			}
@@ -7186,7 +7186,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 	.prize = TTPRIZE_SCOPE_LENS,
 	.trainers = {
 		{
-			.name = _("Nia & Carl"),
+			.name = _("NIA & CARL"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 4,
 			.speechBefore = {EC_WORD_HERE_GOES, EC_WORD_MY, EC_WORD_DIGITAL, EC_WORD_ROMANTIC, EC_WORD_HERO, EC_WORD_STRATEGY},
@@ -7213,7 +7213,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Muk"),
+					.nickname = _("MUK"),
 					.friendship = 255
 				},
 				{
@@ -7235,7 +7235,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x15, // FEMALE GENTLE
-					.nickname = _("Gengar"),
+					.nickname = _("GENGAR"),
 					.friendship = 255
 				},
 				{
@@ -7257,7 +7257,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Alakazam"),
+					.nickname = _("ALAKAZAM"),
 					.friendship = 255
 				},
 				{
@@ -7279,7 +7279,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Jolteon"),
+					.nickname = _("JOLTEON"),
 					.friendship = 255
 				},
 				{
@@ -7301,7 +7301,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x14, // GENDERLESS CALM
-					.nickname = _("Electrode"),
+					.nickname = _("ELECTRODE"),
 					.friendship = 255
 				},
 				{
@@ -7323,13 +7323,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Raichu"),
+					.nickname = _("RAICHU"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Nia & Carl"),
+			.name = _("NIA & CARL"),
 			.facilityClass = FACILITY_CLASS_COOL_COUPLE,
 			.textColor = 4,
 			.speechBefore = {EC_WORD_MASTER, EC_WORD_COMPLETE, EC_WORD_FASHION, EC_WORD_SYSTEM, EC_WORD_START, EC_WORD_EXCL},
@@ -7356,7 +7356,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Kangaskhan"),
+					.nickname = _("KANGASKHAN"),
 					.friendship = 255
 				},
 				{
@@ -7378,7 +7378,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x03, // MALE ADAMANT
-					.nickname = _("Tauros"),
+					.nickname = _("TAUROS"),
 					.friendship = 255
 				},
 				{
@@ -7400,7 +7400,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Miltank"),
+					.nickname = _("MILTANK"),
 					.friendship = 255
 				},
 				{
@@ -7422,7 +7422,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Rhydon"),
+					.nickname = _("RHYDON"),
 					.friendship = 255
 				},
 				{
@@ -7444,7 +7444,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 0,
 					.personality = 0x91, // MALE CALM
-					.nickname = _("Dragonite"),
+					.nickname = _("DRAGONITE"),
 					.friendship = 255
 				},
 				{
@@ -7466,7 +7466,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused2 = {
 					.spDefenseIV = 31,
 					.abilityNum = 1,
 					.personality = 0x91, // MALE CALM
-					.nickname = _("Lapras"),
+					.nickname = _("LAPRAS"),
 					.friendship = 255
 				},
 			}
@@ -7483,8 +7483,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 	.prize = TTPRIZE_CARBOS,
 	.trainers = {
 		{
-			.name = _("Axe & Ren"),
-			.facilityClass = FACILITY_CLASS_SIS_AND_BRO_2,
+			.name = _("AXE & REN"),
+			.facilityClass = FACILITY_CLASS_SIS_AND_BRO,
 			.textColor = 2,
 			.speechBefore = {EC_WORD_IT_S, EC_WORD_GOING, EC_WORD_TO, EC_WORD_GET, EC_WORD_AWFULLY, EC_WORD_COLD},
 			.speechWin = {EC_WORD_THAT_S, EC_WORD_THAT, EC_WORD_MAN, EC_WORD_I_AM, EC_WORD_COLD, EC_WORD_EXCL},
@@ -7510,7 +7510,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Lanturn"),
+					.nickname = _("LANTURN"),
 					.friendship = 255
 				},
 				{
@@ -7532,7 +7532,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x14, // FEMALE CALM
-					.nickname = _("Mantine"),
+					.nickname = _("MANTINE"),
 					.friendship = 255
 				},
 				{
@@ -7554,7 +7554,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Dewgong"),
+					.nickname = _("DEWGONG"),
 					.friendship = 255
 				},
 				{
@@ -7576,7 +7576,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Cloyster"),
+					.nickname = _("CLOYSTER"),
 					.friendship = 255
 				},
 				{
@@ -7598,7 +7598,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Tentacruel"),
+					.nickname = _("TENTACRUEL"),
 					.friendship = 255
 				},
 				{
@@ -7620,14 +7620,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Gyarados"),
+					.nickname = _("GYARADOS"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Axe & Ren"),
-			.facilityClass = FACILITY_CLASS_SIS_AND_BRO_2,
+			.name = _("AXE & REN"),
+			.facilityClass = FACILITY_CLASS_SIS_AND_BRO,
 			.textColor = 2,
 			.speechBefore = {EC_WORD_OUR, EC_WORD_SWIFT_SWIM, EC_WORD_LEFT, EC_WORD_ME, EC_WORD_FEELING, EC_WORD_COLD},
 			.speechWin = {EC_WORD_I, EC_WORD_WON, EC_WORD_BUT, EC_WORD_I_AM, EC_WORD_NOT, EC_WORD_HOT},
@@ -7653,7 +7653,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x40, // MALE NAIVE
-					.nickname = _("Electabuzz"),
+					.nickname = _("ELECTABUZZ"),
 					.friendship = 255
 				},
 				{
@@ -7675,7 +7675,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x0A, // GENDERLESS TIMID
-					.nickname = _("Magneton"),
+					.nickname = _("MAGNETON"),
 					.friendship = 255
 				},
 				{
@@ -7697,7 +7697,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x11, // GENDERLESS QUIET
-					.nickname = _("Porygon"),
+					.nickname = _("PORYGON"),
 					.friendship = 255
 				},
 				{
@@ -7719,7 +7719,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Dragonair"),
+					.nickname = _("DRAGONAIR"),
 					.friendship = 255
 				},
 				{
@@ -7741,7 +7741,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0B, // FEMALE HASTY
-					.nickname = _("Persian"),
+					.nickname = _("PERSIAN"),
 					.friendship = 255
 				},
 				{
@@ -7763,7 +7763,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_7 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x05, // GENDERLESS BOLD
-					.nickname = _("Starmie"),
+					.nickname = _("STARMIE"),
 					.friendship = 255
 				},
 			}
@@ -7780,8 +7780,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 	.prize = TTPRIZE_ZINC,
 	.trainers = {
 		{
-			.name = _("Kati & Geb"),
-			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE_2,
+			.name = _("KATI & GEB"),
+			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE,
 			.textColor = 2,
 			.speechBefore = {EC_WORD_WELCOME, EC_WORD_TO, EC_WORD_OUR, EC_WORD_LOVEY_DOVEY, EC_MOVE2(THUNDER_WAVE), EC_MOVE(SANDSTORM)},
 			.speechWin = {EC_WORD_LALALA, EC_WORD_LALALA, EC_WORD_OUR, EC_WORD_LOVEY_DOVEY, EC_WORD_LALALA, EC_WORD_LIFE},
@@ -7807,7 +7807,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x84, // MALE RELAXED
-					.nickname = _("Flaaffy"),
+					.nickname = _("FLAAFFY"),
 					.friendship = 255
 				},
 				{
@@ -7829,7 +7829,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x93, // MALE SASSY
-					.nickname = _("Quagsire"),
+					.nickname = _("QUAGSIRE"),
 					.friendship = 255
 				},
 				{
@@ -7851,7 +7851,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Pikachu"),
+					.nickname = _("PIKACHU"),
 					.friendship = 255
 				},
 				{
@@ -7873,7 +7873,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x46, // MALE CALM
-					.nickname = _("Electabuzz"),
+					.nickname = _("ELECTABUZZ"),
 					.friendship = 255
 				},
 				{
@@ -7895,7 +7895,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x2D, // MALE CALM
-					.nickname = _("Togetic"),
+					.nickname = _("TOGETIC"),
 					.friendship = 255
 				},
 				{
@@ -7917,14 +7917,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Golduck"),
+					.nickname = _("GOLDUCK"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Kati & Geb"),
-			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE_2,
+			.name = _("KATI & GEB"),
+			.facilityClass = FACILITY_CLASS_YOUNG_COUPLE,
 			.textColor = 2,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_PLUS, EC_WORD_YOU_RE, EC_WORD_MINUS, EC_WORD_LOVEY_DOVEY, EC_WORD_MAGNET_PULL},
 			.speechWin = {EC_WORD_DON_T, EC_WORD_STOP, EC_WORD_OUR, EC_WORD_LOVEY_DOVEY, EC_WORD_LOCOMOTIVE, EC_WORD_EXCL},
@@ -7950,7 +7950,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x03, // FEMALE ADAMANT
-					.nickname = _("Pichu"),
+					.nickname = _("PICHU"),
 					.friendship = 255
 				},
 				{
@@ -7972,7 +7972,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Elekid"),
+					.nickname = _("ELEKID"),
 					.friendship = 255
 				},
 				{
@@ -7994,7 +7994,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Togepi"),
+					.nickname = _("TOGEPI"),
 					.friendship = 255
 				},
 				{
@@ -8016,7 +8016,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Psyduck"),
+					.nickname = _("PSYDUCK"),
 					.friendship = 255
 				},
 				{
@@ -8038,7 +8038,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Mareep"),
+					.nickname = _("MAREEP"),
 					.friendship = 255
 				},
 				{
@@ -8060,7 +8060,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Double_Unused3 = {
 					.spDefenseIV = 10,
 					.abilityNum = 1,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Wooper"),
+					.nickname = _("WOOPER"),
 					.friendship = 255
 				},
 			}
@@ -8077,7 +8077,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 	.prize = TTPRIZE_WHITE_HERB,
 	.trainers = {
 		{
-			.name = _("Ben"),
+			.name = _("BEN"),
 			.facilityClass = FACILITY_CLASS_ROCKER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_LALALA, EC_WORD_LET_S, EC_MOVE(SING), EC_WORD_ABOUT, EC_WORD_ELECTRIC, EC_WORD_POWER},
@@ -8104,7 +8104,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x14, // GENDERLESS CALM
-					.nickname = _("Electrode"),
+					.nickname = _("ELECTRODE"),
 					.friendship = 255
 				},
 				{
@@ -8126,7 +8126,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0F, // FEMALE MODEST
-					.nickname = _("Electabuzz"),
+					.nickname = _("ELECTABUZZ"),
 					.friendship = 255
 				},
 				{
@@ -8148,7 +8148,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x8E, // MALE QUIET
-					.nickname = _("Lanturn"),
+					.nickname = _("LANTURN"),
 					.friendship = 255
 				},
 				{
@@ -8170,7 +8170,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x14, // GENDERLESS CALM
-					.nickname = _("Magneton"),
+					.nickname = _("MAGNETON"),
 					.friendship = 255
 				},
 				{
@@ -8192,7 +8192,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x8A, // MALE JOLLY
-					.nickname = _("Raichu"),
+					.nickname = _("RAICHU"),
 					.friendship = 255
 				},
 				{
@@ -8214,13 +8214,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Ampharos"),
+					.nickname = _("AMPHAROS"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Camden"),
+			.name = _("CAMDEN"),
 			.facilityClass = FACILITY_CLASS_ENGINEER,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_LALALA, EC_WORD_LET_S, EC_MOVE(SING), EC_WORD_ABOUT, EC_WORD_ELECTRIC, EC_WORD_POWER},
@@ -8247,7 +8247,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Granbull"),
+					.nickname = _("GRANBULL"),
 					.friendship = 255
 				},
 				{
@@ -8269,7 +8269,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Persian"),
+					.nickname = _("PERSIAN"),
 					.friendship = 255
 				},
 				{
@@ -8291,7 +8291,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Lickitung"),
+					.nickname = _("LICKITUNG"),
 					.friendship = 255
 				},
 				{
@@ -8313,7 +8313,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x94, // MALE CAREFUL
-					.nickname = _("Raticate"),
+					.nickname = _("RATICATE"),
 					.friendship = 255
 				},
 				{
@@ -8335,7 +8335,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Primeape"),
+					.nickname = _("PRIMEAPE"),
 					.friendship = 255
 				},
 				{
@@ -8357,13 +8357,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Kangaskhan"),
+					.nickname = _("KANGASKHAN"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Zackery"),
+			.name = _("ZACKERY"),
 			.facilityClass = FACILITY_CLASS_SCIENTIST,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_LALALA, EC_WORD_LET_S, EC_MOVE(SING), EC_WORD_ABOUT, EC_WORD_ELECTRIC, EC_WORD_POWER},
@@ -8390,7 +8390,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x02, // FEMALE BRAVE
-					.nickname = _("Weezing"),
+					.nickname = _("WEEZING"),
 					.friendship = 255
 				},
 				{
@@ -8412,7 +8412,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 1,
 					.personality = 0x84, // MALE RELAXED
-					.nickname = _("Muk"),
+					.nickname = _("MUK"),
 					.friendship = 255
 				},
 				{
@@ -8434,7 +8434,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Gengar"),
+					.nickname = _("GENGAR"),
 					.friendship = 255
 				},
 				{
@@ -8456,7 +8456,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x0A, // FEMALE TIMID
-					.nickname = _("Misdreavus"),
+					.nickname = _("MISDREAVUS"),
 					.friendship = 255
 				},
 				{
@@ -8478,7 +8478,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x87, // MALE TIMID
-					.nickname = _("Crobat"),
+					.nickname = _("CROBAT"),
 					.friendship = 255
 				},
 				{
@@ -8500,7 +8500,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_6 = {
 					.spDefenseIV = 20,
 					.abilityNum = 0,
 					.personality = 0x91, // MALE CALM
-					.nickname = _("Haunter"),
+					.nickname = _("HAUNTER"),
 					.friendship = 255
 				},
 			}
@@ -8516,8 +8516,8 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 	.prize = TTPRIZE_UP_GRADE,
 	.trainers = {
 		{
-			.name = _("Maura"),
-			.facilityClass = FACILITY_CLASS_BEAUTY_2,
+			.name = _("MAURA"),
+			.facilityClass = FACILITY_CLASS_BEAUTY,
 			.textColor = 2,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_THE, EC_WORD_GROUP, EC_WORD_LEADER, EC_WORD_EXCL, 0xFFFF},
 			.speechWin = {EC_WORD_WHAT, EC_WORD_AM, EC_WORD_I, EC_WORD_LEADER, EC_WORD_OF, EC_WORD_QUES},
@@ -8543,7 +8543,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x05, // FEMALE BOLD
-					.nickname = _("Pichu"),
+					.nickname = _("PICHU"),
 					.friendship = 255
 				},
 				{
@@ -8565,7 +8565,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Mareep"),
+					.nickname = _("MAREEP"),
 					.friendship = 255
 				},
 				{
@@ -8587,7 +8587,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Igglybuff"),
+					.nickname = _("IGGLYBUFF"),
 					.friendship = 255
 				},
 				{
@@ -8609,7 +8609,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Cleffa"),
+					.nickname = _("CLEFFA"),
 					.friendship = 255
 				},
 				{
@@ -8631,7 +8631,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Nidoran♀"),
+					.nickname = _("NIDORAN♀"),
 					.friendship = 255
 				},
 				{
@@ -8653,14 +8653,14 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // MALE RELAXED
-					.nickname = _("Nidoran♂"),
+					.nickname = _("NIDORAN♂"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Mikaela"),
-			.facilityClass = FACILITY_CLASS_LASS_2,
+			.name = _("MIKAELA"),
+			.facilityClass = FACILITY_CLASS_LASS,
 			.textColor = 1,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_REALLY, EC_WORD_THE, EC_WORD_NO_1, EC_WORD_TRAINER, EC_WORD_HERE},
 			.speechWin = {EC_WORD_NEVER, EC_WORD_SAID, EC_WORD_WHAT, EC_WORD_I_AM, EC_WORD_NO_1, EC_WORD_AT},
@@ -8686,7 +8686,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // MALE RELAXED
-					.nickname = _("Nidorino"),
+					.nickname = _("NIDORINO"),
 					.friendship = 255
 				},
 				{
@@ -8708,7 +8708,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Nidorina"),
+					.nickname = _("NIDORINA"),
 					.friendship = 255
 				},
 				{
@@ -8730,7 +8730,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x11, // FEMALE QUIET
-					.nickname = _("Pikachu"),
+					.nickname = _("PIKACHU"),
 					.friendship = 255
 				},
 				{
@@ -8752,7 +8752,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Flaaffy"),
+					.nickname = _("FLAAFFY"),
 					.friendship = 255
 				},
 				{
@@ -8774,7 +8774,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x16, // FEMALE SASSY
-					.nickname = _("Jigglypuff"),
+					.nickname = _("JIGGLYPUFF"),
 					.friendship = 255
 				},
 				{
@@ -8796,13 +8796,13 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Clefairy"),
+					.nickname = _("CLEFAIRY"),
 					.friendship = 255
 				},
 			}
 		},
 		{
-			.name = _("Flint"),
+			.name = _("FLINT"),
 			.facilityClass = FACILITY_CLASS_ENGINEER,
 			.textColor = 4,
 			.speechBefore = {EC_WORD_I_AM, EC_WORD_THE, EC_MOVE2(MILK_DRINK), EC_WORD_WORLD, EC_WORD_LEADER, EC_WORD_EXCL},
@@ -8829,7 +8829,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0xCF, // MALE RELAXED
-					.nickname = _("Wigglytuff"),
+					.nickname = _("WIGGLYTUFF"),
 					.friendship = 255
 				},
 				{
@@ -8851,7 +8851,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0xCF, // MALE RELAXED
-					.nickname = _("Clefable"),
+					.nickname = _("CLEFABLE"),
 					.friendship = 255
 				},
 				{
@@ -8873,7 +8873,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x07, // FEMALE RELAXED
-					.nickname = _("Nidoqueen"),
+					.nickname = _("NIDOQUEEN"),
 					.friendship = 255
 				},
 				{
@@ -8895,7 +8895,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x02, // MALE BRAVE
-					.nickname = _("Nidoking"),
+					.nickname = _("NIDOKING"),
 					.friendship = 255
 				},
 				{
@@ -8917,7 +8917,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Raichu"),
+					.nickname = _("RAICHU"),
 					.friendship = 255
 				},
 				{
@@ -8939,7 +8939,7 @@ static const struct TrainerTowerFloor sTrainerTowerFloor_Knockout_5 = {
 					.spDefenseIV = 15,
 					.abilityNum = 0,
 					.personality = 0x80, // MALE ADAMANT
-					.nickname = _("Ampharos"),
+					.nickname = _("AMPHAROS"),
 					.friendship = 255
 				},
 			}
