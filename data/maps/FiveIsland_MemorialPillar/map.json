@@ -3,7 +3,7 @@
   "name": "FiveIsland_MemorialPillar",
   "layout": "LAYOUT_FIVE_ISLAND_MEMORIAL_PILLAR",
   "music": "MUS_SEVII_ROUTE",
-  "region_map_section": "MAPSEC_MEMORIAL_PILLAR",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",

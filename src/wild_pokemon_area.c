@@ -101,42 +101,19 @@ static const u16 sDexAreas_Sevii3[][2] = {
 };
 
 static const u16 sDexAreas_Sevii4[][2] = {
-	{ MAPSEC_FOUR_ISLAND,  DEX_AREA_FOUR_ISLAND },
-	{ MAPSEC_ICEFALL_CAVE, DEX_AREA_ICEFALL_CAVE }    
+	    
 };
 
 static const u16 sDexAreas_Sevii5[][2] = {
-	{ MAPSEC_RESORT_GORGEOUS,  DEX_AREA_RESORT_GORGEOUS },
-	{ MAPSEC_WATER_LABYRINTH,  DEX_AREA_WATER_LABYRINTH },
-	{ MAPSEC_FIVE_ISLE_MEADOW, DEX_AREA_FIVE_ISLE_MEADOW },
-	{ MAPSEC_MEMORIAL_PILLAR,  DEX_AREA_MEMORIAL_PILLAR },
-	{ MAPSEC_FIVE_ISLAND,      DEX_AREA_FIVE_ISLAND },
-	{ MAPSEC_ROCKET_WAREHOUSE, DEX_AREA_FIVE_ISLE_MEADOW },
-	{ MAPSEC_LOST_CAVE,        DEX_AREA_LOST_CAVE }    
+	    
 };
 
 static const u16 sDexAreas_Sevii6[][2] = {
-	{ MAPSEC_OUTCAST_ISLAND, DEX_AREA_OUTCAST_ISLAND },
-	{ MAPSEC_GREEN_PATH,     DEX_AREA_GREEN_PATH },
-	{ MAPSEC_WATER_PATH,     DEX_AREA_WATER_PATH },
-	{ MAPSEC_RUIN_VALLEY,    DEX_AREA_RUIN_VALLEY },
-	{ MAPSEC_DOTTED_HOLE,    DEX_AREA_DOTTED_HOLE },
-	{ MAPSEC_PATTERN_BUSH,   DEX_AREA_PATTERN_BUSH },
-	{ MAPSEC_ALTERING_CAVE,  DEX_AREA_ALTERING_CAVE }    
+	   
 };
 
 static const u16 sDexAreas_Sevii7[][2] = {
-	{ MAPSEC_TRAINER_TOWER,   DEX_AREA_TRAINER_TOWER },
-	{ MAPSEC_CANYON_ENTRANCE, DEX_AREA_CANYON_ENTRANCE },
-	{ MAPSEC_SEVAULT_CANYON,  DEX_AREA_SEVAULT_CANYON },
-	{ MAPSEC_TANOBY_RUINS,    DEX_AREA_TANOBY_RUINS },
-	{ MAPSEC_MONEAN_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_LIPTOO_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_WEEPTH_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_DILFORD_CHAMBER, DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_SCUFIB_CHAMBER,  DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_RIXY_CHAMBER,    DEX_AREA_TANOBY_CHAMBER },
-	{ MAPSEC_VIAPOIS_CHAMBER, DEX_AREA_TANOBY_CHAMBER }    
+	    
 };
 
 static const struct
@@ -184,12 +161,6 @@ s32 GetSpeciesPokedexAreaMarkers(u16 species, struct Subsprite * subsprites)
     for (i = 0, areaCount = 0; gWildMonHeaders[i].mapGroup != MAP_GROUP(UNDEFINED); i++)
     {
         mapSecId = GetMapSecIdFromWildMonHeader(&gWildMonHeaders[i]);
-        if (mapSecId == MAPSEC_ALTERING_CAVE)
-        {
-            alteringCaveCount++;
-            if (alteringCaveNum != alteringCaveCount - 1)
-                continue;
-        }
         if (IsSpeciesOnMap(&gWildMonHeaders[i], species))
         {
             // Search for all dex areas associated with this MAPSEC.

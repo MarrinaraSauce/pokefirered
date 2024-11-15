@@ -21,16 +21,18 @@
 #define MAP_HEIGHT 15
 
 #define CANCEL_BUTTON_X 21
+#define CANCEL_BUTTON_X_JOHTO 0
 #define CANCEL_BUTTON_Y 13
 
 #define SWITCH_BUTTON_X 21
+#define SWITCH_BUTTON_X_JOHTO 0
 #define SWITCH_BUTTON_Y 11
 
 enum {
     REGIONMAP_KANTO,
+	REGIONMAP_JOHTO,
     REGIONMAP_SEVII123,
     REGIONMAP_SEVII45,
-    REGIONMAP_SEVII67,
     REGIONMAP_COUNT
 };
 
@@ -543,51 +545,13 @@ static const u8 sSeviiMapsecs[3][30] = {
     }, 
     [REGIONMAP_SEVII45 - 1] =
     {
-        MAPSEC_FOUR_ISLAND,
-        MAPSEC_FIVE_ISLAND,
-        MAPSEC_SEVII_ISLE_6,
-        MAPSEC_SEVII_ISLE_7,
-        MAPSEC_SEVII_ISLE_8,
-        MAPSEC_SEVII_ISLE_9,
-        MAPSEC_RESORT_GORGEOUS,
-        MAPSEC_WATER_LABYRINTH,
-        MAPSEC_FIVE_ISLE_MEADOW,
-        MAPSEC_MEMORIAL_PILLAR,
         MAPSEC_NAVEL_ROCK,
-        MAPSEC_ICEFALL_CAVE,
-        MAPSEC_ROCKET_WAREHOUSE,
-        MAPSEC_LOST_CAVE,
         MAPSEC_NONE
     }, 
-    [REGIONMAP_SEVII67 - 1] = 
+    [REGIONMAP_JOHTO - 1] = 
     {
-        MAPSEC_SEVEN_ISLAND,
-        MAPSEC_SIX_ISLAND,
-        MAPSEC_OUTCAST_ISLAND,
-        MAPSEC_GREEN_PATH,
-        MAPSEC_WATER_PATH,
-        MAPSEC_RUIN_VALLEY,
-        MAPSEC_TRAINER_TOWER,
-        MAPSEC_CANYON_ENTRANCE,
-        MAPSEC_SEVAULT_CANYON,
-        MAPSEC_TANOBY_RUINS,
-        MAPSEC_SEVII_ISLE_22,
-        MAPSEC_SEVII_ISLE_23,
-        MAPSEC_SEVII_ISLE_24,
         MAPSEC_TRAINER_TOWER_2,
-        MAPSEC_DOTTED_HOLE,
-        MAPSEC_PATTERN_BUSH,
-        MAPSEC_ALTERING_CAVE,
-        MAPSEC_TANOBY_CHAMBERS,
-        MAPSEC_TANOBY_KEY,
         MAPSEC_BIRTH_ISLAND,
-        MAPSEC_MONEAN_CHAMBER,
-        MAPSEC_LIPTOO_CHAMBER,
-        MAPSEC_WEEPTH_CHAMBER,
-        MAPSEC_DILFORD_CHAMBER,
-        MAPSEC_SCUFIB_CHAMBER,
-        MAPSEC_RIXY_CHAMBER,
-        MAPSEC_VIAPOIS_CHAMBER,
 		MAPSEC_NEW_BARK_TOWN,
         MAPSEC_NONE
     }
@@ -610,7 +574,7 @@ ALIGNED(4) static const bool8 sRegionMapPermissions[REGIONMAP_TYPE_COUNT][MAPPER
     },
     [REGIONMAP_TYPE_FLY] = 
     {
-        [MAPPERM_HAS_SWITCH_BUTTON]    = FALSE, 
+        [MAPPERM_HAS_SWITCH_BUTTON]    = TRUE, 
         [MAPPERM_HAS_MAP_PREVIEW]      = FALSE, 
         [MAPPERM_HAS_OPEN_ANIM]        = FALSE, 
         [MAPPERM_HAS_FLY_DESTINATIONS] = TRUE 
@@ -691,30 +655,6 @@ static const struct DungeonMapInfo sDungeonInfo[] = {
         .id = MAPSEC_BERRY_FOREST,
         .name = sMapsecName_Berry_Forest,
         .desc = gText_RegionMap_AreaDesc_BerryForest
-    }, {
-        .id = MAPSEC_ICEFALL_CAVE,
-        .name = sMapsecName_Icefall_Cave,
-        .desc = gText_RegionMap_AreaDesc_IcefallCave
-    }, {
-        .id = MAPSEC_LOST_CAVE,
-        .name = sMapsecName_Lost_Cave,
-        .desc = gText_RegionMap_AreaDesc_LostCave
-    }, {
-        .id = MAPSEC_TANOBY_CHAMBERS,
-        .name = sMapsecName_Tanoby_Chambers,
-        .desc = gText_RegionMap_AreaDesc_TanobyRuins
-    }, {
-        .id = MAPSEC_ALTERING_CAVE,
-        .name = sMapsecName_Altering_Cave,
-        .desc = gText_RegionMap_AreaDesc_AlteringCave
-    }, {
-        .id = MAPSEC_PATTERN_BUSH,
-        .name = sMapsecName_Pattern_Bush,
-        .desc = gText_RegionMap_AreaDesc_PatternBush
-    }, {
-        .id = MAPSEC_DOTTED_HOLE,
-        .name = sMapsecName_Dotted_Hole,
-        .desc = gText_RegionMap_AreaDesc_DottedHole
     }
 };
 
@@ -865,6 +805,9 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ROUTE_23            - MAPSECS_KANTO] = {MAP(ROUTE23),                               0},
     [MAPSEC_ROUTE_24            - MAPSECS_KANTO] = {MAP(ROUTE24),                               0},
     [MAPSEC_ROUTE_25            - MAPSECS_KANTO] = {MAP(ROUTE25),                               0},
+	[MAPSEC_ROUTE_26			- MAPSECS_KANTO] = {MAP(ROUTE26),								0},
+	[MAPSEC_ROUTE_27			- MAPSECS_KANTO] = {MAP(ROUTE27),								0},
+	[MAPSEC_ROUTE_28			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
     [MAPSEC_VIRIDIAN_FOREST     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_MT_MOON             - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_S_S_ANNE            - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
@@ -885,55 +828,16 @@ static const u8 sMapFlyDestinations[][3] = {
     [MAPSEC_ONE_ISLAND          - MAPSECS_KANTO] = {MAP(ONE_ISLAND),                            SPAWN_ONE_ISLAND},
     [MAPSEC_TWO_ISLAND          - MAPSECS_KANTO] = {MAP(TWO_ISLAND),                            SPAWN_TWO_ISLAND},
     [MAPSEC_THREE_ISLAND        - MAPSECS_KANTO] = {MAP(THREE_ISLAND),                          SPAWN_THREE_ISLAND},
-    [MAPSEC_FOUR_ISLAND         - MAPSECS_KANTO] = {MAP(FOUR_ISLAND),                           SPAWN_FOUR_ISLAND},
-    [MAPSEC_FIVE_ISLAND         - MAPSECS_KANTO] = {MAP(FIVE_ISLAND),                           SPAWN_FIVE_ISLAND},
-    [MAPSEC_SEVEN_ISLAND        - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND),                          SPAWN_SEVEN_ISLAND},
-    [MAPSEC_SIX_ISLAND          - MAPSECS_KANTO] = {MAP(SIX_ISLAND),                            SPAWN_SIX_ISLAND},
     [MAPSEC_KINDLE_ROAD         - MAPSECS_KANTO] = {MAP(ONE_ISLAND_KINDLE_ROAD),                0},
     [MAPSEC_TREASURE_BEACH      - MAPSECS_KANTO] = {MAP(ONE_ISLAND_TREASURE_BEACH),             0},
     [MAPSEC_CAPE_BRINK          - MAPSECS_KANTO] = {MAP(TWO_ISLAND_CAPE_BRINK),                 0},
     [MAPSEC_BOND_BRIDGE         - MAPSECS_KANTO] = {MAP(THREE_ISLAND_BOND_BRIDGE),              0},
     [MAPSEC_THREE_ISLE_PORT     - MAPSECS_KANTO] = {MAP(THREE_ISLAND_PORT),                     0},
-    [MAPSEC_SEVII_ISLE_6        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_6),                0},
-    [MAPSEC_SEVII_ISLE_7        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_7),                0},
-    [MAPSEC_SEVII_ISLE_8        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_8),                0},
-    [MAPSEC_SEVII_ISLE_9        - MAPSECS_KANTO] = {MAP(PROTOTYPE_SEVII_ISLE_9),                0},
-    [MAPSEC_RESORT_GORGEOUS     - MAPSECS_KANTO] = {MAP(FIVE_ISLAND_RESORT_GORGEOUS),           0},
-    [MAPSEC_WATER_LABYRINTH     - MAPSECS_KANTO] = {MAP(FIVE_ISLAND_WATER_LABYRINTH),           0},
-    [MAPSEC_FIVE_ISLE_MEADOW    - MAPSECS_KANTO] = {MAP(FIVE_ISLAND_MEADOW),                    0},
-    [MAPSEC_MEMORIAL_PILLAR     - MAPSECS_KANTO] = {MAP(FIVE_ISLAND_MEMORIAL_PILLAR),           0},
-    [MAPSEC_OUTCAST_ISLAND      - MAPSECS_KANTO] = {MAP(SIX_ISLAND_OUTCAST_ISLAND),             0},
-    [MAPSEC_GREEN_PATH          - MAPSECS_KANTO] = {MAP(SIX_ISLAND_GREEN_PATH),                 0},
-    [MAPSEC_WATER_PATH          - MAPSECS_KANTO] = {MAP(SIX_ISLAND_WATER_PATH),                 0},
-    [MAPSEC_RUIN_VALLEY         - MAPSECS_KANTO] = {MAP(SIX_ISLAND_RUIN_VALLEY),                0},
-    [MAPSEC_TRAINER_TOWER       - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_TRAINER_TOWER),            0},
-    [MAPSEC_CANYON_ENTRANCE     - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_SEVAULT_CANYON_ENTRANCE),  0},
-    [MAPSEC_SEVAULT_CANYON      - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_SEVAULT_CANYON),           0},
-    [MAPSEC_TANOBY_RUINS        - MAPSECS_KANTO] = {MAP(SEVEN_ISLAND_TANOBY_RUINS),             0},
-    [MAPSEC_SEVII_ISLE_22       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_SEVII_ISLE_23       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_SEVII_ISLE_24       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_NAVEL_ROCK          - MAPSECS_KANTO] = {MAP(NAVEL_ROCK_EXTERIOR),                   0},
     [MAPSEC_MT_EMBER            - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_BERRY_FOREST        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_ICEFALL_CAVE        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_ROCKET_WAREHOUSE    - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_TRAINER_TOWER_2     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_DOTTED_HOLE         - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_LOST_CAVE           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_PATTERN_BUSH        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_ALTERING_CAVE       - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_TANOBY_CHAMBERS     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_THREE_ISLE_PATH     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_TANOBY_KEY          - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_BIRTH_ISLAND        - MAPSECS_KANTO] = {MAP(BIRTH_ISLAND_EXTERIOR),                 0},
-    [MAPSEC_MONEAN_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_LIPTOO_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_WEEPTH_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_DILFORD_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_SCUFIB_CHAMBER      - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_RIXY_CHAMBER        - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
-    [MAPSEC_VIAPOIS_CHAMBER     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
     [MAPSEC_EMBER_SPA           - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
 	[MAPSEC_NEW_BARK_TOWN		- MAPSECS_KANTO] = {MAP(NEW_BARK_TOWN),                         SPAWN_NEW_BARK_TOWN},
 	[MAPSEC_CHERRYGROVE_CITY	- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
@@ -948,11 +852,9 @@ static const u8 sMapFlyDestinations[][3] = {
 	[MAPSEC_RUINS_OF_ALPH		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
 	[MAPSEC_LAKE_OF_RAGE		- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
 	[MAPSEC_MT_SILVER			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
-	[MAPSEC_ROUTE_26			- MAPSECS_KANTO] = {MAP(ROUTE26),								0},
-	[MAPSEC_ROUTE_27			- MAPSECS_KANTO] = {MAP(ROUTE27),								0},
-	[MAPSEC_ROUTE_28			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
 	[MAPSEC_ROUTE_29			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
 	[MAPSEC_ROUTE_30			- MAPSECS_KANTO] = {MAP(ROUTE28),								0},
+    [MAPSEC_TRAINER_TOWER_2     - MAPSECS_KANTO] = {MAP(PALLET_TOWN),                           0},
 };
 
 static void RegionMap_DarkenPalette(u16 *pal, u16 size, u16 tint)
@@ -1050,19 +952,11 @@ static void InitRegionMapType(void)
     if (gMapHeader.regionMapSectionId >= MAPSECS_SEVII_123)
     {
         // Mapsec is in Sevii Islands, determine which map to use
-        while (region == REGIONMAP_KANTO)
-        {
-            for (i = 0; sSeviiMapsecs[j][i] != MAPSEC_NONE; i++)
-            {
-                if (gMapHeader.regionMapSectionId == sSeviiMapsecs[j][i])
-                {
-                    region = j + 1;
-                    break;
-                }
-            }
-            j++;
-        }
-    }
+		region = REGIONMAP_SEVII123;
+	}
+	else if (gMapHeader.regionMapSectionId >= MAPSECS_JOHTO) {
+		region = REGIONMAP_JOHTO;
+	}
     sRegionMap->selectedRegion = region;
     sRegionMap->playersRegion = region;
 }
@@ -1158,9 +1052,9 @@ static bool8 LoadRegionMapGfx(void)
     case 7:
         LZ77UnCompWram(sSevii45_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII45]);
         break;
-    case 8:
-        LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_SEVII67]);
-        break;
+	case 8:
+		LZ77UnCompWram(sSevii67_Tilemap, sRegionMap->layouts[REGIONMAP_JOHTO]);
+		break;
     default:
         LZ77UnCompWram(sBackground_Tilemap, sRegionMap->layouts[REGIONMAP_COUNT]);
         return TRUE;
@@ -1190,10 +1084,14 @@ static void PlaySEForSelectedMapsec(void)
         if ((GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_MAP) != MAPSECTYPE_NONE) 
          || (GetSelectedMapsecType(LAYER_DUNGEON) != MAPSECTYPE_ROUTE && GetSelectedMapsecType(LAYER_DUNGEON) != MAPSECTYPE_NONE))
             PlaySE(SE_DEX_SCROLL);
-        if (GetMapCursorX() == SWITCH_BUTTON_X && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE)
+        if (GetMapCursorX() == SWITCH_BUTTON_X && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE && GetSelectedRegionMap() != REGIONMAP_JOHTO)
             PlaySE(SE_M_SPIT_UP);
-        else if (GetMapCursorX() == CANCEL_BUTTON_X && GetMapCursorY() == CANCEL_BUTTON_Y)
+        else if (GetMapCursorX() == CANCEL_BUTTON_X && GetMapCursorY() == CANCEL_BUTTON_Y && GetSelectedRegionMap() != REGIONMAP_JOHTO)
             PlaySE(SE_M_SPIT_UP);
+		else if (GetMapCursorX() == SWITCH_BUTTON_X_JOHTO && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE && GetSelectedRegionMap() == REGIONMAP_JOHTO)
+			PlaySE(SE_M_SPIT_UP);
+		else if (GetMapCursorX() == CANCEL_BUTTON_X_JOHTO && GetMapCursorY() == CANCEL_BUTTON_Y && GetSelectedRegionMap() == REGIONMAP_JOHTO)
+			PlaySE(SE_M_SPIT_UP);
     }
 }
 
@@ -1266,15 +1164,23 @@ static void Task_RegionMap(u8 taskId)
             }
             else
             {
-                if (GetMapCursorX() == SWITCH_BUTTON_X && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE)
+                if (GetMapCursorX() == SWITCH_BUTTON_X && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE && GetSelectedRegionMap() != REGIONMAP_JOHTO)
                 {
                     PrintTopBarTextRight(gText_RegionMap_AButtonSwitch);
                 }
-                else if (GetMapCursorX() == CANCEL_BUTTON_X && GetMapCursorY() == CANCEL_BUTTON_Y)
+                else if (GetMapCursorX() == CANCEL_BUTTON_X && GetMapCursorY() == CANCEL_BUTTON_Y && GetSelectedRegionMap() != REGIONMAP_JOHTO)
                 {
                     PrintTopBarTextRight(gText_RegionMap_AButtonCancel);
                 }
-                else
+                else if (GetMapCursorX() == SWITCH_BUTTON_X_JOHTO && GetMapCursorY() == SWITCH_BUTTON_Y && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE && GetSelectedRegionMap() == REGIONMAP_JOHTO)
+				{
+					PrintTopBarTextRight(gText_RegionMap_AButtonSwitch);
+				}
+				else if (GetMapCursorX() == CANCEL_BUTTON_X_JOHTO && GetMapCursorY() == CANCEL_BUTTON_Y && GetSelectedRegionMap() == REGIONMAP_JOHTO)
+				{
+					PrintTopBarTextRight(gText_RegionMap_AButtonCancel);
+				}
+				else
                 {
                     PrintTopBarTextRight(gText_RegionMap_Space);
                 }
@@ -1526,19 +1432,26 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
                 buffer[32 * i + j] = map[0];
         }
     }
+	if (sSwitchMapMenu != NULL)
+		whichMap = sSwitchMapMenu->currentSelection;
+	else
+		whichMap = sRegionMap->selectedRegion;
     if (sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] == TRUE)
     {
-        WriteSequenceToBgTilemapBuffer(0, 0x0F0, 0x18, 14, 3, 1, 0x3, 0x001);
-        WriteSequenceToBgTilemapBuffer(0, 0x100, 0x18, 15, 3, 1, 0x3, 0x001);
-        WriteSequenceToBgTilemapBuffer(0, 0x110, 0x18, 16, 3, 1, 0x3, 0x001);
+		if (whichMap != REGIONMAP_JOHTO) {
+			WriteSequenceToBgTilemapBuffer(0, 0x0F0, 0x18, 14, 3, 1, 0x3, 0x001);
+			WriteSequenceToBgTilemapBuffer(0, 0x100, 0x18, 15, 3, 1, 0x3, 0x001);
+			WriteSequenceToBgTilemapBuffer(0, 0x110, 0x18, 16, 3, 1, 0x3, 0x001);
+		}
+		else {
+			WriteSequenceToBgTilemapBuffer(0, 0x0F0, 0x3, 14, 3, 1, 0x3, 0x001);
+			WriteSequenceToBgTilemapBuffer(0, 0x100, 0x3, 15, 3, 1, 0x3, 0x001);
+			WriteSequenceToBgTilemapBuffer(0, 0x110, 0x3, 16, 3, 1, 0x3, 0x001);
+		}
     }
-    if (sSwitchMapMenu != NULL)
-        whichMap = sSwitchMapMenu->currentSelection;
-    else
-        whichMap = sRegionMap->selectedRegion;
     if (whichMap == REGIONMAP_SEVII45 && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
         FillBgTilemapBufferRect_Palette0(0, 0x003, 13, 11, 3, 2);
-    if (whichMap == REGIONMAP_SEVII67 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
+    if (whichMap == REGIONMAP_SEVII45 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
         FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
 }
 
@@ -1574,9 +1487,9 @@ static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
     if (FlagGet(FLAG_SYS_SEVII_MAP_4567))
         sSwitchMapMenu->maxSelection = 3;
     else if (FlagGet(FLAG_SYS_SEVII_MAP_123))
-        sSwitchMapMenu->maxSelection = 1;
+        sSwitchMapMenu->maxSelection = 2;
     else
-        sSwitchMapMenu->maxSelection = 0;
+        sSwitchMapMenu->maxSelection = 1;
     sSwitchMapMenu->cursorSubsprite[0].x = 88;
     sSwitchMapMenu->cursorSubsprite[1].x = 152;
 
@@ -1961,8 +1874,6 @@ static void InitDungeonMapPreview(u8 unused, u8 taskId, TaskFunc taskFunc)
     u8 mapsec;
     sDungeonMapPreview = AllocZeroed(sizeof(struct DungeonMapPreview));
     mapsec = GetDungeonMapsecUnderCursor();
-    if (mapsec == MAPSEC_TANOBY_CHAMBERS)
-        mapsec = MAPSEC_MONEAN_CHAMBER;
     sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(mapsec);
     if (sDungeonMapPreview->mapPreviewInfo == NULL)
         sDungeonMapPreview->mapPreviewInfo = GetDungeonMapPreviewScreenInfo(MAPSEC_ROCK_TUNNEL);
@@ -2811,18 +2722,35 @@ static u8 HandleRegionMapInput(void)
     {
         input = MAP_INPUT_A_BUTTON;
         if (sMapCursor->x == CANCEL_BUTTON_X 
-         && sMapCursor->y == CANCEL_BUTTON_Y)
+         && sMapCursor->y == CANCEL_BUTTON_Y
+		 && GetSelectedRegionMap() != REGIONMAP_JOHTO)
         {
             PlaySE(SE_M_HYPER_BEAM2);
             input = MAP_INPUT_CANCEL;
         }
         if (sMapCursor->x == SWITCH_BUTTON_X 
          && sMapCursor->y == SWITCH_BUTTON_Y 
-         && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE)
+         && GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE
+		 && GetSelectedRegionMap() != REGIONMAP_JOHTO)
         {
             PlaySE(SE_M_HYPER_BEAM2);
             input = MAP_INPUT_SWITCH;
         }
+		if (sMapCursor->x == CANCEL_BUTTON_X_JOHTO
+			&& sMapCursor->y == CANCEL_BUTTON_Y
+			&& GetSelectedRegionMap() == REGIONMAP_JOHTO)
+		{
+			PlaySE(SE_M_HYPER_BEAM2);
+			input = MAP_INPUT_CANCEL;
+		}
+		if (sMapCursor->x == SWITCH_BUTTON_X_JOHTO
+			&& sMapCursor->y == SWITCH_BUTTON_Y
+			&& GetRegionMapPermission(MAPPERM_HAS_SWITCH_BUTTON) == TRUE
+			&& GetSelectedRegionMap() == REGIONMAP_JOHTO)
+		{
+			PlaySE(SE_M_HYPER_BEAM2);
+			input = MAP_INPUT_SWITCH;
+		}
     }
     else if (!JOY_NEW(B_BUTTON))
     {
@@ -2896,12 +2824,18 @@ static void SnapToIconOrButton(void)
             sMapCursor->y = GetPlayerIconY();
             break;
         case 1:
-            sMapCursor->x = SWITCH_BUTTON_X;
+			if (GetSelectedRegionMap() == REGIONMAP_JOHTO)
+				sMapCursor->x = SWITCH_BUTTON_X_JOHTO;
+			else
+				sMapCursor->x = SWITCH_BUTTON_X;
             sMapCursor->y = SWITCH_BUTTON_Y;
             break;
         case 2:
+			if (GetSelectedRegionMap() == REGIONMAP_JOHTO)
+				sMapCursor->x = CANCEL_BUTTON_X_JOHTO;
+			else
+				sMapCursor->x = CANCEL_BUTTON_X;
             sMapCursor->y = CANCEL_BUTTON_Y;
-            sMapCursor->x = CANCEL_BUTTON_X;
             break;
         }
     }
@@ -2999,20 +2933,36 @@ static u8 GetMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_TWO_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_THREE_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_FOUR_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_FIVE_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_SEVEN_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_SIX_ISLAND:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_4_POKECENTER:
         if (!GetRegionMapPermission(MAPPERM_HAS_FLY_DESTINATIONS))
             return MAPSECTYPE_NONE;
         return FlagGet(FLAG_WORLD_MAP_ROUTE4_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_ROUTE_10_POKECENTER:
         return FlagGet(FLAG_WORLD_MAP_ROUTE10_POKEMON_CENTER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_NEW_BARK_TOWN:
+		return FlagGet(FLAG_WORLD_MAP_NEW_BARK_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_CHERRYGROVE_CITY:
+		return FlagGet(FLAG_WORLD_MAP_CHERRYGROVE_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_VIOLET_CITY:
+		return FlagGet(FLAG_WORLD_MAP_VIOLET_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_AZALEA_TOWN:
+		return FlagGet(FLAG_WORLD_MAP_AZALEA_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_GOLDENROD_CITY:
+		return FlagGet(FLAG_WORLD_MAP_GOLDENROD_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_ECRUTEAK_CITY:
+		return FlagGet(FLAG_WORLD_MAP_ECRUTEAK_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_OLIVINE_CITY:
+		return FlagGet(FLAG_WORLD_MAP_OLIVINE_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_CIANWOOD_CITY:
+		return FlagGet(FLAG_WORLD_MAP_CIANWOOD_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_MAHOGANY_TOWN:
+		return FlagGet(FLAG_WORLD_MAP_MAHOGANY_TOWN) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_BLACKTHORN_CITY:
+		return FlagGet(FLAG_WORLD_MAP_BLACKTHORN_CITY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_LAKE_OF_RAGE:
+		return FlagGet(FLAG_WORLD_MAP_LAKE_OF_RAGE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_MT_SILVER:
+		return FlagGet(FLAG_WORLD_MAP_MT_SILVER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_NONE:
         return MAPSECTYPE_NONE;
     default:
@@ -3066,28 +3016,40 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_MT_EMBER_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BERRY_FOREST:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_ICEFALL_CAVE:
-        return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_ROCKET_WAREHOUSE:
-        return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_TRAINER_TOWER_2:
         return FlagGet(FLAG_WORLD_MAP_TRAINER_TOWER_LOBBY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_DOTTED_HOLE:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_LOST_CAVE:
-        return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_PATTERN_BUSH:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_ALTERING_CAVE:
-        return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_TANOBY_CHAMBERS:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_THREE_ISLE_PATH:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_DUNSPARCE_TUNNEL) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
-    case MAPSEC_TANOBY_KEY:
-        return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BIRTH_ISLAND:
         return FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_DARK_CAVE:
+		return FlagGet(FLAG_WORLD_MAP_DARK_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_SPROUT_TOWER:
+		return FlagGet(FLAG_WORLD_MAP_SPROUT_TOWER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_UNION_CAVE:
+		return FlagGet(FLAG_WORLD_MAP_UNION_CAVE_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_SLOWPOKE_WELL:
+		return FlagGet(FLAG_WORLD_MAP_SLOWPOKE_WELL_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_ILEX_FOREST:
+		return FlagGet(FLAG_WORLD_MAP_ILEX_FOREST) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_NATIONAL_PARK:
+		return FlagGet(FLAG_WORLD_MAP_NATIONAL_PARK) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_BURNED_TOWER:
+		return FlagGet(FLAG_WORLD_MAP_BURNED_TOWER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_BELL_TOWER:
+		return FlagGet(FLAG_WORLD_MAP_BELL_TOWER_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_WHIRL_ISLANDS:
+		return FlagGet(FLAG_WORLD_MAP_WHIRL_ISLANDS_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_MT_MORTAR:
+		return FlagGet(FLAG_WORLD_MAP_MT_MORTAR_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_ICE_PATH:
+		return FlagGet(FLAG_WORLD_MAP_ICE_PATH_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_DRAGONS_DEN:
+		return FlagGet(FLAG_WORLD_MAP_DRAGONS_DEN_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_TOHJO_FALLS:
+		return FlagGet(FLAG_WORLD_MAP_TOHJO_FALLS) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_MT_SILVER_CAVE:
+		return FlagGet(FLAG_WORLD_MAP_MT_SILVER_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3252,8 +3214,8 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->y = 8;
         break;
     case MAPSEC_TRAINER_TOWER_2:
-        sMapCursor->x = 5;
-        sMapCursor->y = 6;
+        sMapCursor->x = 6;
+        sMapCursor->y = 8;
         break;
     case MAPSEC_MT_EMBER:
         sMapCursor->x = 2;
@@ -3263,29 +3225,58 @@ static void GetPlayerPositionOnRegionMap_HandleOverrides(void)
         sMapCursor->x = 14;
         sMapCursor->y = 12;
         break;
-    case MAPSEC_PATTERN_BUSH:
-        sMapCursor->x = 17;
-        sMapCursor->y = 3;
-        break;
-    case MAPSEC_ROCKET_WAREHOUSE:
-        sMapCursor->x = 17;
-        sMapCursor->y = 11;
-        break;
-    case MAPSEC_DILFORD_CHAMBER:
-    case MAPSEC_LIPTOO_CHAMBER:
-    case MAPSEC_MONEAN_CHAMBER:
-    case MAPSEC_RIXY_CHAMBER:
-    case MAPSEC_SCUFIB_CHAMBER:
-    case MAPSEC_TANOBY_CHAMBERS:
-    case MAPSEC_VIAPOIS_CHAMBER:
-    case MAPSEC_WEEPTH_CHAMBER:
-        sMapCursor->x = 9;
-        sMapCursor->y = 12;
-        break;
-    case MAPSEC_DOTTED_HOLE:
+    case MAPSEC_DARK_CAVE:
         sMapCursor->x = 16;
         sMapCursor->y = 8;
         break;
+    case MAPSEC_SPROUT_TOWER:
+        sMapCursor->x = 13;
+        sMapCursor->y = 8;
+        break;
+    case MAPSEC_UNION_CAVE:
+		sMapCursor->x = 13;
+		sMapCursor->y = 13;
+		break;
+    case MAPSEC_SLOWPOKE_WELL:
+		sMapCursor->x = 11;
+		sMapCursor->y = 14;
+		break;
+    case MAPSEC_ILEX_FOREST:
+		sMapCursor->x = 10;
+		sMapCursor->y = 14;
+		break;
+    case MAPSEC_NATIONAL_PARK:
+		sMapCursor->x = 10;
+		sMapCursor->y = 8;
+		break;
+    case MAPSEC_BURNED_TOWER:
+		sMapCursor->x = 11;
+		sMapCursor->y = 5;
+		break;
+    case MAPSEC_BELL_TOWER:
+		sMapCursor->x = 11;
+		sMapCursor->y = 4;
+		break;
+    case MAPSEC_WHIRL_ISLANDS:
+		sMapCursor->x = 5;
+		sMapCursor->y = 11;
+		break;
+    case MAPSEC_MT_MORTAR:
+        sMapCursor->x = 13;
+        sMapCursor->y = 5;
+        break;
+    case MAPSEC_ICE_PATH:
+        sMapCursor->x = 18;
+        sMapCursor->y = 5;
+        break;
+	case MAPSEC_DRAGONS_DEN:
+		sMapCursor->x = 19;
+		sMapCursor->y = 5;
+		break;
+	case MAPSEC_MT_SILVER_CAVE:
+		sMapCursor->x = 21;
+		sMapCursor->y = 8;
+		break;
     case MAPSEC_VIRIDIAN_FOREST:
         sMapCursor->x = 4;
         sMapCursor->y = 6;
@@ -3379,7 +3370,7 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
         return sRegionMapSections_Sevii123[layer][y][x];
     case REGIONMAP_SEVII45:
         return sRegionMapSections_Sevii45[layer][y][x];
-    case REGIONMAP_SEVII67:
+    case REGIONMAP_JOHTO:
         return sRegionMapSections_Sevii67[layer][y][x];
     default:
         return MAPSEC_NONE;
@@ -3564,7 +3555,7 @@ static void CreateDungeonIconSprite(u8 whichMap, u8 numIcons, u16 x, u16 y, u8 t
     mapsec = GetSelectedMapSection(whichMap, LAYER_MAP, y, x);
 
     // If mapsec has a town, push dungeon icon to bottom right corner
-    if ((GetMapsecType(mapsec) == MAPSECTYPE_VISITED || GetMapsecType(mapsec) == MAPSECTYPE_NOT_VISITED) && mapsec != MAPSEC_ROUTE_10_POKECENTER)
+    if ((GetMapsecType(mapsec) == MAPSECTYPE_VISITED || GetMapsecType(mapsec) == MAPSECTYPE_NOT_VISITED) && mapsec != MAPSEC_ROUTE_10_POKECENTER && mapsec != MAPSEC_MT_SILVER)
         offset = 2;
 
     spriteId = CreateSprite(&template, 8 * x + 36 + offset, 8 * y + 36 + offset, 3);

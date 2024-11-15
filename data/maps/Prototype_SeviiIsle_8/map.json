@@ -3,7 +3,7 @@
   "name": "Prototype_SeviiIsle_8",
   "layout": "LAYOUT_PROTOTYPE_SEVII_ISLE_8",
   "music": "MUS_SEVII_ROUTE",
-  "region_map_section": "MAPSEC_SEVII_ISLE_8",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_SUNNY",
   "map_type": "MAP_TYPE_ROUTE",
@@ -13,9 +13,17 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
-  "object_events": [],
-  "warp_events": [],
-  "coord_events": [],
-  "bg_events": []
+  "connections": 0,
+  "object_events": [
+
+  ],
+  "warp_events": [
+
+  ],
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }

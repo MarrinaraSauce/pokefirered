@@ -3,7 +3,7 @@
   "name": "FourIsland_IcefallCave_1F",
   "layout": "LAYOUT_FOUR_ISLAND_ICEFALL_CAVE_1F",
   "music": "MUS_SEVII_CAVE",
-  "region_map_section": "MAPSEC_ICEFALL_CAVE",
+  "region_map_section": "MAPSEC_LITTLEROOT_TOWN",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_UNDERGROUND",
@@ -13,7 +13,7 @@
   "show_map_name": true,
   "floor_number": 0,
   "battle_scene": "MAP_BATTLE_SCENE_NORMAL",
-  "connections": null,
+  "connections": 0,
   "object_events": [
     {
       "type": "object",
@@ -88,6 +88,10 @@
       "dest_warp_id": "0"
     }
   ],
-  "coord_events": [],
-  "bg_events": []
+  "coord_events": [
+
+  ],
+  "bg_events": [
+
+  ]
 }
