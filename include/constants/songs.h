@@ -352,6 +352,10 @@
 #define MUS_TRAINER_TOWER         344 // MUS_T_TOWER
 #define MUS_SLOW_PALLET           345 // MUS_SLOWMASARA
 #define MUS_TEACHY_TV_MENU        346 // MUS_TVNOIZE
+#define MUS_ROUTE26				347
+#define MUS_NEW_BARK				348
+#define MUS_UNION_CAVE				349
+#define MUS_ELM_LAB				350
 
 #define MUS_NONE                    0xFFFF
 

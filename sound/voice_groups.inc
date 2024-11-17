@@ -8071,3 +8071,36 @@ voicegroup190::
 	voice_square_1 60, 0, 0, 2, 0, 0, 15, 0
 	voice_directsound_no_resample 64, 104, DirectSoundWaveData_ethnic_flavours_atarigane, 255, 0, 255, 0
 	voice_directsound 63, 64, DirectSoundWaveData_sc88pro_taiko, 255, 0, 255, 0
+
+	.align 2
+voicegroup200::
+	voice_keysplit_all voicegroup002
+	voice_keysplit voicegroup007, KeySplitTable5
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fingered_bass, 255, 253, 0, 149
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_keysplit voicegroup003, KeySplitTable1
+
+	.align 2
+voicegroup201::
+	voice_keysplit_all voicegroup002
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_fretless_bass, 255, 253, 0, 149
+	voice_keysplit voicegroup003, KeySplitTable1
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_flute, 255, 127, 231, 127
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 51, 204, 92, 226
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 64, 249, 0, 188
+
+	.align 2
+voicegroup202::
+	voice_keysplit_all voicegroup002
+	voice_directsound 60, 0, DirectSoundWaveData_sd90_classical_detuned_ep1_low, 64, 249, 0, 188
+	voice_directsound 60, 0, DirectSoundWaveData_sc88pro_nylon_str_guitar, 51, 204, 92, 226
+	voice_keysplit voicegroup004, KeySplitTable2
+
+	.align 2
+voicegroup203::
+	voice_keysplit_all voicegroup002
+	voice_keysplit voicegroup004, KeySplitTable2
+	voice_keysplit voicegroup003, KeySplitTable1
+

@@ -962,6 +962,10 @@ SECTIONS {
         sound/songs/midi/mus_trainer_tower.o(.rodata);
         sound/songs/midi/mus_slow_pallet.o(.rodata);
         sound/songs/midi/mus_teachy_tv_menu.o(.rodata);
+	sound/songs/midi/mus_route26.o(.rodata);
+	sound/songs/midi/mus_new_bark.o(.rodata);
+	sound/songs/midi/mus_union_cave.o(.rodata);
+	sound/songs/midi/mus_elm_lab.o(.rodata);
     } > ROM =0
 
     lib_rodata :
