@@ -4428,6 +4428,30 @@
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/NewBarkTown/border.bin",
       "blockdata_filepath": "data/layouts/NewBarkTown/map.bin"
+    },
+    {
+      "id": "LAYOUT_TOHJO_FALLS_ENTRANCE",
+      "name": "TohjoFalls_Entrance_Layout",
+      "width": 46,
+      "height": 26,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_Cave",
+      "border_filepath": "data/layouts/TohjoFalls_Entrance/border.bin",
+      "blockdata_filepath": "data/layouts/TohjoFalls_Entrance/map.bin"
+    },
+    {
+      "id": "LAYOUT_ROUTE29",
+      "name": "Route29_Layout",
+      "width": 72,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_NewBarkTown",
+      "border_filepath": "data/layouts/Route29/border.bin",
+      "blockdata_filepath": "data/layouts/Route29/map.bin"
     }
   ]
 }

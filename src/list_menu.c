@@ -61,7 +61,7 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [TYPE_BUG + 1]      = { 32, 12, 0x6C },
     [TYPE_GHOST + 1]    = { 32, 12, 0x68 },
     [TYPE_STEEL + 1]    = { 32, 12, 0x88 },
-    [TYPE_MYSTERY + 1]  = { 32, 12, 0xA4 },
+    [TYPE_FAIRY + 1]    = { 32, 12, 0xA4 },
     [TYPE_FIRE + 1]     = { 32, 12, 0x24 },
     [TYPE_WATER + 1]    = { 32, 12, 0x28 },
     [TYPE_GRASS + 1]    = { 32, 12, 0x2C },
@@ -75,6 +75,9 @@ static const struct MoveMenuInfoIcon sMenuInfoIcons[] =
     [MENU_INFO_ICON_ACCURACY]  = { 40, 12, 0xC8 },
     [MENU_INFO_ICON_PP]        = { 40, 12, 0xE0 },
     [MENU_INFO_ICON_EFFECT]    = { 40, 12, 0xE8 },
+	[MENU_INFO_ICON_PHYSICAL]  = { 32, 12, 0x04 },
+	[MENU_INFO_ICON_SPECIAL]   = { 32, 12, 0x84 },
+	[MENU_INFO_ICON_STATUS]	   = { 32, 12, 0xC4 },
 };
 
 static void ListMenuDummyTask(u8 taskId)

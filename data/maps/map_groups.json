@@ -174,7 +174,8 @@
     "SixIsland_DottedHole_B4F",
     "SixIsland_DottedHole_SapphireRoom",
     "SixIsland_PatternBush",
-    "SixIsland_AlteringCave"
+    "SixIsland_AlteringCave",
+    "TohjoFalls_Entrance"
   ],
   "gMapGroup_SpecialArea": [
     "NavelRock_Exterior",
@@ -308,7 +309,8 @@
     "Route26",
     "Route27",
     "Route28",
-    "NewBarkTown"
+    "NewBarkTown",
+    "Route29"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",
