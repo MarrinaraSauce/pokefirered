@@ -1376,3 +1376,6 @@ Text_TestMsg::
 
 	.include "data/maps/Route29/scripts.inc"
 	.include "data/maps/Route29/text.inc"
+
+	.include "data/maps/SuperTesterLand/scripts.inc"
+	.include "data/maps/SuperTesterLand/text.inc"

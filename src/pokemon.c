@@ -1769,6 +1769,7 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
     u32 personality;
     u32 value;
     u16 checksum;
+	u8 hiddenAbilityValue;
 
     ZeroBoxMonData(boxMon);
 
@@ -1857,6 +1858,15 @@ void CreateBoxMon(struct BoxPokemon *boxMon, u16 species, u8 level, u8 fixedIV, 
         value = personality & 1;
         SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
     }
+
+	hiddenAbilityValue = Random();
+	value = VarGet(VAR_BADGE_COUNT) * 3;
+
+	if (gSpeciesInfo[species].abilities[2] && hiddenAbilityValue < value)
+	{
+		value = 2;
+		SetBoxMonData(boxMon, MON_DATA_ABILITY_NUM, &value);
+	}
 
     GiveBoxMonInitialMoveset(boxMon);
 }
@@ -3773,13 +3783,10 @@ u8 GetMonsStateToDoubles(void)
     return (aliveCount > 1) ? PLAYER_HAS_TWO_USABLE_MONS : PLAYER_HAS_ONE_USABLE_MON;
 }
 
-u8 GetAbilityBySpecies(u16 species, bool8 abilityNum)
+u8 GetAbilityBySpecies(u16 species, u8 abilityNum)
 {
-    if (abilityNum)
-        gLastUsedAbility = gSpeciesInfo[species].abilities[1];
-    else
-        gLastUsedAbility = gSpeciesInfo[species].abilities[0];
-
+    gLastUsedAbility = gSpeciesInfo[species].abilities[abilityNum];
+    
     return gLastUsedAbility;
 }
 

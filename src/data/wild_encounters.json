@@ -25712,6 +25712,75 @@
               }
             ]
           }
+        },
+        {
+          "map": "MAP_SUPER_TESTER_LAND",
+          "base_label": "gSuperTesterLand",
+          "land_mons": {
+            "encounter_rate": 100,
+            "mons": [
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              },
+              {
+                "min_level": 1,
+                "max_level": 1,
+                "species": "SPECIES_POLITOED"
+              }
+            ]
+          }
         }
       ]
     }

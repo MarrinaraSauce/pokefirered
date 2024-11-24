@@ -4452,6 +4452,18 @@
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin"
+    },
+    {
+      "id": "LAYOUT_SUPER_TESTER_LAND",
+      "name": "SuperTesterLand_Layout",
+      "width": 20,
+      "height": 20,
+      "border_width": 2,
+      "border_height": 2,
+      "primary_tileset": "gTileset_General",
+      "secondary_tileset": "gTileset_PalletTown",
+      "border_filepath": "data/layouts/SuperTesterLand/border.bin",
+      "blockdata_filepath": "data/layouts/SuperTesterLand/map.bin"
     }
   ]
 }
