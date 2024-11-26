@@ -311,7 +311,15 @@
     "Route27",
     "Route28",
     "NewBarkTown",
-    "Route29"
+    "Route29",
+    "CherrygroveCity",
+    "Route46",
+    "Route30",
+    "Route31",
+    "VioletCity",
+    "Route32",
+    "Route36",
+    "RuinsOfAlph"
   ],
   "gMapGroup_IndoorPallet": [
     "PalletTown_PlayersHouse_1F",

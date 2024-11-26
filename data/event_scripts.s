@@ -1379,3 +1379,27 @@ Text_TestMsg::
 
 	.include "data/maps/SuperTesterLand/scripts.inc"
 	.include "data/maps/SuperTesterLand/text.inc"
+
+	.include "data/maps/CherrygroveCity/scripts.inc"
+	.include "data/maps/CherrygroveCity/text.inc"
+
+	.include "data/maps/Route46/scripts.inc"
+	.include "data/maps/Route46/text.inc"
+
+	.include "data/maps/Route30/scripts.inc"
+	.include "data/maps/Route30/text.inc"
+
+	.include "data/maps/Route31/scripts.inc"
+	.include "data/maps/Route31/text.inc"
+
+	.include "data/maps/VioletCity/scripts.inc"
+	.include "data/maps/VioletCity/text.inc"
+
+	.include "data/maps/Route32/scripts.inc"
+	.include "data/maps/Route32/text.inc"
+
+	.include "data/maps/Route36/scripts.inc"
+	.include "data/maps/Route36/text.inc"
+
+	.include "data/maps/RuinsOfAlph/scripts.inc"
+	.include "data/maps/RuinsOfAlph/text.inc"
