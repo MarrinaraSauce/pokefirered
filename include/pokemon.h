@@ -73,7 +73,7 @@ struct PokemonSubstruct3
  /* 0x0B */ u32 nationalRibbon:1;           // Given to purified Shadow Pokémon in Colosseum/XD.
  /* 0x0B */ u32 earthRibbon:1;              // Given to teams that have beaten Mt. Battle's 100-battle challenge in Colosseum/XD.
  /* 0x0B */ u32 worldRibbon:1;              // Distributed during Pokémon Festa '04 and '05 to tournament winners.
- /* 0x0B */ u32 unusedRibbons:1;            // Discarded in Gen 4.
+ /* 0x0B */ u32 unusedRibbons:3;            // Discarded in Gen 4.
 
  // The functionality of this bit changed in FRLG:
  // In RS, this bit does nothing, is never set, & is accidentally unset when hatching Eggs.
@@ -116,7 +116,6 @@ struct BoxPokemon
     u8 otName[PLAYER_NAME_LENGTH];
     u8 markings;
     u16 checksum;
-    u16 unknown;
 
     union
     {
@@ -163,7 +162,7 @@ struct BattleTowerPokemon
              u32 gap:1;
              u32 abilityNum:1;
     /*0x1C*/ u32 personality;
-    /*0x20*/ u8 nickname[POKEMON_NAME_LENGTH + 1];
+    /*0x20*/ u8 nickname[POKEMON_NAME_LENGTH - 1];
     /*0x2B*/ u8 friendship;
 };
 
