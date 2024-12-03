@@ -51,3 +51,12 @@ EventScript_PalletTown_PlayersHouse_2F_ShutDownPC::
 	special SetHelpContextForMap
 	releaseall
 	end
+
+PalletTown_PlayersHouse_2F_EventScript_WallClock::
+	lockall
+	setvar VAR_0x8004, MALE
+	fadescreen FADE_TO_BLACK
+	special StartWallClock
+	waitstate
+	releaseall
+	end

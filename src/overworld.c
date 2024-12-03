@@ -2,6 +2,7 @@
 #include "gflib.h"
 #include "bg_regs.h"
 #include "cable_club.h"
+#include "clock.h"
 #include "credits.h"
 #include "event_data.h"
 #include "event_object_movement.h"
@@ -759,6 +760,7 @@ void LoadMapFromCameraTransition(u8 mapGroup, u8 mapNum)
     RestartWildEncounterImmunitySteps();
     MapResetTrainerRematches(mapGroup, mapNum);
     SetSavedWeatherFromCurrMapHeader();
+    DoTimeBasedEvents();
     ChooseAmbientCrySpecies();
     SetDefaultFlashLevel();
     Overworld_ClearSavedMusic();
@@ -794,6 +796,7 @@ static void LoadMapFromWarp(bool32 unused)
     RestartWildEncounterImmunitySteps();
     MapResetTrainerRematches(gSaveBlock1Ptr->location.mapGroup, gSaveBlock1Ptr->location.mapNum);
     SetSavedWeatherFromCurrMapHeader();
+    DoTimeBasedEvents();
     ChooseAmbientCrySpecies();
     if (isOutdoors)
         FlagClear(FLAG_SYS_FLASH_ACTIVE);
@@ -816,6 +819,7 @@ static void QL_LoadMapNormal(void)
     isOutdoors = IsMapTypeOutdoors(gMapHeader.mapType);
     TrySetMapSaveWarpStatus();
     SetSavedWeatherFromCurrMapHeader();
+    DoTimeBasedEvents();
     ChooseAmbientCrySpecies();
     SetDefaultFlashLevel();
     QL_ResetDefeatedWildMonRecord();
@@ -1684,6 +1688,7 @@ void CB2_ContinueSavedGame(void)
     LoadSaveblockMapHeader();
     LoadSaveblockObjEventScripts();
     UnfreezeObjectEvents();
+    DoTimeBasedEvents();
     Overworld_ResetStateOnContinue();
     InitMapFromSavedGame();
     PlayTimeCounter_Start();

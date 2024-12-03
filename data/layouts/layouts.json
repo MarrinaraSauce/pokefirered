@@ -4388,7 +4388,7 @@
       "height": 120,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route26/border.bin",
       "blockdata_filepath": "data/layouts/Route26/map.bin"
@@ -4400,7 +4400,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route27/border.bin",
       "blockdata_filepath": "data/layouts/Route27/map.bin"
@@ -4412,7 +4412,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/Route28/border.bin",
       "blockdata_filepath": "data/layouts/Route28/map.bin"
@@ -4424,7 +4424,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/NewBarkTown/border.bin",
       "blockdata_filepath": "data/layouts/NewBarkTown/map.bin"
@@ -4448,7 +4448,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route29/border.bin",
       "blockdata_filepath": "data/layouts/Route29/map.bin"
@@ -4472,7 +4472,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_PalletTown",
       "border_filepath": "data/layouts/CherrygroveCity/border.bin",
       "blockdata_filepath": "data/layouts/CherrygroveCity/map.bin"
@@ -4484,7 +4484,7 @@
       "height": 40,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route46/border.bin",
       "blockdata_filepath": "data/layouts/Route46/map.bin"
@@ -4496,7 +4496,7 @@
       "height": 60,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route30/border.bin",
       "blockdata_filepath": "data/layouts/Route30/map.bin"
@@ -4508,7 +4508,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route31/border.bin",
       "blockdata_filepath": "data/layouts/Route31/map.bin"
@@ -4520,7 +4520,7 @@
       "height": 40,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_VioletCity",
       "border_filepath": "data/layouts/VioletCity/border.bin",
       "blockdata_filepath": "data/layouts/VioletCity/map.bin"
@@ -4532,7 +4532,7 @@
       "height": 100,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route32/border.bin",
       "blockdata_filepath": "data/layouts/Route32/map.bin"
@@ -4544,7 +4544,7 @@
       "height": 20,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/Route36/border.bin",
       "blockdata_filepath": "data/layouts/Route36/map.bin"
@@ -4556,7 +4556,7 @@
       "height": 40,
       "border_width": 2,
       "border_height": 2,
-      "primary_tileset": "gTileset_General",
+      "primary_tileset": "gTileset_GeneralJohto",
       "secondary_tileset": "gTileset_NewBarkTown",
       "border_filepath": "data/layouts/RuinsOfAlph/border.bin",
       "blockdata_filepath": "data/layouts/RuinsOfAlph/map.bin"

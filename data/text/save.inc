@@ -15,6 +15,9 @@ gText_PlayerSavedTheGame::
 gText_SaveFailed2::
 	.string "セーブに　しっぱい　しました‥$"
 
+gText_SaveFailed::
+	.string "Save failed…$"
+
 gText_DifferentGameFile:: @ 81C566A
 	.string "Warning!\p"
 	.string "There is a different game file that\n"

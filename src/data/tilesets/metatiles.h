@@ -207,3 +207,6 @@ const u32 gMetatileAttributes_NewBarkTown[] = INCBIN_U32("data/tilesets/secondar
 
 const u16 gMetatiles_VioletCity[] = INCBIN_U16("data/tilesets/secondary/violet_city/metatiles.bin");
 const u32 gMetatileAttributes_VioletCity[] = INCBIN_U32("data/tilesets/secondary/violet_city/metatile_attributes.bin");
+
+const u16 gMetatiles_GeneralJohto[] = INCBIN_U16("data/tilesets/primary/general_johto/metatiles.bin");
+const u32 gMetatileAttributes_GeneralJohto[] = INCBIN_U32("data/tilesets/primary/general_johto/metatile_attributes.bin");

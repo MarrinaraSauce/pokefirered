@@ -1,4 +1,4 @@
-const u8 gSpeciesNames[][POKEMON_NAME_LENGTH +1] = {
+const u8 gSpeciesNames[][POKEMON_NAME_LENGTH + 1] = {
     _("??????????"),
     _("Bulbasaur"),
     _("Ivysaur"),

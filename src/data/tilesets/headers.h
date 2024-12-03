@@ -768,3 +768,14 @@ const struct Tileset gTileset_VioletCity =
     .metatileAttributes = gMetatileAttributes_VioletCity,
     .callback = NULL,
 };
+
+const struct Tileset gTileset_GeneralJohto =
+{
+    .isCompressed = TRUE,
+    .isSecondary = FALSE,
+    .tiles = gTilesetTiles_GeneralJohto,
+    .palettes = gTilesetPalettes_GeneralJohto,
+    .metatiles = gMetatiles_GeneralJohto,
+    .metatileAttributes = gMetatileAttributes_GeneralJohto,
+    .callback = NULL,
+};
