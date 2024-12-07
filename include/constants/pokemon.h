@@ -182,7 +182,7 @@
 #define MAX_STAT_STAGE    12
 
 // Shiny odds
-#define SHINY_ODDS 8 // Actual probability is SHINY_ODDS/65536
+#define SHINY_ODDS 16 // Actual probability is SHINY_ODDS/65536
 
 #define MAX_LEVEL 100
 
@@ -241,6 +241,14 @@
 #define FLAG_SNATCH_AFFECTED        (1 << 3)
 #define FLAG_MIRROR_MOVE_AFFECTED   (1 << 4)
 #define FLAG_KINGS_ROCK_AFFECTED    (1 << 5)
+#define FLAG_POWDER_MOVE			(1 << 6)
+#define FLAG_SOUNDPROOF_AFFECTED	(1 << 7)
+#define FLAG_MEGA_LAUNCHER_AFFECTED	(1 << 8)
+#define FLAG_BULLETPROOF_AFFECTED	(1 << 9)
+#define FLAG_STRONG_JAW_AFFECTED	(1 << 10)
+#define FLAG_IRON_FIST_AFFECTED		(1 << 11)
+#define FLAG_SHARPNESS_AFFECTED		(1 << 12)
+#define FLAG_WIND_RIDER_AFFECTED	(1 << 13)
 
 // Growth rates
 #define GROWTH_MEDIUM_FAST  0
