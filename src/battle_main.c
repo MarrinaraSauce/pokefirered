@@ -3415,12 +3415,14 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
     if (WEATHER_HAS_EFFECT)
     {
         if ((gBattleMons[battler1].ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
-            || (gBattleMons[battler1].ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN))
+            || (gBattleMons[battler1].ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN)
+			|| (gBattleMons[battler1].ability == ABILITY_SAND_RUSH && gBattleWeather & B_WEATHER_SANDSTORM))
             speedMultiplierBattler1 = 2;
         else
             speedMultiplierBattler1 = 1;
         if ((gBattleMons[battler2].ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
-            || (gBattleMons[battler2].ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN))
+            || (gBattleMons[battler2].ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN)
+			|| (gBattleMons[battler2].ability == ABILITY_SAND_RUSH && gBattleWeather & B_WEATHER_SANDSTORM))
             speedMultiplierBattler2 = 2;
         else
             speedMultiplierBattler2 = 1;
@@ -3452,8 +3454,10 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         speedBattler1 = (speedBattler1 * 110) / 100;
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler1 /= 2;
-    if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS)
+    if (gBattleMons[battler1].status1 & STATUS1_PARALYSIS && gBattleMons[battler1].ability != ABILITY_QUICK_FEET)
         speedBattler1 /= 4;
+	if (gBattleMons[battler1].status1 && gBattleMons[battler1].ability == ABILITY_QUICK_FEET)
+		speedBattler1 = (speedBattler1 * 150) / 100;
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler1 = UINT_MAX;
     // check second battlerId's speed
@@ -3477,8 +3481,10 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
         speedBattler2 = (speedBattler2 * 110) / 100;
     if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
         speedBattler2 /= 2;
-    if (gBattleMons[battler2].status1 & STATUS1_PARALYSIS)
+    if (gBattleMons[battler2].status1 & STATUS1_PARALYSIS && gBattleMons[battler2].ability != ABILITY_QUICK_FEET)
         speedBattler2 /= 4;
+	if (gBattleMons[battler2].status1 && gBattleMons[battler2].ability == ABILITY_QUICK_FEET)
+		speedBattler2 = (speedBattler2 * 150) / 100;
     if (holdEffect == HOLD_EFFECT_QUICK_CLAW && gRandomTurnNumber < (0xFFFF * holdEffectParam) / 100)
         speedBattler2 = UINT_MAX;
     if (ignoreChosenMoves)

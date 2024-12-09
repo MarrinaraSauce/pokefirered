@@ -585,7 +585,7 @@ static const struct StatFractions sAccuracyStageRatios[] =
 };
 
 // The chance is 1/N for each stage.
-static const u16 sCriticalHitChance[] = {16, 8, 4, 3, 2};
+static const u16 sCriticalHitChance[] = {24, 8, 2, 1};
 
 static const u32 sStatusFlagsForMoveEffects[NUM_MOVE_EFFECTS] =
 {
@@ -1070,8 +1070,12 @@ static void Cmd_accuracycheck(void)
             calc = (calc * 130) / 100; // 1.3 compound eyes boost
         if (WEATHER_HAS_EFFECT && gBattleMons[gBattlerTarget].ability == ABILITY_SAND_VEIL && gBattleWeather & B_WEATHER_SANDSTORM)
             calc = (calc * 80) / 100; // 1.2 sand veil loss
+		if (WEATHER_HAS_EFFECT && gBattleMons[gBattlerTarget].ability == ABILITY_SNOW_CLOAK && gBattleWeather & B_WEATHER_HAIL)
+			calc = (calc * 80) / 100; // 1.2 snow cloak loss
         if (gBattleMons[gBattlerAttacker].ability == ABILITY_HUSTLE && gBattleMoves[move].category == 0)
             calc = (calc * 80) / 100; // 1.2 hustle loss
+		if (gBattleMons[gBattlerTarget].ability == ABILITY_TANGLED_FEET && gBattleMons[gBattlerTarget].status2 & STATUS2_CONFUSION)
+			calc /= 2; // halved from tangled feet
 
         if (gBattleMons[gBattlerTarget].item == ITEM_ENIGMA_BERRY)
         {
@@ -1186,6 +1190,7 @@ static void Cmd_critcalc(void)
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_SKY_ATTACK)
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_BLAZE_KICK)
                 + (gBattleMoves[gCurrentMove].effect == EFFECT_POISON_TAIL)
+				+ (gBattleMons[gBattlerAttacker].ability == ABILITY_SUPER_LUCK)
                 + (holdEffect == HOLD_EFFECT_SCOPE_LENS)
                 + 2 * (holdEffect == HOLD_EFFECT_LUCKY_PUNCH && gBattleMons[gBattlerAttacker].species == SPECIES_CHANSEY)
                 + 2 * (holdEffect == HOLD_EFFECT_STICK && gBattleMons[gBattlerAttacker].species == SPECIES_FARFETCHD);
@@ -1199,7 +1204,12 @@ static void Cmd_critcalc(void)
      && !(Random() % sCriticalHitChance[critChance])
      && (!(gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) || BtlCtrl_OakOldMan_TestState2Flag(1))
      && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
-        gCritMultiplier = 2;
+	{
+		if(gBattleMons[gBattlerAttacker].ability == ABILITY_SNIPER)
+			gCritMultiplier = 2.25;
+		else
+			gCritMultiplier = 1.5;
+	}
     else
         gCritMultiplier = 1;
 
@@ -3988,7 +3998,8 @@ static void Cmd_playstatchangeanimation(void)
                         && gBattleMons[gActiveBattler].ability != ABILITY_CLEAR_BODY
                         && gBattleMons[gActiveBattler].ability != ABILITY_WHITE_SMOKE
                         && !(gBattleMons[gActiveBattler].ability == ABILITY_KEEN_EYE && currStat == STAT_ACC)
-                        && !(gBattleMons[gActiveBattler].ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK))
+                        && !(gBattleMons[gActiveBattler].ability == ABILITY_HYPER_CUTTER && currStat == STAT_ATK)
+                        && !(gBattleMons[gActiveBattler].ability == ABILITY_BIG_PECKS && currStat == STAT_DEF))
                 {
                     if (gBattleMons[gActiveBattler].statStages[currStat] > MIN_STAT_STAGE)
                     {
@@ -6750,6 +6761,19 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             }
             return STAT_CHANGE_DIDNT_WORK;
         }
+        else if (gBattleMons[gActiveBattler].ability == ABILITY_BIG_PECKS
+                 && !certain && statId == STAT_DEF)
+        {
+            if (flags == STAT_CHANGE_ALLOW_PTR)
+            {
+                BattleScriptPush(BS_ptr);
+                gBattleScripting.battler = gActiveBattler;
+                gBattlescriptCurrInstr = BattleScript_AbilityNoSpecificStatLoss;
+                gLastUsedAbility = gBattleMons[gActiveBattler].ability;
+                RecordAbilityBattle(gActiveBattler, gLastUsedAbility);
+            }
+            return STAT_CHANGE_DIDNT_WORK;
+        }
         else if (gBattleMons[gActiveBattler].ability == ABILITY_SHIELD_DUST && flags == 0)
         {
             return STAT_CHANGE_DIDNT_WORK;
@@ -7218,6 +7242,9 @@ static void Cmd_weatherdamage(void)
                 && gBattleMons[gBattlerAttacker].type2 != TYPE_STEEL
                 && gBattleMons[gBattlerAttacker].type2 != TYPE_GROUND
                 && gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_VEIL
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_RUSH
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_SAND_FORCE
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_OVERCOAT
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERGROUND)
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER))
             {
@@ -7233,6 +7260,8 @@ static void Cmd_weatherdamage(void)
         if (gBattleWeather & B_WEATHER_HAIL)
         {
             if (!IS_BATTLER_OF_TYPE(gBattlerAttacker, TYPE_ICE)
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_SNOW_CLOAK
+				&& gBattleMons[gBattlerAttacker].ability != ABILITY_OVERCOAT
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERGROUND)
                 && !(gStatuses3[gBattlerAttacker] & STATUS3_UNDERWATER))
             {
@@ -9057,9 +9086,14 @@ static void Cmd_trysetgrudge(void)
 static void Cmd_weightdamagecalculation(void)
 {
     s32 i;
+	u16 value = GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1);
+	if (gBattleMons[gBattlerTarget].ability == ABILITY_HEAVY_METAL)
+		value *= 2;
+	if (gBattleMons[gBattlerTarget].ability == ABILITY_LIGHT_METAL)
+		value /= 2;
     for (i = 0; sWeightToDamageTable[i] != 0xFFFF; i += 2)
     {
-        if (sWeightToDamageTable[i] > GetPokedexHeightWeight(SpeciesToNationalPokedexNum(gBattleMons[gBattlerTarget].species), 1))
+        if (sWeightToDamageTable[i] > value)
             break;
     }
 

@@ -1872,22 +1872,37 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             }
             break;
         case ABILITYEFFECT_MOVES_BLOCK: // 2
-            if (gLastUsedAbility == ABILITY_SOUNDPROOF)
-            {
-                for (i = 0; sSoundMovesTable[i] != SOUND_MOVES_END; i++)
-                {
-                    if (sSoundMovesTable[i] == move)
-                        break;
-                }
-                if (sSoundMovesTable[i] != SOUND_MOVES_END)
+			switch(gLastUsedAbility)
+			{
+            case ABILITY_SOUNDPROOF:
+                if (gBattleMoves[move].flags & FLAG_SOUNDPROOF_AFFECTED)
                 {
                     if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
                         gHitMarker |= HITMARKER_NO_PPDEDUCT;
                     gBattlescriptCurrInstr = BattleScript_SoundproofProtected;
                     effect = 1;
                 }
-            }
-            break;
+				break;
+			case ABILITY_OVERCOAT:
+				if (gBattleMoves[move].flags & FLAG_POWDER_MOVE)
+				{
+					if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
+						gHitMarker |= HITMARKER_NO_PPDEDUCT;
+					gBattlescriptCurrInstr = BattleScript_SoundproofProtected;
+					effect = 1;
+				}
+				break;
+			case ABILITY_BULLETPROOF:
+				if (gBattleMoves[move].flags & FLAG_BULLETPROOF_AFFECTED)
+				{
+					if (gBattleMons[gBattlerAttacker].status2 & STATUS2_MULTIPLETURNS)
+						gHitMarker |= HITMARKER_NO_PPDEDUCT;
+					gBattlescriptCurrInstr = BattleScript_SoundproofProtected;
+					effect = 1;
+				}
+				break;
+			}
+			break;
         case ABILITYEFFECT_ABSORBING: // 3
             if (move)
             {
@@ -1997,6 +2012,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
             case ABILITY_EFFECT_SPORE:
                 if (!(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
                  && gBattleMons[gBattlerAttacker].hp != 0
+                 && gBattleMons[gBattlerAttacker].ability != ABILITY_OVERCOAT
                  && !gProtectStructs[gBattlerAttacker].confusionSelfDmg
                  && TARGET_TURN_DAMAGED
                  && (gBattleMoves[move].flags & FLAG_MAKES_CONTACT)

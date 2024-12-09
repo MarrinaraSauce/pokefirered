@@ -2488,13 +2488,25 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         defense *= 2;
     if (attackerHoldEffect == HOLD_EFFECT_THICK_CLUB && (attacker->species == SPECIES_CUBONE || attacker->species == SPECIES_MAROWAK))
         attack *= 2;
+	if (attacker->ability == ABILITY_TECHNICIAN && gBattleMovePower <= 60)
+		gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_IRON_FIST && gBattleMoves[move].flags & FLAG_IRON_FIST_AFFECTED)
+		gBattleMovePower = (120 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_STRONG_JAW && gBattleMoves[move].flags & FLAG_STRONG_JAW_AFFECTED)
+		gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_MEGA_LAUNCHER && gBattleMoves[move].flags & FLAG_MEGA_LAUNCHER_AFFECTED)
+		gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_TOUGH_CLAWS && gBattleMoves[move].flags & FLAG_MAKES_CONTACT)
+		gBattleMovePower = (130 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_SHARPNESS && gBattleMoves[move].flags & FLAG_SHARPNESS_AFFECTED)
+		gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
-        spAttack /= 2;
+		gBattleMovePower /= 2;
     if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
-    if (attacker->ability == ABILITY_PLUS && ABILITY_ON_FIELD2(ABILITY_MINUS))
+    if (attacker->ability == ABILITY_PLUS && (ABILITY_ON_FIELD2(ABILITY_MINUS) || ABILITY_ON_FIELD2(ABILITY_PLUS)))
         spAttack = (150 * spAttack) / 100;
-    if (attacker->ability == ABILITY_MINUS && ABILITY_ON_FIELD2(ABILITY_PLUS))
+    if (attacker->ability == ABILITY_MINUS && (ABILITY_ON_FIELD2(ABILITY_MINUS) || ABILITY_ON_FIELD2(ABILITY_PLUS)))
         spAttack = (150 * spAttack) / 100;
     if (attacker->ability == ABILITY_GUTS && attacker->status1)
         attack = (150 * attack) / 100;
