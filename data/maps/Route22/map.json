@@ -46,8 +46,8 @@
       "x": 8,
       "y": 5,
       "elevation": 0,
-      "dest_map": "MAP_SUPER_TESTER_LAND",
-      "dest_warp_id": "0"
+      "dest_map": "MAP_ROUTE22_NORTH_ENTRANCE",
+      "dest_warp_id": "02"
     },
     {
       "x": 9,

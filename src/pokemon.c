@@ -2502,6 +2502,10 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		gBattleMovePower = (150 * gBattleMovePower) / 100;
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
 		gBattleMovePower /= 2;
+    if (defender->ability == ABILITY_DRY_SKIN && (type == TYPE_FIRE))
+		gBattleMovePower = (125 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_SOLAR_POWER && gBattleWeather & B_WEATHER_SUN)
+		spAttack = (150 * spAttack) / 100;
     if (attacker->ability == ABILITY_HUSTLE)
         attack = (150 * attack) / 100;
     if (attacker->ability == ABILITY_PLUS && (ABILITY_ON_FIELD2(ABILITY_MINUS) || ABILITY_ON_FIELD2(ABILITY_PLUS)))
@@ -2531,13 +2535,15 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     if (gBattleMoves[move].category == 0)
     {
-        if (gCritMultiplier == 2)
+		if(defender->ability == ABILITY_UNAWARE)
+			damage = attack;
+        else if (gCritMultiplier > 1)
         {
             // Critical hit, if attacker has lost attack stat stages then ignore stat drop
             if (attacker->statStages[STAT_ATK] > DEFAULT_STAT_STAGE)
                 APPLY_STAT_MOD(damage, attacker, attack, STAT_ATK)
-            else
-                damage = attack;
+			else
+				damage = attack;
         }
         else
             APPLY_STAT_MOD(damage, attacker, attack, STAT_ATK)
@@ -2545,7 +2551,9 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
 
-        if (gCritMultiplier == 2)
+		if (attacker->ability == ABILITY_UNAWARE)
+			damageHelper = defense;
+        else if (gCritMultiplier > 1)
         {
             // Critical hit, if defender has gained defense stat stages then ignore stat increase
             if (defender->statStages[STAT_DEF] < DEFAULT_STAT_STAGE)
@@ -2574,8 +2582,46 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
         // Moves hitting both targets do half damage in double battles
         if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gBattleMoves[move].target == MOVE_TARGET_BOTH && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
-            damage /= 2;
+		{
+            damage *= 75;
+			damage /= 100;
+		}
 
+		// Are effects of weather negated with cloud nine or air lock
+		if (WEATHER_HAS_EFFECT2)
+		{
+			// Rain weakens Fire, boosts Water
+			if (gBattleWeather & B_WEATHER_RAIN_TEMPORARY)
+			{
+				switch (type)
+				{
+				case TYPE_FIRE:
+					damage /= 2;
+					break;
+				case TYPE_WATER:
+					damage = (15 * damage) / 10;
+					break;
+				}
+			}
+
+			// Any weather except sun weakens solar beam
+			if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gBattleMoves[gCurrentMove].effect == EFFECT_SOLAR_BEAM)
+				damage /= 2;
+
+			// Sun boosts Fire, weakens Water
+			if (gBattleWeather & B_WEATHER_SUN)
+			{
+				switch (type)
+				{
+				case TYPE_FIRE:
+					damage = (15 * damage) / 10;
+					break;
+				case TYPE_WATER:
+					damage /= 2;
+					break;
+				}
+			}
+		}
         // Moves always do at least 1 damage.
         if (damage == 0)
             damage = 1;
@@ -2583,7 +2629,9 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
     if (gBattleMoves[move].category == 1)
     {
-        if (gCritMultiplier == 2)
+		if (defender->ability == ABILITY_UNAWARE)
+			damage = spAttack;
+        else if (gCritMultiplier > 1)
         {
             // Critical hit, if attacker has lost sp. attack stat stages then ignore stat drop
             if (attacker->statStages[STAT_SPATK] > DEFAULT_STAT_STAGE)
@@ -2597,7 +2645,9 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
 
-        if (gCritMultiplier == 2)
+		if (attacker->ability == ABILITY_UNAWARE)
+			damageHelper = spDefense;
+        else if (gCritMultiplier > 1)
         {
             // Critical hit, if defender has gained sp. defense stat stages then ignore stat increase
             if (defender->statStages[STAT_SPDEF] < DEFAULT_STAT_STAGE)
@@ -2622,7 +2672,10 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
         // Moves hitting both targets do half damage in double battles
         if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && gBattleMoves[move].target == MOVE_TARGET_BOTH && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
-            damage /= 2;
+		{
+			damage *= 75;
+			damage /= 100;
+		}
 
         // Are effects of weather negated with cloud nine or air lock
         if (WEATHER_HAS_EFFECT2)
@@ -2642,7 +2695,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             }
 
             // Any weather except sun weakens solar beam
-            if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gCurrentMove == MOVE_SOLAR_BEAM)
+            if ((gBattleWeather & (B_WEATHER_RAIN | B_WEATHER_SANDSTORM | B_WEATHER_HAIL_TEMPORARY)) && gBattleMoves[gCurrentMove].effect == EFFECT_SOLAR_BEAM)
                 damage /= 2;
 
             // Sun boosts Fire, weakens Water

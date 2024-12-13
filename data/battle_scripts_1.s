@@ -1945,8 +1945,8 @@ BattleScript_BeatUpLoop::
 	trydobeatup BattleScript_BeatUpEnd, BattleScript_ButItFailed
 	printstring STRINGID_PKMNATTACK
 	critcalc
-	jumpifbyte CMP_NOT_EQUAL, gCritMultiplier, 2, BattleScript_BeatUpAttack
-	manipulatedamage DMG_DOUBLED
+	jumpifbyte CMP_EQUAL, gCritMultiplier, 1, BattleScript_BeatUpAttack
+	manipulatedamage DMG_CRIT
 BattleScript_BeatUpAttack::
 	adjustnormaldamage
 	attackanimation
@@ -4156,6 +4156,15 @@ BattleScript_RoughSkinActivates::
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_ATTACKER
 	return
+
+BattleScript_SolarPowerActivates::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	printstring STRINGID_PKMNHURTBYITS
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_ATTACKER
+	end3
 
 BattleScript_CuteCharmActivates::
 	status2animation BS_ATTACKER, STATUS2_INFATUATION

@@ -89,8 +89,6 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_X_SPECIAL]      = {gItemIcon_BattleStatItem, gItemIconPalette_XSpecial},
     [ITEM_POKE_DOLL]      = {gItemIcon_PokeDoll, gItemIconPalette_PokeDoll},
     [ITEM_FLUFFY_TAIL]    = {gItemIcon_FluffyTail, gItemIconPalette_FluffyTail},
-    // ????????
-    [ITEM_052]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     // Field items
     [ITEM_SUPER_REPEL]    = {gItemIcon_Repel, gItemIconPalette_SuperRepel},
     [ITEM_MAX_REPEL]      = {gItemIcon_Repel, gItemIconPalette_MaxRepel},
@@ -110,11 +108,12 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_THUNDER_STONE]  = {gItemIcon_ThunderStone, gItemIconPalette_ThunderStone},
     [ITEM_WATER_STONE]    = {gItemIcon_WaterStone, gItemIconPalette_WaterStone},
     [ITEM_LEAF_STONE]     = {gItemIcon_LeafStone, gItemIconPalette_LeafStone},
-    // ????????
-    [ITEM_063]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_064]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_065]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_066]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    // New Evo Stones
+    [ITEM_SHINY_STONE]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_DUSK_STONE]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_DAWN_STONE]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_BLACK_AUGURITE]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_PEAT_BLOCK]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     // Valuables
     [ITEM_TINY_MUSHROOM]  = {gItemIcon_TinyMushroom, gItemIconPalette_Mushroom},
     [ITEM_BIG_MUSHROOM]   = {gItemIcon_BigMushroom, gItemIconPalette_Mushroom},
@@ -252,8 +251,8 @@ static const u32 *const sItemIconTable[ITEMS_COUNT + 1][2] =
     [ITEM_RAZOR_CLAW]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_RAZOR_FANG]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_REAPER_CLOTH]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_BLACK_AUGURITE]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
-    [ITEM_PEAT_BLOCK]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_0EA]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
+    [ITEM_0EB]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0EC]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0ED]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},
     [ITEM_0EE]            = {gItemIcon_QuestionMark, gItemIconPalette_QuestionMark},

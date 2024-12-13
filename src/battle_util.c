@@ -629,15 +629,14 @@ u8 DoFieldEndTurnEffects(void)
                     if (--gWishFutureKnock.weatherDuration == 0)
                     {
                         gBattleWeather &= ~B_WEATHER_RAIN_TEMPORARY;
-                        gBattleWeather &= ~B_WEATHER_RAIN_DOWNPOUR;
                         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_RAIN_STOPPED;
                     }
-                    else if (gBattleWeather & B_WEATHER_RAIN_DOWNPOUR)
+                    else if (gBattleWeather & B_WEATHER_STRONG_WIND)
                         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOWNPOUR_CONTINUES;
                     else
                         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_RAIN_CONTINUES;
                 }
-                else if (gBattleWeather & B_WEATHER_RAIN_DOWNPOUR)
+                else if (gBattleWeather & B_WEATHER_STRONG_WIND)
                 {
                     gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_DOWNPOUR_CONTINUES;
                 }
@@ -1746,27 +1745,27 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 }
                 break;
             case ABILITY_DRIZZLE:
-                if (!(gBattleWeather & B_WEATHER_RAIN_PERMANENT))
+                if (!(gBattleWeather & B_WEATHER_RAIN))
                 {
-                    gBattleWeather = (B_WEATHER_RAIN_PERMANENT | B_WEATHER_RAIN_TEMPORARY);
+                    gBattleWeather = (B_WEATHER_RAIN_TEMPORARY);
                     BattleScriptPushCursorAndCallback(BattleScript_DrizzleActivates);
                     gBattleScripting.battler = battler;
                     effect++;
                 }
                 break;
             case ABILITY_SAND_STREAM:
-                if (!(gBattleWeather & B_WEATHER_SANDSTORM_PERMANENT))
+                if (!(gBattleWeather & B_WEATHER_SANDSTORM))
                 {
-                    gBattleWeather = B_WEATHER_SANDSTORM;
+                    gBattleWeather = B_WEATHER_SANDSTORM_TEMPORARY;
                     BattleScriptPushCursorAndCallback(BattleScript_SandstreamActivates);
                     gBattleScripting.battler = battler;
                     effect++;
                 }
                 break;
             case ABILITY_DROUGHT:
-                if (!(gBattleWeather & B_WEATHER_SUN_PERMANENT))
+                if (!(gBattleWeather & B_WEATHER_SUN))
                 {
-                    gBattleWeather = B_WEATHER_SUN;
+                    gBattleWeather = B_WEATHER_SUN_TEMPORARY;
                     BattleScriptPushCursorAndCallback(BattleScript_DroughtActivates);
                     gBattleScripting.battler = battler;
                     effect++;
@@ -1832,6 +1831,36 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+				case ABILITY_DRY_SKIN:
+					if (WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_RAIN)
+						&& gBattleMons[battler].maxHP > gBattleMons[battler].hp)
+					{
+						BattleScriptPushCursorAndCallback(BattleScript_RainDishActivates);
+						gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+						if (gBattleMoveDamage == 0)
+							gBattleMoveDamage = 1;
+						gBattleMoveDamage *= -1;
+						effect++;
+					}
+					else if (WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_SUN))
+					{
+						BattleScriptPushCursorAndCallback(BattleScript_SolarPowerActivates);
+						gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+						if (gBattleMoveDamage == 0)
+							gBattleMoveDamage = 1;
+						effect++;
+					}
+					break;
+				case ABILITY_SOLAR_POWER:
+					if (WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_SUN))
+					{
+						BattleScriptPushCursorAndCallback(BattleScript_SolarPowerActivates);
+						gBattleMoveDamage = gBattleMons[battler].maxHP / 8;
+						if (gBattleMoveDamage == 0)
+							gBattleMoveDamage = 1;
+						effect++;
+					}
+					break;
                 case ABILITY_SHED_SKIN:
                     if ((gBattleMons[battler].status1 & STATUS1_ANY) && (Random() % 3) == 0)
                     {
@@ -1854,6 +1883,50 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                         effect++;
                     }
                     break;
+				case ABILITY_HYDRATION:
+					if ((gBattleMons[battler].status1 & STATUS1_ANY) && (gBattleWeather & B_WEATHER_RAIN))
+					{
+						if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
+							StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+						if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+						if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+						if (gBattleMons[battler].status1 & STATUS1_BURN)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+						if (gBattleMons[battler].status1 & STATUS1_FREEZE)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+						gBattleMons[battler].status1 = 0;
+						gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;  // fix nightmare glitch
+						gBattleScripting.battler = gActiveBattler = battler;
+						BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
+						BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+						MarkBattlerForControllerExec(gActiveBattler);
+						effect++;
+					}
+					break;
+				case ABILITY_LEAF_GUARD:
+					if ((gBattleMons[battler].status1 & STATUS1_ANY) && (gBattleWeather & B_WEATHER_SUN))
+					{
+						if (gBattleMons[battler].status1 & (STATUS1_POISON | STATUS1_TOXIC_POISON))
+							StringCopy(gBattleTextBuff1, gStatusConditionString_PoisonJpn);
+						if (gBattleMons[battler].status1 & STATUS1_SLEEP)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_SleepJpn);
+						if (gBattleMons[battler].status1 & STATUS1_PARALYSIS)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_ParalysisJpn);
+						if (gBattleMons[battler].status1 & STATUS1_BURN)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_BurnJpn);
+						if (gBattleMons[battler].status1 & STATUS1_FREEZE)
+							StringCopy(gBattleTextBuff1, gStatusConditionString_IceJpn);
+						gBattleMons[battler].status1 = 0;
+						gBattleMons[battler].status2 &= ~STATUS2_NIGHTMARE;  // fix nightmare glitch
+						gBattleScripting.battler = gActiveBattler = battler;
+						BattleScriptPushCursorAndCallback(BattleScript_ShedSkinActivates);
+						BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, 4, &gBattleMons[battler].status1);
+						MarkBattlerForControllerExec(gActiveBattler);
+						effect++;
+					}
+					break;
                 case ABILITY_SPEED_BOOST:
                     if (gBattleMons[battler].statStages[STAT_SPEED] < MAX_STAT_STAGE && gDisableStructs[battler].isFirstTurn != 2)
                     {
@@ -1920,6 +1993,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                     }
                     break;
                 case ABILITY_WATER_ABSORB:
+				case ABILITY_DRY_SKIN:
                     if (moveType == TYPE_WATER && gBattleMoves[move].power != 0)
                     {
                         if (gProtectStructs[gBattlerAttacker].notFirstStrike)
@@ -2001,7 +2075,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                  && TARGET_TURN_DAMAGED
                  && (gBattleMoves[move].flags & FLAG_MAKES_CONTACT))
                 {
-                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 16;
+                    gBattleMoveDamage = gBattleMons[gBattlerAttacker].maxHP / 8;
                     if (gBattleMoveDamage == 0)
                         gBattleMoveDamage = 1;
                     BattleScriptPushCursor();

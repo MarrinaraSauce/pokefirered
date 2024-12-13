@@ -191,8 +191,8 @@
       "x": 36,
       "y": 19,
       "elevation": 0,
-      "dest_map": "MAP_VIRIDIAN_CITY_MART",
-      "dest_warp_id": "1"
+      "dest_map": "MAP_SUPER_TESTER_LAND",
+      "dest_warp_id": "0"
     }
   ],
   "coord_events": [
