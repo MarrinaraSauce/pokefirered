@@ -279,6 +279,7 @@ static void Cmd_setyawn(void);
 static void Cmd_setdamagetohealthdifference(void);
 static void Cmd_scaledamagebyhealthratio(void);
 static void Cmd_tryswapabilities(void);
+static void Cmd_tryworryseed(void);
 static void Cmd_tryimprison(void);
 static void Cmd_trysetgrudge(void);
 static void Cmd_weightdamagecalculation(void);
@@ -559,6 +560,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
+    Cmd_tryworryseed,                            //0xF8
 };
 
 struct StatFractions
@@ -9044,6 +9046,24 @@ static void Cmd_tryswapabilities(void)
 
             gBattlescriptCurrInstr += 5;
     }
+}
+
+// Worry Seed
+static void Cmd_tryworryseed(void)
+{
+	if (gBattleMons[gBattlerTarget].ability == ABILITY_NONE
+		|| gBattleMons[gBattlerTarget].ability == ABILITY_TRUANT
+		|| gBattleMons[gBattlerTarget].ability == ABILITY_INSOMNIA
+		|| gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
+	{
+		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+	}
+	else
+	{
+		gBattleMons[gBattlerTarget].ability = ABILITY_INSOMNIA;
+
+		gBattlescriptCurrInstr += 5;
+	}
 }
 
 static void Cmd_tryimprison(void)

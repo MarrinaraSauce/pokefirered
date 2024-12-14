@@ -1048,7 +1048,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GROWTH] =
     {
-        .effect = EFFECT_SPECIAL_ATTACK_UP,
+        .effect = EFFECT_GROWTH,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -5454,7 +5454,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WORRY_SEED] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_WORRY_SEED,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -8026,20 +8026,6 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .priority = 0,
         .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
 		.category = 1,
-    },
-
-    [MOVE_SPEED_SWAP] =
-    {
-        .effect = EFFECT_SPLASH,
-        .power = 0,
-        .type = TYPE_PSYCHIC,
-        .accuracy = 0,
-        .pp = 10,
-        .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
-        .priority = 0,
-        .flags = FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED,
-		.category = 0,
     },
 
     [MOVE_SMART_STRIKE] =
