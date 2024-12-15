@@ -1635,32 +1635,16 @@ static const s8 sFriendshipEventDeltas[][3] =
 static const u16 sHMMoves[] = 
 {
     MOVE_CUT, MOVE_FLY, MOVE_SURF, MOVE_STRENGTH, MOVE_FLASH,
-    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_DIVE, HM_MOVES_END
+    MOVE_ROCK_SMASH, MOVE_WATERFALL, MOVE_WHIRLPOOL, HM_MOVES_END
 };
 
-#if defined(FIRERED)
-// Attack forme
-static const u16 sDeoxysBaseStats[] = 
+static const u16 sDeoxysBaseStats[][NUM_STATS] = 
 {
-    [STAT_HP]    = 50,
-    [STAT_ATK]   = 180,
-    [STAT_DEF]   = 20,
-    [STAT_SPEED] = 150,
-    [STAT_SPATK] = 180,
-    [STAT_SPDEF] = 20,
+    [FORM_DEOXYS_NORMAL]  = {50, 150,  50, 150, 150,  50},
+	[FORM_DEOXYS_ATTACK]  = {50, 180,  20, 150, 180,  20},
+	[FORM_DEOXYS_DEFENSE] = {50,  70, 160,  90,  70, 160},
+	[FORM_DEOXYS_SPEED]   = {50,  95,  90, 180,  95,  90},
 };
-#elif defined(LEAFGREEN)
-// Defense forme
-static const u16 sDeoxysBaseStats[] =
-{
-    [STAT_HP]    = 50,
-    [STAT_ATK]   = 70,
-    [STAT_DEF]   = 160,
-    [STAT_SPEED] = 90,
-    [STAT_SPATK] = 70,
-    [STAT_SPDEF] = 160,
-};
-#endif
 
 // The classes used by other players in the Union Room.
 // These should correspond with the overworld graphics in sUnionRoomObjGfxIds
@@ -2276,23 +2260,27 @@ static void GiveMonInitialMoveset(struct Pokemon *mon)
 static void GiveBoxMonInitialMoveset(struct BoxPokemon *boxMon)
 {
     u16 species = GetBoxMonData(boxMon, MON_DATA_SPECIES, NULL);
+	u32 form = GetBoxMonData(boxMon, MON_DATA_FORM, NULL);
     s32 level = GetLevelFromBoxMonExp(boxMon);
     s32 i;
 
     for (i = 0; gLevelUpLearnsets[species][i] != LEVEL_UP_END; i++)
     {
-        u16 moveLevel;
+        u32 moveLevel;
         u16 move;
 
         moveLevel = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV);
 
-        if (moveLevel > (level << 9))
+        if (moveLevel > (level << 16))
             break;
 
-        move = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID);
+		if(((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_FORM) | (form << 24)) == LEVEL_UP_MOVE_FORM)
+		{
+			move = (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID);
 
-        if (GiveMoveToBoxMon(boxMon, move) == MON_HAS_MAX_MOVES)
-            DeleteFirstMoveAndGiveMoveToBoxMon(boxMon, move);
+			if (GiveMoveToBoxMon(boxMon, move) == MON_HAS_MAX_MOVES)
+				DeleteFirstMoveAndGiveMoveToBoxMon(boxMon, move);
+		}
     }
 }
 
@@ -2300,7 +2288,8 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
 {
     u32 retVal = MOVE_NONE;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    u32 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+	u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
 
     // since you can learn more than one move per level
     // the game needs to know whether you decided to
@@ -2310,7 +2299,7 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
     {
         sLearningMoveTableID = 0;
 
-        while ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) != (level << 9))
+        while ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) != (level << 16))
         {
             sLearningMoveTableID++;
             if (gLevelUpLearnsets[species][sLearningMoveTableID] == LEVEL_UP_END)
@@ -2318,7 +2307,8 @@ u16 MonTryLearningNewMove(struct Pokemon *mon, bool8 firstMove)
         }
     }
 
-    if ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == (level << 9))
+    if ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_LV) == (level << 16)
+		&& ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_FORM) | (form << 24)) == LEVEL_UP_MOVE_FORM)
     {
         gMoveToLearn = (gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_ID);
         sLearningMoveTableID++;
@@ -3143,6 +3133,9 @@ u32 GetBoxMonData(struct BoxPokemon *boxMon, s32 field, u8 *data)
     case MON_DATA_SPECIES:
         retVal = boxMon->isBadEgg ? SPECIES_EGG : substruct0->species;
         break;
+	case MON_DATA_FORM:
+		retVal = boxMon->form;
+		break;
     case MON_DATA_HELD_ITEM:
         retVal = substruct0->heldItem;
         break;
@@ -5863,7 +5856,8 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
     u16 learnedMoves[MAX_MON_MOVES];
     u8 numMoves = 0;
     u16 species = GetMonData(mon, MON_DATA_SPECIES, NULL);
-    u8 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+    u32 level = GetMonData(mon, MON_DATA_LEVEL, NULL);
+	u32 form = GetMonData(mon, MON_DATA_FORM, NULL);
     int i, j, k;
 
     for (i = 0; i < MAX_MON_MOVES; i++)
@@ -5878,7 +5872,8 @@ u8 GetMoveRelearnerMoves(struct Pokemon *mon, u16 *moves)
 
         moveLevel = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV;
 
-        if (moveLevel <= (level << 9))
+        if (moveLevel <= (level << 16)
+		&& ((gLevelUpLearnsets[species][sLearningMoveTableID] & LEVEL_UP_MOVE_FORM) | (form << 24)) == LEVEL_UP_MOVE_FORM)
         {
             for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); j++)
                 ;
@@ -5932,7 +5927,7 @@ u8 GetNumberOfRelearnableMoves(struct Pokemon *mon)
 
         moveLevel = gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_LV;
 
-        if (moveLevel <= (level << 9))
+        if (moveLevel <= (level << 16))
         {
             for (j = 0; j < MAX_MON_MOVES && learnedMoves[j] != (gLevelUpLearnsets[species][i] & LEVEL_UP_MOVE_ID); j++)
                 ;
@@ -6278,14 +6273,15 @@ static u16 GetDeoxysStat(struct Pokemon *mon, s32 statId)
 {
     s32 ivVal, evVal;
     u16 statValue = 0;
-    u8 nature;
+    u8 nature, form;
 
     if (gBattleTypeFlags & BATTLE_TYPE_LINK_IN_BATTLE || GetMonData(mon, MON_DATA_SPECIES, NULL) != SPECIES_DEOXYS)
         return 0;
 
     ivVal = GetMonData(mon, MON_DATA_HP_IV + statId, NULL);
     evVal = GetMonData(mon, MON_DATA_HP_EV + statId, NULL);
-    statValue = ((sDeoxysBaseStats[statId] * 2 + ivVal + evVal / 4) * mon->level) / 100 + 5;
+	form = GetMonData(mon, MON_DATA_FORM, NULL);
+    statValue = ((sDeoxysBaseStats[form][statId] * 2 + ivVal + evVal / 4) * mon->level) / 100 + 5;
     nature = GetNature(mon);
     statValue = ModifyStatByNature(nature, statValue, (u8)statId);
     return statValue;

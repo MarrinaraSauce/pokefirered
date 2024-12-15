@@ -91,6 +91,7 @@
 #define MON_DATA_SPEED2                   86
 #define MON_DATA_SPATK2                   87
 #define MON_DATA_SPDEF2                   88
+#define MON_DATA_FORM					  89
 
 // Pokemon types
 #define TYPE_NONE           255
@@ -202,11 +203,19 @@
 #define MON_ALREADY_KNOWS_MOVE 0xFFFE
 #define MON_HAS_MAX_MOVES      0xFFFF
 
-#define LEVEL_UP_MOVE_ID   0x01FF
-#define LEVEL_UP_MOVE_LV   0xFE00
-#define LEVEL_UP_END       0xFFFF
+#define LEVEL_UP_MOVE_ID   0x0000FFFF
+#define LEVEL_UP_MOVE_LV   0x00FF0000
+#define LEVEL_UP_MOVE_FORM 0xFF000000
+#define LEVEL_UP_END       0xFFFFFFFF
 
-#define MAX_LEVEL_UP_MOVES       20
+#define MAX_LEVEL_UP_MOVES       40
+
+// Deoxys Forms
+#define FORM_DEOXYS_NORMAL  0x0E
+#define FORM_DEOXYS_ATTACK  0x0D
+#define FORM_DEOXYS_DEFENSE 0x0B
+#define FORM_DEOXYS_SPEED   0x07
+#define FORM_DEOXYS_ALL     0x00
 
 #define MON_MALE       0x00
 #define MON_FEMALE     0xFE
@@ -287,7 +296,7 @@
 #define EVO_LEVEL_SHEDINJA   14 // Pokémon reaches the specified level (special value for Shedinja)
 #define EVO_BEAUTY           15 // Pokémon levels up with beauty ≥ specified value
 
-#define EVOS_PER_MON 5
+#define EVOS_PER_MON 8
 
 #define EVO_MODE_NORMAL     0
 #define EVO_MODE_TRADE      1
