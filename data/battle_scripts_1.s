@@ -236,7 +236,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
 	.4byte BattleScript_EffectGrowth				 @ EFFECT_GROWTH
-	.4byte BattleScript_EffectWorrySeed				 @ EFFECT_WorrySeed
+	.4byte BattleScript_EffectWorrySeed				 @ EFFECT_WORRY_SEED
+	.4byte BattleScript_EffectBurnFlinchHit          @ EFFECT_BURN_FLINCH_HIT
+	.4byte BattleScript_EffectFreezeFlinchHit        @ EFFECT_FREEZE_FLINCH_HIT
+	.4byte BattleScript_EffectParalyzeFlinchHit      @ EFFECT_PARALYSIS_FLINCH_HIT
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -2855,6 +2858,44 @@ BattleScript_EffectWorrySeed::
 	waitanimation
 	printstring STRINGID_PKMNACQUIREDABILITY
 	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectBurnFlinchHit::
+	setmoveeffect MOVE_EFFECT_BURN
+	goto BattleScript_AddedFlinchHit
+
+BattleScript_EffectFreezeFlinchHit::
+	setmoveeffect MOVE_EFFECT_FREEZE
+	goto BattleScript_AddedFlinchHit
+
+BattleScript_EffectParalyzeFlinchHit::
+	setmoveeffect MOVE_EFFECT_PARALYSIS
+	goto BattleScript_AddedFlinchHit
+
+BattleScript_AddedFlinchHit::
+	attackcanceler
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	attackstring
+	ppreduce
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	seteffectwithchance
+	setmoveeffect MOVE_EFFECT_FLINCH
+	seteffectwithchance
+	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 
 BattleScript_FaintAttacker::

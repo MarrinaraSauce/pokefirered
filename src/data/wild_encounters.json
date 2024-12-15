@@ -25720,64 +25720,64 @@
             "encounter_rate": 100,
             "mons": [
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
+                "min_level": 15,
+                "max_level": 15,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
-                "species": "SPECIES_BUDEW"
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
-                "species": "SPECIES_BUDEW"
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
-                "species": "SPECIES_BUDEW"
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 1,
-                "max_level": 1,
-                "species": "SPECIES_BUDEW"
+                "min_level": 15,
+                "max_level": 15,
+                "species": "SPECIES_BULBASAUR"
               }
             ]
           }

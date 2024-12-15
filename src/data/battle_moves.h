@@ -5930,12 +5930,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_THUNDER_FANG] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_PARALYZE_FLINCH_HIT,
         .power = 65,
         .type = TYPE_ELECTRIC,
         .accuracy = 95,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_STRONG_JAW_AFFECTED,
@@ -5944,12 +5944,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ICE_FANG] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_FREEZE_FLINCH_HIT,
         .power = 65,
         .type = TYPE_ICE,
         .accuracy = 95,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_STRONG_JAW_AFFECTED,
@@ -5958,12 +5958,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FIRE_FANG] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_BURN_FLINCH_HIT,
         .power = 65,
         .type = TYPE_FIRE,
         .accuracy = 95,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_STRONG_JAW_AFFECTED,
