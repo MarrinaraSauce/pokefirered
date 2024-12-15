@@ -259,8 +259,8 @@ struct SpindaSpot
 
 struct __attribute__((packed)) LevelUpMove
 {
-    u16 move:9;
-    u16 level:7;
+    u32 move:10;
+    u32 level:7;
 };
 
 struct Evolution
