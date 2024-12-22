@@ -240,6 +240,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectBurnFlinchHit          @ EFFECT_BURN_FLINCH_HIT
 	.4byte BattleScript_EffectFreezeFlinchHit        @ EFFECT_FREEZE_FLINCH_HIT
 	.4byte BattleScript_EffectParalyzeFlinchHit      @ EFFECT_PARALYSIS_FLINCH_HIT
+	.4byte BattleScript_EffectStickyWeb              @ EFFECT_STICKY_WEB
+	.4byte BattleScript_EffectToxicSpikes            @ EFFECT_TOXIC_SPIKES
+	.4byte BattleScript_EffectStealthRock            @ EFFECT_STEALTH_ROCK
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -1550,6 +1553,39 @@ BattleScript_EffectSpikes::
 	attackanimation
 	waitanimation
 	printstring STRINGID_SPIKESSCATTERED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+	
+BattleScript_EffectStickyWeb::
+	attackcanceler
+	trysetstickyweb BattleScript_ButItFailedAtkStringPpReduce
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_STICKYWEBSCATTERED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+	
+BattleScript_EffectToxicSpikes::
+	attackcanceler
+	trysettoxicspikes BattleScript_ButItFailedAtkStringPpReduce
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_TOXICSPIKESSCATTERED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectStealthRock::
+	attackcanceler
+	trysetstealthrock BattleScript_ButItFailedAtkStringPpReduce
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	printstring STRINGID_STEALTHROCKSCATTERED
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -3487,7 +3523,100 @@ BattleScript_PrintHurtBySpikes::
 	printstring STRINGID_PKMNHURTBYSPIKES
 	waitmessage B_WAIT_TIME_LONG
 	return
+	
+BattleScript_StickyWebOnAttacker::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setstatchanger STAT_SPEED, 1, FALSE
+	playstatchangeanimation BS_ATTACKER, BIT_SPEED, 1
+	statbuffchange MOVE_EFFECT_AFFECTS_USER | STAT_CHANGE_ALLOW_PTR, BattleScript_StickyWebReturn
+	call BattleScript_PrintHurtByStickyWeb
+	return
+	
+BattleScript_StickyWebOnTarget::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setstatchanger STAT_SPEED, 1, TRUE
+	playstatchangeanimation BS_TARGET, BIT_SPEED, 1
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_StickyWebReturn
+	call BattleScript_PrintHurtByStickyWeb
+	return
+	
+BattleScript_StickyWebOnFaintedBattler::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	setstatchanger STAT_SPEED, 1, TRUE
+	playstatchangeanimation BS_FAINTED, BIT_SPEED, 1
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_StickyWebReturn
+	call BattleScript_PrintHurtByStickyWeb
+	return
+	
+BattleScript_PrintHurtByStickyWeb::
+	printstring STRINGID_PKMNHURTBYSTICKYWEB
+	waitmessage B_WAIT_TIME_LONG
+	return
 
+BattleScript_StickyWebReturn::
+	return
+	
+BattleScript_ToxicSpikesOnAttacker::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
+	seteffectprimary
+	@call BattleScript_PrintHurtByToxicSpikes
+	return
+	
+BattleScript_PrintHurtByToxicSpikes::
+	printstring STRINGID_PKMNHURTBYTOXICSPIKES
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
+BattleScript_StealthRockOnAttacker::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_ATTACKER
+	datahpupdate BS_ATTACKER
+	call BattleScript_PrintHurtByStealthRock
+	tryfaintmon BS_ATTACKER
+	tryfaintmon_spikes BS_ATTACKER, BattleScript_StealthRockOnAttackerFainted
+	return
+
+BattleScript_StealthRockOnAttackerFainted::
+	setbyte sGIVEEXP_STATE, 0
+	getexp BS_ATTACKER
+	moveendall
+	goto BattleScript_HandleFaintedMon
+
+BattleScript_StealthRockOnTarget::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	call BattleScript_PrintHurtByStealthRock
+	tryfaintmon BS_TARGET
+	tryfaintmon_spikes BS_TARGET, BattleScript_StealthRockOnTargetFainted
+	return
+
+BattleScript_StealthRockOnTargetFainted::
+	setbyte sGIVEEXP_STATE, 0
+	getexp BS_TARGET
+	moveendall
+	goto BattleScript_HandleFaintedMon
+
+BattleScript_StealthRockOnFaintedBattler::
+	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE | HITMARKER_PASSIVE_DAMAGE
+	healthbarupdate BS_FAINTED
+	datahpupdate BS_FAINTED
+	call BattleScript_PrintHurtByStealthRock
+	tryfaintmon BS_FAINTED
+	tryfaintmon_spikes BS_FAINTED, BattleScript_StealthRockOnFaintedBattlerFainted
+	return
+
+BattleScript_StealthRockOnFaintedBattlerFainted::
+	setbyte sGIVEEXP_STATE, 0
+	getexp BS_FAINTED
+	moveendall
+	goto BattleScript_HandleFaintedMon
+
+BattleScript_PrintHurtByStealthRock::
+	printstring STRINGID_PKMNHURTBYSTEALTHROCK
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
 BattleScript_PerishSongTakesLife::
 	printstring STRINGID_PKMNPERISHCOUNTFELL
 	waitmessage B_WAIT_TIME_LONG
@@ -3555,6 +3684,21 @@ BattleScript_LeechSeedFree::
 
 BattleScript_SpikesFree::
 	printstring STRINGID_PKMNBLEWAWAYSPIKES
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
+BattleScript_StickyWebFree::
+	printstring STRINGID_PKMNBLEWAWAYSTICKYWEB
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
+BattleScript_ToxicSpikesFree::
+	printstring STRINGID_PKMNBLEWAWAYTOXICSPIKES
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
+BattleScript_StealthRockFree::
+	printstring STRINGID_PKMNBLEWAWAYSTEALTHROCK
 	waitmessage B_WAIT_TIME_LONG
 	return
 

@@ -1253,6 +1253,21 @@
 	.byte 0xf8
 	.4byte \param0
 	.endm
+	
+	.macro trysetstickyweb param0:req
+	.byte 0xf9
+	.4byte \param0
+	.endm
+	
+	.macro trysettoxicspikes param0:req
+	.byte 0xfa
+	.4byte \param0
+	.endm
+
+	.macro trysetstealthrock param0:req
+	.byte 0xfb
+	.4byte \param0
+	.endm
 
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

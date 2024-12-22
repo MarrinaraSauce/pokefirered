@@ -236,7 +236,10 @@ static void Cmd_remaininghptopower(void);
 static void Cmd_tryspiteppreduce(void);
 static void Cmd_healpartystatus(void);
 static void Cmd_cursetarget(void);
-static void Cmd_trysetspikes(void);
+static void Cmd_trysetspikes(void); 
+static void Cmd_trysetstickyweb(void);
+static void Cmd_trysettoxicspikes(void);
+static void Cmd_trysetstealthrock(void);
 static void Cmd_setforesight(void);
 static void Cmd_trysetperishsong(void);
 static void Cmd_rolloutdamagecalculation(void);
@@ -561,6 +564,9 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
     Cmd_tryworryseed,                            //0xF8
+	Cmd_trysetstickyweb,                         //0xF9
+    Cmd_trysettoxicspikes,                       //0xFA
+	Cmd_trysetstealthrock                        //0xFB
 };
 
 struct StatFractions
@@ -1224,7 +1230,7 @@ static void Cmd_critcalc(void)
 
 static void Cmd_damagecalc(void)
 {
-    u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)];
+    u32 sideStatus = gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)];
     gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerTarget], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, gBattlerAttacker, gBattlerTarget);
@@ -1240,7 +1246,7 @@ static void Cmd_damagecalc(void)
 
 void AI_CalcDmg(u8 attacker, u8 defender)
 {
-    u16 sideStatus = gSideStatuses[GET_BATTLER_SIDE(defender)];
+    u32 sideStatus = gSideStatuses[GET_BATTLER_SIDE(defender)];
     gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[attacker], &gBattleMons[defender], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
@@ -2867,6 +2873,7 @@ static void Cmd_tryfaintmon(void)
             BattleScriptPop();
             gBattlescriptCurrInstr = BS_ptr;
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_SPIKES_DAMAGED;
+			gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_STEALTH_ROCK_DAMAGED;
         }
         else
         {
@@ -5023,7 +5030,116 @@ static void Cmd_switchineffects(void)
         else
             gBattlescriptCurrInstr = BattleScript_SpikesOnFaintedBattler;
     }
-    else
+    else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STICKY_WEB_DAMAGED)
+		&& (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STICKY_WEB)
+		&& !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
+		&& gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE)
+	{
+		gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STICKY_WEB_DAMAGED;
+
+		gBattleScripting.battler = gActiveBattler;
+		BattleScriptPushCursor();
+
+		if (gBattlescriptCurrInstr[1] == BS_TARGET)
+			gBattlescriptCurrInstr = BattleScript_StickyWebOnTarget;
+		else if (gBattlescriptCurrInstr[1] == BS_ATTACKER)
+			gBattlescriptCurrInstr = BattleScript_StickyWebOnAttacker;
+		else
+			gBattlescriptCurrInstr = BattleScript_StickyWebOnFaintedBattler;
+	}
+	else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_TOXIC_SPIKES_DAMAGED)
+		&& (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_TOXIC_SPIKES)
+		&& !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_FLYING)
+		&& !IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_STEEL)
+		&& gBattleMons[gActiveBattler].ability != ABILITY_LEVITATE
+		&& gBattleMons[gActiveBattler].ability != ABILITY_IMMUNITY
+		&& !(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_SAFEGUARD)
+		&& !(gBattleMons[gActiveBattler].status1 & STATUS1_ANY))
+	{
+		gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_TOXIC_SPIKES_DAMAGED;
+
+		if (IS_BATTLER_OF_TYPE(gActiveBattler, TYPE_POISON))
+		{
+			gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_TOXIC_SPIKES;
+			gSideTimers[GetBattlerSide(gActiveBattler)].toxicSpikesAmount = 0;
+			BattleScriptPushCursor();
+			gBattlescriptCurrInstr = BattleScript_ToxicSpikesFree;
+		}
+		else 
+		{
+			u8 spikesStatus;
+
+			if(gSideTimers[GetBattlerSide(gActiveBattler)].toxicSpikesAmount == 2)
+				gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_TOXIC;
+			else
+				gBattleCommunication[MOVE_EFFECT_BYTE] = MOVE_EFFECT_POISON;
+
+			gBattleScripting.battler = gActiveBattler;
+			BattleScriptPushCursor();
+
+			gBattlescriptCurrInstr = BattleScript_ToxicSpikesOnAttacker;
+		}
+	}
+	else if (!(gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK_DAMAGED)
+		&& (gSideStatuses[GetBattlerSide(gActiveBattler)] & SIDE_STATUS_STEALTH_ROCK))
+	{
+		u8 stealthRockDmgFraction = 8;
+
+		gSideStatuses[GetBattlerSide(gActiveBattler)] |= SIDE_STATUS_STEALTH_ROCK_DAMAGED;
+
+		// Present in pokeemerald but not here
+		// gBattleMons[gActiveBattler].status2 &= ~STATUS2_DESTINY_BOND;
+		// gHitMarker &= ~HITMARKER_DESTINYBOND;
+
+		//Get type effectiveness
+		switch (gBattleMons[gActiveBattler].type1)
+		{
+			case TYPE_FIRE:
+			case TYPE_ICE:
+			case TYPE_FLYING:
+			case TYPE_BUG:
+				stealthRockDmgFraction /= 2;
+				break;
+			case TYPE_FIGHTING:
+			case TYPE_GROUND:
+			case TYPE_STEEL:
+				stealthRockDmgFraction *= 2;
+				break;
+		}
+
+		if (gBattleMons[gActiveBattler].type1 != gBattleMons[gActiveBattler].type2)
+		{
+			switch (gBattleMons[gActiveBattler].type2)
+			{
+				case TYPE_FIRE:
+				case TYPE_ICE:
+				case TYPE_FLYING:
+				case TYPE_BUG:
+					stealthRockDmgFraction /= 2;
+					break;
+				case TYPE_FIGHTING:
+				case TYPE_GROUND:
+				case TYPE_STEEL:
+					stealthRockDmgFraction *= 2;
+					break;
+			}
+		}
+
+		gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / (stealthRockDmgFraction);
+		if (gBattleMoveDamage == 0)
+			gBattleMoveDamage = 1;
+
+		gBattleScripting.battler = gActiveBattler;
+		BattleScriptPushCursor();
+
+		if (gBattlescriptCurrInstr[1] == BS_TARGET)
+			gBattlescriptCurrInstr = BattleScript_StealthRockOnTarget;
+		else if (gBattlescriptCurrInstr[1] == BS_ATTACKER)
+			gBattlescriptCurrInstr = BattleScript_StealthRockOnAttacker;
+		else
+			gBattlescriptCurrInstr = BattleScript_StealthRockOnFaintedBattler;
+	}
+	else
     {
         // There is a hack here in pokeemerald to ensure the truant counter will be 0 when the battler's next turn starts.
         // The truant counter is not updated in the case where a mon switches in after a lost judgement in the battle arena.
@@ -5037,6 +5153,9 @@ static void Cmd_switchineffects(void)
             && !ItemBattleEffects(ITEMEFFECT_ON_SWITCH_IN, gActiveBattler, FALSE))
         {
             gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_SPIKES_DAMAGED;
+			gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_STICKY_WEB_DAMAGED;
+			gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_TOXIC_SPIKES_DAMAGED;
+			gSideStatuses[GetBattlerSide(gActiveBattler)] &= ~SIDE_STATUS_STEALTH_ROCK_DAMAGED;
 
             for (i = 0; i < gBattlersCount; i++)
             {
@@ -8156,6 +8275,55 @@ static void Cmd_trysetspikes(void)
         gSideTimers[targetSide].spikesAmount++;
         gBattlescriptCurrInstr += 5;
     }
+}
+
+static void Cmd_trysetstickyweb(void)
+{
+	u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+
+	if (gSideStatuses[targetSide] & SIDE_STATUS_STICKY_WEB)
+	{
+		gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+	}
+	else
+	{
+		gSideStatuses[targetSide] |= SIDE_STATUS_STICKY_WEB;
+		gBattlescriptCurrInstr += 5;
+	}
+}
+
+static void Cmd_trysettoxicspikes(void)
+{
+	u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+
+	if (gSideTimers[targetSide].toxicSpikesAmount == 2)
+	{
+		gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+	}
+	else
+	{
+		gSideStatuses[targetSide] |= SIDE_STATUS_TOXIC_SPIKES;
+		gSideTimers[targetSide].toxicSpikesAmount++;
+		gBattlescriptCurrInstr += 5;
+	}
+}
+
+static void Cmd_trysetstealthrock(void)
+{
+	u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+
+	if (gSideStatuses[targetSide] & SIDE_STATUS_STEALTH_ROCK)
+	{
+		gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+	}
+	else
+	{
+		gSideStatuses[targetSide] |= SIDE_STATUS_STEALTH_ROCK;
+		gBattlescriptCurrInstr += 5;
+	}
 }
 
 static void Cmd_setforesight(void)

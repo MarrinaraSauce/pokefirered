@@ -5482,7 +5482,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TOXIC_SPIKES] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_TOXIC_SPIKES,
         .power = 0,
         .type = TYPE_POISON,
         .accuracy = 0,
@@ -6252,7 +6252,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_STEALTH_ROCK] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_STEALTH_ROCK,
         .power = 0,
         .type = TYPE_ROCK,
         .accuracy = 0,
@@ -7428,7 +7428,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_STICKY_WEB] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_STICKY_WEB,
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,

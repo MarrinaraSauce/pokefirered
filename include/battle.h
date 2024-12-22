@@ -248,6 +248,8 @@ struct SideTimer
     /*0x09*/ u8 followmeTarget;
     /*0x0A*/ u8 spikesAmount;
     /*0x0B*/ u8 fieldB;
+	/*0x0C*/ u8 toxicSpikesAmount;
+	/*0x0D*/ u8 auroraVeilTimer;
 };
 
 extern struct SideTimer gSideTimers[];
@@ -691,7 +693,7 @@ extern const u8 *gSelectionBattleScripts[MAX_BATTLERS_COUNT];
 extern u16 gLastMoves[MAX_BATTLERS_COUNT];
 extern u8 gBattlerByTurnOrder[MAX_BATTLERS_COUNT];
 extern u8 gBattleCommunication[BATTLE_COMMUNICATION_ENTRIES_COUNT];
-extern u16 gSideStatuses[2];
+extern u32 gSideStatuses[2];
 extern u32 gHitMarker;
 extern u16 gChosenMoveByBattler[MAX_BATTLERS_COUNT];
 extern u8 gMoveResultFlags;
