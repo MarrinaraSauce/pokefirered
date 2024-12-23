@@ -2541,7 +2541,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
 
-		if (attacker->ability == ABILITY_UNAWARE)
+		if (attacker->ability == ABILITY_UNAWARE
+		|| gBattleMoves[move].effect == EFFECT_CHIP_AWAY)
 			damageHelper = defense;
         else if (gCritMultiplier > 1)
         {
@@ -2635,7 +2636,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         damage = damage * gBattleMovePower;
         damage *= (2 * attacker->level / 5 + 2);
 
-		if (attacker->ability == ABILITY_UNAWARE)
+		if (attacker->ability == ABILITY_UNAWARE
+		|| gBattleMoves[move].effect == EFFECT_CHIP_AWAY)
 			damageHelper = spDefense;
         else if (gCritMultiplier > 1)
         {

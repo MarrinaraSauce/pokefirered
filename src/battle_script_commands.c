@@ -240,6 +240,7 @@ static void Cmd_trysetspikes(void);
 static void Cmd_trysetstickyweb(void);
 static void Cmd_trysettoxicspikes(void);
 static void Cmd_trysetstealthrock(void);
+static void Cmd_losemovetype(void);
 static void Cmd_setforesight(void);
 static void Cmd_trysetperishsong(void);
 static void Cmd_rolloutdamagecalculation(void);
@@ -566,7 +567,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryworryseed,                            //0xF8
 	Cmd_trysetstickyweb,                         //0xF9
     Cmd_trysettoxicspikes,                       //0xFA
-	Cmd_trysetstealthrock                        //0xFB
+	Cmd_trysetstealthrock,                       //0xFB
+	Cmd_losemovetype                             //0xFC
 };
 
 struct StatFractions
@@ -1060,7 +1062,8 @@ static void Cmd_accuracycheck(void)
         if (!(gBattleMons[gBattlerTarget].status2 & STATUS2_FORESIGHT
 		 || gBattleMons[gBattlerAttacker].ability == ABILITY_KEEN_EYE
 		 || gBattleMons[gBattlerAttacker].ability == ABILITY_UNAWARE
-		 || gBattleMons[gBattlerAttacker].ability == ABILITY_ILLUMINATE))
+		 || gBattleMons[gBattlerAttacker].ability == ABILITY_ILLUMINATE
+		 || gBattleMoves[move].effect == EFFECT_CHIP_AWAY))
         {
 			buff += DEFAULT_STAT_STAGE - gBattleMons[gBattlerTarget].statStages[STAT_EVASION];
         }
@@ -8324,6 +8327,17 @@ static void Cmd_trysetstealthrock(void)
 		gSideStatuses[targetSide] |= SIDE_STATUS_STEALTH_ROCK;
 		gBattlescriptCurrInstr += 5;
 	}
+}
+
+static void Cmd_losemovetype(void)
+{
+	if (gBattleMons[gBattlerAttacker].type1 == gBattleMoves[gCurrentMove].type)
+		gBattleMons[gBattlerAttacker].type1 = TYPE_NONE;
+	if (gBattleMons[gBattlerAttacker].type2 == gBattleMoves[gCurrentMove].type)
+		gBattleMons[gBattlerAttacker].type2 = TYPE_NONE;
+
+	PREPARE_TYPE_BUFFER(gBattleTextBuff1, gBattleMoves[gCurrentMove].type);
+	gBattlescriptCurrInstr++;
 }
 
 static void Cmd_setforesight(void)

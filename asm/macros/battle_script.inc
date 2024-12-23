@@ -1268,6 +1268,10 @@
 	.byte 0xfb
 	.4byte \param0
 	.endm
+	
+	.macro losemovetype
+	.byte 0xfc
+	.endm
 
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

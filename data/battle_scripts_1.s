@@ -243,6 +243,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectStickyWeb              @ EFFECT_STICKY_WEB
 	.4byte BattleScript_EffectToxicSpikes            @ EFFECT_TOXIC_SPIKES
 	.4byte BattleScript_EffectStealthRock            @ EFFECT_STEALTH_ROCK
+	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
+	.4byte BattleScript_EffectHit                    @ EFFECT_CHIP_AWAY
+	.4byte BattleScript_EffectBurnUp                 @ EFFECT_BURN_UP
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -1805,6 +1808,10 @@ BattleScript_EffectDefenseUpHit::
 BattleScript_EffectAttackUpHit::
 	setmoveeffect MOVE_EFFECT_ATK_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
 	goto BattleScript_EffectHit
+	
+BattleScript_EffectSpeedUpHit::
+	setmoveeffect MOVE_EFFECT_SPD_PLUS_1 | MOVE_EFFECT_AFFECTS_USER
+	goto BattleScript_EffectHit
 
 BattleScript_EffectAllStatsUpHit::
 	setmoveeffect MOVE_EFFECT_ALL_STATS_UP | MOVE_EFFECT_AFFECTS_USER
@@ -2931,6 +2938,35 @@ BattleScript_AddedFlinchHit::
 	seteffectwithchance
 	setmoveeffect MOVE_EFFECT_FLINCH
 	seteffectwithchance
+	tryfaintmon BS_TARGET
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectBurnUp::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpiftype BS_ATTACKER, TYPE_FIRE, BattleScript_BurnUpContinue
+	goto BattleScript_ButItFailed
+BattleScript_BurnUpContinue::
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	losemovetype
+	printstring STRINGID_PKMNLOSTTYPE
+	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
 

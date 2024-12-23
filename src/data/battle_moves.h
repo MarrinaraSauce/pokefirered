@@ -6658,12 +6658,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FLAME_CHARGE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_SPEED_UP_HIT,
         .power = 50,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -6798,7 +6798,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CHIP_AWAY] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CHIP_AWAY,
         .power = 70,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -7260,7 +7260,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SACRED_SWORD] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CHIP_AWAY,
         .power = 90,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
@@ -8016,7 +8016,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BURN_UP] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_BURN_UP,
         .power = 130,
         .type = TYPE_FIRE,
         .accuracy = 100,
