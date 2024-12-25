@@ -737,7 +737,8 @@ enum
     ENDTURN_TAUNT,
     ENDTURN_YAWN,
     ENDTURN_ITEMS2,
-    ENDTURN_BATTLER_COUNT
+    ENDTURN_BATTLER_COUNT,
+	ENDTURN_ROOSTED
 };
 
 u8 DoBattlerEndTurnEffects(void)
@@ -1047,6 +1048,12 @@ u8 DoBattlerEndTurnEffects(void)
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
+			case ENDTURN_ROOSTED:  //roost
+				if (gStatuses3[gActiveBattler] & STATUS3_ROOSTED)
+				{
+					
+					gStatuses3[gActiveBattler] &= ~STATUS3_ROOSTED;
+				}
             case ENDTURN_BATTLER_COUNT:  // done
                 gBattleStruct->turnEffectsTracker = 0;
                 gBattleStruct->turnEffectsBattlerId++;
@@ -2063,6 +2070,7 @@ u8 AbilityBattleEffects(u8 caseID, u8 battler, u8 ability, u8 special, u16 moveA
                 {
                     SET_BATTLER_TYPE(battler, moveType);
                     PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
+					gStatuses3[gBattlerAttacker] &= ~STATUS3_ROOSTED;
                     BattleScriptPushCursor();
                     gBattlescriptCurrInstr = BattleScript_ColorChangeActivates;
                     effect++;

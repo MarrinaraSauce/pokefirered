@@ -1000,7 +1000,7 @@ static bool8 AccuracyCalcHelper(u16 move)
 
     gHitMarker &= ~HITMARKER_IGNORE_UNDERWATER;
 
-    if ((WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_RAIN) && gBattleMoves[move].effect == EFFECT_THUNDER)
+    if ((WEATHER_HAS_EFFECT && (gBattleWeather & B_WEATHER_RAIN) && (gBattleMoves[move].effect == EFFECT_THUNDER || gBattleMoves[move].effect == EFFECT_HURRICANE))
      || (gBattleMoves[move].effect == EFFECT_ALWAYS_HIT || gBattleMoves[move].effect == EFFECT_VITAL_THROW) 
 	 || (AbilityBattleEffects(ABILITYEFFECT_CHECK_ON_FIELD, 0, ABILITY_NO_GUARD, 0, 0)))
     {
@@ -1075,7 +1075,8 @@ static void Cmd_accuracycheck(void)
 
         moveAcc = gBattleMoves[move].accuracy;
         // check Thunder on sunny weather
-        if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN && gBattleMoves[move].effect == EFFECT_THUNDER)
+        if (WEATHER_HAS_EFFECT && gBattleWeather & B_WEATHER_SUN
+		&& (gBattleMoves[move].effect == EFFECT_THUNDER || gBattleMoves[move].effect == EFFECT_HURRICANE))
             moveAcc = 50;
 
         calc = sAccuracyStageRatios[buff].dividend * moveAcc;
@@ -2796,6 +2797,23 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gBattlescriptCurrInstr++;
                 }
                 break;
+			case MOVE_EFFECT_REMOVE_SLEEP: // Wake-Up Slap
+				if (!(gBattleMons[gBattlerTarget].status1 & STATUS1_SLEEP))
+				{
+					gBattlescriptCurrInstr++;
+				}
+				else
+				{
+					gBattleMons[gBattlerTarget].status1 &= ~STATUS1_SLEEP;
+
+					gActiveBattler = gBattlerTarget;
+					BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gActiveBattler].status1), &gBattleMons[gActiveBattler].status1);
+					MarkBattlerForControllerExec(gActiveBattler);
+
+					BattleScriptPush(gBattlescriptCurrInstr + 1);
+					gBattlescriptCurrInstr = BattleScript_TargetAwaken;
+				}
+				break;
             case MOVE_EFFECT_SP_ATK_TWO_DOWN: // Overheat
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
                 gBattlescriptCurrInstr = BattleScript_SAtkDown2;
@@ -8331,12 +8349,17 @@ static void Cmd_trysetstealthrock(void)
 
 static void Cmd_losemovetype(void)
 {
-	if (gBattleMons[gBattlerAttacker].type1 == gBattleMoves[gCurrentMove].type)
+	u8 moveType = gBattleMoves[gCurrentMove].type;
+
+	if (gBattleMons[gBattlerAttacker].type1 == moveType)
 		gBattleMons[gBattlerAttacker].type1 = TYPE_NONE;
-	if (gBattleMons[gBattlerAttacker].type2 == gBattleMoves[gCurrentMove].type)
+	if (gBattleMons[gBattlerAttacker].type2 == moveType)
 		gBattleMons[gBattlerAttacker].type2 = TYPE_NONE;
 
-	PREPARE_TYPE_BUFFER(gBattleTextBuff1, gBattleMoves[gCurrentMove].type);
+	if (moveType == TYPE_FLYING)
+		gStatuses3[gBattlerAttacker] |= STATUS3_ROOSTED;
+
+	PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
 	gBattlescriptCurrInstr++;
 }
 

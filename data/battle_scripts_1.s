@@ -246,6 +246,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSpeedUpHit             @ EFFECT_SPEED_UP_HIT
 	.4byte BattleScript_EffectHit                    @ EFFECT_CHIP_AWAY
 	.4byte BattleScript_EffectBurnUp                 @ EFFECT_BURN_UP
+	.4byte BattleScript_EffectRoost                  @ EFFECT_ROOST
+	.4byte BattleScript_EffectWakeUpSlap             @ EFFECT_WAKE_UP_SLAP
+	.4byte BattleScript_EffectVenoshock              @ EFFECT_VENOSHOCK
+	.4byte BattleScript_EffectHurricane              @ EFFECT_HURRICANE
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -1965,6 +1969,11 @@ BattleScript_EffectThunder::
 	setmoveeffect MOVE_EFFECT_PARALYSIS
 	orword gHitMarker, HITMARKER_IGNORE_ON_AIR
 	goto BattleScript_EffectHit
+	
+BattleScript_EffectHurricane::
+	setmoveeffect MOVE_EFFECT_CONFUSION
+	orword gHitMarker, HITMARKER_IGNORE_ON_AIR
+	goto BattleScript_EffectHit
 
 BattleScript_EffectTeleport::
 	attackcanceler
@@ -2076,6 +2085,7 @@ BattleScript_EffectSoftboiled::
 BattleScript_PresentHealTarget::
 	attackanimation
 	waitanimation
+BattleScript_HealFromRoost::
 	orword gHitMarker, HITMARKER_IGNORE_SUBSTITUTE
 	healthbarupdate BS_TARGET
 	datahpupdate BS_TARGET
@@ -2315,6 +2325,12 @@ BattleScript_EffectSmellingsalt::
 	goto BattleScript_EffectHit
 BattleScript_SmellingsaltDoubleDmg::
 	setbyte sDMG_MULTIPLIER, 2
+	goto BattleScript_EffectHit
+	
+BattleScript_EffectWakeUpSlap::
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_EffectHit
+	setmoveeffect MOVE_EFFECT_REMOVE_SLEEP | MOVE_EFFECT_CERTAIN
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_SmellingsaltDoubleDmg
 	goto BattleScript_EffectHit
 
 BattleScript_EffectFollowMe::
@@ -2969,6 +2985,25 @@ BattleScript_BurnUpContinue::
 	waitmessage B_WAIT_TIME_LONG
 	tryfaintmon BS_TARGET
 	goto BattleScript_MoveEnd
+
+BattleScript_EffectRoost::
+	attackcanceler
+	attackstring
+	ppreduce
+	tryhealhalfhealth BattleScript_AlreadyAtFullHp, BS_TARGET
+	attackanimation
+	waitanimation
+	jumpiftype BS_ATTACKER, TYPE_FLYING, BattleScript_RoostLanded
+	goto BattleScript_HealFromRoost
+BattleScript_RoostLanded::
+	losemovetype
+	printstring STRINGID_PKMNLOSTTYPE
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_HealFromRoost
+
+BattleScript_EffectVenoshock::
+	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_SmellingsaltDoubleDmg
+	goto BattleScript_EffectHit
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER
@@ -4082,6 +4117,12 @@ BattleScript_CurseTurnDmg::
 
 BattleScript_TargetPRLZHeal::
 	printstring STRINGID_PKMNHEALEDPARALYSIS
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_TARGET
+	return
+	
+BattleScript_TargetAwaken::
+	printstring STRINGID_PKMNWASWOKENUP
 	waitmessage B_WAIT_TIME_LONG
 	updatestatusicon BS_TARGET
 	return

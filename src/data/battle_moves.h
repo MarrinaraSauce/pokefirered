@@ -4250,7 +4250,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_NEEDLE_ARM] =
     {
-        .effect = EFFECT_FLINCH_MINIMIZE_HIT,
+        .effect = EFFECT_FLINCH_HIT,
         .power = 60,
         .type = TYPE_GRASS,
         .accuracy = 100,
@@ -4362,7 +4362,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ASTONISH] =
     {
-        .effect = EFFECT_FLINCH_MINIMIZE_HIT,
+        .effect = EFFECT_FLINCH_HIT,
         .power = 30,
         .type = TYPE_GHOST,
         .accuracy = 100,
@@ -4586,7 +4586,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_EXTRASENSORY] =
     {
-        .effect = EFFECT_FLINCH_MINIMIZE_HIT,
+        .effect = EFFECT_FLINCH_HIT,
         .power = 80,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -4992,7 +4992,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ROOST] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_ROOST,
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 100,
@@ -5034,7 +5034,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WAKE_UP_SLAP] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_WAKE_UP_SLAP,
         .power = 70,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
@@ -5720,7 +5720,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRAGON_RUSH] =
     {
-        .effect = EFFECT_FLINCH_HIT,
+        .effect = EFFECT_FLINCH_MINIMIZE_HIT,
         .power = 100,
         .type = TYPE_DRAGON,
         .accuracy = 75,
@@ -6462,7 +6462,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_VENOSHOCK] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_VENOSHOCK,
         .power = 65,
         .type = TYPE_POISON,
         .accuracy = 100,
@@ -7358,7 +7358,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_HURRICANE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_HURRICANE,
         .power = 110,
         .type = TYPE_FLYING,
         .accuracy = 70,
@@ -8492,7 +8492,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_RAGING_BULL] =
     {
-        .effect = EFFECT_BRICK_BREAK,
+        .effect = EFFECT_SPLASH,
         .power = 90,
         .type = TYPE_NORMAL,
         .accuracy = 100,
