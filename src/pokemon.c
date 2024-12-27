@@ -2490,6 +2490,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		gBattleMovePower = (130 * gBattleMovePower) / 100;
 	if (attacker->ability == ABILITY_SHARPNESS && gBattleMoves[move].flags & FLAG_SHARPNESS_AFFECTED)
 		gBattleMovePower = (150 * gBattleMovePower) / 100;
+	if (attacker->ability == ABILITY_SHEER_FORCE && gBattleMoves[move].secondaryEffectChance > 0)
+		gBattleMovePower = (130 * gBattleMovePower) / 100;
     if (defender->ability == ABILITY_THICK_FAT && (type == TYPE_FIRE || type == TYPE_ICE))
 		gBattleMovePower /= 2;
     if (defender->ability == ABILITY_DRY_SKIN && (type == TYPE_FIRE))
@@ -2520,8 +2522,8 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         gBattleMovePower = (150 * gBattleMovePower) / 100;
 
     // Self-destruct / Explosion cut defense in half
-    if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
-        defense /= 2;
+    //if (gBattleMoves[gCurrentMove].effect == EFFECT_EXPLOSION)
+        //defense /= 2;
 
     if (gBattleMoves[move].category == 0)
     {

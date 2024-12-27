@@ -2167,6 +2167,9 @@ void SetMoveEffect(bool8 primary, u8 certain)
     if (gBattleMons[gEffectBattler].ability == ABILITY_SHIELD_DUST && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
         && !primary && gBattleCommunication[MOVE_EFFECT_BYTE] <= 9)
         INCREMENT_RETURN
+		
+    if (gBattleMons[gEffectBattler].ability == ABILITY_SHEER_FORCE && !primary)
+        INCREMENT_RETURN
 
     if (gSideStatuses[GET_BATTLER_SIDE(gEffectBattler)] & SIDE_STATUS_SAFEGUARD && !(gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
         && !primary && gBattleCommunication[MOVE_EFFECT_BYTE] <= 7)
@@ -2329,6 +2332,18 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 else
                     break;
             }
+			if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC)
+				&& (gHitMarker & HITMARKER_STATUS_ABILITY_EFFECT)
+				&& (primary == TRUE || certain == MOVE_EFFECT_CERTAIN))
+			{
+				BattleScriptPush(gBattlescriptCurrInstr + 1);
+				gBattlescriptCurrInstr = BattleScript_PRLZPrevention;
+
+				gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_STATUS_HAD_NO_EFFECT;
+				return;
+			}
+			if (IS_BATTLER_OF_TYPE(gEffectBattler, TYPE_ELECTRIC))
+				break;
             if (gBattleMons[gEffectBattler].status1)
                 break;
 
@@ -2522,7 +2537,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
                 }
                 else
                 {
-                    gBattleMons[gEffectBattler].status2 |= STATUS2_WRAPPED_TURN((Random() & 3) + 3); // 3-6 turns
+                    gBattleMons[gEffectBattler].status2 |= STATUS2_WRAPPED_TURN((Random() & 1) + 5); // 3-6 turns
 
                     *(gBattleStruct->wrappedMove + gEffectBattler * 2 + 0) = gCurrentMove;
                     *(gBattleStruct->wrappedMove + gEffectBattler * 2 + 1) = gCurrentMove >> 8;
@@ -2836,7 +2851,7 @@ static void Cmd_seteffectwithchance(void)
         && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
     {
         gBattleCommunication[MOVE_EFFECT_BYTE] &= ~MOVE_EFFECT_CERTAIN;
-        SetMoveEffect(FALSE, MOVE_EFFECT_CERTAIN);
+        SetMoveEffect(TRUE, MOVE_EFFECT_CERTAIN);
     }
     else if (Random() % 100 <= percentChance
              && gBattleCommunication[MOVE_EFFECT_BYTE]
