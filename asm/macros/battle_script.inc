@@ -921,7 +921,7 @@
 	.4byte \param0
 	.endm
 
-	.macro trysetspikes param0:req
+	.macro trysethazard param0:req
 	.byte 0xb0
 	.4byte \param0
 	.endm
@@ -1254,23 +1254,12 @@
 	.4byte \param0
 	.endm
 	
-	.macro trysetstickyweb param0:req
-	.byte 0xf9
-	.4byte \param0
-	.endm
-	
-	.macro trysettoxicspikes param0:req
-	.byte 0xfa
-	.4byte \param0
-	.endm
-
-	.macro trysetstealthrock param0:req
-	.byte 0xfb
-	.4byte \param0
-	.endm
-	
 	.macro losemovetype
-	.byte 0xfc
+	.byte 0xf9
+	.endm
+	
+	.macro prepstatstochange
+	.byte 0xfa
 	.endm
 
 @ various command changed to more readable macros

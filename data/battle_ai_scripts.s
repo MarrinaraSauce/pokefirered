@@ -206,11 +206,8 @@ AI_CheckBadMove_CheckEffect::
 	if_effect EFFECT_LOW_KICK, AI_CBM_HighRiskForDamage
 	if_effect EFFECT_MUD_SPORT, AI_CBM_MudSport
 	if_effect EFFECT_TICKLE, AI_CBM_Tickle
-	if_effect EFFECT_COSMIC_POWER, AI_CBM_CosmicPower
-	if_effect EFFECT_BULK_UP, AI_CBM_BulkUp
+	if_effect EFFECT_STAT_UP_ONE, AI_CBM_CosmicPower
 	if_effect EFFECT_WATER_SPORT, AI_CBM_WaterSport
-	if_effect EFFECT_CALM_MIND, AI_CBM_CalmMind
-	if_effect EFFECT_DRAGON_DANCE, AI_CBM_DragonDance
 	end
 
 AI_CBM_Sleep::
@@ -728,8 +725,6 @@ AI_CheckViability::
 	if_effect EFFECT_ENDURE, AI_CV_Endure
 	if_effect EFFECT_BATON_PASS, AI_CV_BatonPass
 	if_effect EFFECT_PURSUIT, AI_CV_Pursuit
-	if_effect EFFECT_MORNING_SUN, AI_CV_HealWeather
-	if_effect EFFECT_SYNTHESIS, AI_CV_HealWeather
 	if_effect EFFECT_MOONLIGHT, AI_CV_HealWeather
 	if_effect EFFECT_RAIN_DANCE, AI_CV_RainDance
 	if_effect EFFECT_SUNNY_DAY, AI_CV_SunnyDay
@@ -767,12 +762,9 @@ AI_CheckViability::
 	if_effect EFFECT_MUD_SPORT, AI_CV_MudSport
 	if_effect EFFECT_OVERHEAT, AI_CV_Overheat
 	if_effect EFFECT_TICKLE, AI_CV_DefenseDown
-	if_effect EFFECT_COSMIC_POWER, AI_CV_SpDefUp
-	if_effect EFFECT_BULK_UP, AI_CV_DefenseUp
+	if_effect EFFECT_STAT_UP_ONE, AI_CV_SpDefUp
 	if_effect EFFECT_POISON_TAIL, AI_CV_HighCrit
 	if_effect EFFECT_WATER_SPORT, AI_CV_WaterSport
-	if_effect EFFECT_CALM_MIND, AI_CV_SpDefUp
-	if_effect EFFECT_DRAGON_DANCE, AI_CV_DragonDance
 	end
 
 AI_CV_Sleep::
@@ -1869,7 +1861,7 @@ AI_CV_Encore_EncouragedMovesToEncore::
 	.byte EFFECT_TEETER_DANCE
 	.byte EFFECT_MUD_SPORT
 	.byte EFFECT_WATER_SPORT
-	.byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_STAT_UP_ONE
 	.byte EFFECT_CAMOUFLAGE
 	.byte -1
 
@@ -2847,9 +2839,7 @@ AI_SetupFirstTurn_SetupEffectsToEncourage::
 	.byte EFFECT_IMPRISON
 	.byte EFFECT_TEETER_DANCE
 	.byte EFFECT_TICKLE
-	.byte EFFECT_COSMIC_POWER
-	.byte EFFECT_BULK_UP
-	.byte EFFECT_CALM_MIND
+	.byte EFFECT_STAT_UP_ONE
 	.byte EFFECT_CAMOUFLAGE
 	.byte -1
 
@@ -2998,8 +2988,6 @@ AI_HPAware_DiscouragedEffectsWhenHighHP::
 	.byte EFFECT_DESTINY_BOND
 	.byte EFFECT_FLAIL
 	.byte EFFECT_ENDURE
-	.byte EFFECT_MORNING_SUN
-	.byte EFFECT_SYNTHESIS
 	.byte EFFECT_MOONLIGHT
 	.byte EFFECT_SOFTBOILED
 	.byte EFFECT_MEMENTO
@@ -3046,10 +3034,7 @@ AI_HPAware_DiscouragedEffectsWhenMediumHP::
 	.byte EFFECT_SAFEGUARD
 	.byte EFFECT_BELLY_DRUM
 	.byte EFFECT_TICKLE
-	.byte EFFECT_COSMIC_POWER
-	.byte EFFECT_BULK_UP
-	.byte EFFECT_CALM_MIND
-	.byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_STAT_UP_ONE
 	.byte -1
 
 AI_HPAware_DiscouragedEffectsWhenLowHP::
@@ -3096,10 +3081,7 @@ AI_HPAware_DiscouragedEffectsWhenLowHP::
 	.byte EFFECT_SOLAR_BEAM
 	.byte EFFECT_ERUPTION
 	.byte EFFECT_TICKLE
-	.byte EFFECT_COSMIC_POWER
-	.byte EFFECT_BULK_UP
-	.byte EFFECT_CALM_MIND
-	.byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_STAT_UP_ONE
 	.byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetHighHP::
@@ -3141,10 +3123,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetMediumHP::
 	.byte EFFECT_PERISH_SONG
 	.byte EFFECT_SAFEGUARD
 	.byte EFFECT_TICKLE
-	.byte EFFECT_COSMIC_POWER
-	.byte EFFECT_BULK_UP
-	.byte EFFECT_CALM_MIND
-	.byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_STAT_UP_ONE
 	.byte -1
 
 AI_HPAware_DiscouragedEffectsWhenTargetLowHP::
@@ -3203,10 +3182,7 @@ AI_HPAware_DiscouragedEffectsWhenTargetLowHP::
 	.byte EFFECT_MIRROR_COAT
 	.byte EFFECT_WILL_O_WISP
 	.byte EFFECT_TICKLE
-	.byte EFFECT_COSMIC_POWER
-	.byte EFFECT_BULK_UP
-	.byte EFFECT_CALM_MIND
-	.byte EFFECT_DRAGON_DANCE
+	.byte EFFECT_STAT_UP_ONE
 	.byte -1
 
 AI_Unknown::

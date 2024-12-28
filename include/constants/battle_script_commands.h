@@ -103,10 +103,11 @@
 #define STAT_CHANGE_NOT_PROTECT_AFFECTED    (1 << 5)
 
 // stat change flags for Cmd_playstatchangeanimation
-#define STAT_CHANGE_NEGATIVE             (1 << 0)
-#define STAT_CHANGE_BY_TWO               (1 << 1)
-#define STAT_CHANGE_MULTIPLE_STATS       (1 << 2)
-#define STAT_CHANGE_CANT_PREVENT         (1 << 3)
+#define STAT_CHANGE_NEGATIVE                 (1 << 0)
+#define STAT_CHANGE_BY_TWO                   (1 << 1)
+#define STAT_CHANGE_MULTIPLE_STATS           (1 << 2)
+#define STAT_CHANGE_CANT_PREVENT             (1 << 3)
+#define STAT_CHANGE_USE_BATTLE_COMMUNICATION (1 << 4)
 
 // stat flags for Cmd_playstatchangeanimation
 #define BIT_HP                      (1 << 0)

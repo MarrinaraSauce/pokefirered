@@ -3288,7 +3288,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_MORNING_SUN] =
     {
-        .effect = EFFECT_MORNING_SUN,
+        .effect = EFFECT_MOONLIGHT,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -3302,7 +3302,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SYNTHESIS] =
     {
-        .effect = EFFECT_SYNTHESIS,
+        .effect = EFFECT_MOONLIGHT,
         .power = 0,
         .type = TYPE_GRASS,
         .accuracy = 0,
@@ -4522,12 +4522,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_COSMIC_POWER] =
     {
-        .effect = EFFECT_COSMIC_POWER,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 0,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_DEF | BIT_SPDEF,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
@@ -4760,12 +4760,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BULK_UP] =
     {
-        .effect = EFFECT_BULK_UP,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_FIGHTING,
         .accuracy = 0,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_ATK | BIT_DEF,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
@@ -4872,12 +4872,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CALM_MIND] =
     {
-        .effect = EFFECT_CALM_MIND,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 0,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_SPATK | BIT_SPDEF,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
@@ -4900,12 +4900,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRAGON_DANCE] =
     {
-        .effect = EFFECT_DRAGON_DANCE,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_DRAGON,
         .accuracy = 0,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_ATK | BIT_SPEED,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
@@ -6370,12 +6370,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_HONE_CLAWS] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_DARK,
         .accuracy = 0,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_ATK | BIT_ACC,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
@@ -6580,12 +6580,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_QUIVER_DANCE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_BUG,
         .accuracy = 0,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_SPEED | BIT_SPATK | BIT_SPDEF,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
@@ -6664,12 +6664,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_COIL] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_POISON,
         .accuracy = 0,
         .pp = 20,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_ATK | BIT_DEF | BIT_ACC,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
@@ -7168,12 +7168,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_WORK_UP] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_STAT_UP_ONE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 30,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = BIT_ATK | BIT_SPATK,
         .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,

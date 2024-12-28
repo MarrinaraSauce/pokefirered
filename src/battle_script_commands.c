@@ -236,11 +236,9 @@ static void Cmd_remaininghptopower(void);
 static void Cmd_tryspiteppreduce(void);
 static void Cmd_healpartystatus(void);
 static void Cmd_cursetarget(void);
-static void Cmd_trysetspikes(void); 
-static void Cmd_trysetstickyweb(void);
-static void Cmd_trysettoxicspikes(void);
-static void Cmd_trysetstealthrock(void);
+static void Cmd_trysethazard(void); 
 static void Cmd_losemovetype(void);
+static void Cmd_prepstatstochange(void);
 static void Cmd_setforesight(void);
 static void Cmd_trysetperishsong(void);
 static void Cmd_rolloutdamagecalculation(void);
@@ -492,7 +490,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryspiteppreduce,                        //0xAD
     Cmd_healpartystatus,                         //0xAE
     Cmd_cursetarget,                             //0xAF
-    Cmd_trysetspikes,                            //0xB0
+    Cmd_trysethazard,                            //0xB0
     Cmd_setforesight,                            //0xB1
     Cmd_trysetperishsong,                        //0xB2
     Cmd_rolloutdamagecalculation,                //0xB3
@@ -565,10 +563,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
     Cmd_tryworryseed,                            //0xF8
-	Cmd_trysetstickyweb,                         //0xF9
-    Cmd_trysettoxicspikes,                       //0xFA
-	Cmd_trysetstealthrock,                       //0xFB
-	Cmd_losemovetype                             //0xFC
+	Cmd_losemovetype,                            //0xF9
+	Cmd_prepstatstochange,						 //0xFA
 };
 
 struct StatFractions
@@ -3156,6 +3152,23 @@ static void Cmd_jumpifstat(void)
         gBattlescriptCurrInstr += 9;
 }
 
+static void Cmd_prepstatstochange(void)
+{
+	u8 stats = 0;
+	s32 i;
+	u8 moveChance = gBattleMoves[gCurrentMove].secondaryEffectChance;
+
+	for (i = 1; i < NUM_BATTLE_STATS; i++)
+	{
+		if ((gBattleMons[gBattlerTarget].statStages[i] != MAX_STAT_STAGE)
+		&& (moveChance & (1 << i)))
+			stats |= (1 << i);
+	}
+
+	gBattleCommunication[0] = stats;
+	gBattlescriptCurrInstr++;
+}
+
 static void Cmd_jumpifstatus3condition(void)
 {
     u32 status;
@@ -4051,7 +4064,11 @@ static void Cmd_playstatchangeanimation(void)
     u8 statsToCheck = 0;
 
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
-    statsToCheck = gBattlescriptCurrInstr[2];
+
+	if (gBattlescriptCurrInstr[3] & STAT_CHANGE_USE_BATTLE_COMMUNICATION)
+		statsToCheck = gBattleCommunication[0];
+	else
+		statsToCheck = gBattlescriptCurrInstr[2];
 
     if (gBattlescriptCurrInstr[3] & STAT_CHANGE_NEGATIVE) // goes down
     {
@@ -8331,71 +8348,66 @@ static void Cmd_cursetarget(void)
     }
 }
 
-static void Cmd_trysetspikes(void)
+static void Cmd_trysethazard(void)
 {
     u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+	u8 moveType = gBattleMoves[gCurrentMove].type;
 
-    if (gSideTimers[targetSide].spikesAmount == 3)
-    {
-        gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
-        gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-    }
-    else
-    {
-        gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
-        gSideTimers[targetSide].spikesAmount++;
-        gBattlescriptCurrInstr += 5;
-    }
-}
-
-static void Cmd_trysetstickyweb(void)
-{
-	u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
-
-	if (gSideStatuses[targetSide] & SIDE_STATUS_STICKY_WEB)
+	switch (moveType)
 	{
-		gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
-		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-	}
-	else
-	{
-		gSideStatuses[targetSide] |= SIDE_STATUS_STICKY_WEB;
-		gBattlescriptCurrInstr += 5;
-	}
-}
-
-static void Cmd_trysettoxicspikes(void)
-{
-	u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
-
-	if (gSideTimers[targetSide].toxicSpikesAmount == 2)
-	{
-		gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
-		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-	}
-	else
-	{
-		gSideStatuses[targetSide] |= SIDE_STATUS_TOXIC_SPIKES;
-		gSideTimers[targetSide].toxicSpikesAmount++;
-		gBattlescriptCurrInstr += 5;
-	}
-}
-
-static void Cmd_trysetstealthrock(void)
-{
-	u8 targetSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
-
-	if (gSideStatuses[targetSide] & SIDE_STATUS_STEALTH_ROCK)
-	{
-		gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
-		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
-	}
-	else
-	{
-		gSideStatuses[targetSide] |= SIDE_STATUS_STEALTH_ROCK;
-		gBattlescriptCurrInstr += 5;
+	case TYPE_GROUND:
+		if (gSideTimers[targetSide].spikesAmount == 3)
+		{
+			gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+			gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+		}
+		else
+		{
+			gSideStatuses[targetSide] |= SIDE_STATUS_SPIKES;
+			gSideTimers[targetSide].spikesAmount++;
+			gBattlescriptCurrInstr += 5;
+		}
+		break;
+	case TYPE_BUG:
+		if (gSideStatuses[targetSide] & SIDE_STATUS_STICKY_WEB)
+		{
+			gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+			gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+		}
+		else
+		{
+			gSideStatuses[targetSide] |= SIDE_STATUS_STICKY_WEB;
+			gBattlescriptCurrInstr += 5;
+		}
+		break;
+	case TYPE_POISON:
+		if (gSideTimers[targetSide].toxicSpikesAmount == 2)
+		{
+			gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+			gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+		}
+		else
+		{
+			gSideStatuses[targetSide] |= SIDE_STATUS_TOXIC_SPIKES;
+			gSideTimers[targetSide].toxicSpikesAmount++;
+			gBattlescriptCurrInstr += 5;
+		}
+		break;
+	case TYPE_ROCK:
+		if (gSideStatuses[targetSide] & SIDE_STATUS_STEALTH_ROCK)
+		{
+			gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = 1;
+			gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
+		}
+		else
+		{
+			gSideStatuses[targetSide] |= SIDE_STATUS_STEALTH_ROCK;
+			gBattlescriptCurrInstr += 5;
+		}
+		break;
 	}
 }
+
 
 static void Cmd_losemovetype(void)
 {
