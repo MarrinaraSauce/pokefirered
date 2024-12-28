@@ -399,6 +399,7 @@ static const u8 sText_GhostAppearedCantId[] = _("The Ghost appeared!\pDarn!\nThe
 static const u8 sText_TheGhostAppeared[] = _("The Ghost appeared!\p");
 static const u8 sText_SilphScopeUnveil[] = _("Silph Scope unveiled the Ghost's\nidentity!");
 static const u8 sText_TheGhostWas[] = _("The Ghost was Marowak!\p\n");
+static const u8 sText_PreparingToTellJoke[] = _("{B_ATK_NAME_WITH_PREFIX} is preparing\nto tell a chillingly bad joke!");
 static const u8 sText_Trainer1WantsToBattle[] = _("{B_TRAINER1_CLASS} {B_TRAINER1_NAME}\nwould like to battle!\p");
 static const u8 sText_LinkTrainerWantsToBattle[] = _("{B_LINK_OPPONENT1_NAME}\nwants to battle!");
 static const u8 sText_TwoLinkTrainersWantToBattle[] = _("{B_LINK_OPPONENT1_NAME} and {B_LINK_OPPONENT2_NAME}\nwant to battle!");
@@ -917,6 +918,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNHURTBYITS - BATTLESTRINGS_TABLE_START]				 = sText_PkmnHurtByIts,
     [STRINGID_PKMNACQUIREDABILITY - BATTLESTRINGS_TABLE_START]			 = sText_PkmnAcquiredAbility,
     [STRINGID_STATDRASTICALLY - BATTLESTRINGS_TABLE_START]               = sText_StatDrastically,
+    [STRINGID_PREPARINGTOTELLJOKE - BATTLESTRINGS_TABLE_START]           = sText_PreparingToTellJoke,
 };
 
 const u16 gMissStringIds[] =

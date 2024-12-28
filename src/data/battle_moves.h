@@ -5180,7 +5180,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_U_TURN] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_U_TURN,
         .power = 70,
         .type = TYPE_BUG,
         .accuracy = 100,
@@ -7098,7 +7098,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_VOLT_SWITCH] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_U_TURN,
         .power = 70,
         .type = TYPE_ELECTRIC,
         .accuracy = 100,
@@ -8358,7 +8358,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FLIP_TURN] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_U_TURN,
         .power = 60,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -8512,7 +8512,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CHILLY_RECEPTION] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CHILLY_RECEPTION,
         .power = 0,
         .type = TYPE_ICE,
         .accuracy = 0,
