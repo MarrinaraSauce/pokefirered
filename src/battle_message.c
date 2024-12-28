@@ -316,6 +316,7 @@ static const u8 sText_StatSharply[] = _("sharply ");
 const u8 gBattleText_Rose[] = _("rose!");
 static const u8 sText_StatHarshly[] = _("harshly ");
 static const u8 sText_StatFell[] = _("fell!");
+static const u8 sText_StatDrastically[] = _("drastically ");
 static const u8 sText_AttackersStatRose[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1}\n{B_BUFF2}");
 const u8 gText_DefendersStatRose[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\n{B_BUFF2}");
 static const u8 sText_UsingItemTheStatOfPkmnRose[] = _("Using {B_LAST_ITEM}, the {B_BUFF1}\nof {B_SCR_ACTIVE_NAME_WITH_PREFIX} {B_BUFF2}");
@@ -914,7 +915,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_TRAINER1MON2COMEBACK - BATTLESTRINGS_TABLE_START]          = sText_Trainer1RecallPkmn2,
     [STRINGID_TRAINER1MON1AND2COMEBACK - BATTLESTRINGS_TABLE_START]      = sText_Trainer1RecallBoth,
     [STRINGID_PKMNHURTBYITS - BATTLESTRINGS_TABLE_START]				 = sText_PkmnHurtByIts,
-    [STRINGID_PKMNACQUIREDABILITY - BATTLESTRINGS_TABLE_START]			 = sText_PkmnAcquiredAbility
+    [STRINGID_PKMNACQUIREDABILITY - BATTLESTRINGS_TABLE_START]			 = sText_PkmnAcquiredAbility,
+    [STRINGID_STATDRASTICALLY - BATTLESTRINGS_TABLE_START]               = sText_StatDrastically,
 };
 
 const u16 gMissStringIds[] =

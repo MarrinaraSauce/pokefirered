@@ -2647,6 +2647,21 @@ void SetMoveEffect(bool8 primary, u8 certain)
                     gBattlescriptCurrInstr = BattleScript_StatDown;
                 }
                 break;
+			case MOVE_EFFECT_ATK_PLUS_3:
+				if (ChangeStatBuffs(SET_STAT_BUFF_VALUE(3),
+					STAT_ATK,
+					affectsUser, 0))
+				{
+					gBattlescriptCurrInstr++;
+				}
+				else
+				{
+					gBattleScripting.animArg1 = gBattleCommunication[MOVE_EFFECT_BYTE] & ~(MOVE_EFFECT_AFFECTS_USER | MOVE_EFFECT_CERTAIN);
+					gBattleScripting.animArg2 = 0;
+					BattleScriptPush(gBattlescriptCurrInstr + 1);
+					gBattlescriptCurrInstr = BattleScript_StatUp;
+				}
+				break;
             case MOVE_EFFECT_RECHARGE:
                 gBattleMons[gEffectBattler].status2 |= STATUS2_RECHARGE;
                 gDisableStructs[gEffectBattler].rechargeTimer = 2;
@@ -4008,12 +4023,18 @@ static void Cmd_setgraphicalstatchangevalues(void)
         value = STAT_ANIM_PLUS1;
         break;
     case SET_STAT_BUFF_VALUE(2): // +2
+	case SET_STAT_BUFF_VALUE(3):
+	case SET_STAT_BUFF_VALUE(4):
+	case SET_STAT_BUFF_VALUE(6):
         value = STAT_ANIM_PLUS2;
         break;
     case SET_STAT_BUFF_VALUE(1) | STAT_BUFF_NEGATIVE: // -1
         value = STAT_ANIM_MINUS1;
         break;
     case SET_STAT_BUFF_VALUE(2) | STAT_BUFF_NEGATIVE: // -2
+	case SET_STAT_BUFF_VALUE(3) | STAT_BUFF_NEGATIVE:
+	case SET_STAT_BUFF_VALUE(4) | STAT_BUFF_NEGATIVE:
+	case SET_STAT_BUFF_VALUE(6) | STAT_BUFF_NEGATIVE:
         value = STAT_ANIM_MINUS2;
         break;
     }
@@ -4176,7 +4197,7 @@ static void Cmd_moveend(void)
                 && gBattlerAttacker != gBattlerTarget
                 && gSpecialStatuses[gBattlerTarget].specialDmg
                 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
-                && moveType == TYPE_FIRE)
+                && (moveType == TYPE_FIRE || gBattleMoves[gCurrentMove].effect == EFFECT_THAW_HIT))
             {
                 gBattleMons[gBattlerTarget].status1 &= ~STATUS1_FREEZE;
                 gActiveBattler = gBattlerTarget;
@@ -6965,6 +6986,13 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
                 gBattleTextBuff2[3] = STRINGID_STATHARSHLY >> 8;
                 index = 4;
             }
+			if (statValue < -2)
+			{
+				gBattleTextBuff2[1] = B_BUFF_STRING;
+				gBattleTextBuff2[2] = STRINGID_STATDRASTICALLY;
+				gBattleTextBuff2[3] = STRINGID_STATDRASTICALLY >> 8;
+				index = 4;
+			}
             gBattleTextBuff2[index++] = B_BUFF_STRING;
             gBattleTextBuff2[index++] = STRINGID_STATFELL;
             gBattleTextBuff2[index++] = STRINGID_STATFELL >> 8;
@@ -6988,6 +7016,13 @@ static u8 ChangeStatBuffs(s8 statValue, u8 statId, u8 flags, const u8 *BS_ptr)
             gBattleTextBuff2[3] = STRINGID_STATSHARPLY >> 8;
             index = 4;
         }
+		if (statValue > 2)
+		{
+			gBattleTextBuff2[1] = B_BUFF_STRING;
+			gBattleTextBuff2[2] = STRINGID_STATDRASTICALLY;
+			gBattleTextBuff2[3] = STRINGID_STATDRASTICALLY >> 8;
+			index = 4;
+		}
         gBattleTextBuff2[index++] = B_BUFF_STRING;
         gBattleTextBuff2[index++] = STRINGID_STATROSE;
         gBattleTextBuff2[index++] = STRINGID_STATROSE >> 8;

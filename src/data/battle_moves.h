@@ -3223,7 +3223,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .type = TYPE_NORMAL,
         .accuracy = 100,
         .pp = 40,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 100,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -5530,12 +5530,12 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FLARE_BLITZ] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_FLARE_BLITZ,
         .power = 120,
         .type = TYPE_FIRE,
         .accuracy = 100,
         .pp = 15,
-        .secondaryEffectChance = 0,
+        .secondaryEffectChance = 10,
         .target = MOVE_TARGET_SELECTED,
         .priority = 0,
         .flags = FLAG_MAKES_CONTACT | FLAG_PROTECT_AFFECTED | FLAG_MIRROR_MOVE_AFFECTED | FLAG_KINGS_ROCK_AFFECTED,
@@ -6860,7 +6860,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SCALD] =
     {
-        .effect = EFFECT_BURN_HIT,
+        .effect = EFFECT_THAW_HIT,
         .power = 80,
         .type = TYPE_WATER,
         .accuracy = 100,
@@ -7434,7 +7434,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FELL_STINGER] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_FELL_STINGER,
         .power = 50,
         .type = TYPE_BUG,
         .accuracy = 100,
@@ -7814,7 +7814,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
     {
         .effect = EFFECT_ATTACK_UP_HIT,
         .power = 40,
-        .type = TYPE_ELECTRIC,
+        .type = TYPE_FIGHTING,
         .accuracy = 100,
         .pp = 20,
         .secondaryEffectChance = 100,
@@ -8400,7 +8400,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SCORCHING_SANDS] =
     {
-        .effect = EFFECT_BURN_HIT,
+        .effect = EFFECT_THAW_HIT,
         .power = 70,
         .type = TYPE_GROUND,
         .accuracy = 100,
