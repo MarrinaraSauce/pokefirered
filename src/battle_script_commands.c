@@ -239,6 +239,7 @@ static void Cmd_cursetarget(void);
 static void Cmd_trysethazard(void); 
 static void Cmd_losemovetype(void);
 static void Cmd_prepstatstochange(void);
+static void Cmd_setalwayscritflag(void);
 static void Cmd_setforesight(void);
 static void Cmd_trysetperishsong(void);
 static void Cmd_rolloutdamagecalculation(void);
@@ -565,6 +566,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryworryseed,                            //0xF8
 	Cmd_losemovetype,                            //0xF9
 	Cmd_prepstatstochange,						 //0xFA
+	Cmd_setalwayscritflag,                       //0xFB
 };
 
 struct StatFractions
@@ -1213,17 +1215,17 @@ static void Cmd_critcalc(void)
     if ((gBattleMons[gBattlerTarget].ability != ABILITY_BATTLE_ARMOR && gBattleMons[gBattlerTarget].ability != ABILITY_SHELL_ARMOR)
      && !(gStatuses3[gBattlerAttacker] & STATUS3_CANT_SCORE_A_CRIT)
      && !(gBattleTypeFlags & BATTLE_TYPE_OLD_MAN_TUTORIAL)
-     && !(Random() % sCriticalHitChance[critChance])
+     && (!(Random() % sCriticalHitChance[critChance]) || (gStatuses3[gBattlerAttacker] & STATUS3_ALWAYS_CRIT))
      && (!(gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) || BtlCtrl_OakOldMan_TestState2Flag(1))
      && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
 	{
 		if(gBattleMons[gBattlerAttacker].ability == ABILITY_SNIPER)
-			gCritMultiplier = 2.25;
+			gCritMultiplier = 9;
 		else
-			gCritMultiplier = 1.5;
+			gCritMultiplier = 6;
 	}
     else
-        gCritMultiplier = 1;
+        gCritMultiplier = 4;
 
     gBattlescriptCurrInstr++;
 }
@@ -1234,7 +1236,7 @@ static void Cmd_damagecalc(void)
     gBattleMoveDamage = CalculateBaseDamage(&gBattleMons[gBattlerAttacker], &gBattleMons[gBattlerTarget], gCurrentMove,
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, gBattlerAttacker, gBattlerTarget);
-    gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
+    gBattleMoveDamage = (gBattleMoveDamage * gCritMultiplier / 4) * gBattleScripting.dmgMultiplier;
 
     if (gStatuses3[gBattlerAttacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
         gBattleMoveDamage *= 2;
@@ -1251,7 +1253,7 @@ void AI_CalcDmg(u8 attacker, u8 defender)
                                             sideStatus, gDynamicBasePower,
                                             gBattleStruct->dynamicMoveType, attacker, defender);
     gDynamicBasePower = 0;
-    gBattleMoveDamage = gBattleMoveDamage * gCritMultiplier * gBattleScripting.dmgMultiplier;
+    gBattleMoveDamage = (gBattleMoveDamage * gCritMultiplier / 4) * gBattleScripting.dmgMultiplier;
 
     if (gStatuses3[attacker] & STATUS3_CHARGED_UP && gBattleMoves[gCurrentMove].type == TYPE_ELECTRIC)
         gBattleMoveDamage *= 2;
@@ -1902,7 +1904,7 @@ static void Cmd_critmessage(void)
 {
     if (gBattleControllerExecFlags == 0)
     {
-        if (gCritMultiplier > 1 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
+        if (gCritMultiplier > 4 && !(gMoveResultFlags & MOVE_RESULT_NO_EFFECT))
         {
             PrepareStringBattle(STRINGID_CRITICALHIT, gBattlerAttacker);
             gBattleCommunication[MSG_DISPLAY] = 1;
@@ -3566,7 +3568,7 @@ static void MoveValuesCleanUp(void)
 {
     gMoveResultFlags = 0;
     gBattleScripting.dmgMultiplier = 1;
-    gCritMultiplier = 1;
+    gCritMultiplier = 4;
     gBattleCommunication[MOVE_EFFECT_BYTE] = 0;
     gBattleCommunication[MISS_TYPE] = 0;
     gHitMarker &= ~HITMARKER_DESTINYBOND;
@@ -8005,6 +8007,13 @@ static void Cmd_setalwayshitflag(void)
     gBattlescriptCurrInstr++;
 }
 
+static void Cmd_setalwayscritflag(void)
+{
+	gStatuses3[gBattlerAttacker] &= ~STATUS3_ALWAYS_CRIT;
+	gStatuses3[gBattlerAttacker] |= STATUS3_ALWAYS_CRIT_TURN(2);
+	gBattlescriptCurrInstr++;
+}
+
 // Sketch
 static void Cmd_copymovepermanently(void)
 {
@@ -8413,13 +8422,13 @@ static void Cmd_losemovetype(void)
 {
 	u8 moveType = gBattleMoves[gCurrentMove].type;
 
+	if (moveType == TYPE_FLYING && gBattleMons[gBattlerAttacker].type2 == moveType)
+		gStatuses3[gBattlerAttacker] |= STATUS3_ROOSTED;
+
 	if (gBattleMons[gBattlerAttacker].type1 == moveType)
 		gBattleMons[gBattlerAttacker].type1 = TYPE_NONE;
 	if (gBattleMons[gBattlerAttacker].type2 == moveType)
 		gBattleMons[gBattlerAttacker].type2 = TYPE_NONE;
-
-	if (moveType == TYPE_FLYING)
-		gStatuses3[gBattlerAttacker] |= STATUS3_ROOSTED;
 
 	PREPARE_TYPE_BUFFER(gBattleTextBuff1, moveType);
 	gBattlescriptCurrInstr++;

@@ -255,6 +255,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectUTurn                  @ EFFECT_U_TURN
 	.4byte BattleScript_EffectChillyReception        @ EFFECT_CHILLY_RECEPTION
 	.4byte BattleScript_EffectStatUpOne              @ EFFECT_STAT_UP_ONE
+	.4byte BattleScript_EffectLaserFocus             @ EFFECT_LASER_FOCUS
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -1312,6 +1313,17 @@ BattleScript_EffectLockOn::
 	printstring STRINGID_PKMNTOOKAIM
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
+	
+BattleScript_EffectLaserFocus::
+	attackcanceler
+	attackstring
+	ppreduce
+	setalwayscritflag
+	attackanimation
+	waitanimation
+	printstring STRINGID_PKMNCONCENTRATED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
 
 BattleScript_EffectSketch::
 	attackcanceler
@@ -2031,7 +2043,7 @@ BattleScript_BeatUpLoop::
 	trydobeatup BattleScript_BeatUpEnd, BattleScript_ButItFailed
 	printstring STRINGID_PKMNATTACK
 	critcalc
-	jumpifbyte CMP_EQUAL, gCritMultiplier, 1, BattleScript_BeatUpAttack
+	jumpifbyte CMP_EQUAL, gCritMultiplier, 4, BattleScript_BeatUpAttack
 	manipulatedamage DMG_CRIT
 BattleScript_BeatUpAttack::
 	adjustnormaldamage

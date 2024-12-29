@@ -1261,6 +1261,10 @@
 	.macro prepstatstochange
 	.byte 0xfa
 	.endm
+	
+	.macro setalwayscritflag
+	.byte 0xfb
+	.endm
 
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

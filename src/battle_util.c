@@ -737,8 +737,9 @@ enum
     ENDTURN_TAUNT,
     ENDTURN_YAWN,
     ENDTURN_ITEMS2,
-    ENDTURN_BATTLER_COUNT,
-	ENDTURN_ROOSTED
+	ENDTURN_ROOSTED,
+	ENDTURN_LASER_FOCUS,
+    ENDTURN_BATTLER_COUNT
 };
 
 u8 DoBattlerEndTurnEffects(void)
@@ -1048,12 +1049,19 @@ u8 DoBattlerEndTurnEffects(void)
                 }
                 gBattleStruct->turnEffectsTracker++;
                 break;
-			case ENDTURN_ROOSTED:  //roost
+			case ENDTURN_ROOSTED:  // roost
 				if (gStatuses3[gActiveBattler] & STATUS3_ROOSTED)
 				{
-					
+					gBattleMons[gActiveBattler].type2 = TYPE_FLYING;
 					gStatuses3[gActiveBattler] &= ~STATUS3_ROOSTED;
 				}
+				gBattleStruct->turnEffectsTracker++;
+				break;
+			case ENDTURN_LASER_FOCUS:  // laser focus decrement
+				if (gStatuses3[gActiveBattler] & STATUS3_ALWAYS_CRIT)
+					gStatuses3[gActiveBattler] -= STATUS3_ALWAYS_CRIT_TURN(1);
+				gBattleStruct->turnEffectsTracker++;
+				break;
             case ENDTURN_BATTLER_COUNT:  // done
                 gBattleStruct->turnEffectsTracker = 0;
                 gBattleStruct->turnEffectsBattlerId++;

@@ -7938,13 +7938,13 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LASER_FOCUS] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_LASER_FOCUS,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
         .pp = 30,
         .secondaryEffectChance = 0,
-        .target = MOVE_TARGET_SELECTED,
+        .target = MOVE_TARGET_USER,
         .priority = 0,
         .flags = FLAG_SNATCH_AFFECTED,
 		.category = 0,

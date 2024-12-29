@@ -2529,7 +2529,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     {
 		if(defender->ability == ABILITY_UNAWARE)
 			damage = attack;
-        else if (gCritMultiplier > 1)
+        else if (gCritMultiplier > 4)
         {
             // Critical hit, if attacker has lost attack stat stages then ignore stat drop
             if (attacker->statStages[STAT_ATK] > DEFAULT_STAT_STAGE)
@@ -2546,7 +2546,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		if (attacker->ability == ABILITY_UNAWARE
 		|| gBattleMoves[move].effect == EFFECT_CHIP_AWAY)
 			damageHelper = defense;
-        else if (gCritMultiplier > 1)
+        else if (gCritMultiplier > 4)
         {
             // Critical hit, if defender has gained defense stat stages then ignore stat increase
             if (defender->statStages[STAT_DEF] < DEFAULT_STAT_STAGE)
@@ -2565,7 +2565,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
             damage /= 2;
 
         // Apply Reflect
-        if ((sideStatus & SIDE_STATUS_REFLECT) && gCritMultiplier == 1)
+        if ((sideStatus & SIDE_STATUS_REFLECT) && gCritMultiplier == 4)
         {
             if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
                 damage = 2 * (damage / 3);
@@ -2624,7 +2624,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
     {
 		if (defender->ability == ABILITY_UNAWARE)
 			damage = spAttack;
-        else if (gCritMultiplier > 1)
+        else if (gCritMultiplier > 4)
         {
             // Critical hit, if attacker has lost sp. attack stat stages then ignore stat drop
             if (attacker->statStages[STAT_SPATK] > DEFAULT_STAT_STAGE)
@@ -2641,7 +2641,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 		if (attacker->ability == ABILITY_UNAWARE
 		|| gBattleMoves[move].effect == EFFECT_CHIP_AWAY)
 			damageHelper = spDefense;
-        else if (gCritMultiplier > 1)
+        else if (gCritMultiplier > 4)
         {
             // Critical hit, if defender has gained sp. defense stat stages then ignore stat increase
             if (defender->statStages[STAT_SPDEF] < DEFAULT_STAT_STAGE)
@@ -2656,7 +2656,7 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
         damage /= 50;
 
         // Apply Lightscreen
-        if ((sideStatus & SIDE_STATUS_LIGHTSCREEN) && gCritMultiplier == 1)
+        if ((sideStatus & SIDE_STATUS_LIGHTSCREEN) && gCritMultiplier == 4)
         {
             if ((gBattleTypeFlags & BATTLE_TYPE_DOUBLE) && CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
                 damage = 2 * (damage / 3);

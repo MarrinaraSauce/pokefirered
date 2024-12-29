@@ -209,6 +209,7 @@ static const u8 sText_ToxicSpikesScattered[] = _("Poison spikes were scattered a
 static const u8 sText_PkmnHurtByToxicSpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} was poisoned\nby Toxic Spikes!");
 static const u8 sText_StealthRockScattered[] = _("Pointed Stones were scattered all\naround the opponent's side!");
 static const u8 sText_PkmnHurtByStealthRock[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} is hurt\nby Stealth Rock!");
+static const u8 sText_PkmnConcentrated[] = _("{B_ATK_NAME_WITH_PREFIX} concentrated\nintensely!");
 static const u8 sText_PkmnIdentified[] = _("{B_ATK_NAME_WITH_PREFIX} identified\n{B_DEF_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnPerishCountFell[] = _("{B_ATK_NAME_WITH_PREFIX}'s Perish count\nfell to {B_BUFF1}!");
 static const u8 sText_PkmnBracedItself[] = _("{B_ATK_NAME_WITH_PREFIX} braced\nitself!");
@@ -919,6 +920,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNACQUIREDABILITY - BATTLESTRINGS_TABLE_START]			 = sText_PkmnAcquiredAbility,
     [STRINGID_STATDRASTICALLY - BATTLESTRINGS_TABLE_START]               = sText_StatDrastically,
     [STRINGID_PREPARINGTOTELLJOKE - BATTLESTRINGS_TABLE_START]           = sText_PreparingToTellJoke,
+    [STRINGID_PKMNCONCENTRATED - BATTLESTRINGS_TABLE_START]              = sText_PkmnConcentrated,
 };
 
 const u16 gMissStringIds[] =

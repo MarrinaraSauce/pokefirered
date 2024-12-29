@@ -3979,7 +3979,7 @@ static void HandleAction_UseMove(void)
         gCurrentActionFuncId = B_ACTION_FINISHED;
         return;
     }
-    gCritMultiplier = 1;
+    gCritMultiplier = 4;
     gBattleScripting.dmgMultiplier = 1;
     gBattleStruct->atkCancellerTracker = 0;
     gMoveResultFlags = 0;
