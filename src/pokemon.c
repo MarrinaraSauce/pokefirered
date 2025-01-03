@@ -2640,17 +2640,37 @@ s32 CalculateBaseDamage(struct BattlePokemon *attacker, struct BattlePokemon *de
 
 		if (attacker->ability == ABILITY_UNAWARE
 		|| gBattleMoves[move].effect == EFFECT_CHIP_AWAY)
-			damageHelper = spDefense;
+		{
+			if (gBattleMoves[move].effect == EFFECT_PSYSHOCK)
+				damageHelper = defense;
+			else
+				damageHelper = spDefense;
+		}
         else if (gCritMultiplier > 4)
         {
             // Critical hit, if defender has gained sp. defense stat stages then ignore stat increase
             if (defender->statStages[STAT_SPDEF] < DEFAULT_STAT_STAGE)
-                APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
+			{
+				if (gBattleMoves[move].effect == EFFECT_PSYSHOCK)
+					APPLY_STAT_MOD(damageHelper, defender, defense, STAT_DEF)
+				else
+					APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
+			}
             else
-                damageHelper = spDefense;
+			{
+				if (gBattleMoves[move].effect == EFFECT_PSYSHOCK)
+					damageHelper = defense;
+				else
+					damageHelper = spDefense;
+			}
         }
         else
-            APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
+		{
+			if (gBattleMoves[move].effect == EFFECT_PSYSHOCK)
+				APPLY_STAT_MOD(damageHelper, defender, defense, STAT_DEF)
+			else
+				APPLY_STAT_MOD(damageHelper, defender, spDefense, STAT_SPDEF)
+		}
 
         damage = (damage / damageHelper);
         damage /= 50;

@@ -3745,7 +3745,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 2,
+        .priority = 3,
         .flags = 0,
 		.category = 0,
     },
@@ -6440,7 +6440,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PSYSHOCK] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_PSYSHOCK,
         .power = 80,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -6489,7 +6489,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
         .pp = 20,
         .secondaryEffectChance = 0,
         .target = MOVE_TARGET_USER,
-        .priority = 2,
+        .priority = 3,
         .flags = FLAG_POWDER_MOVE,
 		.category = 0,
     },
@@ -6538,7 +6538,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_STORM_THROW] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_AUTO_CRIT,
         .power = 60,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
@@ -7140,7 +7140,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FROST_BREATH] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_AUTO_CRIT,
         .power = 60,
         .type = TYPE_ICE,
         .accuracy = 90,
@@ -7322,7 +7322,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PSYSTRIKE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_PSYSHOCK,
         .power = 100,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -7714,7 +7714,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_VENOM_DRENCH] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_VENOM_DRENCH,
         .power = 0,
         .type = TYPE_POISON,
         .accuracy = 100,

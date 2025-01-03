@@ -1215,7 +1215,7 @@ static void Cmd_critcalc(void)
     if ((gBattleMons[gBattlerTarget].ability != ABILITY_BATTLE_ARMOR && gBattleMons[gBattlerTarget].ability != ABILITY_SHELL_ARMOR)
      && !(gStatuses3[gBattlerAttacker] & STATUS3_CANT_SCORE_A_CRIT)
      && !(gBattleTypeFlags & BATTLE_TYPE_OLD_MAN_TUTORIAL)
-     && (!(Random() % sCriticalHitChance[critChance]) || (gStatuses3[gBattlerAttacker] & STATUS3_ALWAYS_CRIT))
+     && (!(Random() % sCriticalHitChance[critChance]) || (gStatuses3[gBattlerAttacker] & STATUS3_ALWAYS_CRIT) || (gBattleMoves[gCurrentMove].effect == EFFECT_AUTO_CRIT))
      && (!(gBattleTypeFlags & BATTLE_TYPE_FIRST_BATTLE) || BtlCtrl_OakOldMan_TestState2Flag(1))
      && !(gBattleTypeFlags & BATTLE_TYPE_POKEDUDE))
 	{
@@ -9009,8 +9009,12 @@ static void Cmd_trymemento(void)
 // Follow Me
 static void Cmd_setforcedtarget(void)
 {
-    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTimer = 1;
-    gSideTimers[GetBattlerSide(gBattlerAttacker)].followmeTarget = gBattlerAttacker;
+    gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 1;
+    gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget = gBattlerTarget;
+
+	if (gCurrentMove == MOVE_RAGE_POWDER)
+		gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget |= B_RAGE_POWDERED;
+
     gBattlescriptCurrInstr++;
 }
 

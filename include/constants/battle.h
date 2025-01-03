@@ -43,6 +43,8 @@
 #define BIT_SIDE        1
 #define BIT_FLANK       2
 
+#define B_RAGE_POWDERED (1 << 2)
+
 // Battle Type Flags
 #define BATTLE_TYPE_DOUBLE             (1 << 0)
 #define BATTLE_TYPE_LINK               (1 << 1)
