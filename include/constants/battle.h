@@ -43,8 +43,6 @@
 #define BIT_SIDE        1
 #define BIT_FLANK       2
 
-#define B_RAGE_POWDERED (1 << 2)
-
 // Battle Type Flags
 #define BATTLE_TYPE_DOUBLE             (1 << 0)
 #define BATTLE_TYPE_LINK               (1 << 1)
@@ -293,7 +291,7 @@
 #define MOVE_EFFECT_KNOCK_OFF           54
 #define MOVE_EFFECT_REMOVE_SLEEP        55
 #define MOVE_EFFECT_ATK_PLUS_3          56
-#define MOVE_EFFECT_NOTHING_39          57
+#define MOVE_EFFECT_FLAME_BURST         57
 #define MOVE_EFFECT_NOTHING_3A          58
 #define MOVE_EFFECT_SP_ATK_TWO_DOWN     59
 #define NUM_MOVE_EFFECTS                60

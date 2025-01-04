@@ -240,6 +240,8 @@ static void Cmd_trysethazard(void);
 static void Cmd_losemovetype(void);
 static void Cmd_prepstatstochange(void);
 static void Cmd_setalwayscritflag(void);
+static void Cmd_gyroballcalculation(void);
+static void Cmd_naturalgiftcalc(void);
 static void Cmd_setforesight(void);
 static void Cmd_trysetperishsong(void);
 static void Cmd_rolloutdamagecalculation(void);
@@ -567,6 +569,8 @@ void (* const gBattleScriptingCommandsTable[])(void) =
 	Cmd_losemovetype,                            //0xF9
 	Cmd_prepstatstochange,						 //0xFA
 	Cmd_setalwayscritflag,                       //0xFB
+	Cmd_gyroballcalculation,					 //0xFC
+	Cmd_naturalgiftcalc,						 //0xFD
 };
 
 struct StatFractions
@@ -796,6 +800,59 @@ static const struct PickupItem sPickupItems[] =
     { ITEM_DURIN_BERRY, 99 },
     { ITEM_BELUE_BERRY, 1 },
 
+};
+
+struct NaturalGiftData
+{
+	u8 type;
+	u8 power;
+};
+
+static const struct NaturalGiftData sNaturalGifts[] =
+{
+	[ITEM_CHERI_BERRY - FIRST_BERRY_INDEX] =  { TYPE_FIRE, 80 },
+	[ITEM_CHESTO_BERRY - FIRST_BERRY_INDEX] = { TYPE_WATER, 80 },
+	[ITEM_PECHA_BERRY - FIRST_BERRY_INDEX] =  { TYPE_ELECTRIC, 80 },
+	[ITEM_RAWST_BERRY - FIRST_BERRY_INDEX] =  { TYPE_GRASS, 80 },
+	[ITEM_ASPEAR_BERRY - FIRST_BERRY_INDEX] = { TYPE_ICE, 80 },
+	[ITEM_LEPPA_BERRY - FIRST_BERRY_INDEX] =  { TYPE_FIGHTING, 80 },
+	[ITEM_ORAN_BERRY - FIRST_BERRY_INDEX] =   { TYPE_POISON, 80 },
+	[ITEM_PERSIM_BERRY - FIRST_BERRY_INDEX] = { TYPE_GROUND, 80 },
+	[ITEM_LUM_BERRY - FIRST_BERRY_INDEX] =    { TYPE_FLYING, 80 },
+	[ITEM_SITRUS_BERRY - FIRST_BERRY_INDEX] = { TYPE_PSYCHIC, 80 },
+	[ITEM_FIGY_BERRY - FIRST_BERRY_INDEX] =   { TYPE_BUG, 80 },
+	[ITEM_WIKI_BERRY - FIRST_BERRY_INDEX] =   { TYPE_ROCK, 80 },
+	[ITEM_MAGO_BERRY - FIRST_BERRY_INDEX] =   { TYPE_GHOST, 80 },
+	[ITEM_AGUAV_BERRY - FIRST_BERRY_INDEX] =  { TYPE_DRAGON, 80 },
+	[ITEM_IAPAPA_BERRY - FIRST_BERRY_INDEX] = { TYPE_DARK, 80 },
+	[ITEM_RAZZ_BERRY - FIRST_BERRY_INDEX] =   { TYPE_STEEL, 80 },
+	[ITEM_BLUK_BERRY - FIRST_BERRY_INDEX] =   { TYPE_FIRE, 90 },
+	[ITEM_NANAB_BERRY - FIRST_BERRY_INDEX] =  { TYPE_WATER, 90 },
+	[ITEM_WEPEAR_BERRY - FIRST_BERRY_INDEX] = { TYPE_ELECTRIC, 90 },
+	[ITEM_PINAP_BERRY - FIRST_BERRY_INDEX] =  { TYPE_GRASS, 90 },
+	[ITEM_POMEG_BERRY - FIRST_BERRY_INDEX] =  { TYPE_ICE, 90 },
+	[ITEM_KELPSY_BERRY - FIRST_BERRY_INDEX] = { TYPE_FIGHTING, 90 },
+	[ITEM_QUALOT_BERRY - FIRST_BERRY_INDEX] = { TYPE_POISON, 90 },
+	[ITEM_HONDEW_BERRY - FIRST_BERRY_INDEX] = { TYPE_GROUND, 90 },
+	[ITEM_GREPA_BERRY - FIRST_BERRY_INDEX] =  { TYPE_FLYING, 90 },
+	[ITEM_TAMATO_BERRY - FIRST_BERRY_INDEX] = { TYPE_PSYCHIC, 90 },
+	[ITEM_CORNN_BERRY - FIRST_BERRY_INDEX] =  { TYPE_BUG, 90 },
+	[ITEM_MAGOST_BERRY - FIRST_BERRY_INDEX] = { TYPE_ROCK, 90 },
+	[ITEM_RABUTA_BERRY - FIRST_BERRY_INDEX] = { TYPE_GHOST, 90 },
+	[ITEM_NOMEL_BERRY - FIRST_BERRY_INDEX] =  { TYPE_DRAGON, 90 },
+	[ITEM_SPELON_BERRY - FIRST_BERRY_INDEX] = { TYPE_DARK, 90 },
+	[ITEM_PAMTRE_BERRY - FIRST_BERRY_INDEX] = { TYPE_STEEL, 90 },
+	[ITEM_WATMEL_BERRY - FIRST_BERRY_INDEX] = { TYPE_FIRE, 100 },
+	[ITEM_DURIN_BERRY - FIRST_BERRY_INDEX] =  { TYPE_WATER, 100 },
+	[ITEM_BELUE_BERRY - FIRST_BERRY_INDEX] =  { TYPE_ELECTRIC, 100 },
+	[ITEM_LIECHI_BERRY - FIRST_BERRY_INDEX] = { TYPE_GRASS, 100 },
+	[ITEM_GANLON_BERRY - FIRST_BERRY_INDEX] = { TYPE_ICE, 100 },
+	[ITEM_SALAC_BERRY - FIRST_BERRY_INDEX] =  { TYPE_FIGHTING, 100 },
+	[ITEM_PETAYA_BERRY - FIRST_BERRY_INDEX] = { TYPE_POISON, 100 },
+	[ITEM_APICOT_BERRY - FIRST_BERRY_INDEX] = { TYPE_GROUND, 100 },
+	[ITEM_LANSAT_BERRY - FIRST_BERRY_INDEX] = { TYPE_FLYING, 100 },
+	[ITEM_STARF_BERRY - FIRST_BERRY_INDEX] =  { TYPE_PSYCHIC, 100 },
+	[ITEM_ENIGMA_BERRY - FIRST_BERRY_INDEX] = { TYPE_BUG, 100 },
 };
 
 static const u8 sTerrainToType[] =
@@ -2840,6 +2897,23 @@ void SetMoveEffect(bool8 primary, u8 certain)
 
 					BattleScriptPush(gBattlescriptCurrInstr + 1);
 					gBattlescriptCurrInstr = BattleScript_TargetAwaken;
+				}
+				break;
+			case MOVE_EFFECT_FLAME_BURST:
+				if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
+				&& gBattleMons[BATTLE_PARTNER(gBattlerTarget)].hp != 0)
+				{
+					gActiveBattler = BATTLE_PARTNER(gBattlerTarget);
+					gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
+					if (gBattleMoveDamage == 0)
+						gBattleMoveDamage = 1;
+
+					BattleScriptPush(gBattlescriptCurrInstr + 1);
+					gBattlescriptCurrInstr = BattleScript_BurstingFlame;
+				}
+				else
+				{
+					gBattlescriptCurrInstr++;
 				}
 				break;
             case MOVE_EFFECT_SP_ATK_TWO_DOWN: // Overheat
@@ -5262,6 +5336,25 @@ static void Cmd_switchineffects(void)
             gBattlescriptCurrInstr += 2;
         }
     }
+}
+
+static void Cmd_naturalgiftcalc(void)
+{
+	u8 berryNum;
+
+	if (gBattleMons[gBattlerAttacker].item < FIRST_BERRY_INDEX
+	|| gBattleMons[gBattlerAttacker].item > LAST_BERRY_INDEX)
+	{
+		gBattlescriptCurrInstr = BattleScript_ButItFailed;
+	}
+	else
+	{
+		berryNum = gBattleMons[gBattlerAttacker].item - FIRST_BERRY_INDEX;
+		gDynamicBasePower = sNaturalGifts[berryNum].power;
+		gBattleStruct->dynamicMoveType = sNaturalGifts[berryNum].type;
+		gBattleMons[gBattlerAttacker].item = ITEM_NONE;
+		gBattlescriptCurrInstr ++;
+	}
 }
 
 static void Cmd_trainerslidein(void)
@@ -9009,12 +9102,12 @@ static void Cmd_trymemento(void)
 // Follow Me
 static void Cmd_setforcedtarget(void)
 {
-    gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 1;
-    gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget = gBattlerTarget;
-
 	if (gCurrentMove == MOVE_RAGE_POWDER)
-		gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget |= B_RAGE_POWDERED;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 2;
+	else
+		gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTimer = 1;
 
+    gSideTimers[GetBattlerSide(gBattlerTarget)].followmeTarget = gBattlerTarget;
     gBattlescriptCurrInstr++;
 }
 
@@ -9421,6 +9514,85 @@ static void Cmd_weightdamagecalculation(void)
         gDynamicBasePower = 120;
 
     gBattlescriptCurrInstr++;
+}
+
+static void Cmd_gyroballcalculation(void)
+{
+	u8 speedMultiplierBattler1 = 0, speedMultiplierBattler2 = 0;
+	u32 speedAttacker = 0, speedTarget = 0;
+	u8 holdEffect = 0;
+	u8 holdEffectParam = 0;
+
+	if (WEATHER_HAS_EFFECT)
+	{
+		if ((gBattleMons[gBattlerAttacker].ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
+			|| (gBattleMons[gBattlerAttacker].ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN)
+			|| (gBattleMons[gBattlerAttacker].ability == ABILITY_SAND_RUSH && gBattleWeather & B_WEATHER_SANDSTORM)
+			|| (gBattleMons[gBattlerAttacker].ability == ABILITY_SLUSH_RUSH && gBattleWeather & B_WEATHER_HAIL))
+			speedMultiplierBattler1 = 2;
+		else
+			speedMultiplierBattler1 = 1;
+		if ((gBattleMons[gBattlerTarget].ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
+			|| (gBattleMons[gBattlerTarget].ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN)
+			|| (gBattleMons[gBattlerTarget].ability == ABILITY_SAND_RUSH && gBattleWeather & B_WEATHER_SANDSTORM)
+			|| (gBattleMons[gBattlerTarget].ability == ABILITY_SLUSH_RUSH && gBattleWeather & B_WEATHER_HAIL))
+			speedMultiplierBattler2 = 2;
+		else
+			speedMultiplierBattler2 = 1;
+	}
+	else
+	{
+		speedMultiplierBattler1 = 1;
+		speedMultiplierBattler2 = 1;
+	}
+
+	speedAttacker = (gBattleMons[gBattlerAttacker].speed * speedMultiplierBattler1)
+		* (gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_SPEED]][0])
+		/ (gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_SPEED]][1]);
+
+	holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerAttacker].item);
+	holdEffectParam = ItemId_GetHoldEffectParam(gBattleMons[gBattlerAttacker].item);
+	
+	// badge boost
+	if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
+		&& FlagGet(FLAG_BADGE03_GET)
+		&& GetBattlerSide(gBattlerAttacker) == B_SIDE_PLAYER)
+		speedAttacker = (speedAttacker * 110) / 100;
+	if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
+		speedAttacker /= 2;
+	if (gBattleMons[gBattlerAttacker].status1 & STATUS1_PARALYSIS && gBattleMons[gBattlerAttacker].ability != ABILITY_QUICK_FEET)
+		speedAttacker /= 4;
+	if (gBattleMons[gBattlerAttacker].status1 && gBattleMons[gBattlerAttacker].ability == ABILITY_QUICK_FEET)
+		speedAttacker = (speedAttacker * 150) / 100;
+	// check second battlerId's speed
+	speedTarget = (gBattleMons[gBattlerTarget].speed * speedMultiplierBattler2)
+		* (gStatStageRatios[gBattleMons[gBattlerTarget].statStages[STAT_SPEED]][0])
+		/ (gStatStageRatios[gBattleMons[gBattlerTarget].statStages[STAT_SPEED]][1]);
+	
+	holdEffect = ItemId_GetHoldEffect(gBattleMons[gBattlerTarget].item);
+	holdEffectParam = ItemId_GetHoldEffectParam(gBattleMons[gBattlerTarget].item);
+	
+	// badge boost
+	if (!(gBattleTypeFlags & BATTLE_TYPE_LINK)
+		&& FlagGet(FLAG_BADGE03_GET)
+		&& GetBattlerSide(gBattlerTarget) == B_SIDE_PLAYER)
+		speedTarget = (speedTarget * 110) / 100;
+	if (holdEffect == HOLD_EFFECT_MACHO_BRACE)
+		speedTarget /= 2;
+	if (gBattleMons[gBattlerTarget].status1 & STATUS1_PARALYSIS && gBattleMons[gBattlerTarget].ability != ABILITY_QUICK_FEET)
+		speedTarget /= 4;
+	if (gBattleMons[gBattlerTarget].status1 && gBattleMons[gBattlerTarget].ability == ABILITY_QUICK_FEET)
+		speedTarget = (speedTarget * 150) / 100;
+
+	if (speedAttacker == 0)
+		speedAttacker = 1;
+
+	gDynamicBasePower = ((25 * speedTarget) / speedAttacker) + 1;
+
+	if (gDynamicBasePower > 150)
+		gDynamicBasePower = 150;
+
+	gBattlescriptCurrInstr++;
 }
 
 static void Cmd_assistattackselect(void)

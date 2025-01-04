@@ -223,6 +223,7 @@ static const u8 sText_PkmnBlewAwaySpikes[] = _("{B_ATK_NAME_WITH_PREFIX} blew aw
 static const u8 sText_PkmnBlewAwayStickyWeb[] = _("{B_ATK_NAME_WITH_PREFIX} dispersed\nthe Sticky Web!");
 static const u8 sText_PkmnBlewAwayToxicSpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} removed\nToxic Spikes!");
 static const u8 sText_PkmnBlewAwayStealthRock[] = _("{B_ATK_NAME_WITH_PREFIX} blew away\nStealth Rock!");
+static const u8 sText_BurstingFlameHit[] = _("The bursting flame hit\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}!");
 static const u8 sText_PkmnFledFromBattle[] = _("{B_ATK_NAME_WITH_PREFIX} fled from\nbattle!");
 static const u8 sText_PkmnForesawAttack[] = _("{B_ATK_NAME_WITH_PREFIX} foresaw\nan attack!");
 static const u8 sText_PkmnTookAttack[] = _("{B_DEF_NAME_WITH_PREFIX} took the\n{B_BUFF1} attack!");
@@ -921,6 +922,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_STATDRASTICALLY - BATTLESTRINGS_TABLE_START]               = sText_StatDrastically,
     [STRINGID_PREPARINGTOTELLJOKE - BATTLESTRINGS_TABLE_START]           = sText_PreparingToTellJoke,
     [STRINGID_PKMNCONCENTRATED - BATTLESTRINGS_TABLE_START]              = sText_PkmnConcentrated,
+    [STRINGID_BURSTINGFLAMEHIT - BATTLESTRINGS_TABLE_START]              = sText_BurstingFlameHit,
 };
 
 const u16 gMissStringIds[] =

@@ -1265,6 +1265,14 @@
 	.macro setalwayscritflag
 	.byte 0xfb
 	.endm
+	
+	.macro gyroballcalculation
+	.byte 0xfc
+	.endm
+	
+	.macro naturalgiftcalc
+	.byte 0xfd
+	.endm
 
 @ various command changed to more readable macros
 	.macro cancelmultiturnmoves battler:req

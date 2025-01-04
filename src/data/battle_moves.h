@@ -5054,7 +5054,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_GYRO_BALL] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_GYRO_BALL,
         .power = 1,
         .type = TYPE_STEEL,
         .accuracy = 100,
@@ -5096,7 +5096,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_NATURAL_GIFT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_NATURAL_GIFT,
         .power = 1,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -6552,7 +6552,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_FLAME_BURST] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_FLAME_BURST,
         .power = 70,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -6874,7 +6874,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SHELL_SMASH] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_SHELL_SMASH,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
