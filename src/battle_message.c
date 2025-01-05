@@ -129,6 +129,8 @@ static const u8 sText_PkmnRaisedSpDef[] = _("{B_ATK_PREFIX2}'s {B_CURRENT_MOVE}\
 static const u8 sText_PkmnRaisedSpDefALittle[] = _("{B_ATK_PREFIX2}'s {B_CURRENT_MOVE}\nraised Sp. Def a little!");
 static const u8 sText_PkmnRaisedDef[] = _("{B_ATK_PREFIX2}'s {B_CURRENT_MOVE}\nraised Defense!");
 static const u8 sText_PkmnRaisedDefALittle[] = _("{B_ATK_PREFIX2}'s {B_CURRENT_MOVE}\nraised Defense a little!");
+static const u8 sText_PkmnRaisedDefSpDef[] = _("{B_ATK_PREFIX2}'s {B_CURRENT_MOVE}\nraised Defense and Sp. Defense!");
+static const u8 sText_PkmnRaisedDefSpDefALittle[] = _("{B_ATK_PREFIX2}'s {B_CURRENT_MOVE}\nraised Defense and Sp. Def. a little!");
 static const u8 sText_PkmnCoveredByVeil[] = _("{B_ATK_PREFIX2}'s party is covered\nby a veil!");
 static const u8 sText_PkmnUsedSafeguard[] = _("{B_DEF_NAME_WITH_PREFIX}'s party is protected\nby Safeguard!");
 static const u8 sText_PkmnSafeguardExpired[] = _("{B_ATK_PREFIX3}'s party is no longer\nprotected by Safeguard!");
@@ -224,6 +226,11 @@ static const u8 sText_PkmnBlewAwayStickyWeb[] = _("{B_ATK_NAME_WITH_PREFIX} disp
 static const u8 sText_PkmnBlewAwayToxicSpikes[] = _("{B_SCR_ACTIVE_NAME_WITH_PREFIX} removed\nToxic Spikes!");
 static const u8 sText_PkmnBlewAwayStealthRock[] = _("{B_ATK_NAME_WITH_PREFIX} blew away\nStealth Rock!");
 static const u8 sText_BurstingFlameHit[] = _("The bursting flame hit\n{B_SCR_ACTIVE_NAME_WITH_PREFIX}!");
+static const u8 sText_TailwindBlew[] = _("The tailwind blew from behind\nits team!");
+static const u8 sText_TailwindPeteredOut[] = _("{B_ATK_PREFIX1}'s tailwind\npetered out!");
+static const u8 sText_AuroraVeilEnded[] = _("{B_ATK_PREFIX1}'s Aurora Veil\nwore off!");
+static const u8 sText_LuckyChantShielded[] = _("The Lucky Chant shielded its team\nfrom critical hits!");
+static const u8 sText_LuckyChantEnded[] = _("{B_ATK_PREFIX1}'s Lucky Chant\nwore off!");
 static const u8 sText_PkmnFledFromBattle[] = _("{B_ATK_NAME_WITH_PREFIX} fled from\nbattle!");
 static const u8 sText_PkmnForesawAttack[] = _("{B_ATK_NAME_WITH_PREFIX} foresaw\nan attack!");
 static const u8 sText_PkmnTookAttack[] = _("{B_DEF_NAME_WITH_PREFIX} took the\n{B_BUFF1} attack!");
@@ -601,6 +608,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNHPFULL - BATTLESTRINGS_TABLE_START]                    = sText_PkmnHPFull,
     [STRINGID_PKMNRAISEDSPDEF - BATTLESTRINGS_TABLE_START]               = sText_PkmnRaisedSpDef,
     [STRINGID_PKMNRAISEDDEF - BATTLESTRINGS_TABLE_START]                 = sText_PkmnRaisedDef,
+	[STRINGID_PKMNRAISEDDEFSPDEF - BATTLESTRINGS_TABLE_START]            = sText_PkmnRaisedDefSpDef,
     [STRINGID_PKMNCOVEREDBYVEIL - BATTLESTRINGS_TABLE_START]             = sText_PkmnCoveredByVeil,
     [STRINGID_PKMNUSEDSAFEGUARD - BATTLESTRINGS_TABLE_START]             = sText_PkmnUsedSafeguard,
     [STRINGID_PKMNSAFEGUARDEXPIRED - BATTLESTRINGS_TABLE_START]          = sText_PkmnSafeguardExpired,
@@ -885,6 +893,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PKMNSXWOREOFF - BATTLESTRINGS_TABLE_START]                 = sText_PkmnsXWoreOff,
     [STRINGID_PKMNRAISEDDEFALITTLE - BATTLESTRINGS_TABLE_START]          = sText_PkmnRaisedDefALittle,
     [STRINGID_PKMNRAISEDSPDEFALITTLE - BATTLESTRINGS_TABLE_START]        = sText_PkmnRaisedSpDefALittle,
+    [STRINGID_PKMNRAISEDDEFSPDEFALITTLE - BATTLESTRINGS_TABLE_START]     = sText_PkmnRaisedDefSpDefALittle,
+    [STRINGID_AURORAVEILENDED - BATTLESTRINGS_TABLE_START]               = sText_AuroraVeilEnded,
     [STRINGID_THEWALLSHATTERED - BATTLESTRINGS_TABLE_START]              = sText_TheWallShattered,
     [STRINGID_PKMNSXPREVENTSYSZ - BATTLESTRINGS_TABLE_START]             = sText_PkmnsXPreventsYsZ,
     [STRINGID_PKMNSXCUREDITSYPROBLEM - BATTLESTRINGS_TABLE_START]        = sText_PkmnsXCuredItsYProblem,
@@ -923,6 +933,10 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_PREPARINGTOTELLJOKE - BATTLESTRINGS_TABLE_START]           = sText_PreparingToTellJoke,
     [STRINGID_PKMNCONCENTRATED - BATTLESTRINGS_TABLE_START]              = sText_PkmnConcentrated,
     [STRINGID_BURSTINGFLAMEHIT - BATTLESTRINGS_TABLE_START]              = sText_BurstingFlameHit,
+	[STRINGID_TAILWINDBLEW - BATTLESTRINGS_TABLE_START]                  = sText_TailwindBlew,
+	[STRINGID_TAILWINDPETEREDOUT - BATTLESTRINGS_TABLE_START]            = sText_TailwindPeteredOut,
+	[STRINGID_LUCKYCHANTSHIELDED - BATTLESTRINGS_TABLE_START]            = sText_LuckyChantShielded,
+	[STRINGID_LUCKYCHANTENDED - BATTLESTRINGS_TABLE_START]               = sText_LuckyChantEnded,
 };
 
 const u16 gMissStringIds[] =
@@ -992,7 +1006,11 @@ const u16 gReflectLightScreenSafeguardStringIds[] =
     [B_MSG_SET_REFLECT_DOUBLE]     = STRINGID_PKMNRAISEDDEFALITTLE,
     [B_MSG_SET_LIGHTSCREEN_SINGLE] = STRINGID_PKMNRAISEDSPDEF,
     [B_MSG_SET_LIGHTSCREEN_DOUBLE] = STRINGID_PKMNRAISEDSPDEFALITTLE,
-    [B_MSG_SET_SAFEGUARD]          = STRINGID_PKMNCOVEREDBYVEIL
+    [B_MSG_SET_SAFEGUARD]          = STRINGID_PKMNCOVEREDBYVEIL,
+    [B_MSG_SET_TAILWIND]           = STRINGID_TAILWINDBLEW,
+    [B_MSG_SET_AURORA_VEIL_SINGLE] = STRINGID_PKMNRAISEDDEFSPDEF,
+	[B_MSG_SET_AURORA_VEIL_DOUBLE] = STRINGID_PKMNRAISEDDEFSPDEFALITTLE,
+    [B_MSG_SET_LUCKY_CHANT]        = STRINGID_LUCKYCHANTSHIELDED
 };
 
 const u16 gLeechSeedStringIds[] =

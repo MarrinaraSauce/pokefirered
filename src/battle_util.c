@@ -455,6 +455,9 @@ enum
     ENDTURN_LIGHT_SCREEN,
     ENDTURN_MIST,
     ENDTURN_SAFEGUARD,
+	ENDTURN_TAILWIND,
+	ENDTURN_AURORA_VEIL,
+	ENDTURN_LUCKY_CHANT,
     ENDTURN_WISH,
     ENDTURN_RAIN,
     ENDTURN_SANDSTORM,
@@ -600,6 +603,78 @@ u8 DoFieldEndTurnEffects(void)
                 gBattleStruct->turnSideTracker = 0;
             }
             break;
+		case ENDTURN_TAILWIND:
+			while (gBattleStruct->turnSideTracker < 2)
+			{
+				side = gBattleStruct->turnSideTracker;
+				gActiveBattler = gBattlerAttacker = side;
+				if (gSideStatuses[side] & SIDE_STATUS_TAILWIND)
+				{
+					if (--gSideTimers[side].tailwindTimer == 0)
+					{
+						gSideStatuses[side] &= ~SIDE_STATUS_TAILWIND;
+						BattleScriptExecute(BattleScript_TailwindEnds);
+						effect++;
+					}
+				}
+				gBattleStruct->turnSideTracker++;
+				if (effect != 0)
+					break;
+			}
+			if (effect == 0)
+			{
+				gBattleStruct->turnCountersTracker++;
+				gBattleStruct->turnSideTracker = 0;
+			}
+			break;
+		case ENDTURN_AURORA_VEIL:
+			while (gBattleStruct->turnSideTracker < 2)
+			{
+				side = gBattleStruct->turnSideTracker;
+				gActiveBattler = gBattlerAttacker = side;
+				if (gSideStatuses[side] & SIDE_STATUS_AURORA_VEIL)
+				{
+					if (--gSideTimers[side].auroraveilTimer == 0)
+					{
+						gSideStatuses[side] &= ~SIDE_STATUS_AURORA_VEIL;
+						BattleScriptExecute(BattleScript_AuroraVeilEnds);
+						effect++;
+					}
+				}
+				gBattleStruct->turnSideTracker++;
+				if (effect != 0)
+					break;
+			}
+			if (effect == 0)
+			{
+				gBattleStruct->turnCountersTracker++;
+				gBattleStruct->turnSideTracker = 0;
+			}
+			break;
+		case ENDTURN_LUCKY_CHANT:
+			while (gBattleStruct->turnSideTracker < 2)
+			{
+				side = gBattleStruct->turnSideTracker;
+				gActiveBattler = gBattlerAttacker = side;
+				if (gSideStatuses[side] & SIDE_STATUS_LUCKY_CHANT)
+				{
+					if (--gSideTimers[side].luckychantTimer == 0)
+					{
+						gSideStatuses[side] &= ~SIDE_STATUS_LUCKY_CHANT;
+						BattleScriptExecute(BattleScript_LuckyChantEnds);
+						effect++;
+					}
+				}
+				gBattleStruct->turnSideTracker++;
+				if (effect != 0)
+					break;
+			}
+			if (effect == 0)
+			{
+				gBattleStruct->turnCountersTracker++;
+				gBattleStruct->turnSideTracker = 0;
+			}
+			break;
         case ENDTURN_WISH:
             while (gBattleStruct->turnSideTracker < gBattlersCount)
             {

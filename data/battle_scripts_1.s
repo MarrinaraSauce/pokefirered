@@ -262,6 +262,9 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectFlameBurst             @ EFFECT_FLAME_BURST
 	.4byte BattleScript_EffectGyroBall               @ EFFECT_GYRO_BALL
 	.4byte BattleScript_EffectNaturalGift            @ EFFECT_NATURAL_GIFT
+	.4byte BattleScript_EffectTailwind               @ EFFECT_TAILWIND
+	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
+	.4byte BattleScript_EffectLuckyChant             @ EFFECT_LUCKY_CHANT
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -753,7 +756,21 @@ BattleScript_EffectLightScreen::
 	attackcanceler
 	attackstring
 	ppreduce
-	setlightscreen
+	setscreen SIDE_STATUS_LIGHTSCREEN
+	goto BattleScript_PrintReflectLightScreenSafeguardString
+	
+BattleScript_EffectTailwind::
+	attackcanceler
+	attackstring
+	ppreduce
+	setscreen SIDE_STATUS_TAILWIND
+	goto BattleScript_PrintReflectLightScreenSafeguardString
+	
+BattleScript_EffectLuckyChant::
+	attackcanceler
+	attackstring
+	ppreduce
+	setscreen SIDE_STATUS_LUCKY_CHANT
 	goto BattleScript_PrintReflectLightScreenSafeguardString
 
 BattleScript_EffectTriAttack::
@@ -902,7 +919,7 @@ BattleScript_EffectMist::
 	attackcanceler
 	attackstring
 	ppreduce
-	setmist
+	setscreen SIDE_STATUS_MIST
 	attackanimation
 	waitanimation
 	printfromtable gMistUsedStringIds
@@ -1001,7 +1018,7 @@ BattleScript_EffectReflect::
 	attackcanceler
 	attackstring
 	ppreduce
-	setreflect
+	setscreen SIDE_STATUS_REFLECT
 BattleScript_PrintReflectLightScreenSafeguardString::
 	attackanimation
 	waitanimation
@@ -1741,7 +1758,7 @@ BattleScript_EffectSafeguard::
 	attackcanceler
 	attackstring
 	ppreduce
-	setsafeguard
+	setscreen SIDE_STATUS_SAFEGUARD
 	goto BattleScript_PrintReflectLightScreenSafeguardString
 
 BattleScript_EffectThawHit::
@@ -2009,6 +2026,16 @@ BattleScript_SolarBeamOnFirstTurn::
 	seteffectprimary
 	ppreduce
 	goto BattleScript_TwoTurnMovesSecondTurn
+	
+BattleScript_EffectAuroraVeil::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifabilitypresent ABILITY_CLOUD_NINE, BattleScript_ButItFailed
+	jumpifabilitypresent ABILITY_AIR_LOCK, BattleScript_ButItFailed
+	jumpifhalfword CMP_NO_COMMON_BITS, gBattleWeather, B_WEATHER_HAIL, BattleScript_ButItFailed
+	setscreen SIDE_STATUS_AURORA_VEIL
+	goto BattleScript_PrintReflectLightScreenSafeguardString
 
 BattleScript_EffectThunder::
 	setmoveeffect MOVE_EFFECT_PARALYSIS
@@ -3761,6 +3788,24 @@ BattleScript_SafeguardProtected::
 BattleScript_SafeguardEnds::
 	pause B_WAIT_TIME_SHORT
 	printstring STRINGID_PKMNSAFEGUARDEXPIRED
+	waitmessage B_WAIT_TIME_LONG
+	end2
+	
+BattleScript_TailwindEnds::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_TAILWINDPETEREDOUT
+	waitmessage B_WAIT_TIME_LONG
+	end2
+
+BattleScript_AuroraVeilEnds::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_AURORAVEILENDED
+	waitmessage B_WAIT_TIME_LONG
+	end2
+	
+BattleScript_LuckyChantEnds::
+	pause B_WAIT_TIME_SHORT
+	printstring STRINGID_LUCKYCHANTENDED
 	waitmessage B_WAIT_TIME_LONG
 	end2
 

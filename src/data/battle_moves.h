@@ -5138,7 +5138,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TAILWIND] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_TAILWIND,
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
@@ -5348,7 +5348,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_LUCKY_CHANT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_LUCKY_CHANT,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -8064,7 +8064,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_AURORA_VEIL] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_AURORA_VEIL,
         .power = 0,
         .type = TYPE_ICE,
         .accuracy = 0,

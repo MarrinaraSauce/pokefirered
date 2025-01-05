@@ -696,8 +696,9 @@
 	.byte 0x7d
 	.endm
 
-	.macro setreflect
+	.macro setscreen param0:req
 	.byte 0x7e
+	.4byte \param0
 	.endm
 
 	.macro setseeded

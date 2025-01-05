@@ -3406,7 +3406,7 @@ void SwapTurnOrder(u8 id1, u8 id2)
 u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 {
     u8 strikesFirst = 0;
-    u8 speedMultiplierBattler1 = 0, speedMultiplierBattler2 = 0;
+    u8 speedMultiplierBattler1 = 1, speedMultiplierBattler2 = 1;
     u32 speedBattler1 = 0, speedBattler2 = 0;
     u8 holdEffect = 0;
     u8 holdEffectParam = 0;
@@ -3419,21 +3419,19 @@ u8 GetWhoStrikesFirst(u8 battler1, u8 battler2, bool8 ignoreChosenMoves)
 			|| (gBattleMons[battler1].ability == ABILITY_SAND_RUSH && gBattleWeather & B_WEATHER_SANDSTORM)
 			|| (gBattleMons[battler1].ability == ABILITY_SLUSH_RUSH && gBattleWeather & B_WEATHER_HAIL))
             speedMultiplierBattler1 = 2;
-        else
-            speedMultiplierBattler1 = 1;
+
         if ((gBattleMons[battler2].ability == ABILITY_SWIFT_SWIM && gBattleWeather & B_WEATHER_RAIN)
             || (gBattleMons[battler2].ability == ABILITY_CHLOROPHYLL && gBattleWeather & B_WEATHER_SUN)
 			|| (gBattleMons[battler2].ability == ABILITY_SAND_RUSH && gBattleWeather & B_WEATHER_SANDSTORM)
 			|| (gBattleMons[battler2].ability == ABILITY_SLUSH_RUSH && gBattleWeather & B_WEATHER_HAIL))
             speedMultiplierBattler2 = 2;
-        else
-            speedMultiplierBattler2 = 1;
     }
-    else
-    {
-        speedMultiplierBattler1 = 1;
-        speedMultiplierBattler2 = 1;
-    }
+
+	if (gSideStatuses[GET_BATTLER_SIDE(battler1)] & SIDE_STATUS_TAILWIND)
+		speedMultiplierBattler1 *= 2;
+
+	if (gSideStatuses[GET_BATTLER_SIDE(battler2)] & SIDE_STATUS_TAILWIND)
+		speedMultiplierBattler2 *= 2;
 
     speedBattler1 = (gBattleMons[battler1].speed * speedMultiplierBattler1)
                 * (gStatStageRatios[gBattleMons[battler1].statStages[STAT_SPEED]][0])

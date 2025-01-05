@@ -186,7 +186,7 @@ static void Cmd_jumpifnexttargetvalid(void);
 static void Cmd_tryhealhalfhealth(void);
 static void Cmd_trymirrormove(void);
 static void Cmd_setrain(void);
-static void Cmd_setreflect(void);
+static void Cmd_setscreen(void);
 static void Cmd_setseeded(void);
 static void Cmd_manipulatedamage(void);
 static void Cmd_trysetrest(void);
@@ -443,7 +443,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryhealhalfhealth,                       //0x7B
     Cmd_trymirrormove,                           //0x7C
     Cmd_setrain,                                 //0x7D
-    Cmd_setreflect,                              //0x7E
+    Cmd_setscreen,                              //0x7E
     Cmd_setseeded,                               //0x7F
     Cmd_manipulatedamage,                        //0x80
     Cmd_trysetrest,                              //0x81
@@ -1270,6 +1270,7 @@ static void Cmd_critcalc(void)
         critChance = ARRAY_COUNT(sCriticalHitChance) - 1;
 
     if ((gBattleMons[gBattlerTarget].ability != ABILITY_BATTLE_ARMOR && gBattleMons[gBattlerTarget].ability != ABILITY_SHELL_ARMOR)
+     && !(gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_LUCKY_CHANT)
      && !(gStatuses3[gBattlerAttacker] & STATUS3_CANT_SCORE_A_CRIT)
      && !(gBattleTypeFlags & BATTLE_TYPE_OLD_MAN_TUTORIAL)
      && (!(Random() % sCriticalHitChance[critChance]) || (gStatuses3[gBattlerAttacker] & STATUS3_ALWAYS_CRIT) || (gBattleMoves[gCurrentMove].effect == EFFECT_AUTO_CRIT))
@@ -2901,7 +2902,7 @@ void SetMoveEffect(bool8 primary, u8 certain)
 				break;
 			case MOVE_EFFECT_FLAME_BURST:
 				if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE
-				&& gBattleMons[BATTLE_PARTNER(gBattlerTarget)].hp != 0)
+				&& CountAliveMonsInBattle(BATTLE_ALIVE_DEF_SIDE) == 2)
 				{
 					gActiveBattler = BATTLE_PARTNER(gBattlerTarget);
 					gBattleMoveDamage = gBattleMons[gActiveBattler].maxHP / 16;
@@ -6727,25 +6728,77 @@ static void Cmd_setrain(void)
     gBattlescriptCurrInstr++;
 }
 
-static void Cmd_setreflect(void)
+static void Cmd_setscreen(void)
 {
-    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_REFLECT)
+	u32 screenType = T1_READ_32(gBattlescriptCurrInstr + 1);
+
+    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & screenType)
     {
         gMoveResultFlags |= MOVE_RESULT_MISSED;
         gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SIDE_STATUS_FAILED;
     }
     else
     {
-        gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_REFLECT;
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].reflectTimer = 5;
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].reflectBattlerId = gBattlerAttacker;
+		if (screenType == SIDE_STATUS_REFLECT)
+		{
+			gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_REFLECT;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].reflectTimer = 5;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].reflectBattlerId = gBattlerAttacker;
 
-        if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && CountAliveMonsInBattle(BATTLE_ALIVE_ATK_SIDE) == 2)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_REFLECT_DOUBLE;
-        else
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_REFLECT_SINGLE;
+			if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+				gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_REFLECT_DOUBLE;
+			else
+				gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_REFLECT_SINGLE;
+		}
+		else if (screenType == SIDE_STATUS_LIGHTSCREEN)
+		{
+			gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_LIGHTSCREEN;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].lightscreenTimer = 5;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].lightscreenBattlerId = gBattlerAttacker;
+
+			if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+				gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LIGHTSCREEN_DOUBLE;
+			else
+				gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LIGHTSCREEN_SINGLE;
+		}
+		else if (screenType == SIDE_STATUS_SAFEGUARD)
+		{
+			gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_SAFEGUARD;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].safeguardTimer = 5;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].safeguardBattlerId = gBattlerAttacker;
+			gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SAFEGUARD;
+		}
+		else if (screenType == SIDE_STATUS_TAILWIND)
+		{
+			gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_TAILWIND;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].tailwindTimer = 4;
+			gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_TAILWIND;
+		}
+		else if (screenType == SIDE_STATUS_AURORA_VEIL)
+		{
+			gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_AURORA_VEIL;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].auroraveilTimer = 5;
+
+			if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE)
+				gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_AURORA_VEIL_DOUBLE;
+			else
+				gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_AURORA_VEIL_SINGLE;
+		}
+		else if (screenType == SIDE_STATUS_LUCKY_CHANT)
+		{
+			gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_LUCKY_CHANT;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].luckychantTimer = 5;
+			gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LUCKY_CHANT;
+		}
+		else if (screenType == SIDE_STATUS_MIST)
+		{
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].mistTimer = 5;
+			gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].mistBattlerId = gBattlerAttacker;
+			gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_MIST;
+			gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_MIST;
+		}
     }
-    gBattlescriptCurrInstr++;
+	gBattlescriptCurrInstr += 5;
 }
 
 static void Cmd_setseeded(void)
@@ -9545,6 +9598,12 @@ static void Cmd_gyroballcalculation(void)
 		speedMultiplierBattler1 = 1;
 		speedMultiplierBattler2 = 1;
 	}
+
+	if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_TAILWIND)
+		speedMultiplierBattler1 *= 2;
+
+	if (gSideStatuses[GET_BATTLER_SIDE(gBattlerTarget)] & SIDE_STATUS_TAILWIND)
+		speedMultiplierBattler2 *= 2;
 
 	speedAttacker = (gBattleMons[gBattlerAttacker].speed * speedMultiplierBattler1)
 		* (gStatStageRatios[gBattleMons[gBattlerAttacker].statStages[STAT_SPEED]][0])
