@@ -231,6 +231,7 @@ static const u8 sText_TailwindPeteredOut[] = _("{B_ATK_PREFIX1}'s tailwind\npete
 static const u8 sText_AuroraVeilEnded[] = _("{B_ATK_PREFIX1}'s Aurora Veil\nwore off!");
 static const u8 sText_LuckyChantShielded[] = _("The Lucky Chant shielded its team\nfrom critical hits!");
 static const u8 sText_LuckyChantEnded[] = _("{B_ATK_PREFIX1}'s Lucky Chant\nwore off!");
+static const u8 sText_PkmnAbilitySuppressed[] = _("{B_DEF_NAME_WITH_PREFIX}'s ability\nwas suppressed!");
 static const u8 sText_PkmnFledFromBattle[] = _("{B_ATK_NAME_WITH_PREFIX} fled from\nbattle!");
 static const u8 sText_PkmnForesawAttack[] = _("{B_ATK_NAME_WITH_PREFIX} foresaw\nan attack!");
 static const u8 sText_PkmnTookAttack[] = _("{B_DEF_NAME_WITH_PREFIX} took the\n{B_BUFF1} attack!");
@@ -937,6 +938,7 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
 	[STRINGID_TAILWINDPETEREDOUT - BATTLESTRINGS_TABLE_START]            = sText_TailwindPeteredOut,
 	[STRINGID_LUCKYCHANTSHIELDED - BATTLESTRINGS_TABLE_START]            = sText_LuckyChantShielded,
 	[STRINGID_LUCKYCHANTENDED - BATTLESTRINGS_TABLE_START]               = sText_LuckyChantEnded,
+    [STRINGID_PKMNABILITYSUPPRESSED - BATTLESTRINGS_TABLE_START]	     = sText_PkmnAbilitySuppressed,
 };
 
 const u16 gMissStringIds[] =
@@ -1011,6 +1013,12 @@ const u16 gReflectLightScreenSafeguardStringIds[] =
     [B_MSG_SET_AURORA_VEIL_SINGLE] = STRINGID_PKMNRAISEDDEFSPDEF,
 	[B_MSG_SET_AURORA_VEIL_DOUBLE] = STRINGID_PKMNRAISEDDEFSPDEFALITTLE,
     [B_MSG_SET_LUCKY_CHANT]        = STRINGID_LUCKYCHANTSHIELDED
+};
+
+const u16 gGiveAbilityStringIds[] =
+{
+	[B_MSG_ACQUIRED_ABILITY] = STRINGID_PKMNACQUIREDABILITY,
+	[B_MSG_ABILITY_SUPPRESSED] = STRINGID_PKMNABILITYSUPPRESSED
 };
 
 const u16 gLeechSeedStringIds[] =

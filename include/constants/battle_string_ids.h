@@ -408,8 +408,9 @@
 #define STRINGID_AURORAVEILENDED 407
 #define STRINGID_LUCKYCHANTSHIELDED 408
 #define STRINGID_LUCKYCHANTENDED 409
+#define STRINGID_PKMNABILITYSUPPRESSED 410
 
-#define BATTLESTRINGS_COUNT     410
+#define BATTLESTRINGS_COUNT     411
 
 // This is the string id that gBattleStringsTable starts with.
 // String ids before this (e.g. STRINGID_INTROMSG) are not in the table,
@@ -491,6 +492,10 @@
 #define B_MSG_SET_AURORA_VEIL_SINGLE 7
 #define B_MSG_SET_AURORA_VEIL_DOUBLE 8
 #define B_MSG_SET_LUCKY_CHANT        9
+
+// gGiveAbilityStringIds
+#define B_MSG_ACQUIRED_ABILITY   0
+#define B_MSG_ABILITY_SUPPRESSED  1
 
 // gProtectLikeUsedStringIds
 #define B_MSG_PROTECTED_ITSELF 0

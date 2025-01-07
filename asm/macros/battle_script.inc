@@ -1250,7 +1250,7 @@
 	.byte 0xf7
 	.endm
 
-	.macro tryworryseed param0:req
+	.macro trygiveability param0:req
 	.byte 0xf8
 	.4byte \param0
 	.endm

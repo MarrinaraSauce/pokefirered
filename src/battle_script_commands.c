@@ -284,7 +284,7 @@ static void Cmd_setyawn(void);
 static void Cmd_setdamagetohealthdifference(void);
 static void Cmd_scaledamagebyhealthratio(void);
 static void Cmd_tryswapabilities(void);
-static void Cmd_tryworryseed(void);
+static void Cmd_trygiveability(void);
 static void Cmd_tryimprison(void);
 static void Cmd_trysetgrudge(void);
 static void Cmd_weightdamagecalculation(void);
@@ -565,7 +565,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_removeattackerstatus1,                   //0xF5
     Cmd_finishaction,                            //0xF6
     Cmd_finishturn,                              //0xF7
-    Cmd_tryworryseed,                            //0xF8
+    Cmd_trygiveability,                          //0xF8
 	Cmd_losemovetype,                            //0xF9
 	Cmd_prepstatstochange,						 //0xFA
 	Cmd_setalwayscritflag,                       //0xFB
@@ -8669,7 +8669,7 @@ static void Cmd_furycuttercalc(void)
     {
         s32 i;
 
-        if (gDisableStructs[gBattlerAttacker].furyCutterCounter != 5)
+        if (gDisableStructs[gBattlerAttacker].furyCutterCounter != 3)
             gDisableStructs[gBattlerAttacker].furyCutterCounter++;
 
         gDynamicBasePower = gBattleMoves[gCurrentMove].power;
@@ -9475,18 +9475,27 @@ static void Cmd_tryswapabilities(void)
 }
 
 // Worry Seed
-static void Cmd_tryworryseed(void)
+static void Cmd_trygiveability(void)
 {
+	u8 newAbility = gBattleMoves[gCurrentMove].secondaryEffectChance;
+
+	if (newAbility == ABILITIES_COUNT)
+		newAbility = gBattleMons[gBattlerAttacker].ability;
+
 	if (gBattleMons[gBattlerTarget].ability == ABILITY_NONE
-		|| gBattleMons[gBattlerTarget].ability == ABILITY_TRUANT
-		|| gBattleMons[gBattlerTarget].ability == ABILITY_INSOMNIA
+		|| gBattleMons[gBattlerTarget].ability == newAbility
 		|| gMoveResultFlags & MOVE_RESULT_NO_EFFECT)
 	{
 		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
 	}
 	else
 	{
-		gBattleMons[gBattlerTarget].ability = ABILITY_INSOMNIA;
+		gBattleMons[gBattlerTarget].ability = newAbility;
+
+		if (newAbility == ABILITY_NONE)
+			gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ABILITY_SUPPRESSED;
+		else
+			gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_ACQUIRED_ABILITY;
 
 		gBattlescriptCurrInstr += 5;
 	}

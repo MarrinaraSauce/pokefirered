@@ -236,7 +236,7 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectDragonDance            @ EFFECT_DRAGON_DANCE
 	.4byte BattleScript_EffectCamouflage             @ EFFECT_CAMOUFLAGE
 	.4byte BattleScript_EffectGrowth				 @ EFFECT_GROWTH
-	.4byte BattleScript_EffectWorrySeed				 @ EFFECT_WORRY_SEED
+	.4byte BattleScript_EffectGiveAbility			 @ EFFECT_GIVE_ABILITY
 	.4byte BattleScript_EffectBurnFlinchHit          @ EFFECT_BURN_FLINCH_HIT
 	.4byte BattleScript_EffectFreezeFlinchHit        @ EFFECT_FREEZE_FLINCH_HIT
 	.4byte BattleScript_EffectParalyzeFlinchHit      @ EFFECT_PARALYSIS_FLINCH_HIT
@@ -265,6 +265,8 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectTailwind               @ EFFECT_TAILWIND
 	.4byte BattleScript_EffectAuroraVeil             @ EFFECT_AURORA_VEIL
 	.4byte BattleScript_EffectLuckyChant             @ EFFECT_LUCKY_CHANT
+	.4byte BattleScript_EffectHex                    @ EFFECT_HEX
+	.4byte BattleScript_EffectCircleThrow            @ EFFECT_CIRCLE_THROW
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -2979,15 +2981,15 @@ BattleScript_GrowthDoubleTrySpAttack::
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 	
-BattleScript_EffectWorrySeed::
+BattleScript_EffectGiveAbility::
 	attackcanceler
 	attackstring
 	ppreduce
 	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
-	tryworryseed BattleScript_ButItFailed
+	trygiveability BattleScript_ButItFailed
 	attackanimation
 	waitanimation
-	printstring STRINGID_PKMNACQUIREDABILITY
+	printfromtable gGiveAbilityStringIds
 	waitmessage B_WAIT_TIME_LONG
 	goto BattleScript_MoveEnd
 
@@ -3368,6 +3370,37 @@ BattleScript_EffectNaturalGift::
 	naturalgiftcalc
 	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
 	goto BattleScript_HitFromCritCalc
+
+BattleScript_EffectHex::
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_SmellingsaltDoubleDmg
+	goto BattleScript_EffectHit
+
+BattleScript_EffectCircleThrow::
+	attackcanceler
+	attackstring
+	ppreduce
+	accuracycheck BattleScript_PrintMoveMissed, ACC_CURR_MOVE
+	critcalc
+	damagecalc
+	typecalc
+	adjustnormaldamage
+	attackanimation
+	waitanimation
+	effectivenesssound
+	hitanimation BS_TARGET
+	waitstate
+	healthbarupdate BS_TARGET
+	datahpupdate BS_TARGET
+	critmessage
+	waitmessage B_WAIT_TIME_LONG
+	resultmessage
+	waitmessage B_WAIT_TIME_LONG
+	tryfaintmon BS_TARGET
+	tryfaintmon_spikes BS_TARGET BattleScript_MoveEnd
+	jumpifability BS_TARGET, ABILITY_SUCTION_CUPS, BattleScript_AbilityPreventsPhasingOut
+	jumpifstatus3 BS_TARGET, STATUS3_ROOTED, BattleScript_PrintMonIsRooted
+	forcerandomswitch BattleScript_ButItFailed
+	goto BattleScript_MoveEnd
 
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER
