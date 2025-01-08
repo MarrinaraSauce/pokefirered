@@ -245,6 +245,7 @@ extern const u8 BattleScript_BurstingFlame[];
 extern const u8 BattleScript_TailwindEnds[];
 extern const u8 BattleScript_AuroraVeilEnds[];
 extern const u8 BattleScript_LuckyChantEnds[];
+extern const u8 BattleScript_BerryStatRaisePluckEnd2[];
 
 extern const u8 *const gBattleScriptsForMoveEffects[];
 extern const u8 *const gBattlescriptsForBallThrow[];

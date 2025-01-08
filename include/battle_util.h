@@ -42,7 +42,7 @@
 // For the first argument of ItemBattleEffects, to deteremine which block of item effects to try
 #define ITEMEFFECT_ON_SWITCH_IN                 0
 #define ITEMEFFECT_NORMAL                       1
-#define ITEMEFFECT_DUMMY                        2 // Unused, empty
+#define ITEMEFFECT_PLUCK                        2
 #define ITEMEFFECT_MOVE_END                     3
 #define ITEMEFFECT_KINGSROCK_SHELLBELL          4
 

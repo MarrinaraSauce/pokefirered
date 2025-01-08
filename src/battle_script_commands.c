@@ -206,7 +206,7 @@ static void Cmd_initmultihitstring(void);
 static void Cmd_forcerandomswitch(void);
 static void Cmd_tryconversiontypechange(void);
 static void Cmd_givepaydaymoney(void);
-static void Cmd_setlightscreen(void);
+static void Cmd_trysuckerpunch(void);
 static void Cmd_tryKO(void);
 static void Cmd_damagetohalftargethp(void);
 static void Cmd_setsandstorm(void);
@@ -463,7 +463,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_forcerandomswitch,                       //0x8F
     Cmd_tryconversiontypechange,                 //0x90
     Cmd_givepaydaymoney,                         //0x91
-    Cmd_setlightscreen,                          //0x92
+    Cmd_trysuckerpunch,                          //0x92
     Cmd_tryKO,                                   //0x93
     Cmd_damagetohalftargethp,                    //0x94
     Cmd_setsandstorm,                            //0x95
@@ -2916,6 +2916,16 @@ void SetMoveEffect(bool8 primary, u8 certain)
 				{
 					gBattlescriptCurrInstr++;
 				}
+				break;
+			case MOVE_EFFECT_EAT_BERRY: // Pluck
+				if (gBattleMons[gBattlerTarget].item >= FIRST_BERRY_INDEX
+				&& gBattleMons[gBattlerTarget].item <= LAST_BERRY_INDEX
+				&& gBattleMons[gBattlerTarget].ability != ABILITY_STICKY_HOLD)
+				{
+					ItemBattleEffects(ITEMEFFECT_PLUCK, gBattlerTarget, FALSE);
+				}
+
+				gBattlescriptCurrInstr++;
 				break;
             case MOVE_EFFECT_SP_ATK_TWO_DOWN: // Overheat
                 BattleScriptPush(gBattlescriptCurrInstr + 1);
@@ -7463,26 +7473,12 @@ static void Cmd_givepaydaymoney(void)
     }
 }
 
-static void Cmd_setlightscreen(void)
+static void Cmd_trysuckerpunch(void)
 {
-    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_LIGHTSCREEN)
-    {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SIDE_STATUS_FAILED;
-    }
-    else
-    {
-        gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_LIGHTSCREEN;
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].lightscreenTimer = 5;
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].lightscreenBattlerId = gBattlerAttacker;
-
-        if (gBattleTypeFlags & BATTLE_TYPE_DOUBLE && CountAliveMonsInBattle(BATTLE_ALIVE_ATK_SIDE) == 2)
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LIGHTSCREEN_DOUBLE;
-        else
-            gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_LIGHTSCREEN_SINGLE;
-    }
-
-    gBattlescriptCurrInstr++;
+	if (gBattleMoves[gChosenMoveByBattler[gBattlerTarget]].power)
+		gBattlescriptCurrInstr += 5;
+	else
+		gBattlescriptCurrInstr = T1_READ_PTR(gBattlescriptCurrInstr + 1);
 }
 
 static void Cmd_tryKO(void)

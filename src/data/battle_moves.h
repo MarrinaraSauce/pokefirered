@@ -5124,7 +5124,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PLUCK] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_PLUCK,
         .power = 60,
         .type = TYPE_FLYING,
         .accuracy = 100,
@@ -5460,7 +5460,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SUCKER_PUNCH] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_SUCKER_PUNCH,
         .power = 70,
         .type = TYPE_DARK,
         .accuracy = 100,
@@ -6272,7 +6272,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BUG_BITE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_PLUCK,
         .power = 60,
         .type = TYPE_BUG,
         .accuracy = 100,

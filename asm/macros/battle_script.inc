@@ -788,8 +788,9 @@
 	.byte 0x91
 	.endm
 
-	.macro setlightscreen
+	.macro trysuckerpunch param0:req
 	.byte 0x92
+	.4byte \param0
 	.endm
 
 	.macro tryKO param0:req

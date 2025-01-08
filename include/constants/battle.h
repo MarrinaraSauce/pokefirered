@@ -292,7 +292,7 @@
 #define MOVE_EFFECT_REMOVE_SLEEP        55
 #define MOVE_EFFECT_ATK_PLUS_3          56
 #define MOVE_EFFECT_FLAME_BURST         57
-#define MOVE_EFFECT_NOTHING_3A          58
+#define MOVE_EFFECT_EAT_BERRY           58
 #define MOVE_EFFECT_SP_ATK_TWO_DOWN     59
 #define NUM_MOVE_EFFECTS                60
 
