@@ -294,7 +294,8 @@
 #define MOVE_EFFECT_FLAME_BURST         57
 #define MOVE_EFFECT_EAT_BERRY           58
 #define MOVE_EFFECT_SP_ATK_TWO_DOWN     59
-#define NUM_MOVE_EFFECTS                60
+#define MOVE_EFFECT_DEF_SPDEF_DOWN      60
+#define NUM_MOVE_EFFECTS                61
 
 #define MOVE_EFFECT_AFFECTS_USER        (1 << 6) // 64
 #define MOVE_EFFECT_CERTAIN             (1 << 7) // 128

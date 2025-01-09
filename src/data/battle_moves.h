@@ -5194,7 +5194,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CLOSE_COMBAT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CLOSE_COMBAT,
         .power = 120,
         .type = TYPE_FIGHTING,
         .accuracy = 100,
@@ -7854,7 +7854,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DRAGON_ASCENT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CLOSE_COMBAT,
         .power = 120,
         .type = TYPE_FLYING,
         .accuracy = 100,
@@ -7924,7 +7924,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_TOXIC_THREAD] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_TOXIC_THREAD,
         .power = 0,
         .type = TYPE_POISON,
         .accuracy = 100,
@@ -8456,7 +8456,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_HEADLONG_RUSH] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CLOSE_COMBAT,
         .power = 120,
         .type = TYPE_GROUND,
         .accuracy = 100,
