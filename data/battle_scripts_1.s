@@ -3084,6 +3084,7 @@ BattleScript_RoostLanded::
 	goto BattleScript_HealFromRoost
 
 BattleScript_EffectVenoshock::
+	setmoveeffect MOVE_EFFECT_POISON
 	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_SmellingsaltDoubleDmg
 	goto BattleScript_EffectHit
 
@@ -3380,6 +3381,7 @@ BattleScript_EffectNaturalGift::
 	goto BattleScript_HitFromCritCalc
 
 BattleScript_EffectHex::
+	setmoveeffect MOVE_EFFECT_BURN
 	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_SmellingsaltDoubleDmg
 	goto BattleScript_EffectHit
 
