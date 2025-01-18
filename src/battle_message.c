@@ -107,6 +107,9 @@ static const u8 sText_PkmnIsParalyzed[] = _("{B_ATK_NAME_WITH_PREFIX} is paralyz
 static const u8 sText_PkmnIsAlreadyParalyzed[] = _("{B_DEF_NAME_WITH_PREFIX} is\nalready paralyzed!");
 static const u8 sText_PkmnHealedParalysis[] = _("{B_DEF_NAME_WITH_PREFIX} was\nhealed of paralysis!");
 static const u8 sText_PkmnWasWokenUp[] = _("{B_DEF_NAME_WITH_PREFIX} was\nwoken up!");
+static const u8 sText_PkmnCuredPoison[] = _("{B_ATK_NAME_WITH_PREFIX} was\ncured of poison!");
+static const u8 sText_PkmnCuredBurn[] = _("{B_ATK_NAME_WITH_PREFIX} was\ncured of its burn!");
+static const u8 sText_PkmnCuredParalysis[] = _("{B_ATK_NAME_WITH_PREFIX} was\nhealed of paralysis!");
 static const u8 sText_PkmnDreamEaten[] = _("{B_DEF_NAME_WITH_PREFIX}'s\ndream was eaten!");
 static const u8 sText_StatsWontIncrease[] = _("{B_ATK_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go higher!");
 static const u8 sText_StatsWontDecrease[] = _("{B_DEF_NAME_WITH_PREFIX}'s {B_BUFF1}\nwon't go lower!");
@@ -160,6 +163,7 @@ static const u8 sText_PkmnProtectedItself2[] = _("{B_ATK_NAME_WITH_PREFIX} prote
 static const u8 sText_PkmnBuffetedBySandstorm[] = _("{B_ATK_NAME_WITH_PREFIX} is buffeted\nby the sandstorm!");
 static const u8 sText_PkmnPeltedByHail[] = _("{B_ATK_NAME_WITH_PREFIX} is pelted\nby Hail!");
 static const u8 sText_PkmnsXWoreOff[] = _("{B_ATK_PREFIX1}'s {B_BUFF1}\nwore off!");
+static const u8 sText_XWoreOff[] = _("{B_BUFF1} wore off!");
 static const u8 sText_PkmnSeeded[] = _("{B_DEF_NAME_WITH_PREFIX} was seeded!");
 static const u8 sText_PkmnEvadedAttack[] = _("{B_DEF_NAME_WITH_PREFIX} evaded\nthe attack!");
 static const u8 sText_PkmnSappedByLeechSeed[] = _("{B_ATK_NAME_WITH_PREFIX}'s health is\nsapped by Leech Seed!");
@@ -229,6 +233,7 @@ static const u8 sText_BurstingFlameHit[] = _("The bursting flame hit\n{B_SCR_ACT
 static const u8 sText_TailwindBlew[] = _("The tailwind blew from behind\nits team!");
 static const u8 sText_TailwindPeteredOut[] = _("{B_ATK_PREFIX1}'s tailwind\npetered out!");
 static const u8 sText_AuroraVeilEnded[] = _("{B_ATK_PREFIX1}'s Aurora Veil\nwore off!");
+static const u8 sText_AuroraVeilAway[] = _("Aurora Veil wore off!");
 static const u8 sText_LuckyChantShielded[] = _("The Lucky Chant shielded its team\nfrom critical hits!");
 static const u8 sText_LuckyChantEnded[] = _("{B_ATK_PREFIX1}'s Lucky Chant\nwore off!");
 static const u8 sText_PkmnAbilitySuppressed[] = _("{B_DEF_NAME_WITH_PREFIX}'s ability\nwas suppressed!");
@@ -892,6 +897,8 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
     [STRINGID_STATSWONTDECREASE2 - BATTLESTRINGS_TABLE_START]            = sText_StatsWontDecrease2,
     [STRINGID_PKMNSXBLOCKSY2 - BATTLESTRINGS_TABLE_START]                = sText_PkmnsXBlocksY2,
     [STRINGID_PKMNSXWOREOFF - BATTLESTRINGS_TABLE_START]                 = sText_PkmnsXWoreOff,
+    [STRINGID_XWOREOFF - BATTLESTRINGS_TABLE_START]                      = sText_XWoreOff,
+    [STRINGID_AURORAVEILAWAY - BATTLESTRINGS_TABLE_START]                = sText_AuroraVeilAway,
     [STRINGID_PKMNRAISEDDEFALITTLE - BATTLESTRINGS_TABLE_START]          = sText_PkmnRaisedDefALittle,
     [STRINGID_PKMNRAISEDSPDEFALITTLE - BATTLESTRINGS_TABLE_START]        = sText_PkmnRaisedSpDefALittle,
     [STRINGID_PKMNRAISEDDEFSPDEFALITTLE - BATTLESTRINGS_TABLE_START]     = sText_PkmnRaisedDefSpDefALittle,
@@ -939,6 +946,9 @@ const u8 *const gBattleStringsTable[BATTLESTRINGS_COUNT - BATTLESTRINGS_TABLE_ST
 	[STRINGID_LUCKYCHANTSHIELDED - BATTLESTRINGS_TABLE_START]            = sText_LuckyChantShielded,
 	[STRINGID_LUCKYCHANTENDED - BATTLESTRINGS_TABLE_START]               = sText_LuckyChantEnded,
     [STRINGID_PKMNABILITYSUPPRESSED - BATTLESTRINGS_TABLE_START]	     = sText_PkmnAbilitySuppressed,
+    [STRINGID_PKMNCUREDPOISON - BATTLESTRINGS_TABLE_START]	             = sText_PkmnCuredPoison,
+    [STRINGID_PKMNCUREDBURN - BATTLESTRINGS_TABLE_START]	             = sText_PkmnCuredBurn,
+    [STRINGID_PKMNCUREDPARALYSIS - BATTLESTRINGS_TABLE_START]	         = sText_PkmnCuredParalysis,
 };
 
 const u16 gMissStringIds[] =

@@ -25720,63 +25720,63 @@
             "encounter_rate": 100,
             "mons": [
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               },
               {
-                "min_level": 3,
-                "max_level": 3,
+                "min_level": 8,
+                "max_level": 8,
                 "species": "SPECIES_BULBASAUR"
               }
             ]

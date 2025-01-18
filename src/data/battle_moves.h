@@ -5124,7 +5124,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PLUCK] =
     {
-        .effect = EFFECT_PLUCK,
+        .effect = EFFECT_THIEF,
         .power = 60,
         .type = TYPE_FLYING,
         .accuracy = 100,
@@ -5222,7 +5222,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ASSURANCE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_HIT,
         .power = 60,
         .type = TYPE_DARK,
         .accuracy = 100,
@@ -5264,7 +5264,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_PSYCHO_SHIFT] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_PSYCHO_SHIFT,
         .power = 0,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -5362,7 +5362,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_ME_FIRST] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_ME_FIRST,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 0,
@@ -6048,7 +6048,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_DEFOG] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_DEFOG,
         .power = 0,
         .type = TYPE_FLYING,
         .accuracy = 0,
@@ -6230,7 +6230,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_CAPTIVATE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_CAPTIVATE,
         .power = 0,
         .type = TYPE_NORMAL,
         .accuracy = 100,
@@ -6272,7 +6272,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_BUG_BITE] =
     {
-        .effect = EFFECT_PLUCK,
+        .effect = EFFECT_THIEF,
         .power = 60,
         .type = TYPE_BUG,
         .accuracy = 100,
@@ -6608,7 +6608,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SYNCHRONOISE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_HIT,
         .power = 120,
         .type = TYPE_PSYCHIC,
         .accuracy = 100,
@@ -6944,7 +6944,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_INCINERATE] =
     {
-        .effect = EFFECT_SPLASH,
+        .effect = EFFECT_KNOCK_OFF,
         .power = 60,
         .type = TYPE_FIRE,
         .accuracy = 100,
@@ -8624,7 +8624,7 @@ const struct BattleMove gBattleMoves[MOVES_COUNT] =
 
     [MOVE_SHELL_SIDE_ARM] =
     {
-        .effect = EFFECT_POISON_HIT,
+        .effect = EFFECT_SPLASH,
         .power = 90,
         .type = TYPE_POISON,
         .accuracy = 100,

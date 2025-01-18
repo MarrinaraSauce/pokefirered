@@ -271,6 +271,10 @@ gBattleScriptsForMoveEffects::
 	.4byte BattleScript_EffectSuckerPunch            @ EFFECT_SUCKER_PUNCH
 	.4byte BattleScript_EffectCloseCombat            @ EFFECT_CLOSE_COMBAT
 	.4byte BattleScript_EffectToxicThread            @ EFFECT_TOXIC_THREAD
+	.4byte BattleScript_EffectCaptivate              @ EFFECT_CAPTIVATE
+	.4byte BattleScript_EffectDefog                  @ EFFECT_DEFOG
+	.4byte BattleScript_EffectPsychoShift            @ EFFECT_PSYCHO_SHIFT
+	.4byte BattleScript_EffectMeFirst                @ EFFECT_ME_FIRST
 
 BattleScript_EffectHit::
 	jumpifnotmove MOVE_SURF, BattleScript_HitFromAtkCanceler
@@ -1059,6 +1063,7 @@ BattleScript_EffectParalyze::
 	ppreduce
 	jumpifability BS_TARGET, ABILITY_LIMBER, BattleScript_LimberProtected
 	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	jumpiftype BS_TARGET, TYPE_ELECTRIC, BattleScript_NotAffected
 	typecalc
 	jumpifmovehadnoeffect BattleScript_ButItFailed
 	jumpifstatus BS_TARGET, STATUS1_PARALYSIS, BattleScript_AlreadyParalyzed
@@ -3461,6 +3466,142 @@ BattleScript_ToxicThreadSpeed::
 	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
 	goto BattleScript_StatDownPrintString
 
+BattleScript_EffectCaptivate::
+	tryinfatuating BattleScript_ButItFailedAtkStringPpReduce
+	setstatchanger STAT_SPATK, 2, TRUE
+	goto BattleScript_EffectStatDown
+
+BattleScript_EffectDefog::
+	setstatchanger STAT_EVASION, 1, TRUE
+	attackcanceler
+	attackstring
+	ppreduce
+	attackanimation
+	waitanimation
+	statbuffchange STAT_CHANGE_ALLOW_PTR, BattleScript_DefogAway
+	jumpifbyte CMP_LESS_THAN, cMULTISTRING_CHOOSER, B_MSG_STAT_WONT_DECREASE, BattleScript_DefogDoAnim
+	jumpifbyte CMP_EQUAL, cMULTISTRING_CHOOSER, B_MSG_STAT_FELL_EMPTY, BattleScript_DefogAway
+	pause B_WAIT_TIME_SHORT
+	goto BattleScript_DefogPrintString
+BattleScript_DefogDoAnim::
+	setgraphicalstatchangevalues
+	playanimation BS_TARGET, B_ANIM_STATS_CHANGE, sB_ANIM_ARG1
+BattleScript_DefogPrintString::
+	printfromtable gStatDownStringIds
+	waitmessage B_WAIT_TIME_LONG
+BattleScript_DefogAway::
+	defogfree
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectPsychoShift::
+	attackcanceler
+	attackstring
+	ppreduce
+	jumpifstatus BS_ATTACKER, STATUS1_SLEEP, BattleScript_PsychoShiftSleep
+	jumpifstatus BS_ATTACKER, STATUS1_POISON, BattleScript_PsychoShiftPoison
+	jumpifstatus BS_ATTACKER, STATUS1_BURN, BattleScript_PsychoShiftBurn
+	jumpifstatus BS_ATTACKER, STATUS1_PARALYSIS, BattleScript_PsychoShiftParalysis
+	jumpifstatus BS_ATTACKER, STATUS1_TOXIC_POISON, BattleScript_PsychoShiftToxic
+	goto BattleScript_ButItFailed
+BattleScript_PsychoShiftSleep::
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifstatus BS_TARGET, STATUS1_SLEEP, BattleScript_AlreadyAsleep
+	jumpifcantmakeasleep BattleScript_CantMakeAsleep
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_SLEEP
+	seteffectprimary
+	clearstatusfromeffect BS_ATTACKER
+	printstring STRINGID_PKMNWOKEUP
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	goto BattleScript_MoveEnd
+BattleScript_PsychoShiftPoison::
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifability BS_TARGET, ABILITY_IMMUNITY, BattleScript_ImmunityProtected
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_AlreadyPoisoned
+	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_NotAffected
+	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_NotAffected
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_POISON
+	seteffectprimary
+	clearstatusfromeffect BS_ATTACKER
+	printstring STRINGID_PKMNCUREDPOISON
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	goto BattleScript_MoveEnd
+BattleScript_PsychoShiftBurn::
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_BURN, BattleScript_AlreadyBurned
+	jumpiftype BS_TARGET, TYPE_FIRE, BattleScript_NotAffected
+	jumpifability BS_TARGET, ABILITY_WATER_VEIL, BattleScript_WaterVeilPrevents
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_BURN
+	seteffectprimary
+	clearstatusfromeffect BS_ATTACKER
+	printstring STRINGID_PKMNCUREDBURN
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	goto BattleScript_MoveEnd
+BattleScript_PsychoShiftParalysis::
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifability BS_TARGET, ABILITY_LIMBER, BattleScript_LimberProtected
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	jumpiftype BS_TARGET, TYPE_ELECTRIC, BattleScript_NotAffected
+	jumpifstatus BS_TARGET, STATUS1_PARALYSIS, BattleScript_AlreadyParalyzed
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_PARALYSIS
+	seteffectprimary
+	clearstatusfromeffect BS_ATTACKER
+	printstring STRINGID_PKMNCUREDPARALYSIS
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	goto BattleScript_MoveEnd
+BattleScript_PsychoShiftToxic::
+	accuracycheck BattleScript_ButItFailed, ACC_CURR_MOVE
+	jumpifability BS_TARGET, ABILITY_IMMUNITY, BattleScript_ImmunityProtected
+	jumpifstatus2 BS_TARGET, STATUS2_SUBSTITUTE, BattleScript_ButItFailed
+	jumpifstatus BS_TARGET, STATUS1_PSN_ANY, BattleScript_AlreadyPoisoned
+	jumpiftype BS_TARGET, TYPE_POISON, BattleScript_NotAffected
+	jumpiftype BS_TARGET, TYPE_STEEL, BattleScript_NotAffected
+	jumpifstatus BS_TARGET, STATUS1_ANY, BattleScript_ButItFailed
+	jumpifsideaffecting BS_TARGET, SIDE_STATUS_SAFEGUARD, BattleScript_SafeguardProtected
+	attackanimation
+	waitanimation
+	setmoveeffect MOVE_EFFECT_TOXIC
+	seteffectprimary
+	clearstatusfromeffect BS_ATTACKER
+	printstring STRINGID_PKMNCUREDPOISON
+	waitmessage B_WAIT_TIME_LONG
+	updatestatusicon BS_ATTACKER
+	goto BattleScript_MoveEnd
+
+BattleScript_EffectMeFirst::
+	attackcanceler
+	attackstring
+	accuracycheck BattleScript_ButItFailed, NO_ACC_CALC_CHECK_LOCK_ON
+	pause B_WAIT_TIME_LONG
+	trymefirst
+	ppreduce
+	orbyte gMoveResultFlags, MOVE_RESULT_FAILED
+	printstring STRINGID_BUTITFAILED
+	waitmessage B_WAIT_TIME_LONG
+	goto BattleScript_MoveEnd
+
 BattleScript_FaintAttacker::
 	playfaintcry BS_ATTACKER
 	pause B_WAIT_TIME_LONG
@@ -4252,6 +4393,16 @@ BattleScript_ToxicSpikesFree::
 	
 BattleScript_StealthRockFree::
 	printstring STRINGID_PKMNBLEWAWAYSTEALTHROCK
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
+BattleScript_SideStatusFree::
+	printstring STRINGID_XWOREOFF
+	waitmessage B_WAIT_TIME_LONG
+	return
+	
+BattleScript_AuroraVeilFree::
+	printstring STRINGID_AURORAVEILAWAY
 	waitmessage B_WAIT_TIME_LONG
 	return
 

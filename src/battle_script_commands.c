@@ -213,7 +213,7 @@ static void Cmd_setsandstorm(void);
 static void Cmd_weatherdamage(void);
 static void Cmd_tryinfatuating(void);
 static void Cmd_updatestatusicon(void);
-static void Cmd_setmist(void);
+static void Cmd_trymefirst(void);
 static void Cmd_setfocusenergy(void);
 static void Cmd_transformdataexecution(void);
 static void Cmd_setsubstitute(void);
@@ -249,7 +249,7 @@ static void Cmd_jumpifconfusedandstatmaxed(void);
 static void Cmd_furycuttercalc(void);
 static void Cmd_friendshiptodamagecalculation(void);
 static void Cmd_presentdamagecalculation(void);
-static void Cmd_setsafeguard(void);
+static void Cmd_defogfree(void);
 static void Cmd_magnitudedamagecalculation(void);
 static void Cmd_jumpifnopursuitswitchdmg(void);
 static void Cmd_setsunny(void);
@@ -443,7 +443,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_tryhealhalfhealth,                       //0x7B
     Cmd_trymirrormove,                           //0x7C
     Cmd_setrain,                                 //0x7D
-    Cmd_setscreen,                              //0x7E
+    Cmd_setscreen,                               //0x7E
     Cmd_setseeded,                               //0x7F
     Cmd_manipulatedamage,                        //0x80
     Cmd_trysetrest,                              //0x81
@@ -470,7 +470,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_weatherdamage,                           //0x96
     Cmd_tryinfatuating,                          //0x97
     Cmd_updatestatusicon,                        //0x98
-    Cmd_setmist,                                 //0x99
+    Cmd_trymefirst,                              //0x99
     Cmd_setfocusenergy,                          //0x9A
     Cmd_transformdataexecution,                  //0x9B
     Cmd_setsubstitute,                           //0x9C
@@ -501,7 +501,7 @@ void (* const gBattleScriptingCommandsTable[])(void) =
     Cmd_furycuttercalc,                          //0xB5
     Cmd_friendshiptodamagecalculation,           //0xB6
     Cmd_presentdamagecalculation,                //0xB7
-    Cmd_setsafeguard,                            //0xB8
+    Cmd_defogfree,                               //0xB8
     Cmd_magnitudedamagecalculation,              //0xB9
     Cmd_jumpifnopursuitswitchdmg,                //0xBA
     Cmd_setsunny,                                //0xBB
@@ -1382,7 +1382,14 @@ static void Cmd_typecalc(void)
         gBattleCommunication[MISS_TYPE] = B_MSG_GROUND_MISS;
         RecordAbilityBattle(gBattlerTarget, gLastUsedAbility);
     }
-    else
+	else if (gCurrentMove == MOVE_SYNCHRONOISE
+	&& !IS_BATTLER_OF_TYPE(gBattlerTarget, gBattleMons[gBattlerAttacker].type1)
+	&& !IS_BATTLER_OF_TYPE(gBattlerTarget, gBattleMons[gBattlerAttacker].type2))
+	{
+		gMoveResultFlags |= MOVE_RESULT_DOESNT_AFFECT_FOE;
+		ModulateDmgByType(TYPE_MUL_NO_EFFECT);
+	}
+	else
     {
         while (TYPE_EFFECT_ATK_TYPE(i) != TYPE_ENDTABLE)
         {
@@ -2988,7 +2995,12 @@ static void Cmd_clearstatusfromeffect(void)
     gActiveBattler = GetBattlerForBattleScript(gBattlescriptCurrInstr[1]);
 
     if (gBattleCommunication[MOVE_EFFECT_BYTE] <= PRIMARY_STATUS_MOVE_EFFECT)
+	{
         gBattleMons[gActiveBattler].status1 &= (~sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]]);
+		gBattleMons[gActiveBattler].status2 &= ~STATUS2_NIGHTMARE;
+		BtlController_EmitSetMonData(BUFFER_A, REQUEST_STATUS_BATTLE, 0, sizeof(gBattleMons[gActiveBattler].status1), &gBattleMons[gActiveBattler].status1);
+		MarkBattlerForControllerExec(gActiveBattler);
+	}
     else
         gBattleMons[gActiveBattler].status2 &= (~sStatusFlagsForMoveEffects[gBattleCommunication[MOVE_EFFECT_BYTE]]);
 
@@ -7700,7 +7712,9 @@ static void Cmd_tryinfatuating(void)
         }
         else
         {
-            gBattleMons[gBattlerTarget].status2 |= STATUS2_INFATUATED_WITH(gBattlerAttacker);
+			if (gCurrentMove == MOVE_ATTRACT)
+				gBattleMons[gBattlerTarget].status2 |= STATUS2_INFATUATED_WITH(gBattlerAttacker);
+
             gBattlescriptCurrInstr += 5;
         }
     }
@@ -7752,21 +7766,34 @@ static void Cmd_updatestatusicon(void)
     }
 }
 
-static void Cmd_setmist(void)
+static void Cmd_trymefirst(void)
 {
-    if (gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].mistTimer)
-    {
-        gMoveResultFlags |= MOVE_RESULT_FAILED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_MIST_FAILED;
-    }
-    else
-    {
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].mistTimer = 5;
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].mistBattlerId = gBattlerAttacker;
-        gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_MIST;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_MIST;
-    }
-    gBattlescriptCurrInstr++;
+	u16 move = gChosenMoveByBattler[gBattlerTarget];
+	s32 i = -1;
+
+	while (TRUE)
+	{
+		i++;
+		if (sMovesForbiddenToCopy[i] == move)
+			break;
+		if (sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
+			break;
+	}
+
+	if (gBattleMoves[move].power
+	&& (GetBattlerTurnOrderNum(gBattlerAttacker) < GetBattlerTurnOrderNum(gBattlerTarget))
+	&& sMovesForbiddenToCopy[i] == METRONOME_FORBIDDEN_END)
+	{
+		gHitMarker &= ~HITMARKER_ATTACKSTRING_PRINTED;
+		gCurrentMove = move;
+		gBattlerTarget = GetMoveTarget(gCurrentMove, NO_TARGET_OVERRIDE);
+		gBattlescriptCurrInstr = gBattleScriptsForMoveEffects[gBattleMoves[gCurrentMove].effect];
+	}
+	else
+	{
+		gSpecialStatuses[gBattlerAttacker].ppNotAffectedByPressure = TRUE;
+		gBattlescriptCurrInstr++;
+	}
 }
 
 static void Cmd_setfocusenergy(void)
@@ -8719,22 +8746,103 @@ static void Cmd_presentdamagecalculation(void)
     }
 }
 
-static void Cmd_setsafeguard(void)
+static void Cmd_defogfree(void)
 {
-    if (gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] & SIDE_STATUS_SAFEGUARD)
-    {
-        gMoveResultFlags |= MOVE_RESULT_MISSED;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SIDE_STATUS_FAILED;
-    }
-    else
-    {
-        gSideStatuses[GET_BATTLER_SIDE(gBattlerAttacker)] |= SIDE_STATUS_SAFEGUARD;
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].safeguardTimer = 5;
-        gSideTimers[GET_BATTLER_SIDE(gBattlerAttacker)].safeguardBattlerId = gBattlerAttacker;
-        gBattleCommunication[MULTISTRING_CHOOSER] = B_MSG_SET_SAFEGUARD;
-    }
-
-    gBattlescriptCurrInstr++;
+	if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_SPIKES
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SPIKES)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_SPIKES;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].spikesAmount = 0;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_SPIKES;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].spikesAmount = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_SpikesFree;
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_STICKY_WEB
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_STICKY_WEB)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_STICKY_WEB;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_STICKY_WEB;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_StickyWebFree;
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_TOXIC_SPIKES
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_TOXIC_SPIKES)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_TOXIC_SPIKES;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].toxicSpikesAmount = 0;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_TOXIC_SPIKES;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].toxicSpikesAmount = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_ToxicSpikesFree;
+		gActiveBattler = gBattlerAttacker;
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_STEALTH_ROCK
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_STEALTH_ROCK)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_STEALTH_ROCK;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_STEALTH_ROCK;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_StealthRockFree;
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_REFLECT
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_REFLECT)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_REFLECT;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_REFLECT;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].reflectTimer = 0;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].reflectTimer = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_SideStatusFree;
+		PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_REFLECT);
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_LIGHTSCREEN
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_LIGHTSCREEN)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_LIGHTSCREEN;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_LIGHTSCREEN;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].lightscreenTimer = 0;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].lightscreenTimer = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_SideStatusFree;
+		PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_LIGHT_SCREEN);
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_SAFEGUARD
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_SAFEGUARD)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_SAFEGUARD;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_SAFEGUARD;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].safeguardTimer = 0;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].safeguardTimer = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_SideStatusFree;
+		PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_SAFEGUARD);
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_MIST
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_MIST)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_MIST;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_MIST;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].mistTimer = 0;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].mistTimer = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_SideStatusFree;
+		PREPARE_MOVE_BUFFER(gBattleTextBuff1, MOVE_MIST);
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_AURORA_VEIL
+	|| gSideStatuses[GetBattlerSide(gBattlerTarget)] & SIDE_STATUS_AURORA_VEIL)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_AURORA_VEIL;
+		gSideStatuses[GetBattlerSide(gBattlerTarget)] &= ~SIDE_STATUS_AURORA_VEIL;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].auroraveilTimer = 0;
+		gSideTimers[GetBattlerSide(gBattlerTarget)].auroraveilTimer = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_AuroraVeilFree;
+	}
+	else
+	{
+		gBattlescriptCurrInstr++;
+	}
 }
 
 static void Cmd_magnitudedamagecalculation(void)
@@ -8919,6 +9027,25 @@ static void Cmd_rapidspinfree(void)
         BattleScriptPushCursor();
         gBattlescriptCurrInstr = BattleScript_SpikesFree;
     }
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_STICKY_WEB)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_STICKY_WEB;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_StickyWebFree;
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_TOXIC_SPIKES)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_TOXIC_SPIKES;
+		gSideTimers[GetBattlerSide(gBattlerAttacker)].toxicSpikesAmount = 0;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_ToxicSpikesFree;
+	}
+	else if (gSideStatuses[GetBattlerSide(gBattlerAttacker)] & SIDE_STATUS_STEALTH_ROCK)
+	{
+		gSideStatuses[GetBattlerSide(gBattlerAttacker)] &= ~SIDE_STATUS_STEALTH_ROCK;
+		BattleScriptPushCursor();
+		gBattlescriptCurrInstr = BattleScript_StealthRockFree;
+	}
     else
     {
         gBattlescriptCurrInstr++;
@@ -10015,14 +10142,16 @@ static void Cmd_snatchsetbattlers(void)
 // Brick Break
 static void Cmd_removelightscreenreflect(void)
 {
-    u8 opposingSide = GetBattlerSide(gBattlerAttacker) ^ BIT_SIDE;
+    u8 opposingSide = GetBattlerSide(gBattlerTarget);
 
-    if (gSideTimers[opposingSide].reflectTimer || gSideTimers[opposingSide].lightscreenTimer)
+    if (gSideTimers[opposingSide].reflectTimer || gSideTimers[opposingSide].lightscreenTimer || gSideTimers[opposingSide].auroraveilTimer)
     {
         gSideStatuses[opposingSide] &= ~SIDE_STATUS_REFLECT;
         gSideStatuses[opposingSide] &= ~SIDE_STATUS_LIGHTSCREEN;
+		gSideStatuses[opposingSide] &= ~SIDE_STATUS_AURORA_VEIL;
         gSideTimers[opposingSide].reflectTimer = 0;
         gSideTimers[opposingSide].lightscreenTimer = 0;
+		gSideTimers[opposingSide].auroraveilTimer = 0;
         gBattleScripting.animTurn = 1;
         gBattleScripting.animTargetsHit = 1;
     }

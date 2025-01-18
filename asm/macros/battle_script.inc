@@ -820,7 +820,7 @@
 	.byte \battler
 	.endm
 
-	.macro setmist
+	.macro trymefirst
 	.byte 0x99
 	.endm
 
@@ -959,7 +959,7 @@
 	.byte 0xb7
 	.endm
 
-	.macro setsafeguard
+	.macro defogfree
 	.byte 0xb8
 	.endm
 
