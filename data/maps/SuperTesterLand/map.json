@@ -3,7 +3,7 @@
   "name": "SuperTesterLand",
   "layout": "LAYOUT_SUPER_TESTER_LAND",
   "music": "MUS_DUMMY",
-  "region_map_section": "MAPSEC_ANCIENT_TOMB",
+  "region_map_section": "MAPSEC_DYNAMIC",
   "requires_flash": false,
   "weather": "WEATHER_NONE",
   "map_type": "MAP_TYPE_NONE",

@@ -555,10 +555,10 @@
     {
       "map_section": "MAPSEC_LAKE_OF_RAGE",
       "name": "Lake of Rage",
-      "x": 14,
-      "y": 0,
-      "width": 3,
-      "height": 2
+      "x": 15,
+      "y": 1,
+      "width": 1,
+      "height": 1
     },
     {
       "map_section": "MAPSEC_MT_SILVER",
@@ -859,8 +859,8 @@
     {
       "map_section": "MAPSEC_THREE_ISLAND",
       "name": "Three Island",
-      "x": 18,
-      "y": 12,
+      "x": 19,
+      "y": 10,
       "width": 1,
       "height": 1
     },
@@ -891,16 +891,16 @@
     {
       "map_section": "MAPSEC_BOND_BRIDGE",
       "name": "Bond Bridge",
-      "x": 13,
-      "y": 12,
+      "x": 15,
+      "y": 10,
       "width": 4,
       "height": 1
     },
     {
       "map_section": "MAPSEC_THREE_ISLE_PORT",
       "name": "Three Isle Port",
-      "x": 18,
-      "y": 13,
+      "x": 19,
+      "y": 11,
       "width": 2,
       "height": 1
     },
@@ -959,6 +959,342 @@
       "y": 0,
       "width": 0,
       "height": 0
+    },
+    {
+      "map_section": "MAPSEC_ROUTE_47",
+      "name": "Route 47",
+      "x": 1,
+      "y": 12,
+      "width": 2,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ROUTE_48",
+      "name": "Route 48",
+      "x": 1,
+      "y": 9,
+      "width": 1,
+      "height": 3
+    },
+    {
+      "map_section": "MAPSEC_ROUTE_32_POKECENTER",
+      "name": "Route 32",
+      "x": 13,
+      "y": 13,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_BATTLE_CHATEAU",
+      "name": "Battle Chateau",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_GOLDENROD_TUNNEL",
+      "name": "Goldenrod Tunnel",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_LIGHTHOUSE",
+      "name": "Lighthouse",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_CLIFF_CAVE",
+      "name": "Cliff Cave",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_EMBEDDED_TOWER",
+      "name": "Embedded Tower",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ROCKET_STASH",
+      "name": "Rocket Stash",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_FOUR_ISLAND",
+      "name": "Four Island",
+      "x": 3,
+      "y": 4,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_FIVE_ISLAND",
+      "name": "Five Island",
+      "x": 17,
+      "y": 9,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_RESORT_GORGEOUS",
+      "name": "Resort Gorgeous",
+      "x": 17,
+      "y": 7,
+      "width": 3,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_WATER_LABYRINTH",
+      "name": "Water Labyrinth",
+      "x": 15,
+      "y": 8,
+      "width": 3,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_FIVE_ISLE_MEADOW",
+      "name": "Five Isle Meadow",
+      "x": 18,
+      "y": 9,
+      "width": 1,
+      "height": 2
+    },
+    {
+      "map_section": "MAPSEC_MEMORIAL_PILLAR",
+      "name": "Memorial Pillar",
+      "x": 19,
+      "y": 10,
+      "width": 1,
+      "height": 3
+    },
+    {
+      "map_section": "MAPSEC_ICEFALL_CAVE",
+      "name": "Icefall Cave",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_ROCKET_WAREHOUSE",
+      "name": "Rocket Warehouse",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_LOST_CAVE",
+      "name": "Lost Cave",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SOUTHERN_ISLAND",
+      "name": "Southern Island",
+      "x": 10,
+      "y": 8,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SIX_ISLAND",
+      "name": "Six Island",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_OUTCAST_ISLAND",
+      "name": "Outcast Island",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_GREEN_PATH",
+      "name": "Green Path",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_WATER_PATH",
+      "name": "Water Path",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_RUIN_VALLEY",
+      "name": "Ruin Valley",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DOTTED_HOLE",
+      "name": "Dotted Hole",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_PATTERN_BUSH",
+      "name": "Pattern Bush",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_JOYFUL_MINE",
+      "name": "Joyful Mine",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SEVEN_ISLAND",
+      "name": "Seven Island",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_TRAINER_PATH",
+      "name": "Trainer Path",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_CANYON_ENTRANCE",
+      "name": "Canyon Entrance",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SEVAULT_CANYON",
+      "name": "Sevault Canyon",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_TANOBY_RUINS",
+      "name": "Tanoby Ruins",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_BATTLE_FRONTIER",
+      "name": "Battle Frontier",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_TANOBY_CHAMBERS",
+      "name": "Tanoby Chambers",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_TANOBY_KEY",
+      "name": "Tanoby Key",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_MONEAN_CHAMBER",
+      "name": "Monean Chamber",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_LIPTOO_CHAMBER",
+      "name": "Liptoo Chamber",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_WEEPTH_CHAMBER",
+      "name": "Weepth Chamber",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_DILFORD_CHAMBER",
+      "name": "Dilford Chamber",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_SCUFIB_CHAMBER",
+      "name": "Scufib Chamber",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_RIXY_CHAMBER",
+      "name": "Rixy Chamber",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
+    },
+    {
+      "map_section": "MAPSEC_VIAPOIS_CHAMBER",
+      "name": "Viapois Chamber",
+      "x": 0,
+      "y": 0,
+      "width": 1,
+      "height": 1
     }
   ]
 }
