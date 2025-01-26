@@ -416,7 +416,7 @@ static const u32 sSevii67_Tilemap[] = INCBIN_U32("graphics/region_map/sevii_67.b
 static const u32 sMapEdge_Tilemap[] = INCBIN_U32("graphics/region_map/map_edge.bin.lz");
 static const u32 sSwitchMap_KantoSeviiAll_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_all.bin.lz");
 static const u32 sSwitchMap_KantoSevii123_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_123.bin.lz");
-static const u32 sSwitchMap_KantoSeviiAll2_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_sevii_all2.bin.lz");
+static const u32 sSwitchMap_KantoJohto_Tilemap[] = INCBIN_U32("graphics/region_map/switch_map_kanto_johto.bin.lz");
 static const u32 sMapEdge_TopLeft[] = INCBIN_U32("graphics/region_map/map_edge_top_left.4bpp.lz");
 static const u32 sMapEdge_TopRight[] = INCBIN_U32("graphics/region_map/map_edge_top_right.4bpp.lz");
 static const u32 sMapEdge_MidLeft[] = INCBIN_U32("graphics/region_map/map_edge_mid_left.4bpp.lz");
@@ -498,7 +498,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
     [WIN_TOPBAR_LEFT] =
     {
         .bg = 3,
-        .tilemapLeft = 18,
+        .tilemapLeft = 4,
         .tilemapTop = 0,
         .width = 5,
         .height = 2,
@@ -508,7 +508,7 @@ static const struct WindowTemplate sRegionMapWindowTemplates[] = {
     [WIN_TOPBAR_RIGHT] =
     {
         .bg = 3,
-        .tilemapLeft = 24,
+        .tilemapLeft = 22,
         .tilemapTop = 0,
         .width = 5,
         .height = 2,
@@ -1033,7 +1033,6 @@ static void InitRegionMapType(void)
     {
         sRegionMap->permissions[i] = sRegionMapPermissions[sRegionMap->type][i];
     }
-    sRegionMap->permissions[MAPPERM_HAS_SWITCH_BUTTON] = TRUE;
     region = REGIONMAP_KANTO;
     j = REGIONMAP_KANTO;
 
@@ -1525,7 +1524,7 @@ static void BufferRegionMapBg(u8 bg, u16 *map)
     if (whichMap == REGIONMAP_SEVII45 && !FlagGet(FLAG_WORLD_MAP_NAVEL_ROCK_EXTERIOR))
         FillBgTilemapBufferRect_Palette0(0, 0x003, 13, 11, 3, 2);
     if (whichMap == REGIONMAP_SEVII67 && !FlagGet(FLAG_WORLD_MAP_BIRTH_ISLAND_EXTERIOR))
-        FillBgTilemapBufferRect_Palette0(0, 0x003, 21, 16, 3, 3);
+        FillBgTilemapBufferRect_Palette0(0, 0x003, 19, 16, 3, 3);
 }
 
 static bool8 GetRegionMapPermission(u8 attr)
@@ -1569,16 +1568,16 @@ static void InitSwitchMapMenu(u8 whichMap, u8 taskId, TaskFunc taskFunc)
     switch (sSwitchMapMenu->maxSelection)
     {
     case 1:
-        LZ77UnCompWram(sSwitchMap_KantoSevii123_Tilemap, sSwitchMapMenu->switchMapTilemap);
+        LZ77UnCompWram(sSwitchMap_KantoJohto_Tilemap, sSwitchMapMenu->switchMapTilemap);
         sSwitchMapMenu->yOffset = 6;
         break;
-    case 2: // never reached
-        LZ77UnCompWram(sSwitchMap_KantoSeviiAll2_Tilemap, sSwitchMapMenu->switchMapTilemap);
+    case 2:
+        LZ77UnCompWram(sSwitchMap_KantoSevii123_Tilemap, sSwitchMapMenu->switchMapTilemap);
         sSwitchMapMenu->yOffset = 4;
         break;
-    case 3:
+    case 4:
     default:
-        sSwitchMapMenu->yOffset = 3;
+        sSwitchMapMenu->yOffset = 0;
         LZ77UnCompWram(sSwitchMap_KantoSeviiAll_Tilemap, sSwitchMapMenu->switchMapTilemap);
         break;
     }
@@ -3066,6 +3065,22 @@ static u8 GetDungeonMapsecType(u8 mapsec)
         return FlagGet(FLAG_WORLD_MAP_MT_EMBER_EXTERIOR) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BERRY_FOREST:
         return FlagGet(FLAG_WORLD_MAP_THREE_ISLAND_BERRY_FOREST) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_ICEFALL_CAVE:
+		return FlagGet(FLAG_WORLD_MAP_FOUR_ISLAND_ICEFALL_CAVE_ENTRANCE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_ROCKET_WAREHOUSE:
+		return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_ROCKET_WAREHOUSE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_DOTTED_HOLE:
+		return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_DOTTED_HOLE_1F) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_LOST_CAVE:
+		return FlagGet(FLAG_WORLD_MAP_FIVE_ISLAND_LOST_CAVE_ENTRANCE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_PATTERN_BUSH:
+		return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_PATTERN_BUSH) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_JOYFUL_MINE:
+		return FlagGet(FLAG_WORLD_MAP_SIX_ISLAND_ALTERING_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_TANOBY_CHAMBERS:
+		return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_TANOBY_RUINS_MONEAN_CHAMBER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_TANOBY_KEY:
+		return FlagGet(FLAG_WORLD_MAP_SEVEN_ISLAND_SEVAULT_CANYON_TANOBY_KEY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_BATTLE_FRONTIER:
         return FlagGet(FLAG_WORLD_MAP_TRAINER_TOWER_LOBBY) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     case MAPSEC_THREE_ISLE_PATH:
@@ -3100,6 +3115,10 @@ static u8 GetDungeonMapsecType(u8 mapsec)
 		return FlagGet(FLAG_WORLD_MAP_TOHJO_FALLS) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
 	case MAPSEC_MT_SILVER_CAVE:
 		return FlagGet(FLAG_WORLD_MAP_MT_SILVER_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_CLIFF_CAVE:
+		return FlagGet(FLAG_WORLD_MAP_CLIFF_CAVE) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
+	case MAPSEC_EMBEDDED_TOWER:
+		return FlagGet(FLAG_WORLD_MAP_EMBEDDED_TOWER) ? MAPSECTYPE_VISITED : MAPSECTYPE_NOT_VISITED;
     default:
         return MAPSECTYPE_ROUTE;
     }
@@ -3416,12 +3435,14 @@ static u8 GetSelectedMapSection(u8 whichMap, u8 layer, s16 y, s16 x)
     {
     case REGIONMAP_KANTO:
         return sRegionMapSections_Kanto[layer][y][x];
+	case REGIONMAP_JOHTO:
+		return sRegionMapSections_Johto[layer][y][x];
     case REGIONMAP_SEVII123:
         return sRegionMapSections_Sevii123[layer][y][x];
     case REGIONMAP_SEVII45:
         return sRegionMapSections_Sevii45[layer][y][x];
-    case REGIONMAP_JOHTO:
-        return sRegionMapSections_Sevii67[layer][y][x];
+    //case REGIONMAP_SEVII67:
+    //    return sRegionMapSections_Sevii67[layer][y][x]; Game crashes when loading the map if it has to check all of these
     default:
         return MAPSEC_NONE;
     }
@@ -3650,8 +3671,6 @@ static void CreateDungeonIcons(void)
             {
                 mapsec = GetSelectedMapSection(i, LAYER_DUNGEON, y, x);
                 if (mapsec == MAPSEC_NONE)
-                    continue;
-                if (mapsec == MAPSEC_CERULEAN_CAVE && !FlagGet(FLAG_SYS_CAN_LINK_WITH_RS))
                     continue;
                 CreateDungeonIconSprite(i, numIcons, x, y, numIcons + 35, 10);
                 if (GetDungeonMapsecType(mapsec) != 2)
